@@ -231,3 +231,86 @@
     .mascot-area { min-height: 330px; }
     .main-mascot { max-height: 310px; }
 }
+
+
+/* PILIHAN JENIS AKUN */
+
+.role-selection {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+    width: min(650px, 100%);
+    margin-top: 28px;
+}
+
+.role-card {
+    position: relative;
+    min-height: 145px;
+    padding: 17px 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 8px;
+    overflow: hidden;
+    text-decoration: none;
+    border: 1px solid rgba(193, 154, 255, .25);
+    border-radius: 16px;
+    background: rgba(47, 25, 78, .65);
+    backdrop-filter: blur(15px);
+    transition: .35s ease;
+}
+
+.role-card:hover {
+    transform: translateY(-7px);
+    border-color: #c19aff;
+    background: rgba(129, 81, 219, .22);
+    box-shadow: 0 12px 35px rgba(129, 81, 219, .25);
+}
+
+.role-icon {
+    font-size: 27px;
+    filter: drop-shadow(0 0 10px rgba(193,154,255,.5));
+}
+
+.role-card strong {
+    color: white;
+    font-size: 12px;
+}
+
+.role-card small {
+    color: #b9a9d2;
+    font-size: 9px;
+    line-height: 1.5;
+}
+
+.role-arrow {
+    position: absolute;
+    right: 13px;
+    bottom: 12px;
+    color: #c19aff;
+    transition: transform .3s;
+}
+
+.role-card:hover .role-arrow {
+    transform: translateX(5px);
+}
+
+@media (max-width: 600px) {
+    .role-selection {
+        grid-template-columns: 1fr;
+    }
+
+    .role-card {
+        min-height: 95px;
+        padding: 15px 17px 15px 58px;
+        justify-content: center;
+    }
+
+    .role-icon {
+        position: absolute;
+        left: 17px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+}

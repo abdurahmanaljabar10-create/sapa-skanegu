@@ -4,135 +4,259 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#100824">
-
     <title>Login | SAPA-SKANEGU</title>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="assets/css/global.css">
     <link rel="stylesheet" href="assets/css/login.css">
 </head>
-
 <body>
+
+    <!-- GALAXY BACKGROUND -->
     <div class="galaxy">
-        <div class="nebula nebula-a"></div>
-        <div class="nebula nebula-b"></div>
-        <div class="nebula nebula-c"></div>
-        <div class="star-layer" id="starLayer"></div>
+        <div class="nebula nebula-one"></div>
+        <div class="nebula nebula-two"></div>
+        <div class="nebula nebula-three"></div>
+        <div id="starLayer"></div>
         <div class="shooting-star"></div>
-        <div class="planet planet-a"></div>
-        <div class="planet planet-b"></div>
+        <div class="planet planet-one"></div>
+        <div class="planet planet-two"></div>
     </div>
 
+    <!-- NAVBAR -->
     <header class="navbar">
-        <a class="brand" href="index.html">
-            <img src="assets/images/logo.svg" alt="Logo sekolah">
-            <span>
+        <a href="index.html" class="brand">
+            <img src="assets/images/logo.svg" alt="Logo SAPA-SKANEGU">
+            <div>
                 <strong>SAPA-SKANEGU</strong>
-                <small>SMKN 1 DLANGGU</small>
-            </span>
+                <span>SMKN 1 DLANGGU</span>
+            </div>
         </a>
 
-        <a href="index.html" class="back-home">← Halaman utama</a>
+        <a href="index.html" class="back-home">
+            ← Kembali
+        </a>
     </header>
 
-    <main class="login-main">
-        <section class="login-intro">
-            <img
-                src="assets/images/maskot-sapa.png"
-                alt="Maskot asli SAPA-SKANEGU"
-                class="login-mascot"
-            >
+    <!-- LOGIN CONTENT -->
+    <main class="login-page">
 
-            <p class="eyebrow">WELCOME BACK, SAHABAT!</p>
+        <section class="login-intro">
+            <div class="login-badge">
+                <span class="pulse-dot"></span>
+                SAFE SCHOOL • SAFE SPACE
+            </div>
 
             <h1>
-                Senang bertemu<br>
-                <span>kembali denganmu.</span>
+                Setiap Suara
+                <span>Berarti.</span>
             </h1>
 
             <p>
-                Masuk ke SAPA-SKANEGU dan jadilah bagian
-                dari lingkungan sekolah yang lebih aman,
-                nyaman, dan saling menghargai.
+                Masuk ke SAPA-SKANEGU untuk menyampaikan aspirasi,
+                mendapatkan bantuan, dan ikut menciptakan lingkungan
+                sekolah yang aman dan nyaman.
             </p>
+
+            <div class="login-orbit">
+                <div class="login-orbit-ring ring-one"></div>
+                <div class="login-orbit-ring ring-two"></div>
+                <div class="login-orbit-core">SAPA</div>
+                <span class="orbit-star star-one">✦</span>
+                <span class="orbit-star star-two">✧</span>
+                <span class="orbit-star star-three">✦</span>
+            </div>
         </section>
 
+        <!-- LOGIN CARD -->
         <section class="login-card">
-            <div class="login-card-heading">
-                <img src="assets/images/logo.svg" alt="Logo sekolah">
-                <p class="card-eyebrow">SAPA-SKANEGU ACCOUNT</p>
-                <h2>Masuk Akun</h2>
-                <p>Gunakan identitas akun yang telah terdaftar.</p>
-            </div>
 
-            <form id="loginForm">
-                <div class="form-group">
-                    <label for="identity">Identitas Pengguna</label>
-                    <input
-                        type="text"
-                        id="identity"
-                        name="identity"
-                        placeholder="NISN / ID Guru / Email"
-                        autocomplete="username"
-                        required
-                    >
+            <div class="login-card-header">
+                <div class="login-card-logo">
+                    <img src="assets/images/logo.svg" alt="Logo SAPA-SKANEGU">
                 </div>
 
+                <span class="login-eyebrow">WELCOME BACK</span>
+                <h2 id="loginTitle">Masuk sebagai Siswa</h2>
+                <p id="loginDescription">
+                    Silakan masukkan data akun siswa.
+                </p>
+            </div>
+
+            <form id="loginForm" novalidate>
+
+                <!-- STUDENT FIELDS -->
+                <div id="studentFields" class="role-fields">
+
+                    <div class="form-group">
+                        <label for="studentName">Nama Lengkap</label>
+                        <input
+                            type="text"
+                            id="studentName"
+                            placeholder="Masukkan nama lengkap"
+                            autocomplete="name"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="studentNisn">NISN</label>
+                        <input
+                            type="text"
+                            id="studentNisn"
+                            placeholder="Masukkan 10 digit NISN"
+                            inputmode="numeric"
+                            maxlength="10"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="studentClass">Kelas</label>
+                        <select id="studentClass">
+                            <option value="">Pilih kelas</option>
+                            <option value="X">Kelas X</option>
+                            <option value="XI">Kelas XI</option>
+                            <option value="XII">Kelas XII</option>
+                        </select>
+                    </div>
+
+                </div>
+
+                <!-- TEACHER FIELDS -->
+                <div id="teacherFields" class="role-fields" hidden>
+
+                    <div class="form-group">
+                        <label for="teacherName">Nama Lengkap</label>
+                        <input
+                            type="text"
+                            id="teacherName"
+                            placeholder="Masukkan nama lengkap"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="teacherNip">NIP</label>
+                        <input
+                            type="text"
+                            id="teacherNip"
+                            placeholder="Masukkan NIP"
+                            inputmode="numeric"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="teacherRole">Peran di Sekolah</label>
+                        <select id="teacherRole">
+                            <option value="">Pilih peran</option>
+                            <option value="guru-mapel">Guru Mata Pelajaran</option>
+                            <option value="wali-kelas">Wali Kelas</option>
+                            <option value="guru-bk">Guru BK</option>
+                            <option value="kesiswaan">Kesiswaan</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group" id="homeroomGroup" hidden>
+                        <label for="homeroomClass">Kelas yang Diampu</label>
+                        <input
+                            type="text"
+                            id="homeroomClass"
+                            placeholder="Contoh: X RPL 1"
+                        >
+                    </div>
+
+                </div>
+
+                <!-- PRINCIPAL FIELDS -->
+                <div id="principalFields" class="role-fields" hidden>
+
+                    <div class="form-group">
+                        <label for="principalName">Nama Lengkap</label>
+                        <input
+                            type="text"
+                            id="principalName"
+                            placeholder="Masukkan nama kepala sekolah"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="principalNip">NIP</label>
+                        <input
+                            type="text"
+                            id="principalNip"
+                            placeholder="Masukkan NIP"
+                            inputmode="numeric"
+                        >
+                    </div>
+
+                </div>
+
+                <!-- PASSWORD -->
                 <div class="form-group">
-                    <label for="password">Password</label>
-                    <div class="password-field">
+                    <label for="loginPassword">Password</label>
+
+                    <div class="password-box">
                         <input
                             type="password"
-                            id="password"
-                            name="password"
+                            id="loginPassword"
                             placeholder="Masukkan password"
                             autocomplete="current-password"
-                            required
                         >
-                        <button type="button" id="togglePassword"
-                            aria-label="Tampilkan password">Lihat</button>
+
+                        <button
+                            type="button"
+                            id="togglePassword"
+                            class="eye-button"
+                            aria-label="Tampilkan password"
+                            aria-pressed="false"
+                        >
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/>
+                                <circle cx="12" cy="12" r="3"/>
+                            </svg>
+                        </button>
                     </div>
                 </div>
 
-                <div class="form-options">
-                    <label>
+                <div class="login-options">
+                    <label class="remember-option">
                         <input type="checkbox" id="rememberMe">
-                        Ingat saya
+                        <span>Ingat saya</span>
                     </label>
+
                     <a href="#" id="forgotPassword">Lupa password?</a>
                 </div>
 
                 <button type="submit" class="login-button">
-                    Masuk Sekarang <span>→</span>
+                    <span>Masuk Sekarang</span>
+                    <span>→</span>
                 </button>
 
-                <p id="loginMessage" class="login-message"
-                   role="status" aria-live="polite"></p>
+                <p id="loginMessage" class="login-message" role="status"></p>
+
             </form>
 
-            <div class="login-divider">AKUN SAPA-SKANEGU</div>
-
-            <p class="register-info">
+            <div class="register-option" id="studentRegisterOption">
                 Belum memiliki akun?
-                <a href="register.html">Daftar sekarang</a>
-            </p>
+                <a href="register.html">Daftar Sekarang</a>
+            </div>
 
-            <p class="privacy-note">
-                🔒 Identitas dan informasi akun dilindungi.
-            </p>
+            <div class="staff-note" id="staffNote" hidden>
+                Akun guru dan kepala sekolah dikelola melalui
+                pendataan resmi oleh administrator sekolah.
+            </div>
+
+            <div class="login-privacy">
+                ✦ Informasi akun dan data pribadi dilindungi
+                sesuai hak akses pengguna.
+            </div>
+
         </section>
     </main>
 
-    <footer class="footer">
-        <span>© 2026 SAPA-SKANEGU</span>
-        <span>SMKN 1 Dlanggu</span>
+    <footer class="login-footer">
+        © 2026 SAPA-SKANEGU · SMKN 1 DLANGGU
     </footer>
 
-    <script src="assets/js/global.js" defer></script>
-    <script src="assets/js/login.js" defer></script>
+    <script src="assets/js/global.js"></script>
+    <script src="assets/js/login.js"></script>
+
 </body>
 </html>

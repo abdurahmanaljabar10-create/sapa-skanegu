@@ -1,0 +1,346 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Siswa | SAPA-SKANEGU</title>
+
+    <link rel="stylesheet" href="../../assets/css/global.css">
+    <link rel="stylesheet" href="../../assets/css/dashboard.css">
+</head>
+<body>
+
+    <!-- Galaxy Background -->
+    <div class="galaxy">
+        <div class="nebula nebula-one"></div>
+        <div class="nebula nebula-two"></div>
+        <div class="nebula nebula-three"></div>
+        <div id="starLayer"></div>
+        <div class="shooting-star"></div>
+        <div class="planet planet-one"></div>
+        <div class="planet planet-two"></div>
+    </div>
+
+    <div class="dashboard-layout">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar" id="sidebar">
+
+            <a href="../../index.html" class="sidebar-brand">
+                <img src="../../assets/images/logo.svg" alt="Logo SAPA-SKANEGU">
+                <div>
+                    <strong>SAPA-SKANEGU</strong>
+                    <small>SMKN 1 DLANGGU</small>
+                </div>
+            </a>
+
+            <div class="sidebar-profile">
+                <div class="avatar">S</div>
+                <div>
+                    <strong>Siswa SAPA</strong>
+                    <small>Portal Siswa</small>
+                </div>
+            </div>
+
+            <span class="menu-label">MENU UTAMA</span>
+
+            <nav class="sidebar-menu">
+                <a href="dashboard.html" class="menu-link active">
+                    <span>⌂</span> Dashboard
+                </a>
+
+                <a href="#aspirasi" class="menu-link">
+                    <span>✧</span> Aspirasi
+                </a>
+
+                <a href="#pengaduan" class="menu-link">
+                    <span>⚑</span> Pengaduan
+                </a>
+
+                <a href="#ruang-cerita" class="menu-link">
+                    <span>♡</span> Ruang Cerita
+                </a>
+
+                <a href="#lacak" class="menu-link">
+                    <span>⌕</span> Lacak Laporan
+                </a>
+
+                <a href="#aktivitas" class="menu-link">
+                    <span>◷</span> Riwayat Aktivitas
+                </a>
+            </nav>
+
+            <span class="menu-label">LAINNYA</span>
+
+            <nav class="sidebar-menu">
+                <a href="#bantuan" class="menu-link">
+                    <span>ⓘ</span> Pusat Bantuan
+                </a>
+
+                <a href="#profil" class="menu-link">
+                    <span>♙</span> Profil Saya
+                </a>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <div class="sidebar-help">
+                    <span>✦</span>
+                    <strong>Suaramu berarti!</strong>
+                    <small>Berani bicara, bersama menciptakan sekolah yang lebih baik.</small>
+                </div>
+
+                <a href="../../login.html" class="logout-link" id="logoutButton">
+                    <span>↪</span> Keluar
+                </a>
+            </div>
+
+        </aside>
+
+        <!-- MAIN CONTENT -->
+        <main class="dashboard-main">
+
+            <!-- TOPBAR -->
+            <header class="dashboard-topbar">
+                <button class="mobile-menu" id="menuToggle" aria-label="Buka menu">
+                    ☰
+                </button>
+
+                <div class="topbar-title">
+                    <span>PORTAL SISWA</span>
+                    <strong>Dashboard</strong>
+                </div>
+
+                <div class="topbar-actions">
+                    <button class="notification-button" aria-label="Notifikasi">
+                        ♧
+                        <span class="notification-dot"></span>
+                    </button>
+
+                    <div class="topbar-user">
+                        <div class="avatar small-avatar">S</div>
+                        <div>
+                            <strong>Siswa SAPA</strong>
+                            <small>Pelajar</small>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- WELCOME -->
+            <section class="welcome-banner">
+                <div class="welcome-content">
+                    <span class="welcome-tag">
+                        <span class="online-dot"></span>
+                        SELAMAT DATANG DI SAPA-SKANEGU
+                    </span>
+
+                    <h1>
+                        Halo, <span>Siswa Hebat!</span>
+                    </h1>
+
+                    <p>
+                        Setiap suara punya arti. Mari bersama-sama
+                        membangun lingkungan sekolah yang aman,
+                        nyaman, dan saling menghargai.
+                    </p>
+
+                    <a href="#layanan" class="banner-button">
+                        Jelajahi Layanan <span>→</span>
+                    </a>
+                </div>
+
+                <div class="welcome-art">
+                    <div class="art-orbit orbit-one"></div>
+                    <div class="art-orbit orbit-two"></div>
+                    <div class="art-core">SAPA</div>
+                    <span class="art-star star-one">✦</span>
+                    <span class="art-star star-two">✧</span>
+                    <span class="art-star star-three">✦</span>
+                </div>
+            </section>
+
+            <!-- STATISTICS -->
+            <section class="stats-section">
+                <div class="section-heading">
+                    <div>
+                        <span class="section-eyebrow">RINGKASAN</span>
+                        <h2>Aktivitas Saya</h2>
+                    </div>
+                    <span class="demo-label">DATA DEMO</span>
+                </div>
+
+                <div class="stats-grid">
+
+                    <article class="stat-card">
+                        <div class="stat-icon purple">✧</div>
+                        <div>
+                            <small>Total Aspirasi</small>
+                            <strong>03</strong>
+                            <span>Ide yang disampaikan</span>
+                        </div>
+                    </article>
+
+                    <article class="stat-card">
+                        <div class="stat-icon pink">⚑</div>
+                        <div>
+                            <small>Total Pengaduan</small>
+                            <strong>02</strong>
+                            <span>Laporan yang dibuat</span>
+                        </div>
+                    </article>
+
+                    <article class="stat-card">
+                        <div class="stat-icon blue">◷</div>
+                        <div>
+                            <small>Dalam Proses</small>
+                            <strong>01</strong>
+                            <span>Menunggu tindak lanjut</span>
+                        </div>
+                    </article>
+
+                    <article class="stat-card">
+                        <div class="stat-icon green">✓</div>
+                        <div>
+                            <small>Selesai</small>
+                            <strong>04</strong>
+                            <span>Telah ditindaklanjuti</span>
+                        </div>
+                    </article>
+
+                </div>
+            </section>
+
+            <!-- SERVICES -->
+            <section class="services-section" id="layanan">
+                <div class="section-heading">
+                    <div>
+                        <span class="section-eyebrow">PUSAT LAYANAN</span>
+                        <h2>Apa yang ingin kamu sampaikan?</h2>
+                    </div>
+                </div>
+
+                <div class="services-grid">
+
+                    <article class="service-card aspiration-card" id="aspirasi">
+                        <div class="service-symbol">✧</div>
+                        <span class="service-category">IDE & MASUKAN</span>
+                        <h3>Sampaikan Aspirasi</h3>
+                        <p>
+                            Berikan kritik, saran, dan ide untuk
+                            kemajuan sekolah.
+                        </p>
+                        <a href="#" class="service-link" data-feature="Aspirasi">
+                            Buat Aspirasi <span>→</span>
+                        </a>
+                    </article>
+
+                    <article class="service-card complaint-card" id="pengaduan">
+                        <div class="service-symbol">⚑</div>
+                        <span class="service-category">PELAPORAN RESMI</span>
+                        <h3>Buat Pengaduan</h3>
+                        <p>
+                            Laporkan perundungan, kekerasan,
+                            intimidasi, atau masalah lainnya.
+                        </p>
+                        <a href="#" class="service-link" data-feature="Pengaduan">
+                            Buat Pengaduan <span>→</span>
+                        </a>
+                    </article>
+
+                    <article class="service-card story-card" id="ruang-cerita">
+                        <div class="service-symbol">♡</div>
+                        <span class="service-category">RUANG AMAN</span>
+                        <h3>Ruang Cerita</h3>
+                        <p>
+                            Ada sesuatu yang ingin kamu ceritakan?
+                            Kami menyediakan ruang untukmu.
+                        </p>
+                        <a href="#" class="service-link" data-feature="Ruang Cerita">
+                            Mulai Bercerita <span>→</span>
+                        </a>
+                    </article>
+
+                    <article class="service-card tracking-card" id="lacak">
+                        <div class="service-symbol">⌕</div>
+                        <span class="service-category">STATUS LAPORAN</span>
+                        <h3>Lacak Laporan</h3>
+                        <p>
+                            Pantau perkembangan aspirasi dan
+                            pengaduan yang sudah kamu kirim.
+                        </p>
+                        <a href="#" class="service-link" data-feature="Lacak Laporan">
+                            Lihat Laporan <span>→</span>
+                        </a>
+                    </article>
+
+                </div>
+            </section>
+
+            <!-- RECENT ACTIVITY -->
+            <section class="activity-section" id="aktivitas">
+                <div class="section-heading">
+                    <div>
+                        <span class="section-eyebrow">RIWAYAT</span>
+                        <h2>Aktivitas Terbaru</h2>
+                    </div>
+
+                    <a href="#aktivitas" class="see-all">Lihat semua →</a>
+                </div>
+
+                <div class="activity-card">
+
+                    <div class="activity-item">
+                        <div class="activity-icon purple">✧</div>
+                        <div class="activity-description">
+                            <strong>Aspirasi fasilitas sekolah</strong>
+                            <small>Contoh aktivitas · 2 November 2026</small>
+                        </div>
+                        <span class="status-badge status-done">Selesai</span>
+                    </div>
+
+                    <div class="activity-item">
+                        <div class="activity-icon pink">⚑</div>
+                        <div class="activity-description">
+                            <strong>Pengaduan siswa</strong>
+                            <small>Contoh aktivitas · 3 November 2026</small>
+                        </div>
+                        <span class="status-badge status-process">Diproses</span>
+                    </div>
+
+                    <div class="activity-item">
+                        <div class="activity-icon blue">♡</div>
+                        <div class="activity-description">
+                            <strong>Permintaan ruang cerita</strong>
+                            <small>Contoh aktivitas · 4 November 2026</small>
+                        </div>
+                        <span class="status-badge status-review">Menunggu</span>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- PRIVACY NOTICE -->
+            <section class="privacy-banner">
+                <div class="privacy-symbol">♧</div>
+                <div>
+                    <strong>Privasi dan keamanan adalah prioritas.</strong>
+                    <p>
+                        Identitas dan informasi pengaduan dijaga
+                        sesuai hak akses dan kebijakan perlindungan data.
+                    </p>
+                </div>
+            </section>
+
+            <footer class="dashboard-footer">
+                © 2026 SAPA-SKANEGU · SMKN 1 DLANGGU
+                <span>Suaramu, Perubahan Kita.</span>
+            </footer>
+
+        </main>
+    </div>
+
+    <script src="../../assets/js/global.js"></script>
+    <script src="../../assets/js/dashboard.js"></script>
+</body>
+</html>

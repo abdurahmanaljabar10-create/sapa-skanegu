@@ -1,0 +1,724 @@
+
+/* ==============================
+   SAPA-SKANEGU - REGISTER PAGE
+   Purple Galaxy Theme
+================================ */
+
+.register-navbar {
+    position: relative;
+    z-index: 10;
+}
+
+.login-nav {
+    color: #d8c8f5;
+    text-decoration: none;
+    font-size: 13px;
+    transition: 0.3s;
+}
+
+.login-nav strong {
+    color: #c19aff;
+    margin-left: 5px;
+}
+
+.login-nav:hover {
+    color: white;
+    text-shadow: 0 0 12px #b58aff;
+}
+
+/* Main Layout */
+
+.register-container {
+    position: relative;
+    z-index: 2;
+    width: min(1120px, 92%);
+    margin: 45px auto 65px;
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    align-items: center;
+    gap: 65px;
+}
+
+/* Intro */
+
+.register-intro {
+    position: relative;
+    animation: registerSlideLeft 1s ease both;
+}
+
+.intro-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    padding: 9px 15px;
+    border: 1px solid rgba(193, 154, 255, 0.35);
+    border-radius: 30px;
+    background: rgba(129, 81, 219, 0.12);
+    color: #d9c2ff;
+    font-size: 10px;
+    letter-spacing: 2px;
+    font-weight: 700;
+}
+
+.pulse-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #bd91ff;
+    box-shadow: 0 0 12px #bd91ff;
+    animation: pulseDot 1.5s infinite;
+}
+
+.register-intro h1 {
+    margin: 27px 0 18px;
+    max-width: 520px;
+    font-size: clamp(38px, 5vw, 58px);
+    line-height: 1.12;
+    color: white;
+    letter-spacing: -2px;
+}
+
+.register-intro h1 span {
+    display: block;
+    background: linear-gradient(90deg, #c19aff, #8d63ec, #e4caff);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: gradientMove 5s linear infinite;
+}
+
+.register-intro > p {
+    max-width: 450px;
+    color: #b9a9d2;
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+/* Feature List */
+
+.intro-features {
+    display: grid;
+    gap: 18px;
+    margin-top: 32px;
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    transition: transform 0.3s ease;
+}
+
+.feature-item:hover {
+    transform: translateX(9px);
+}
+
+.feature-icon {
+    width: 42px;
+    height: 42px;
+    display: grid;
+    place-items: center;
+    border: 1px solid rgba(193, 154, 255, 0.3);
+    border-radius: 13px;
+    background: rgba(129, 81, 219, 0.15);
+    color: #d1b3ff;
+    font-size: 21px;
+    box-shadow: 0 0 20px rgba(129, 81, 219, 0.12);
+}
+
+.feature-item strong {
+    display: block;
+    color: #f2eaff;
+    font-size: 13px;
+    margin-bottom: 4px;
+}
+
+.feature-item small {
+    color: #a99bbd;
+    font-size: 11px;
+}
+
+/* Orbit Animation */
+
+.orbit-decoration {
+    position: relative;
+    width: 155px;
+    height: 155px;
+    margin: 42px 0 0 65px;
+    display: grid;
+    place-items: center;
+}
+
+.orbit-core {
+    width: 58px;
+    height: 58px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: radial-gradient(circle, #a87aff, #5426a1);
+    color: white;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    box-shadow: 0 0 25px #9c6aff, 0 0 65px rgba(156, 106, 255, 0.5);
+    animation: corePulse 3s ease-in-out infinite;
+}
+
+.orbit-ring {
+    position: absolute;
+    width: 140px;
+    height: 65px;
+    border: 1px solid rgba(193, 154, 255, 0.5);
+    border-radius: 50%;
+}
+
+.ring-a {
+    transform: rotate(35deg);
+    animation: orbitRotate 8s linear infinite;
+}
+
+.ring-b {
+    transform: rotate(-45deg);
+    animation: orbitRotateReverse 11s linear infinite;
+}
+
+.orbit-star {
+    position: absolute;
+    color: #e3caff;
+    text-shadow: 0 0 12px #c19aff;
+    animation: starSparkle 2s ease-in-out infinite;
+}
+
+.star-a {
+    top: 4px;
+    left: 18px;
+}
+
+.star-b {
+    right: 3px;
+    top: 65px;
+    animation-delay: 0.6s;
+}
+
+.star-c {
+    left: 35px;
+    bottom: 4px;
+    animation-delay: 1.1s;
+}
+
+/* Floating Orbs */
+
+.floating-orb {
+    position: fixed;
+    z-index: 1;
+    pointer-events: none;
+    border-radius: 50%;
+    filter: blur(1px);
+    opacity: 0.5;
+}
+
+.orb-one {
+    width: 9px;
+    height: 9px;
+    top: 25%;
+    left: 5%;
+    background: #c19aff;
+    box-shadow: 0 0 25px 8px rgba(193, 154, 255, 0.35);
+    animation: orbFloat 7s ease-in-out infinite;
+}
+
+.orb-two {
+    width: 13px;
+    height: 13px;
+    top: 70%;
+    right: 5%;
+    background: #8d63ec;
+    box-shadow: 0 0 30px 10px rgba(141, 99, 236, 0.3);
+    animation: orbFloat 9s ease-in-out infinite reverse;
+}
+
+.orb-three {
+    width: 5px;
+    height: 5px;
+    top: 12%;
+    right: 28%;
+    background: white;
+    box-shadow: 0 0 20px 5px #b88aff;
+    animation: starSparkle 3s infinite;
+}
+
+/* Registration Card */
+
+.register-card {
+    position: relative;
+    padding: 35px;
+    border: 1px solid rgba(193, 154, 255, 0.3);
+    border-radius: 25px;
+    background: linear-gradient(
+        145deg,
+        rgba(43, 24, 75, 0.88),
+        rgba(19, 11, 39, 0.94)
+    );
+    box-shadow:
+        0 25px 80px rgba(0, 0, 0, 0.35),
+        0 0 45px rgba(129, 81, 219, 0.13),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(22px);
+    animation: registerSlideRight 1s ease both;
+    overflow: hidden;
+}
+
+.register-card::before {
+    content: "";
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 230px;
+    height: 230px;
+    border-radius: 50%;
+    background: rgba(147, 91, 255, 0.12);
+    filter: blur(55px);
+    pointer-events: none;
+}
+
+.register-card::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #d9bdff, transparent);
+    animation: cardShine 7s ease-in-out infinite;
+}
+
+.card-top {
+    display: flex;
+    align-items: center;
+    gap: 17px;
+    margin-bottom: 27px;
+}
+
+.register-logo {
+    width: 55px;
+    height: 55px;
+    padding: 7px;
+    display: grid;
+    place-items: center;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(193, 154, 255, 0.25);
+}
+
+.register-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.card-eyebrow {
+    color: #b99aff;
+    font-size: 9px;
+    letter-spacing: 2px;
+    font-weight: 700;
+}
+
+.card-heading h2 {
+    margin: 5px 0;
+    color: white;
+    font-size: 25px;
+}
+
+.card-heading p {
+    color: #aa9bbd;
+    font-size: 11px;
+}
+
+/* Form */
+
+#registerForm {
+    position: relative;
+    z-index: 2;
+}
+
+.form-group {
+    margin-bottom: 17px;
+}
+
+.form-group label {
+    display: block;
+    color: #e1d5f5;
+    font-size: 12px;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    height: 46px;
+    padding: 0 14px;
+    border: 1px solid rgba(193, 154, 255, 0.2);
+    border-radius: 11px;
+    outline: none;
+    background: rgba(13, 7, 28, 0.65);
+    color: white;
+    font-family: inherit;
+    font-size: 12px;
+    transition: 0.3s ease;
+}
+
+.form-group input::placeholder {
+    color: #837394;
+}
+
+.form-group select {
+    color-scheme: dark;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #a77aff;
+    box-shadow: 0 0 0 3px rgba(167, 122, 255, 0.13);
+    background: rgba(30, 16, 54, 0.9);
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 13px;
+}
+
+/* Password */
+
+.password-wrapper {
+    position: relative;
+}
+
+.password-wrapper input {
+    padding-right: 48px;
+}
+
+.toggle-password {
+    position: absolute;
+    top: 50%;
+    right: 13px;
+    transform: translateY(-50%);
+    border: none;
+    background: none;
+    color: #c19aff;
+    cursor: pointer;
+    font-size: 17px;
+    transition: 0.3s;
+}
+
+.toggle-password:hover {
+    color: white;
+    text-shadow: 0 0 12px #c19aff;
+}
+
+.strength-container {
+    margin-top: 8px;
+}
+
+.strength-track {
+    width: 100%;
+    height: 4px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+}
+
+#strengthBar {
+    display: block;
+    width: 0;
+    height: 100%;
+    border-radius: 10px;
+    transition: width 0.3s ease, background 0.3s ease;
+}
+
+#strengthText {
+    display: block;
+    margin-top: 5px;
+    color: #9e8caf;
+    font-size: 10px;
+}
+
+/* Terms */
+
+.terms-check {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin: 18px 0;
+    color: #b9a9cc;
+    font-size: 10px;
+    line-height: 1.7;
+    cursor: pointer;
+}
+
+.terms-check input {
+    accent-color: #9c6aff;
+    margin-top: 3px;
+}
+
+/* Button */
+
+.register-button {
+    position: relative;
+    width: 100%;
+    height: 49px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(100deg, #7041c4, #9867ed, #7041c4);
+    background-size: 200% auto;
+    color: white;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.4px;
+    cursor: pointer;
+    box-shadow: 0 8px 25px rgba(129, 81, 219, 0.3);
+    transition: 0.35s ease;
+    animation: buttonGradient 5s linear infinite;
+}
+
+.register-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(129, 81, 219, 0.5);
+}
+
+.register-button:active {
+    transform: scale(0.98);
+}
+
+.button-arrow {
+    font-size: 19px;
+    transition: transform 0.3s ease;
+}
+
+.register-button:hover .button-arrow {
+    transform: translateX(5px);
+}
+
+.register-message {
+    min-height: 18px;
+    margin-top: 12px;
+    font-size: 11px;
+    text-align: center;
+    color: #d4baff;
+    line-height: 1.6;
+}
+
+.register-message.error {
+    color: #ff9dba;
+}
+
+.register-message.success {
+    color: #a8f0d0;
+}
+
+/* Bottom */
+
+.card-bottom {
+    margin-top: 18px;
+    padding-top: 18px;
+    border-top: 1px solid rgba(193, 154, 255, 0.15);
+    text-align: center;
+    color: #a99bbd;
+    font-size: 11px;
+}
+
+.card-bottom a {
+    color: #c19aff;
+    text-decoration: none;
+    font-weight: 700;
+    margin-left: 4px;
+}
+
+.card-bottom a:hover {
+    color: white;
+    text-shadow: 0 0 10px #c19aff;
+}
+
+.privacy-note {
+    margin-top: 20px;
+    display: flex;
+    gap: 8px;
+    color: #8f819f;
+    font-size: 9px;
+    line-height: 1.7;
+}
+
+.privacy-note span {
+    color: #c19aff;
+}
+
+/* Footer */
+
+.register-footer {
+    position: relative;
+    z-index: 2;
+    padding: 15px;
+    text-align: center;
+    color: #82728f;
+    font-size: 10px;
+}
+
+/* Animations */
+
+@keyframes registerSlideLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-35px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes registerSlideRight {
+    from {
+        opacity: 0;
+        transform: translateX(35px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes pulseDot {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.45; transform: scale(0.7); }
+}
+
+@keyframes gradientMove {
+    to { background-position: 200% center; }
+}
+
+@keyframes corePulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.12); }
+}
+
+@keyframes orbitRotate {
+    to { transform: rotate(395deg); }
+}
+
+@keyframes orbitRotateReverse {
+    to { transform: rotate(-405deg); }
+}
+
+@keyframes starSparkle {
+    0%, 100% { opacity: 0.4; transform: scale(0.8); }
+    50% { opacity: 1; transform: scale(1.3); }
+}
+
+@keyframes orbFloat {
+    0%, 100% { transform: translateY(0) translateX(0); }
+    50% { transform: translateY(-30px) translateX(15px); }
+}
+
+@keyframes cardShine {
+    0%, 65% { left: -100%; }
+    100% { left: 150%; }
+}
+
+@keyframes buttonGradient {
+    to { background-position: 200% center; }
+}
+
+/* Responsive */
+
+@media (max-width: 850px) {
+    .register-container {
+        grid-template-columns: 1fr;
+        gap: 35px;
+        max-width: 560px;
+        margin-top: 35px;
+    }
+
+    .register-intro {
+        text-align: center;
+    }
+
+    .register-intro > p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .intro-features {
+        max-width: 360px;
+        margin: 25px auto 0;
+        text-align: left;
+    }
+
+    .orbit-decoration {
+        display: none;
+    }
+}
+
+@media (max-width: 520px) {
+    .register-container {
+        width: 92%;
+        margin-top: 25px;
+    }
+
+    .register-intro h1 {
+        font-size: 39px;
+    }
+
+    .register-intro > p {
+        font-size: 12px;
+    }
+
+    .register-card {
+        padding: 23px 18px;
+        border-radius: 19px;
+    }
+
+    .card-heading h2 {
+        font-size: 21px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .register-navbar {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+    .login-nav {
+        font-size: 10px;
+    }
+
+    .register-footer {
+        padding-bottom: 20px;
+    }
+}
+
+/* Respect accessibility preferences */
+
+@media (prefers-reduced-motion: reduce) {
+    .register-container,
+    .register-card,
+    .register-intro,
+    .orbit-core,
+    .orbit-ring,
+    .orbit-star,
+    .floating-orb,
+    .register-intro h1 span,
+    .register-button {
+        animation: none !important;
+        transition: none !important;
+    }
+}
