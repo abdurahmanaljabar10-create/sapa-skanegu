@@ -1,0 +1,233 @@
+
+.welcome-main {
+    min-height: calc(100vh - 110px);
+    padding: 35px 8% 75px;
+    display: grid;
+    grid-template-columns: 1.05fr .95fr;
+    align-items: center;
+    gap: 30px;
+}
+
+.welcome-copy {
+    max-width: 620px;
+    animation: appear 1s ease both;
+}
+
+.welcome-label {
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 16px;
+    margin-bottom: 35px;
+    border: 1px solid rgba(197,164,255,.25);
+    border-radius: 30px;
+    background: rgba(135,85,232,.09);
+    color: #ddcaff;
+    font-size: 9px;
+    letter-spacing: 1.7px;
+}
+
+.eyebrow {
+    color: #c4a2ff;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    margin-bottom: 14px;
+}
+
+.welcome-copy h1 {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: clamp(55px, 7vw, 90px);
+    line-height: .95;
+    letter-spacing: -4px;
+    background: linear-gradient(110deg, #fff, #d9c0ff 48%, #9a6cff);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    filter: drop-shadow(0 0 24px rgba(164,116,255,.25));
+}
+
+.welcome-copy h1 span {
+    color: #c5a4ff;
+}
+
+.welcome-copy h2 {
+    margin-top: 28px;
+    font-family: "Space Grotesk", sans-serif;
+    font-size: clamp(21px, 3vw, 30px);
+    line-height: 1.4;
+    font-weight: 600;
+}
+
+.welcome-description {
+    max-width: 500px;
+    margin: 18px 0 30px;
+    color: #c1b5d5;
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+.primary-button {
+    width: fit-content;
+    min-width: 225px;
+    padding: 16px 22px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    border: 1px solid rgba(255,255,255,.24);
+    border-radius: 13px;
+    background: linear-gradient(110deg, #9b6aff, #7040d1);
+    box-shadow: 0 10px 35px rgba(126,73,222,.35);
+    color: white;
+    font-size: 14px;
+    font-weight: 700;
+    transition: .3s;
+}
+
+.primary-button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 45px rgba(142,91,255,.55);
+}
+
+.primary-button .arrow {
+    font-size: 22px;
+    transition: transform .3s;
+}
+
+.primary-button:hover .arrow {
+    transform: translateX(6px);
+}
+
+.welcome-note {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 42px;
+    color: rgba(210,194,237,.65);
+    font-size: 8px;
+    letter-spacing: 1.5px;
+}
+
+.welcome-note span {
+    color: #c5a4ff;
+}
+
+.mascot-area {
+    position: relative;
+    min-height: 480px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: appear 1.2s ease both;
+}
+
+.mascot-aura {
+    position: absolute;
+    width: 330px;
+    height: 330px;
+    border-radius: 50%;
+    background: #9c55ff;
+    filter: blur(100px);
+    opacity: .3;
+}
+
+.main-mascot {
+    position: relative;
+    z-index: 2;
+    width: min(100%, 410px);
+    max-height: 480px;
+    object-fit: contain;
+    filter: drop-shadow(0 15px 35px rgba(0,0,0,.35));
+    animation: float 6s ease-in-out infinite;
+}
+
+.mascot-ring {
+    position: absolute;
+    width: 380px;
+    height: 380px;
+    border: 1px solid rgba(196,162,255,.24);
+    border-radius: 50%;
+}
+
+.ring-one {
+    transform: scaleY(.4) rotate(-20deg);
+    animation: orbit 18s linear infinite;
+}
+
+.ring-two {
+    transform: scaleY(.6) rotate(35deg);
+    animation: orbit 25s linear infinite reverse;
+}
+
+.mascot-label {
+    position: absolute;
+    z-index: 3;
+    bottom: 10px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    color: #d4bcff;
+    font-size: 10px;
+    letter-spacing: 3px;
+    font-weight: 700;
+}
+
+.mascot-label span {
+    color: #fff;
+}
+
+@keyframes orbit {
+    from { rotate: 0deg; }
+    to { rotate: 360deg; }
+}
+
+@media (max-width: 850px) {
+    .welcome-main {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding-top: 45px;
+    }
+
+    .welcome-copy {
+        margin: auto;
+    }
+
+    .welcome-label, .welcome-note {
+        margin-left: auto;
+        margin-right: auto;
+        justify-content: center;
+    }
+
+    .welcome-description {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .primary-button {
+        margin: auto;
+    }
+
+    .mascot-area {
+        min-height: 370px;
+    }
+
+    .main-mascot {
+        max-height: 350px;
+        width: 300px;
+    }
+
+    .mascot-ring {
+        width: 300px;
+        height: 300px;
+    }
+}
+
+@media (max-width: 600px) {
+    .welcome-main { padding: 40px 6% 90px; }
+    .welcome-copy h1 { letter-spacing: -2px; }
+    .welcome-description { font-size: 12px; }
+    .mascot-area { min-height: 330px; }
+    .main-mascot { max-height: 310px; }
+}
