@@ -533,3 +533,44 @@
         transition: none !important;
     }
 }
+
+/* =================================
+   SAPA BRAND LOGO
+================================= */
+
+/* Logo pada navbar */
+.brand-logo {
+    width: 75px;
+    height: 75px;
+    object-fit: contain;
+    display: block;
+    flex-shrink: 0;
+}
+
+/* Logo pada kartu login */
+.login-card-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 18px;
+}
+
+.login-card-logo img {
+    width: 180px;
+    height: 125px;
+    object-fit: contain;
+    display: block;
+}
+
+/* Responsive untuk HP */
+@media (max-width: 600px) {
+    .brand-logo {
+        width: 55px;
+        height: 55px;
+    }
+
+    .login-card-logo img {
+        width: 145px;
+        height: 105px;
+    }
+}

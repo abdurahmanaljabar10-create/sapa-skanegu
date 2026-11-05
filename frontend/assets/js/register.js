@@ -7,7 +7,8 @@ const registerForm = document.getElementById("registerForm");
 
 const fullName = document.getElementById("fullName");
 const nisn = document.getElementById("nisn");
-const className = document.getElementById("className");
+const className = document.getElementById("studentClass");
+const major = document.getElementById("major");
 const email = document.getElementById("email");
 const password = document.getElementById("password");
 const confirmPassword = document.getElementById("confirmPassword");
@@ -115,6 +116,13 @@ registerForm.addEventListener("submit", function(event) {
     if (!className.value) {
         showMessage("Silakan pilih tingkat kelas.", "error");
         className.focus();
+        return;
+    }
+
+    // Jurusan
+    if (!major.value) {
+        showMessage("Silakan pilih jurusan.", "error");
+        major.focus();
         return;
     }
 
