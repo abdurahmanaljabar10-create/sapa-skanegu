@@ -1,0 +1,974 @@
+
+/* =========================================================
+   01. RESPONSIVE FOUNDATION
+========================================================= */
+
+:root {
+    --responsive-mobile-padding: 17px;
+    --responsive-tablet-padding: 30px;
+    --responsive-desktop-padding: 50px;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.auth-page {
+    width: 100%;
+    min-width: 320px;
+}
+
+.auth-layout {
+    min-width: 0;
+}
+
+.brand-panel,
+.form-panel,
+.login-card,
+.card-content {
+    min-width: 0;
+    max-width: 100%;
+}
+
+.brand-content,
+.brand-description,
+.brand-highlights,
+.highlight-card,
+.highlight-copy,
+.login-heading,
+.form-group,
+.input-wrapper {
+    min-width: 0;
+}
+
+.brand-description,
+.highlight-copy p,
+.privacy-copy p {
+    overflow-wrap: anywhere;
+}
+
+.login-card,
+.brand-panel,
+.form-panel {
+    box-sizing: border-box;
+}
+
+img,
+svg {
+    max-width: 100%;
+}
+
+
+/* =========================================================
+   02. LARGE DESKTOP
+   1440px AND ABOVE
+========================================================= */
+
+@media (min-width: 1440px) {
+
+    .auth-layout {
+        width: min(1500px, calc(100% - 120px));
+        gap: clamp(70px, 7vw, 110px);
+    }
+
+    .brand-content {
+        max-width: 680px;
+    }
+
+    .brand-content h1 {
+        font-size: clamp(72px, 5.2vw, 86px);
+    }
+
+    .brand-description {
+        max-width: 590px;
+        font-size: 14px;
+    }
+
+    .brand-highlights {
+        max-width: 640px;
+        gap: 14px;
+    }
+
+    .highlight-card {
+        min-height: 150px;
+        padding: 20px;
+    }
+
+    .mascot-stage {
+        width: 320px;
+        height: 310px;
+        right: 0;
+    }
+
+    .mascot-image-wrapper {
+        width: 240px;
+        height: 240px;
+    }
+
+    .login-card {
+        max-width: 480px;
+    }
+
+}
+
+
+/* =========================================================
+   03. STANDARD DESKTOP
+   1200px - 1439px
+========================================================= */
+
+@media (min-width: 1200px) and (max-width: 1439px) {
+
+    .auth-layout {
+        width: calc(100% - 90px);
+        gap: 55px;
+    }
+
+    .brand-content h1 {
+        font-size: clamp(60px, 5vw, 74px);
+    }
+
+    .brand-panel {
+        min-height: 760px;
+    }
+
+    .mascot-stage {
+        right: -10px;
+        width: 260px;
+        height: 260px;
+    }
+
+    .mascot-image-wrapper {
+        width: 205px;
+        height: 205px;
+    }
+
+    .login-card {
+        max-width: 460px;
+    }
+
+}
+
+
+/* =========================================================
+   04. SMALL LAPTOP
+   1024px - 1199px
+========================================================= */
+
+@media (min-width: 1024px) and (max-width: 1199px) {
+
+    .auth-layout {
+        width: calc(100% - 64px);
+        grid-template-columns:
+            minmax(0, 1fr)
+            minmax(350px, 0.9fr);
+        gap: 28px;
+    }
+
+    .brand-panel {
+        min-height: 710px;
+    }
+
+    .brand-content {
+        margin-top: 42px;
+    }
+
+    .brand-content h1 {
+        font-size: 54px;
+        letter-spacing: -2.5px;
+    }
+
+    .brand-description {
+        max-width: 450px;
+        font-size: 12px;
+    }
+
+    .brand-highlights {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .highlight-card {
+        min-height: 120px;
+    }
+
+    .highlight-card:last-child {
+        display: none;
+    }
+
+    .mascot-stage {
+        width: 190px;
+        height: 190px;
+        right: -5px;
+        bottom: 65px;
+    }
+
+    .mascot-image-wrapper {
+        width: 150px;
+        height: 150px;
+    }
+
+    .login-card {
+        max-width: 410px;
+    }
+
+    .card-content {
+        padding: 35px 30px 25px;
+    }
+
+}
+
+
+/* =========================================================
+   05. TABLET LANDSCAPE
+   901px - 1023px
+========================================================= */
+
+@media (min-width: 901px) and (max-width: 1023px) {
+
+    .auth-layout {
+        width: calc(100% - 45px);
+        grid-template-columns:
+            minmax(0, 1fr)
+            minmax(330px, 0.9fr);
+        gap: 22px;
+    }
+
+    .brand-panel {
+        min-height: 680px;
+    }
+
+    .brand-content h1 {
+        font-size: 48px;
+    }
+
+    .brand-description {
+        font-size: 11px;
+    }
+
+    .brand-highlights {
+        grid-template-columns: 1fr;
+    }
+
+    .highlight-card {
+        min-height: 75px;
+        flex-direction: row;
+        align-items: center;
+        padding: 12px;
+    }
+
+    .highlight-card:last-child {
+        display: none;
+    }
+
+    .mascot-stage {
+        display: none;
+    }
+
+    .login-card {
+        max-width: 390px;
+    }
+
+    .card-content {
+        padding: 32px 25px 24px;
+    }
+
+}
+
+
+/* =========================================================
+   06. TABLET PORTRAIT
+   601px - 900px
+========================================================= */
+
+@media (min-width: 601px) and (max-width: 900px) {
+
+    .auth-layout {
+        width: min(680px, calc(100% - 60px));
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 38px;
+        padding: 40px 0;
+    }
+
+    .brand-panel {
+        width: 100%;
+        min-height: auto;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .brand-content {
+        width: 100%;
+        max-width: 100%;
+        margin-top: 48px;
+    }
+
+    .brand-content h1 {
+        font-size: clamp(55px, 8vw, 70px);
+    }
+
+    .brand-description {
+        max-width: 580px;
+    }
+
+    .brand-highlights {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .highlight-card {
+        min-height: 135px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .highlight-card:last-child {
+        display: flex;
+    }
+
+    .mascot-stage {
+        display: none;
+    }
+
+    .brand-footer {
+        margin-top: 28px;
+    }
+
+    .form-panel {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .login-card {
+        width: 100%;
+        max-width: 540px;
+        margin: 0 auto;
+    }
+
+}
+
+
+/* =========================================================
+   07. MOBILE FOUNDATION
+   320px - 600px
+
+   Penting:
+   Semua ukuran mobile harus menggunakan satu kolom.
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .auth-layout {
+        width: calc(100% - 34px);
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 30px;
+        padding: 28px 0 34px;
+    }
+
+    .brand-panel {
+        width: 100%;
+        min-height: auto;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .brand-content {
+        width: 100%;
+        max-width: 100%;
+        margin-top: 38px;
+    }
+
+    .brand-description {
+        max-width: 100%;
+    }
+
+    .brand-highlights {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .highlight-card {
+        width: 100%;
+        min-height: 76px;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .highlight-card:last-child {
+        display: flex;
+    }
+
+    .mascot-stage {
+        display: none;
+    }
+
+    .brand-footer {
+        margin-top: 24px;
+        flex-wrap: wrap;
+    }
+
+    .form-panel {
+        width: 100%;
+        min-width: 0;
+        align-items: stretch;
+    }
+
+    .login-card {
+        width: 100%;
+        max-width: 100%;
+        margin: 0 auto;
+    }
+
+    .card-content {
+        width: 100%;
+    }
+
+    .login-heading {
+        width: 100%;
+    }
+
+    #login-form {
+        width: 100%;
+    }
+
+    .input-wrapper {
+        width: 100%;
+    }
+
+    .input-wrapper input {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .login-submit {
+        width: 100%;
+        min-height: 52px;
+    }
+
+    .privacy-note {
+        width: 100%;
+    }
+
+}
+
+
+/* =========================================================
+   08. MOBILE LARGE
+   481px - 600px
+========================================================= */
+
+@media (min-width: 481px) and (max-width: 600px) {
+
+    .auth-layout {
+        width: calc(100% - 38px);
+        gap: 32px;
+        padding: 30px 0;
+    }
+
+    .brand-content {
+        margin-top: 40px;
+    }
+
+    .brand-content h1 {
+        font-size: 54px;
+    }
+
+    .brand-description {
+        font-size: 12px;
+    }
+
+    .highlight-card {
+        min-height: 80px;
+        padding: 14px;
+    }
+
+    .login-card {
+        max-width: 100%;
+    }
+
+    .card-content {
+        padding: 34px 28px 28px;
+    }
+
+}
+
+
+/* =========================================================
+   09. MOBILE STANDARD
+   381px - 480px
+========================================================= */
+
+@media (min-width: 381px) and (max-width: 480px) {
+
+    .auth-layout {
+        width: calc(100% - 34px);
+        gap: 28px;
+        padding: 25px 0 32px;
+    }
+
+    .brand-content {
+        margin-top: 36px;
+    }
+
+    .brand-content h1 {
+        font-size: clamp(43px, 11vw, 52px);
+        letter-spacing: -2.2px;
+    }
+
+    .brand-description {
+        font-size: 11.5px;
+        line-height: 1.85;
+    }
+
+    .brand-highlights {
+        gap: 9px;
+    }
+
+    .highlight-card {
+        min-height: 72px;
+        padding: 12px;
+    }
+
+    .brand-footer {
+        gap: 9px;
+        font-size: 8px;
+    }
+
+    .card-content {
+        padding: 30px 22px 24px;
+    }
+
+    .login-heading h2 {
+        font-size: 25px;
+    }
+
+}
+
+
+/* =========================================================
+   10. MOBILE SMALL
+   320px - 380px
+========================================================= */
+
+@media (max-width: 380px) {
+
+    .auth-layout {
+        width: calc(100% - 26px);
+        gap: 24px;
+        padding: 22px 0 28px;
+    }
+
+    .brand-header {
+        gap: 7px;
+    }
+
+    .brand-lockup {
+        gap: 8px;
+    }
+
+    .brand-logo-wrapper {
+        width: 40px;
+        height: 40px;
+    }
+
+    .brand-logo {
+        width: 30px;
+        height: 30px;
+    }
+
+    .brand-name {
+        font-size: 13px;
+    }
+
+    .brand-school {
+        font-size: 6px;
+        letter-spacing: 0.7px;
+    }
+
+    .system-status {
+        padding: 6px 7px;
+        font-size: 6px;
+        letter-spacing: 0.4px;
+    }
+
+    .status-indicator {
+        width: 5px;
+        height: 5px;
+    }
+
+    .brand-content {
+        margin-top: 34px;
+    }
+
+    .eyebrow {
+        gap: 8px;
+    }
+
+    .eyebrow-text {
+        font-size: 7px;
+        letter-spacing: 1.6px;
+    }
+
+    .brand-content h1 {
+        font-size: 40px;
+        letter-spacing: -1.8px;
+    }
+
+    .brand-description {
+        margin-top: 18px;
+        font-size: 10.5px;
+    }
+
+    .highlight-card {
+        min-height: 68px;
+        padding: 10px;
+    }
+
+    .highlight-icon {
+        width: 33px;
+        height: 33px;
+    }
+
+    .highlight-copy h2 {
+        font-size: 11px;
+    }
+
+    .highlight-copy p {
+        font-size: 9px;
+    }
+
+    .brand-footer {
+        font-size: 7px;
+        gap: 7px;
+    }
+
+    .card-content {
+        padding: 26px 17px 21px;
+    }
+
+    .login-icon-wrapper {
+        width: 48px;
+        height: 48px;
+    }
+
+    .login-icon {
+        width: 46px;
+        height: 46px;
+    }
+
+    .login-heading h2 {
+        font-size: 23px;
+    }
+
+    .login-heading p {
+        font-size: 10px;
+    }
+
+    #login-form {
+        gap: 17px;
+    }
+
+    .input-wrapper,
+    .input-wrapper input {
+        min-height: 50px;
+        height: 50px;
+    }
+
+    .input-wrapper input {
+        font-size: 10px;
+    }
+
+    .input-wrapper input::placeholder {
+        font-size: 9px;
+    }
+
+    .form-options {
+        align-items: flex-start;
+        flex-wrap: wrap;
+    }
+
+    .remember-option,
+    .forgot-link {
+        font-size: 9px;
+    }
+
+    .login-submit {
+        min-height: 50px;
+        font-size: 12px;
+    }
+
+    .privacy-note {
+        gap: 9px;
+        padding: 10px;
+    }
+
+    .privacy-copy strong {
+        font-size: 9px;
+    }
+
+    .privacy-copy p {
+        font-size: 8px;
+    }
+
+    .form-footer {
+        gap: 7px;
+        font-size: 7px;
+    }
+
+}
+
+
+/* =========================================================
+   11. LANDSCAPE MOBILE
+========================================================= */
+
+@media (max-height: 650px) and (orientation: landscape) {
+
+    .auth-layout {
+        min-height: auto;
+        padding: 24px 0;
+        gap: 25px;
+    }
+
+    .brand-panel {
+        min-height: auto;
+    }
+
+    .brand-content {
+        margin-top: 30px;
+    }
+
+    .brand-content h1 {
+        font-size: 43px;
+    }
+
+    .brand-description {
+        margin-top: 15px;
+        font-size: 11px;
+    }
+
+    .mascot-stage {
+        display: none;
+    }
+
+    .brand-footer {
+        margin-top: 20px;
+    }
+
+    .form-panel {
+        align-items: flex-start;
+    }
+
+    .login-card {
+        max-width: 420px;
+    }
+
+    .card-content {
+        padding-top: 25px;
+        padding-bottom: 20px;
+    }
+
+    .login-heading {
+        margin-bottom: 20px;
+    }
+
+}
+
+
+/* =========================================================
+   12. VERY SHORT SCREEN
+========================================================= */
+
+@media (max-height: 480px) {
+
+    .auth-layout {
+        padding-top: 18px;
+        padding-bottom: 18px;
+    }
+
+    .brand-content {
+        margin-top: 25px;
+    }
+
+    .brand-highlights {
+        margin-top: 20px;
+    }
+
+    .brand-footer {
+        margin-top: 18px;
+    }
+
+    .login-heading {
+        margin-bottom: 17px;
+    }
+
+    .login-icon-wrapper {
+        margin-bottom: 12px;
+    }
+
+    .privacy-note {
+        margin-top: 18px;
+    }
+
+}
+
+
+/* =========================================================
+   13. TOUCH SCREEN
+========================================================= */
+
+@media (hover: none) and (pointer: coarse) {
+
+    .highlight-card:hover {
+        transform: none;
+    }
+
+    .login-submit:hover {
+        transform: none;
+        filter: none;
+    }
+
+    .brand-lockup:hover .brand-logo-wrapper {
+        transform: none;
+    }
+
+    .forgot-link,
+    .register-section a {
+        padding-top: 4px;
+        padding-bottom: 4px;
+    }
+
+    .password-toggle {
+        width: 42px;
+        height: 42px;
+    }
+
+    .login-submit,
+    .password-toggle,
+    .forgot-link,
+    .register-section a {
+        touch-action: manipulation;
+    }
+
+}
+
+
+/* =========================================================
+   14. FINE POINTER
+========================================================= */
+
+@media (hover: hover) and (pointer: fine) {
+
+    .highlight-card {
+        cursor: default;
+    }
+
+    .login-submit,
+    .password-toggle,
+    .forgot-link,
+    .register-section a {
+        cursor: pointer;
+    }
+
+}
+
+
+/* =========================================================
+   15. REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    .auth-page *,
+    .auth-page *::before,
+    .auth-page *::after {
+        animation-duration: 0.01ms !important;
+        animation-delay: 0ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    .cursor-glow {
+        display: none !important;
+    }
+
+}
+
+
+/* =========================================================
+   16. HIGH CONTRAST
+========================================================= */
+
+@media (prefers-contrast: more) {
+
+    .brand-description,
+    .highlight-copy p,
+    .login-heading p,
+    .privacy-copy p {
+        color: #f0edff;
+    }
+
+    .input-wrapper {
+        border-color: rgba(255, 255, 255, 0.5);
+    }
+
+    .login-card {
+        border-color: rgba(255, 255, 255, 0.4);
+    }
+
+    .forgot-link,
+    .register-section a {
+        text-decoration: underline;
+        text-underline-offset: 3px;
+    }
+
+}
+
+
+/* =========================================================
+   17. PRINT
+========================================================= */
+
+@media print {
+
+    .space-background,
+    .cursor-glow,
+    .mascot-stage {
+        display: none !important;
+    }
+
+    .auth-page {
+        min-height: auto;
+        color: #000000;
+        background: #ffffff;
+    }
+
+    .auth-layout {
+        display: block;
+        width: 100%;
+        min-height: auto;
+        padding: 0;
+    }
+
+    .login-card {
+        max-width: 100%;
+        color: #000000;
+        border: 1px solid #cccccc;
+        box-shadow: none;
+        background: #ffffff;
+    }
+
+    .login-submit {
+        box-shadow: none;
+    }
+
+}

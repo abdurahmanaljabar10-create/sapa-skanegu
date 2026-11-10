@@ -1,0 +1,565 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0b0717">
+    <meta name="description" content="Pendaftaran akun siswa SAPA-SKANEGU SMKN 1 Dlanggu. Sampaikan aspirasi dan ciptakan lingkungan sekolah yang aman.">
+    <meta name="color-scheme" content="dark">
+
+    <title>Buat Akun | SAPA-SKANEGU</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <link rel="stylesheet" href="../css/pages/register.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script src="../js/main.js" defer></script>
+    <script src="../js/api.js" defer></script>
+    <script src="../js/validation.js" defer></script>
+    <script src="../js/pages/register.js" defer></script>
+</head>
+
+<body class="register-page">
+
+    <a href="#register-main" class="skip-link">
+        Lewati ke formulir pendaftaran
+    </a>
+
+    <div class="register-background" aria-hidden="true">
+        <div class="register-nebula nebula-one"></div>
+        <div class="register-nebula nebula-two"></div>
+        <div class="register-stars"></div>
+        <div class="register-grid"></div>
+
+        <div class="register-planet planet-one"></div>
+        <div class="register-planet planet-two"></div>
+        <div class="register-planet planet-three"></div>
+
+        <div class="register-particles">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+
+    <main class="register-layout" id="register-main">
+
+        <header class="register-topbar">
+
+            <a href="../index.html" class="register-brand" aria-label="SAPA-SKANEGU halaman utama">
+                <div class="register-brand-icon">
+                    <img
+                        src="../assets/images/logo/logo-smkn1dlanggu.svg"
+                        alt="Logo SMKN 1 Dlanggu"
+                    >
+                </div>
+
+                <div class="register-brand-identity">
+                    <strong>SAPA-SKANEGU</strong>
+                    <span>SMKN 1 Dlanggu</span>
+                </div>
+            </a>
+
+            <a href="../index.html" class="back-login">
+                <i data-lucide="arrow-left" aria-hidden="true"></i>
+                <span>Kembali ke Login</span>
+            </a>
+
+        </header>
+
+        <section class="register-content">
+
+            <div class="register-heading">
+
+                <div class="register-eyebrow">
+                    <span></span>
+                    RUANG AMAN UNTUK SEMUA
+                </div>
+
+                <h1>
+                    Mulai Perjalanan
+                    <span>Suaramu di Sini.</span>
+                </h1>
+
+                <p>
+                    Buat akun SAPA-SKANEGU untuk menyampaikan aspirasi,
+                    melaporkan permasalahan, dan ikut membangun
+                    lingkungan sekolah yang lebih aman, nyaman,
+                    dan bebas dari perundungan.
+                </p>
+
+                <div class="register-heading-decoration" aria-hidden="true">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+
+            </div>
+
+            <section class="register-card" aria-labelledby="register-title">
+
+                <div class="register-card-decoration" aria-hidden="true">
+                    <span></span>
+                    <span></span>
+                </div>
+
+                <div class="register-card-header">
+
+                    <div class="register-card-icon">
+                        <i data-lucide="user-round-plus" aria-hidden="true"></i>
+                    </div>
+
+                    <div>
+                        <h2 id="register-title">Buat Akun Baru</h2>
+                        <p>Lengkapi informasi berikut untuk mendaftar.</p>
+                    </div>
+
+                </div>
+
+                <div class="register-progress" aria-hidden="true">
+                    <div class="register-progress-track">
+                        <span></span>
+                    </div>
+                    <small>Informasi akun</small>
+                </div>
+
+                <form
+                    id="registerForm"
+                    data-register-form
+                    data-validate
+                    method="post"
+                    novalidate
+                >
+
+                    <div class="register-form-grid">
+
+                        <div class="register-field register-field-full form-field">
+
+                            <label for="fullName">
+                                Nama Lengkap
+                                <span aria-hidden="true">*</span>
+                            </label>
+
+                            <div class="register-input">
+                                <i data-lucide="user-round" aria-hidden="true"></i>
+
+                                <input
+                                    type="text"
+                                    id="fullName"
+                                    name="name"
+                                    placeholder="Masukkan nama lengkap sesuai data sekolah"
+                                    autocomplete="name"
+                                    minlength="3"
+                                    maxlength="100"
+                                    data-min-length="3"
+                                    data-max-length="100"
+                                    data-error-target="fullNameError"
+                                    aria-describedby="fullNameHint fullNameError"
+                                    required
+                                >
+                            </div>
+
+                            <span class="register-hint" id="fullNameHint">
+                                Gunakan nama lengkap sesuai data sekolah.
+                            </span>
+
+                            <small
+                                class="field-error"
+                                id="fullNameError"
+                                data-error-for="fullName"
+                                hidden
+                            ></small>
+
+                        </div>
+
+                        <div class="register-field register-field-full form-field">
+
+                            <label for="identifier">
+                                NIS / NISN
+                                <span aria-hidden="true">*</span>
+                            </label>
+
+                            <div class="register-input">
+                                <i data-lucide="id-card" aria-hidden="true"></i>
+
+                                <input
+                                    type="text"
+                                    id="identifier"
+                                    name="identifier"
+                                    placeholder="Masukkan nomor identitas siswa"
+                                    autocomplete="username"
+                                    minlength="3"
+                                    maxlength="30"
+                                    data-validate="identity"
+                                    data-min-length="3"
+                                    data-max-length="30"
+                                    data-error-target="identifierError"
+                                    aria-describedby="identifierHint identifierError"
+                                    required
+                                >
+                            </div>
+
+                            <span class="register-hint" id="identifierHint">
+                                Gunakan NIS atau NISN yang terdaftar di sekolah.
+                            </span>
+
+                            <small
+                                class="field-error"
+                                id="identifierError"
+                                data-error-for="identifier"
+                                hidden
+                            ></small>
+
+                        </div>
+
+                        <div class="register-field form-field">
+
+                            <label for="email">
+                                Email Aktif
+                                <span aria-hidden="true">*</span>
+                            </label>
+
+                            <div class="register-input">
+                                <i data-lucide="mail" aria-hidden="true"></i>
+
+                                <input
+                                    type="email"
+                                    id="email"
+                                    name="email"
+                                    placeholder="nama@email.com"
+                                    autocomplete="email"
+                                    maxlength="150"
+                                    data-validate="email"
+                                    data-error-target="emailError"
+                                    aria-describedby="emailError"
+                                    required
+                                >
+                            </div>
+
+                            <small
+                                class="field-error"
+                                id="emailError"
+                                data-error-for="email"
+                                hidden
+                            ></small>
+
+                        </div>
+
+                        <div class="register-field form-field">
+
+                            <label for="phone">
+                                Nomor HP / WhatsApp
+                                <span aria-hidden="true">*</span>
+                            </label>
+
+                            <div class="register-input">
+                                <i data-lucide="phone" aria-hidden="true"></i>
+
+                                <input
+                                    type="tel"
+                                    id="phone"
+                                    name="phone"
+                                    placeholder="08xxxxxxxxxx"
+                                    autocomplete="tel"
+                                    inputmode="tel"
+                                    maxlength="16"
+                                    data-validate="phone"
+                                    data-error-target="phoneError"
+                                    aria-describedby="phoneError"
+                                    required
+                                >
+                            </div>
+
+                            <small
+                                class="field-error"
+                                id="phoneError"
+                                data-error-for="phone"
+                                hidden
+                            ></small>
+
+                        </div>
+
+                        <div class="register-field form-field">
+
+                            <label for="password">
+                                Password
+                                <span aria-hidden="true">*</span>
+                            </label>
+
+                            <div class="register-input">
+                                <i data-lucide="lock-keyhole" aria-hidden="true"></i>
+
+                                <input
+                                    type="password"
+                                    id="password"
+                                    name="password"
+                                    placeholder="Buat password"
+                                    autocomplete="new-password"
+                                    minlength="8"
+                                    maxlength="255"
+                                    data-validate="password"
+                                    data-error-target="passwordError"
+                                    aria-describedby="passwordHint passwordError"
+                                    required
+                                >
+
+                                <button
+                                    type="button"
+                                    class="register-password-toggle"
+                                    data-password-toggle="password"
+                                    aria-label="Tampilkan password"
+                                    aria-controls="password"
+                                >
+                                    <i data-lucide="eye" aria-hidden="true"></i>
+                                </button>
+                            </div>
+
+                            <span class="register-hint" id="passwordHint">
+                                Minimal 8 karakter, mengandung huruf dan angka.
+                            </span>
+
+                            <small
+                                class="field-error"
+                                id="passwordError"
+                                data-error-for="password"
+                                hidden
+                            ></small>
+
+                        </div>
+
+                        <div class="register-field form-field">
+
+                            <label for="confirmPassword">
+                                Konfirmasi Password
+                                <span aria-hidden="true">*</span>
+                            </label>
+
+                            <div class="register-input">
+                                <i data-lucide="shield-check" aria-hidden="true"></i>
+
+                                <input
+                                    type="password"
+                                    id="confirmPassword"
+                                    name="password_confirmation"
+                                    placeholder="Ulangi password"
+                                    autocomplete="new-password"
+                                    maxlength="255"
+                                    data-match="#password"
+                                    data-error-target="confirmPasswordError"
+                                    aria-describedby="confirmPasswordError"
+                                    required
+                                >
+
+                                <button
+                                    type="button"
+                                    class="register-password-toggle"
+                                    data-password-toggle="confirmPassword"
+                                    aria-label="Tampilkan konfirmasi password"
+                                    aria-controls="confirmPassword"
+                                >
+                                    <i data-lucide="eye" aria-hidden="true"></i>
+                                </button>
+                            </div>
+
+                            <small
+                                class="field-error"
+                                id="confirmPasswordError"
+                                data-error-for="confirmPassword"
+                                hidden
+                            ></small>
+
+                        </div>
+
+                    </div>
+
+                    <div
+                        class="register-feedback"
+                        id="registerFeedback"
+                        role="alert"
+                        aria-live="polite"
+                        hidden
+                    ></div>
+
+                    <div class="register-field register-field-full form-field">
+
+                        <label class="register-agreement" for="agreement">
+
+                            <input
+                                type="checkbox"
+                                id="agreement"
+                                name="agreement"
+                                value="1"
+                                data-error-target="agreementError"
+                                required
+                            >
+
+                            <span>
+                                Saya menyetujui
+                                <a href="general/terms.html">
+                                    Ketentuan Penggunaan
+                                </a>
+                                dan
+                                <a href="general/privacy-policy.html">
+                                    Kebijakan Privasi
+                                </a>
+                                SAPA-SKANEGU.
+                            </span>
+
+                        </label>
+
+                        <small
+                            class="field-error"
+                            id="agreementError"
+                            data-error-for="agreement"
+                            hidden
+                        ></small>
+
+                    </div>
+
+                    <button
+                        type="submit"
+                        class="register-submit"
+                        id="registerButton"
+                    >
+                        <span class="register-submit-label">
+                            Daftar Sekarang
+                        </span>
+
+                        <i data-lucide="arrow-up-right" aria-hidden="true"></i>
+
+                        <span
+                            class="register-submit-loader"
+                            aria-hidden="true"
+                            hidden
+                        ></span>
+                    </button>
+
+                    <p class="register-required-note">
+                        <span aria-hidden="true">*</span>
+                        Wajib diisi.
+                    </p>
+
+                </form>
+
+                <div class="register-security">
+
+                    <div class="register-security-icon">
+                        <i data-lucide="shield-check" aria-hidden="true"></i>
+                    </div>
+
+                    <p>
+                        Pendaftaran ini ditujukan untuk siswa.
+                        Identitas akan diverifikasi oleh sistem.
+                        Role akun ditentukan berdasarkan data dan
+                        kewenangan yang telah ditetapkan sekolah.
+                        Pengguna tidak dapat memilih atau mengubah
+                        role secara mandiri.
+                    </p>
+
+                </div>
+
+                <div class="register-login">
+
+                    <span>Sudah memiliki akun?</span>
+
+                    <a href="../index.html">
+                        Masuk di sini
+                        <i data-lucide="arrow-right" aria-hidden="true"></i>
+                    </a>
+
+                </div>
+
+            </section>
+
+            <div class="register-assurance">
+
+                <div class="register-assurance-item">
+                    <i data-lucide="lock-keyhole" aria-hidden="true"></i>
+                    <span>Data terlindungi</span>
+                </div>
+
+                <span class="register-assurance-divider"></span>
+
+                <div class="register-assurance-item">
+                    <i data-lucide="heart-handshake" aria-hidden="true"></i>
+                    <span>Ruang aman bersama</span>
+                </div>
+
+            </div>
+
+        </section>
+
+        <footer class="register-footer">
+
+            <span>
+                © <span id="registerYear"></span> SAPA-SKANEGU
+            </span>
+
+            <span>
+                SMKN 1 Dlanggu · A Safer School Universe
+            </span>
+
+        </footer>
+
+    </main>
+
+    <div
+        class="notification-region"
+        id="notification-region"
+        aria-live="polite"
+        aria-atomic="false"
+    ></div>
+
+    <script>
+        (function () {
+            "use strict";
+
+            const yearElement = document.getElementById("registerYear");
+
+            if (yearElement) {
+                yearElement.textContent = new Date().getFullYear();
+            }
+
+            function initializeIcons() {
+                if (
+                    window.lucide &&
+                    typeof window.lucide.createIcons === "function"
+                ) {
+                    window.lucide.createIcons();
+                }
+            }
+
+            if (document.readyState === "loading") {
+                document.addEventListener(
+                    "DOMContentLoaded",
+                    initializeIcons,
+                    { once: true }
+                );
+            } else {
+                initializeIcons();
+            }
+
+            document.addEventListener(
+                "sapa:ready",
+                initializeIcons
+            );
+        })();
+    </script>
+
+</body>
+</html>

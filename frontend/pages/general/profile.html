@@ -1,0 +1,1252 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b0718">
+  <title>Profil Saya | SAPA-SKANEGU</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+  <style>
+    :root {
+      --bg: #0b0718;
+      --panel: #151027;
+      --panel-light: #1d1635;
+      --purple: #9b6cff;
+      --purple-light: #c3a4ff;
+      --cyan: #5de7f5;
+      --pink: #ff79c6;
+      --text: #f7f3ff;
+      --muted: #a79bbd;
+      --border: rgba(190, 153, 255, .17);
+      --sidebar-width: 265px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "DM Sans", sans-serif;
+      overflow-x: hidden;
+    }
+
+    button, input {
+      font: inherit;
+    }
+
+    button, a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .space-background {
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      pointer-events: none;
+      background:
+        radial-gradient(ellipse at 75% 15%, rgba(105, 54, 190, .20), transparent 35%),
+        radial-gradient(ellipse at 15% 85%, rgba(49, 93, 170, .13), transparent 35%),
+        #0b0718;
+    }
+
+    .space-background::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      opacity: .3;
+      background-image:
+        radial-gradient(2px 2px at 20% 30%, white 50%, transparent 100%),
+        radial-gradient(2px 2px at 70% 20%, white 50%, transparent 100%),
+        radial-gradient(1px 1px at 50% 65%, white 50%, transparent 100%),
+        radial-gradient(2px 2px at 85% 80%, white 50%, transparent 100%),
+        radial-gradient(1px 1px at 30% 85%, white 50%, transparent 100%);
+      background-size: 250px 250px;
+    }
+
+    .app-layout {
+      min-height: 100vh;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      z-index: 100;
+      width: var(--sidebar-width);
+      padding: 25px 18px;
+      display: flex;
+      flex-direction: column;
+      background: rgba(15, 10, 29, .96);
+      border-right: 1px solid var(--border);
+      overflow-y: auto;
+      transition: transform .3s ease;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 35px;
+    }
+
+    .brand-icon {
+      width: 45px;
+      height: 45px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      color: white;
+      font-size: 20px;
+      background: linear-gradient(135deg, #bd8aff, #7137d7);
+      box-shadow: 0 0 25px rgba(155, 108, 255, .35);
+    }
+
+    .brand-name {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: -.5px;
+    }
+
+    .brand-subtitle {
+      margin-top: 3px;
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .sidebar-profile {
+      padding: 15px;
+      margin-bottom: 25px;
+      border-radius: 15px;
+      background: linear-gradient(135deg, rgba(155, 108, 255, .17), rgba(93, 231, 245, .06));
+      border: 1px solid var(--border);
+    }
+
+    .sidebar-avatar {
+      width: 43px;
+      height: 43px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 10px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #a77aff, #6340ba);
+      font-size: 18px;
+    }
+
+    .sidebar-profile strong {
+      display: block;
+      font-size: 13px;
+    }
+
+    .sidebar-profile span {
+      display: block;
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .nav-label {
+      margin: 12px 0 10px;
+      color: #827493;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .sidebar-nav {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .nav-link {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 11px 12px;
+      border-radius: 10px;
+      color: #b9aecb;
+      font-size: 13px;
+      transition: .2s;
+    }
+
+    .nav-link i {
+      width: 18px;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    .nav-link:hover {
+      color: white;
+      background: rgba(155, 108, 255, .12);
+    }
+
+    .nav-link.active {
+      color: white;
+      background: linear-gradient(90deg, rgba(155, 108, 255, .28), rgba(155, 108, 255, .08));
+      border: 1px solid rgba(155, 108, 255, .2);
+    }
+
+    .sidebar-bottom {
+      margin-top: auto;
+      padding-top: 25px;
+    }
+
+    .help-card {
+      padding: 15px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: rgba(255, 255, 255, .035);
+    }
+
+    .help-card i {
+      color: var(--cyan);
+      font-size: 20px;
+    }
+
+    .help-card h4 {
+      margin: 10px 0 5px;
+      font-size: 13px;
+    }
+
+    .help-card p {
+      margin-bottom: 12px;
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.6;
+    }
+
+    .help-link {
+      color: var(--purple-light);
+      font-size: 12px;
+    }
+
+    .logout-button {
+      width: 100%;
+      margin-top: 15px;
+      padding: 11px;
+      border: 1px solid rgba(255, 115, 140, .2);
+      border-radius: 10px;
+      background: rgba(255, 115, 140, .08);
+      color: #ff9bad;
+      cursor: pointer;
+      transition: .2s;
+    }
+
+    .logout-button:hover {
+      background: rgba(255, 115, 140, .17);
+    }
+
+    /* Main */
+    .main-content {
+      min-height: 100vh;
+      margin-left: var(--sidebar-width);
+      padding: 25px 35px 45px;
+    }
+
+    .topbar {
+      min-height: 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+
+    .topbar-left {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .breadcrumb {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .breadcrumb strong {
+      color: white;
+    }
+
+    .topbar-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .icon-button {
+      width: 40px;
+      height: 40px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      color: white;
+      background: var(--panel);
+      cursor: pointer;
+    }
+
+    .icon-button:hover {
+      border-color: var(--purple);
+      color: var(--purple-light);
+    }
+
+    .menu-toggle {
+      display: none;
+    }
+
+    /* Hero */
+    .profile-hero {
+      position: relative;
+      min-height: 205px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 35px 40px;
+      margin-bottom: 28px;
+      overflow: hidden;
+      border: 1px solid rgba(174, 132, 255, .25);
+      border-radius: 22px;
+      background:
+        radial-gradient(circle at 85% 50%, rgba(130, 75, 230, .34), transparent 35%),
+        linear-gradient(110deg, #21143e, #17112d 65%, #151027);
+    }
+
+    .profile-hero::after {
+      content: "";
+      position: absolute;
+      width: 260px;
+      height: 260px;
+      right: 10%;
+      top: -130px;
+      border: 1px solid rgba(194, 164, 255, .18);
+      border-radius: 50%;
+      box-shadow: 0 0 0 30px rgba(194, 164, 255, .025), 0 0 0 60px rgba(194, 164, 255, .025);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 570px;
+    }
+
+    .hero-eyebrow {
+      color: var(--cyan);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .profile-hero h1 {
+      margin: 12px 0 9px;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: clamp(26px, 3vw, 36px);
+    }
+
+    .profile-hero p {
+      max-width: 480px;
+      color: #bcb0d2;
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    .hero-illustration {
+      position: relative;
+      z-index: 2;
+      width: 125px;
+      height: 125px;
+      flex-shrink: 0;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(195, 164, 255, .4);
+      border-radius: 50%;
+      background: rgba(155, 108, 255, .13);
+      box-shadow: 0 0 45px rgba(155, 108, 255, .18);
+    }
+
+    .hero-illustration i {
+      color: var(--purple-light);
+      font-size: 48px;
+    }
+
+    /* Profile layout */
+    .profile-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.7fr) minmax(250px, .8fr);
+      align-items: start;
+      gap: 22px;
+    }
+
+    .profile-main-column,
+    .profile-side-column {
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+      min-width: 0;
+    }
+
+    .profile-card {
+      padding: 25px;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background: linear-gradient(145deg, rgba(29, 22, 53, .96), rgba(17, 13, 32, .96));
+      box-shadow: 0 15px 40px rgba(0, 0, 0, .12);
+    }
+
+    .card-heading {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 22px;
+    }
+
+    .card-heading h2 {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 17px;
+    }
+
+    .card-heading p {
+      margin-top: 5px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .heading-icon {
+      width: 39px;
+      height: 39px;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      color: var(--purple-light);
+      background: rgba(155, 108, 255, .15);
+    }
+
+    .identity-section {
+      display: flex;
+      align-items: center;
+      gap: 17px;
+      padding: 17px;
+      margin-bottom: 25px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: rgba(155, 108, 255, .055);
+    }
+
+    .profile-avatar {
+      width: 65px;
+      height: 65px;
+      flex-shrink: 0;
+      display: grid;
+      place-items: center;
+      border: 2px solid rgba(195, 164, 255, .65);
+      border-radius: 50%;
+      color: white;
+      background: linear-gradient(135deg, #a779ff, #5433a1);
+      font-size: 25px;
+    }
+
+    .identity-info h3 {
+      margin-bottom: 5px;
+      font-size: 16px;
+    }
+
+    .identity-info p {
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .profile-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 9px;
+      border-radius: 20px;
+      color: #8ce8c0;
+      background: rgba(80, 220, 155, .1);
+      font-size: 10px;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .form-group {
+      min-width: 0;
+    }
+
+    .form-group.full-width {
+      grid-column: 1 / -1;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      color: #d9d0e8;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .form-group input {
+      width: 100%;
+      height: 45px;
+      padding: 0 13px;
+      outline: none;
+      border: 1px solid rgba(190, 153, 255, .18);
+      border-radius: 10px;
+      color: white;
+      background: rgba(8, 6, 18, .45);
+      font-size: 13px;
+      transition: .2s;
+    }
+
+    .form-group input:focus {
+      border-color: var(--purple);
+      box-shadow: 0 0 0 3px rgba(155, 108, 255, .1);
+    }
+
+    .form-group input::placeholder {
+      color: #746982;
+    }
+
+    .form-note {
+      margin-top: 7px;
+      color: #8d819f;
+      font-size: 10px;
+    }
+
+    .form-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+      margin-top: 23px;
+    }
+
+    .button {
+      min-height: 42px;
+      padding: 0 17px;
+      border: 1px solid transparent;
+      border-radius: 10px;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: .2s;
+    }
+
+    .button-primary {
+      color: white;
+      background: linear-gradient(110deg, #9b6cff, #7041d4);
+      box-shadow: 0 5px 18px rgba(125, 77, 220, .2);
+    }
+
+    .button-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 22px rgba(125, 77, 220, .3);
+    }
+
+    .button-secondary {
+      color: #c8b9dc;
+      border-color: var(--border);
+      background: rgba(255, 255, 255, .04);
+    }
+
+    .button-secondary:hover {
+      background: rgba(255, 255, 255, .08);
+    }
+
+    .feedback {
+      display: none;
+      margin-top: 15px;
+      padding: 11px 13px;
+      border-radius: 9px;
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    .feedback.show {
+      display: block;
+    }
+
+    .feedback.success {
+      color: #8ce8c0;
+      border: 1px solid rgba(80, 220, 155, .2);
+      background: rgba(80, 220, 155, .08);
+    }
+
+    .feedback.error {
+      color: #ff9bad;
+      border: 1px solid rgba(255, 115, 140, .2);
+      background: rgba(255, 115, 140, .08);
+    }
+
+    /* Side cards */
+    .security-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .security-item:last-child {
+      border-bottom: 0;
+    }
+
+    .security-icon {
+      width: 36px;
+      height: 36px;
+      flex-shrink: 0;
+      display: grid;
+      place-items: center;
+      border-radius: 10px;
+      color: var(--cyan);
+      background: rgba(93, 231, 245, .1);
+    }
+
+    .security-item h4 {
+      margin-bottom: 5px;
+      font-size: 12px;
+    }
+
+    .security-item p {
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.6;
+    }
+
+    .account-status {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 17px;
+    }
+
+    .account-status-icon {
+      width: 43px;
+      height: 43px;
+      display: grid;
+      place-items: center;
+      border-radius: 13px;
+      color: #8ce8c0;
+      background: rgba(80, 220, 155, .1);
+      font-size: 19px;
+    }
+
+    .account-status strong {
+      display: block;
+      font-size: 13px;
+    }
+
+    .account-status span {
+      display: block;
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .privacy-card {
+      border-color: rgba(93, 231, 245, .18);
+      background: linear-gradient(145deg, rgba(23, 48, 62, .55), rgba(17, 13, 32, .95));
+    }
+
+    .privacy-card .heading-icon {
+      color: var(--cyan);
+      background: rgba(93, 231, 245, .1);
+    }
+
+    .privacy-card p {
+      color: #b5c5d2;
+      font-size: 12px;
+      line-height: 1.8;
+    }
+
+    .privacy-card a {
+      display: inline-block;
+      margin-top: 15px;
+      color: var(--cyan);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .page-footer {
+      padding: 30px 0 10px;
+      color: #756b86;
+      font-size: 11px;
+      text-align: center;
+    }
+
+    .page-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 90;
+      display: none;
+      background: rgba(0, 0, 0, .65);
+    }
+
+    .page-overlay.show {
+      display: block;
+    }
+
+    @media (max-width: 1100px) {
+      .profile-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .profile-side-column {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 760px) {
+      :root {
+        --sidebar-width: 265px;
+      }
+
+      .sidebar {
+        transform: translateX(-100%);
+      }
+
+      .sidebar.open {
+        transform: translateX(0);
+      }
+
+      .main-content {
+        margin-left: 0;
+        padding: 18px 16px 35px;
+      }
+
+      .menu-toggle {
+        display: grid;
+      }
+
+      .profile-hero {
+        min-height: 180px;
+        padding: 25px 22px;
+      }
+
+      .hero-illustration {
+        width: 80px;
+        height: 80px;
+      }
+
+      .hero-illustration i {
+        font-size: 32px;
+      }
+
+      .profile-hero p {
+        font-size: 12px;
+      }
+
+      .profile-card {
+        padding: 19px;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .profile-hero {
+        padding: 23px 18px;
+      }
+
+      .hero-illustration {
+        width: 55px;
+        height: 55px;
+      }
+
+      .hero-illustration i {
+        font-size: 24px;
+      }
+
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .form-group.full-width {
+        grid-column: auto;
+      }
+
+      .profile-side-column {
+        display: flex;
+      }
+
+      .form-actions {
+        flex-direction: column-reverse;
+      }
+
+      .form-actions button {
+        width: 100%;
+      }
+
+      .identity-section {
+        padding: 13px;
+      }
+
+      .breadcrumb {
+        font-size: 11px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body class="profile-page">
+
+  <div class="space-background"></div>
+
+  <div class="app-layout">
+
+    <aside class="sidebar" id="appSidebar">
+
+      <div class="brand">
+        <div class="brand-icon">
+          <i class="fa-solid fa-rocket"></i>
+        </div>
+        <div>
+          <div class="brand-name">SAPA-SKANEGU</div>
+          <div class="brand-subtitle">SMKN 1 Dlanggu</div>
+        </div>
+      </div>
+
+      <div class="sidebar-profile">
+        <div class="sidebar-avatar">
+          <i class="fa-solid fa-user"></i>
+        </div>
+        <strong>Pengguna SAPA</strong>
+        <span>Siswa</span>
+      </div>
+
+      <div class="nav-label">Menu Utama</div>
+
+      <nav class="sidebar-nav">
+        <a href="dashboard.html" class="nav-link">
+          <i class="fa-solid fa-house"></i>
+          Dashboard
+        </a>
+
+        <a href="aspirations.html" class="nav-link">
+          <i class="fa-solid fa-lightbulb"></i>
+          Aspirasi
+        </a>
+
+        <a href="complaints.html" class="nav-link">
+          <i class="fa-solid fa-comments"></i>
+          Pengaduan
+        </a>
+
+        <a href="bullying-report.html" class="nav-link">
+          <i class="fa-solid fa-shield-heart"></i>
+          Lapor Bullying
+        </a>
+
+        <a href="tracking.html" class="nav-link">
+          <i class="fa-solid fa-magnifying-glass-location"></i>
+          Lacak Laporan
+        </a>
+
+        <a href="history.html" class="nav-link">
+          <i class="fa-solid fa-clock-rotate-left"></i>
+          Riwayat
+        </a>
+
+        <a href="notifications.html" class="nav-link">
+          <i class="fa-solid fa-bell"></i>
+          Notifikasi
+        </a>
+      </nav>
+
+      <div class="nav-label">Lainnya</div>
+
+      <nav class="sidebar-nav">
+        <a href="education.html" class="nav-link">
+          <i class="fa-solid fa-book-open"></i>
+          Edukasi
+        </a>
+
+        <a href="help.html" class="nav-link">
+          <i class="fa-solid fa-circle-question"></i>
+          Pusat Bantuan
+        </a>
+
+        <a href="profile.html" class="nav-link active">
+          <i class="fa-solid fa-user"></i>
+          Profil Saya
+        </a>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <div class="help-card">
+          <i class="fa-solid fa-headset"></i>
+          <h4>Butuh Bantuan?</h4>
+          <p>Kami siap membantu kamu jika mengalami kendala.</p>
+          <a href="help.html" class="help-link">
+            Hubungi kami <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+        </div>
+
+        <button class="logout-button" id="logoutButton">
+          <i class="fa-solid fa-right-from-bracket"></i>
+          Keluar
+        </button>
+      </div>
+
+    </aside>
+
+    <div class="page-overlay" id="pageOverlay"></div>
+
+    <main class="main-content">
+
+      <header class="topbar">
+        <div class="topbar-left">
+          <button class="icon-button menu-toggle" id="menuToggle" aria-label="Buka menu">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+
+          <div class="breadcrumb">
+            Menu Utama / <strong>Profil Saya</strong>
+          </div>
+        </div>
+
+        <div class="topbar-actions">
+          <a href="notifications.html" class="icon-button" aria-label="Notifikasi">
+            <i class="fa-regular fa-bell"></i>
+          </a>
+        </div>
+      </header>
+
+      <section class="profile-hero">
+        <div class="hero-content">
+          <div class="hero-eyebrow">
+            <i class="fa-solid fa-satellite"></i>
+            PERSONAL SPACE
+          </div>
+
+          <h1>Profil Saya</h1>
+
+          <p>
+            Kelola informasi akun dan identitas kamu di SAPA-SKANEGU.
+            Pastikan informasi yang tercantum selalu sesuai.
+          </p>
+        </div>
+
+        <div class="hero-illustration">
+          <i class="fa-solid fa-user-astronaut"></i>
+        </div>
+      </section>
+
+      <div class="profile-layout">
+
+        <div class="profile-main-column">
+
+          <section class="profile-card">
+
+            <div class="card-heading">
+              <div>
+                <h2>Informasi Profil</h2>
+                <p>Informasi dasar akun kamu.</p>
+              </div>
+
+              <div class="heading-icon">
+                <i class="fa-solid fa-user-pen"></i>
+              </div>
+            </div>
+
+            <div class="identity-section">
+              <div class="profile-avatar" id="profileAvatar">
+                <i class="fa-solid fa-user"></i>
+              </div>
+
+              <div class="identity-info">
+                <h3 id="profileDisplayName">Pengguna SAPA</h3>
+                <p id="profileDisplayRole">Siswa</p>
+                <p id="profileDisplayId">ID: Belum tersedia</p>
+              </div>
+
+              <div class="profile-status">
+                <i class="fa-solid fa-circle-check"></i>
+                Aktif
+              </div>
+            </div>
+
+            <form id="profileForm">
+
+              <div class="form-grid">
+
+                <div class="form-group full-width">
+                  <label for="fullName">Nama Lengkap</label>
+                  <input
+                    type="text"
+                    id="fullName"
+                    name="fullName"
+                    placeholder="Masukkan nama lengkap"
+                    required
+                    maxlength="100"
+                  >
+                </div>
+
+                <div class="form-group">
+                  <label for="studentId">NIS / NIP</label>
+                  <input
+                    type="text"
+                    id="studentId"
+                    name="studentId"
+                    placeholder="Masukkan NIS / NIP"
+                    maxlength="30"
+                  >
+                </div>
+
+                <div class="form-group">
+                  <label for="className">Kelas</label>
+                  <input
+                    type="text"
+                    id="className"
+                    name="className"
+                    placeholder="Contoh: XII RPL 1"
+                    maxlength="50"
+                  >
+                </div>
+
+                <div class="form-group">
+                  <label for="email">Alamat Email</label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="nama@email.com"
+                  >
+                </div>
+
+                <div class="form-group">
+                  <label for="phone">Nomor Telepon</label>
+                  <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    placeholder="08xxxxxxxxxx"
+                    maxlength="20"
+                  >
+                </div>
+
+                <div class="form-group full-width">
+                  <label for="major">Program Keahlian</label>
+                  <input
+                    type="text"
+                    id="major"
+                    name="major"
+                    placeholder="Masukkan program keahlian"
+                    maxlength="100"
+                  >
+                  <div class="form-note">
+                    Contoh: Rekayasa Perangkat Lunak
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="feedback" id="profileFeedback" role="status"></div>
+
+              <div class="form-actions">
+                <button type="button" class="button button-secondary" id="resetProfile">
+                  <i class="fa-solid fa-rotate-left"></i>
+                  Reset
+                </button>
+
+                <button type="submit" class="button button-primary" id="saveProfile">
+                  <i class="fa-solid fa-floppy-disk"></i>
+                  Simpan Perubahan
+                </button>
+              </div>
+
+            </form>
+
+          </section>
+
+          <section class="profile-card">
+
+            <div class="card-heading">
+              <div>
+                <h2>Keamanan Akun</h2>
+                <p>Informasi mengenai keamanan akun.</p>
+              </div>
+
+              <div class="heading-icon">
+                <i class="fa-solid fa-shield-halved"></i>
+              </div>
+            </div>
+
+            <div class="security-item">
+              <div class="security-icon">
+                <i class="fa-solid fa-lock"></i>
+              </div>
+              <div>
+                <h4>Kata Sandi</h4>
+                <p>Jaga kerahasiaan kata sandi dan jangan membagikannya kepada orang lain.</p>
+              </div>
+            </div>
+
+            <div class="security-item">
+              <div class="security-icon">
+                <i class="fa-solid fa-id-card"></i>
+              </div>
+              <div>
+                <h4>Identitas Akun</h4>
+                <p>Gunakan akun pribadi dan jangan meminjamkan akses kepada pengguna lain.</p>
+              </div>
+            </div>
+
+            <div class="security-item">
+              <div class="security-icon">
+                <i class="fa-solid fa-right-from-bracket"></i>
+              </div>
+              <div>
+                <h4>Keluar dari Akun</h4>
+                <p>Selalu keluar dari akun setelah menggunakan perangkat bersama.</p>
+              </div>
+            </div>
+
+          </section>
+
+        </div>
+
+        <div class="profile-side-column">
+
+          <section class="profile-card">
+
+            <div class="card-heading">
+              <div>
+                <h2>Status Akun</h2>
+                <p>Ringkasan akun SAPA-SKANEGU.</p>
+              </div>
+            </div>
+
+            <div class="account-status">
+              <div class="account-status-icon">
+                <i class="fa-solid fa-circle-check"></i>
+              </div>
+
+              <div>
+                <strong>Akun Aktif</strong>
+                <span>Akun dapat digunakan.</span>
+              </div>
+            </div>
+
+            <div class="security-item">
+              <div class="security-icon">
+                <i class="fa-solid fa-user-tag"></i>
+              </div>
+              <div>
+                <h4>Jenis Pengguna</h4>
+                <p>Informasi peran ditentukan oleh sistem akun.</p>
+              </div>
+            </div>
+
+          </section>
+
+          <section class="profile-card privacy-card">
+
+            <div class="card-heading">
+              <div>
+                <h2>Privasi Data</h2>
+                <p>Perlindungan informasi pribadi.</p>
+              </div>
+
+              <div class="heading-icon">
+                <i class="fa-solid fa-shield-heart"></i>
+              </div>
+            </div>
+
+            <p>
+              Informasi profil dan laporan merupakan data yang perlu dilindungi.
+              Data pribadi tidak boleh ditampilkan secara publik. Pengaturan
+              akses dan perlindungan data harus diterapkan melalui sistem backend.
+            </p>
+
+            <a href="privacy-policy.html">
+              Pelajari kebijakan privasi
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
+          </section>
+
+        </div>
+
+      </div>
+
+      <footer class="page-footer">
+        <p>© 2026 SAPA-SKANEGU · SMKN 1 Dlanggu</p>
+        <p>Sistem Aspirasi dan Pelaporan Anti-Bullying</p>
+      </footer>
+
+    </main>
+
+  </div>
+
+  <script src="../js/pages/profile.js"></script>
+
+  <script>
+    const sidebar = document.getElementById("appSidebar");
+    const overlay = document.getElementById("pageOverlay");
+    const menuToggle = document.getElementById("menuToggle");
+    const sidebarClose = document.getElementById("sidebarClose");
+    const logoutButton = document.getElementById("logoutButton");
+
+    function openSidebar() {
+      sidebar.classList.add("open");
+      overlay.classList.add("show");
+    }
+
+    function closeSidebar() {
+      sidebar.classList.remove("open");
+      overlay.classList.remove("show");
+    }
+
+    menuToggle?.addEventListener("click", openSidebar);
+    overlay?.addEventListener("click", closeSidebar);
+    sidebarClose?.addEventListener("click", closeSidebar);
+
+    document.addEventListener("keydown", function(event) {
+      if (event.key === "Escape") {
+        closeSidebar();
+      }
+    });
+
+    logoutButton?.addEventListener("click", function() {
+      const confirmed = confirm("Apakah kamu yakin ingin keluar dari akun?");
+
+      if (confirmed) {
+        window.location.href = "../index.html";
+      }
+    });
+  </script>
+
+</body>
+</html>

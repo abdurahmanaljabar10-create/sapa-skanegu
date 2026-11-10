@@ -1,0 +1,450 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#100a24">
+    <meta name="description" content="Pantau perkembangan aspirasi, pengaduan, dan laporan bullying di SMKN 1 Dlanggu.">
+
+    <title>Lacak Laporan | SAPA-SKANEGU</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/pages/tracking.css">
+</head>
+
+<body class="tracking-page">
+
+    <div class="app-layout">
+
+        <aside class="app-sidebar" id="appSidebar">
+
+            <div class="sidebar-brand">
+                <a href="dashboard.html" class="brand-link">
+                    <div class="brand-logo">
+                        <i class="fa-solid fa-rocket"></i>
+                    </div>
+
+                    <div class="brand-text">
+                        <h2>SAPA-SKANEGU</h2>
+                        <span>SMKN 1 Dlanggu</span>
+                    </div>
+                </a>
+
+                <button class="sidebar-close" id="sidebarClose" aria-label="Tutup menu">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <div class="sidebar-profile">
+                <div class="profile-avatar">
+                    <i class="fa-solid fa-user-astronaut"></i>
+                </div>
+
+                <div class="profile-information">
+                    <strong>Pengguna SAPA</strong>
+                    <span>Siswa</span>
+                </div>
+
+                <i class="fa-solid fa-circle-check profile-status"></i>
+            </div>
+
+            <div class="sidebar-menu">
+
+                <p class="sidebar-heading">MENU UTAMA</p>
+
+                <nav class="sidebar-navigation">
+
+                    <a href="dashboard.html" class="nav-link">
+                        <span class="nav-icon"><i class="fa-solid fa-house"></i></span>
+                        <span>Dashboard</span>
+                    </a>
+
+                    <a href="aspirations.html" class="nav-link">
+                        <span class="nav-icon"><i class="fa-solid fa-lightbulb"></i></span>
+                        <span>Aspirasi</span>
+                    </a>
+
+                    <a href="complaints.html" class="nav-link">
+                        <span class="nav-icon"><i class="fa-solid fa-comments"></i></span>
+                        <span>Pengaduan</span>
+                    </a>
+
+                    <a href="bullying-report.html" class="nav-link">
+                        <span class="nav-icon"><i class="fa-solid fa-shield-heart"></i></span>
+                        <span>Lapor Bullying</span>
+                    </a>
+
+                    <a href="tracking.html" class="nav-link active" aria-current="page">
+                        <span class="nav-icon"><i class="fa-solid fa-route"></i></span>
+                        <span>Lacak Laporan</span>
+                        <span class="nav-indicator"></span>
+                    </a>
+
+                    <a href="history.html" class="nav-link">
+                        <span class="nav-icon"><i class="fa-solid fa-clock-rotate-left"></i></span>
+                        <span>Riwayat</span>
+                    </a>
+
+                    <a href="notifications.html" class="nav-link">
+                        <span class="nav-icon"><i class="fa-solid fa-bell"></i></span>
+                        <span>Notifikasi</span>
+                    </a>
+
+                </nav>
+
+                <p class="sidebar-heading">LAINNYA</p>
+
+                <nav class="sidebar-navigation">
+
+                    <a href="education.html" class="nav-link">
+                        <span class="nav-icon"><i class="fa-solid fa-book-open"></i></span>
+                        <span>Edukasi</span>
+                    </a>
+
+                    <a href="faq.html" class="nav-link">
+                        <span class="nav-icon"><i class="fa-solid fa-circle-question"></i></span>
+                        <span>Pusat Bantuan</span>
+                    </a>
+
+                    <a href="profile.html" class="nav-link">
+                        <span class="nav-icon"><i class="fa-solid fa-user"></i></span>
+                        <span>Profil Saya</span>
+                    </a>
+
+                </nav>
+
+            </div>
+
+            <div class="sidebar-bottom">
+
+                <div class="sidebar-help">
+                    <div class="help-icon">
+                        <i class="fa-solid fa-headset"></i>
+                    </div>
+
+                    <div>
+                        <strong>Butuh Bantuan?</strong>
+                        <p>Kami siap membantu kamu.</p>
+                        <a href="help.html">
+                            Hubungi kami <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <button class="logout-button" id="logoutButton">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span>Keluar</span>
+                </button>
+
+            </div>
+
+        </aside>
+
+        <div class="page-overlay" id="pageOverlay"></div>
+
+        <main class="main-content">
+
+            <header class="topbar">
+
+                <div class="topbar-left">
+                    <button class="menu-toggle" id="menuToggle" aria-label="Buka menu">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+
+                    <div class="breadcrumb">
+                        <span>Menu</span>
+                        <i class="fa-solid fa-chevron-right"></i>
+                        <strong>Lacak Laporan</strong>
+                    </div>
+                </div>
+
+                <div class="topbar-right">
+
+                    <a href="notifications.html" class="topbar-icon" aria-label="Notifikasi">
+                        <i class="fa-regular fa-bell"></i>
+                        <span class="notification-dot"></span>
+                    </a>
+
+                    <a href="profile.html" class="topbar-user">
+                        <div class="topbar-avatar">
+                            <i class="fa-solid fa-user-astronaut"></i>
+                        </div>
+
+                        <div class="topbar-user-info">
+                            <strong>Pengguna</strong>
+                            <span>Akun Saya</span>
+                        </div>
+
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </a>
+
+                </div>
+
+            </header>
+
+            <div class="page-content">
+
+                <section class="tracking-hero">
+
+                    <div class="hero-decoration hero-orbit"></div>
+                    <div class="hero-decoration hero-orbit-two"></div>
+                    <div class="hero-decoration hero-star">
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+
+                    <div class="tracking-hero-content">
+
+                        <div class="hero-eyebrow">
+                            <i class="fa-solid fa-satellite-dish"></i>
+                            SISTEM PELACAKAN SAPA-SKANEGU
+                        </div>
+
+                        <h1>
+                            Setiap Laporan
+                            <span>Punya Perjalanan.</span>
+                        </h1>
+
+                        <p>
+                            Pantau perkembangan aspirasi, pengaduan, dan laporan yang telah
+                            kamu sampaikan kepada pihak sekolah.
+                        </p>
+
+                        <div class="hero-information">
+                            <i class="fa-solid fa-circle-info"></i>
+                            Gunakan nomor tiket untuk mencari laporan.
+                        </div>
+
+                    </div>
+
+                    <div class="tracking-hero-illustration">
+                        <div class="illustration-orbit orbit-one"></div>
+                        <div class="illustration-orbit orbit-two"></div>
+
+                        <div class="illustration-planet">
+                            <i class="fa-solid fa-satellite"></i>
+                        </div>
+
+                        <div class="floating-star star-one">
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+
+                        <div class="floating-star star-two">
+                            <i class="fa-solid fa-sparkles"></i>
+                        </div>
+                    </div>
+
+                </section>
+
+                <section class="tracking-search-section">
+
+                    <div class="section-heading">
+                        <div>
+                            <span class="section-label">TRACK YOUR REPORT</span>
+                            <h2>Temukan Laporanmu</h2>
+                            <p>Masukkan nomor tiket untuk melihat perkembangan laporan.</p>
+                        </div>
+
+                        <div class="search-heading-icon">
+                            <i class="fa-solid fa-magnifying-glass-location"></i>
+                        </div>
+                    </div>
+
+                    <div class="tracking-search-card">
+
+                        <div class="search-card-heading">
+                            <div class="search-card-icon">
+                                <i class="fa-solid fa-ticket"></i>
+                            </div>
+
+                            <div>
+                                <h3>Nomor Tiket Laporan</h3>
+                                <p>Contoh format: SAPA-2026-0001</p>
+                            </div>
+                        </div>
+
+                        <form id="trackingForm" class="tracking-form">
+
+                            <div class="search-input-wrapper">
+                                <i class="fa-solid fa-hashtag"></i>
+
+                                <input
+                                    type="text"
+                                    id="ticketNumber"
+                                    name="ticketNumber"
+                                    placeholder="Masukkan nomor tiket laporan"
+                                    autocomplete="off"
+                                    maxlength="30"
+                                    required
+                                >
+
+                                <button type="button" id="clearSearch" class="clear-search" aria-label="Hapus pencarian">
+                                    <i class="fa-solid fa-xmark"></i>
+                                </button>
+                            </div>
+
+                            <button type="submit" id="searchButton" class="search-button">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                                Cari Laporan
+                            </button>
+
+                        </form>
+
+                        <div id="searchFeedback" class="search-feedback" aria-live="polite"></div>
+
+                        <div class="search-note">
+                            <i class="fa-solid fa-lock"></i>
+                            Informasi laporan ditujukan kepada pelapor dan pihak sekolah yang berwenang.
+                        </div>
+
+                    </div>
+
+                </section>
+
+                <section class="tracking-result" id="trackingResult" hidden>
+
+                    <div class="result-header">
+
+                        <div>
+                            <span class="section-label">REPORT OVERVIEW</span>
+                            <h2>Perjalanan Laporan</h2>
+                            <p>Berikut perkembangan laporan berdasarkan nomor tiket.</p>
+                        </div>
+
+                        <span class="simulation-badge">
+                            <i class="fa-solid fa-flask"></i>
+                            DATA SIMULASI
+                        </span>
+
+                    </div>
+
+                    <div class="result-summary-card">
+
+                        <div class="result-summary-top">
+
+                            <div class="result-ticket-icon">
+                                <i class="fa-solid fa-file-circle-check"></i>
+                            </div>
+
+                            <div class="result-status-wrapper">
+                                <span>Status Laporan</span>
+                                <strong id="resultStatus">Dalam Proses</strong>
+                            </div>
+
+                        </div>
+
+                        <div class="result-details-grid">
+
+                            <div class="result-detail">
+                                <span>Nomor Tiket</span>
+                                <strong id="resultTicket">-</strong>
+                            </div>
+
+                            <div class="result-detail">
+                                <span>Jenis Laporan</span>
+                                <strong id="resultType">-</strong>
+                            </div>
+
+                            <div class="result-detail">
+                                <span>Tanggal Pengajuan</span>
+                                <strong id="resultDate">-</strong>
+                            </div>
+
+                        </div>
+
+                        <div class="result-report-description">
+                            <h3 id="resultTitle">Judul Laporan</h3>
+                            <p id="resultDescription">Deskripsi laporan.</p>
+                        </div>
+
+                    </div>
+
+                    <div class="timeline-card">
+
+                        <div class="timeline-heading">
+                            <div>
+                                <h3><i class="fa-solid fa-route"></i> Timeline Laporan</h3>
+                                <p>Ikuti setiap tahapan penanganan laporanmu.</p>
+                            </div>
+                        </div>
+
+                        <div class="tracking-timeline" id="trackingTimeline"></div>
+
+                    </div>
+
+                </section>
+
+                <section class="tracking-empty" id="trackingEmpty">
+
+                    <div class="empty-illustration">
+                        <div class="empty-orbit"></div>
+                        <div class="empty-planet">
+                            <i class="fa-solid fa-satellite"></i>
+                        </div>
+                        <div class="empty-star">
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                    </div>
+
+                    <h3>Perjalanan Laporanmu Menanti</h3>
+
+                    <p>
+                        Masukkan nomor tiket pada kolom pencarian untuk melihat
+                        informasi dan perkembangan laporan.
+                    </p>
+
+                </section>
+
+                <section class="tracking-help-card">
+
+                    <div class="tracking-help-icon">
+                        <i class="fa-solid fa-circle-question"></i>
+                    </div>
+
+                    <div class="tracking-help-content">
+                        <h3>Belum Menemukan Nomor Tiket?</h3>
+                        <p>
+                            Jika mengalami kesulitan, kunjungi pusat bantuan
+                            untuk mendapatkan informasi lebih lanjut.
+                        </p>
+                    </div>
+
+                    <a href="help.html" class="tracking-help-link">
+                        Pusat Bantuan
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+
+                </section>
+
+                <footer class="page-footer">
+                    <p>
+                        &copy; 2026 SAPA-SKANEGU.
+                        <span>SMKN 1 Dlanggu.</span>
+                    </p>
+
+                    <div class="footer-links">
+                        <a href="privacy-policy.html">Privasi</a>
+                        <a href="terms.html">Ketentuan</a>
+                    </div>
+                </footer>
+
+            </div>
+
+        </main>
+
+    </div>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/navigation.js"></script>
+    <script src="../js/pages/tracking.js"></script>
+
+</body>
+</html>
