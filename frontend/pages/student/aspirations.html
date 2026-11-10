@@ -1,0 +1,555 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#100b25">
+    <meta name="description" content="Sampaikan ide, saran, dan aspirasi melalui SAPA-SKANEGU.">
+    <title>Aspirasi Siswa | SAPA-SKANEGU</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/pages/aspirations.css">
+</head>
+
+<body class="dashboard-page aspirations-page">
+
+    <div class="space-background">
+        <div class="stars stars-one"></div>
+        <div class="stars stars-two"></div>
+        <div class="nebula nebula-one"></div>
+        <div class="nebula nebula-two"></div>
+        <div class="planet planet-one"></div>
+        <div class="planet planet-two"></div>
+    </div>
+
+    <div class="dashboard-layout">
+
+        <aside class="sidebar" id="sidebar">
+
+            <a href="dashboard.html" class="brand">
+                <div class="brand-logo">
+                    <i class="fa-solid fa-shield-heart"></i>
+                </div>
+                <div class="brand-text">
+                    <strong>SAPA-SKANEGU</strong>
+                    <span>Safe Space for Everyone</span>
+                </div>
+            </a>
+
+            <div class="sidebar-profile">
+                <div class="profile-avatar">
+                    <i class="fa-solid fa-user-astronaut"></i>
+                </div>
+                <div class="profile-info">
+                    <strong data-user-name>Nama Siswa</strong>
+                    <span data-user-role>Siswa</span>
+                </div>
+                <span class="online-indicator"></span>
+            </div>
+
+            <div class="sidebar-label">MENU UTAMA</div>
+
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="nav-item">
+                    <i class="fa-solid fa-house"></i>
+                    <span>Dashboard</span>
+                </a>
+
+                <a href="aspirations.html" class="nav-item active">
+                    <i class="fa-regular fa-lightbulb"></i>
+                    <span>Aspirasi</span>
+                    <span class="active-indicator"></span>
+                </a>
+
+                <a href="complaints.html" class="nav-item">
+                    <i class="fa-regular fa-message"></i>
+                    <span>Pengaduan</span>
+                </a>
+
+                <a href="bullying-report.html" class="nav-item">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <span>Lapor Bullying</span>
+                    <span class="nav-badge">Penting</span>
+                </a>
+
+                <a href="tracking.html" class="nav-item">
+                    <i class="fa-solid fa-location-crosshairs"></i>
+                    <span>Pelacakan Laporan</span>
+                </a>
+
+                <a href="history.html" class="nav-item">
+                    <i class="fa-solid fa-clock-rotate-left"></i>
+                    <span>Riwayat</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-label">LAINNYA</div>
+
+            <nav class="sidebar-nav">
+                <a href="notifications.html" class="nav-item">
+                    <i class="fa-regular fa-bell"></i>
+                    <span>Notifikasi</span>
+                </a>
+
+                <a href="education.html" class="nav-item">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                    <span>Pusat Edukasi</span>
+                </a>
+
+                <a href="profile.html" class="nav-item">
+                    <i class="fa-regular fa-user"></i>
+                    <span>Profil Saya</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <div class="sidebar-help-card">
+                    <div class="help-icon">
+                        <i class="fa-solid fa-headset"></i>
+                    </div>
+                    <strong>Butuh Bantuan?</strong>
+                    <p>Temukan jawaban dan bantuan untukmu.</p>
+                    <a href="help.html">Pusat Bantuan <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+
+                <a href="../index.html" class="nav-item logout-link" data-logout>
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                    <span>Keluar</span>
+                </a>
+            </div>
+
+        </aside>
+
+        <main class="main-content">
+
+            <header class="topbar">
+                <div class="topbar-left">
+                    <button class="menu-toggle" id="menuToggle" aria-label="Buka menu">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+
+                    <div class="breadcrumb">
+                        <a href="dashboard.html">Dashboard</a>
+                        <i class="fa-solid fa-chevron-right"></i>
+                        <strong>Aspirasi</strong>
+                    </div>
+                </div>
+
+                <div class="topbar-actions">
+                    <div class="date-display">
+                        <i class="fa-regular fa-calendar"></i>
+                        <span id="currentDate">Memuat tanggal...</span>
+                    </div>
+
+                    <a href="notifications.html" class="topbar-icon" aria-label="Notifikasi">
+                        <i class="fa-regular fa-bell"></i>
+                    </a>
+
+                    <a href="profile.html" class="topbar-user">
+                        <div class="topbar-avatar">
+                            <i class="fa-solid fa-user"></i>
+                        </div>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </a>
+                </div>
+            </header>
+
+            <div class="dashboard-content aspiration-content">
+
+                <section class="aspiration-hero">
+                    <div class="aspiration-hero-content">
+                        <div class="aspiration-eyebrow">
+                            <i class="fa-solid fa-satellite"></i>
+                            YOUR VOICE MATTERS
+                        </div>
+
+                        <h1>Setiap Ide Punya <span>Cahaya.</span></h1>
+
+                        <p>
+                            Punya ide untuk sekolah yang lebih baik? Sampaikan aspirasimu.
+                            Karena perubahan besar selalu dimulai dari satu suara.
+                        </p>
+
+                        <div class="aspiration-hero-points">
+                            <span><i class="fa-solid fa-check-circle"></i> Sampaikan ide dengan bebas</span>
+                            <span><i class="fa-solid fa-lock"></i> Informasi dijaga sesuai hak akses</span>
+                        </div>
+                    </div>
+
+                    <div class="aspiration-hero-art">
+                        <div class="aspiration-orbit orbit-a"></div>
+                        <div class="aspiration-orbit orbit-b"></div>
+                        <div class="aspiration-art-glow"></div>
+
+                        <div class="idea-planet">
+                            <i class="fa-solid fa-lightbulb"></i>
+                        </div>
+
+                        <div class="idea-star star-one">✦</div>
+                        <div class="idea-star star-two">✧</div>
+                        <div class="idea-star star-three">✦</div>
+
+                        <div class="idea-caption">
+                            <i class="fa-solid fa-wand-magic-sparkles"></i>
+                            Ideas create change
+                        </div>
+                    </div>
+                </section>
+
+                <div class="aspiration-layout">
+
+                    <section class="aspiration-form-panel">
+
+                        <div class="aspiration-form-heading">
+                            <div>
+                                <span class="section-eyebrow">SUBMIT YOUR IDEA</span>
+                                <h2>Kirim Aspirasi</h2>
+                                <p>Isi formulir berikut dengan informasi yang jelas dan sopan.</p>
+                            </div>
+
+                            <div class="form-heading-icon">
+                                <i class="fa-regular fa-paper-plane"></i>
+                            </div>
+                        </div>
+
+                        <form id="aspirationForm" class="aspiration-form" novalidate>
+
+                            <div class="form-progress">
+                                <div class="progress-label">
+                                    <span>Formulir Aspirasi</span>
+                                    <span id="formProgressText">0% selesai</span>
+                                </div>
+                                <div class="progress-track">
+                                    <div class="progress-fill" id="formProgressBar"></div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="aspirationCategory">
+                                    Kategori Aspirasi <span>*</span>
+                                </label>
+
+                                <p class="field-description">
+                                    Pilih kategori yang paling sesuai dengan aspirasimu.
+                                </p>
+
+                                <div class="category-grid">
+                                    <label class="category-option">
+                                        <input type="radio" name="category" value="Fasilitas Sekolah" required>
+                                        <span class="category-card">
+                                            <span class="category-icon category-purple">
+                                                <i class="fa-solid fa-school"></i>
+                                            </span>
+                                            <strong>Fasilitas Sekolah</strong>
+                                            <small>Ruang kelas, toilet, sarana</small>
+                                        </span>
+                                    </label>
+
+                                    <label class="category-option">
+                                        <input type="radio" name="category" value="Lingkungan Sekolah" required>
+                                        <span class="category-card">
+                                            <span class="category-icon category-cyan">
+                                                <i class="fa-solid fa-leaf"></i>
+                                            </span>
+                                            <strong>Lingkungan Sekolah</strong>
+                                            <small>Kebersihan dan kenyamanan</small>
+                                        </span>
+                                    </label>
+
+                                    <label class="category-option">
+                                        <input type="radio" name="category" value="Pembelajaran" required>
+                                        <span class="category-card">
+                                            <span class="category-icon category-pink">
+                                                <i class="fa-solid fa-book-open"></i>
+                                            </span>
+                                            <strong>Pembelajaran</strong>
+                                            <small>Akademik dan kegiatan belajar</small>
+                                        </span>
+                                    </label>
+
+                                    <label class="category-option">
+                                        <input type="radio" name="category" value="Kegiatan Siswa" required>
+                                        <span class="category-card">
+                                            <span class="category-icon category-orange">
+                                                <i class="fa-solid fa-people-group"></i>
+                                            </span>
+                                            <strong>Kegiatan Siswa</strong>
+                                            <small>Organisasi dan ekstrakurikuler</small>
+                                        </span>
+                                    </label>
+
+                                    <label class="category-option">
+                                        <input type="radio" name="category" value="Keamanan dan Kenyamanan" required>
+                                        <span class="category-card">
+                                            <span class="category-icon category-red">
+                                                <i class="fa-solid fa-shield-heart"></i>
+                                            </span>
+                                            <strong>Keamanan</strong>
+                                            <small>Keamanan dan kenyamanan siswa</small>
+                                        </span>
+                                    </label>
+
+                                    <label class="category-option">
+                                        <input type="radio" name="category" value="Lainnya" required>
+                                        <span class="category-card">
+                                            <span class="category-icon category-blue">
+                                                <i class="fa-solid fa-ellipsis"></i>
+                                            </span>
+                                            <strong>Lainnya</strong>
+                                            <small>Ide dan masukan lainnya</small>
+                                        </span>
+                                    </label>
+                                </div>
+
+                                <small class="field-error" data-error="category"></small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="aspirationTitle">
+                                    Judul Aspirasi <span>*</span>
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="aspirationTitle"
+                                    name="title"
+                                    maxlength="100"
+                                    placeholder="Contoh: Penambahan tempat sampah di area sekolah"
+                                    required
+                                >
+
+                                <div class="input-footer">
+                                    <small class="field-error" data-error="title"></small>
+                                    <small class="character-count" data-count="title">0/100</small>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="aspirationDescription">
+                                    Isi Aspirasi <span>*</span>
+                                </label>
+
+                                <p class="field-description">
+                                    Jelaskan ide atau masukanmu secara rinci agar mudah dipahami.
+                                </p>
+
+                                <textarea
+                                    id="aspirationDescription"
+                                    name="description"
+                                    rows="6"
+                                    maxlength="1500"
+                                    placeholder="Tuliskan aspirasi, alasan, dan kondisi yang ingin kamu perbaiki..."
+                                    required
+                                ></textarea>
+
+                                <div class="input-footer">
+                                    <small class="field-error" data-error="description"></small>
+                                    <small class="character-count" data-count="description">0/1500</small>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="aspirationExpectation">
+                                    Harapan atau Solusi <span>*</span>
+                                </label>
+
+                                <p class="field-description">
+                                    Apa perubahan yang kamu harapkan dari aspirasi ini?
+                                </p>
+
+                                <textarea
+                                    id="aspirationExpectation"
+                                    name="expectation"
+                                    rows="4"
+                                    maxlength="800"
+                                    placeholder="Contoh: Saya berharap sekolah dapat menyediakan..."
+                                    required
+                                ></textarea>
+
+                                <div class="input-footer">
+                                    <small class="field-error" data-error="expectation"></small>
+                                    <small class="character-count" data-count="expectation">0/800</small>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="aspirationAttachment">
+                                    Lampiran <span class="optional-label">Opsional</span>
+                                </label>
+
+                                <p class="field-description">
+                                    Tambahkan gambar atau dokumen pendukung jika diperlukan.
+                                </p>
+
+                                <label class="upload-area" for="aspirationAttachment" id="uploadArea">
+                                    <input
+                                        type="file"
+                                        id="aspirationAttachment"
+                                        name="attachment"
+                                        accept="image/jpeg,image/png,image/webp,application/pdf"
+                                    >
+
+                                    <span class="upload-icon">
+                                        <i class="fa-solid fa-cloud-arrow-up"></i>
+                                    </span>
+
+                                    <strong>Unggah File Pendukung</strong>
+                                    <span>Klik untuk memilih atau pilih file dari perangkatmu.</span>
+                                    <small>Format JPG, PNG, WEBP, PDF. Maksimal 5 MB.</small>
+                                </label>
+
+                                <div class="selected-file" id="selectedFile" hidden>
+                                    <div class="selected-file-icon">
+                                        <i class="fa-solid fa-file-lines"></i>
+                                    </div>
+                                    <div class="selected-file-info">
+                                        <strong id="selectedFileName">Nama file</strong>
+                                        <span id="selectedFileSize">0 KB</span>
+                                    </div>
+                                    <button type="button" id="removeFile" aria-label="Hapus file">
+                                        <i class="fa-solid fa-xmark"></i>
+                                    </button>
+                                </div>
+
+                                <small class="field-error" data-error="attachment"></small>
+                            </div>
+
+                            <div class="privacy-notice">
+                                <div class="privacy-notice-icon">
+                                    <i class="fa-solid fa-lock"></i>
+                                </div>
+                                <div>
+                                    <strong>Privasi dan Kerahasiaan</strong>
+                                    <p>
+                                        Identitas dan informasi pribadimu tidak ditampilkan secara publik.
+                                        Akses terhadap informasi aspirasi mengikuti kewenangan petugas sekolah.
+                                        Baca <a href="privacy-policy.html">Kebijakan Privasi</a>.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <label class="agreement-option">
+                                <input type="checkbox" id="aspirationAgreement" name="agreement" required>
+                                <span class="custom-checkbox"></span>
+                                <span>
+                                    Saya memastikan informasi yang disampaikan benar,
+                                    relevan, dan menggunakan bahasa yang sopan.
+                                </span>
+                            </label>
+
+                            <small class="field-error" data-error="agreement"></small>
+
+                            <div class="form-feedback" id="aspirationFeedback" role="status" aria-live="polite" hidden></div>
+
+                            <div class="form-actions">
+                                <a href="dashboard.html" class="form-cancel">
+                                    <i class="fa-solid fa-arrow-left"></i>
+                                    Kembali
+                                </a>
+
+                                <button type="submit" class="form-submit" id="submitAspiration">
+                                    <i class="fa-solid fa-paper-plane"></i>
+                                    Kirim Aspirasi
+                                </button>
+                            </div>
+
+                        </form>
+                    </section>
+
+                    <aside class="aspiration-sidebar">
+
+                        <section class="aspiration-info-card">
+                            <div class="info-card-icon">
+                                <i class="fa-solid fa-lightbulb"></i>
+                            </div>
+                            <span class="section-eyebrow">DID YOU KNOW?</span>
+                            <h3>Satu Ide Bisa Membawa Perubahan.</h3>
+                            <p>
+                                Aspirasi membantu sekolah memahami kebutuhan siswa
+                                dan menemukan peluang untuk melakukan perbaikan.
+                            </p>
+                            <div class="info-decoration">✦</div>
+                        </section>
+
+                        <section class="aspiration-guide-card">
+                            <div class="guide-heading">
+                                <i class="fa-solid fa-compass"></i>
+                                <h3>Tips Menulis Aspirasi</h3>
+                            </div>
+
+                            <div class="guide-list">
+                                <div class="guide-item">
+                                    <span>01</span>
+                                    <div>
+                                        <strong>Gunakan Judul Jelas</strong>
+                                        <p>Buat judul yang menggambarkan inti ide.</p>
+                                    </div>
+                                </div>
+
+                                <div class="guide-item">
+                                    <span>02</span>
+                                    <div>
+                                        <strong>Jelaskan Kondisi</strong>
+                                        <p>Sampaikan masalah atau kebutuhan secara konkret.</p>
+                                    </div>
+                                </div>
+
+                                <div class="guide-item">
+                                    <span>03</span>
+                                    <div>
+                                        <strong>Berikan Solusi</strong>
+                                        <p>Sertakan saran yang realistis dan membangun.</p>
+                                    </div>
+                                </div>
+
+                                <div class="guide-item">
+                                    <span>04</span>
+                                    <div>
+                                        <strong>Gunakan Bahasa Sopan</strong>
+                                        <p>Hindari kata-kata yang menyerang pihak lain.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section class="aspiration-reminder-card">
+                            <i class="fa-solid fa-heart"></i>
+                            <h3>Berani Bersuara, Berani Berubah.</h3>
+                            <p>Setiap aspirasi yang membangun layak untuk didengar.</p>
+                        </section>
+
+                    </aside>
+                </div>
+
+                <footer class="dashboard-footer">
+                    <div class="footer-brand">
+                        <i class="fa-solid fa-shield-heart"></i>
+                        <strong>SAPA-SKANEGU</strong>
+                    </div>
+                    <p>Ruang aman untuk setiap suara. © 2026 SAPA-SKANEGU.</p>
+                    <div class="footer-links">
+                        <a href="faq.html">FAQ</a>
+                        <a href="privacy-policy.html">Privasi</a>
+                        <a href="terms.html">Ketentuan</a>
+                    </div>
+                </footer>
+
+            </div>
+        </main>
+    </div>
+
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/navigation.js"></script>
+    <script src="../js/pages/aspirations.js"></script>
+
+</body>
+</html>

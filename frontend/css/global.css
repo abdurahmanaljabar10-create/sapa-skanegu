@@ -1,0 +1,413 @@
+
+
+/* =========================================================
+   01. DESIGN TOKENS
+========================================================= */
+
+:root {
+    color-scheme: dark;
+
+    /* -----------------------------------------
+       COSMIC COLOR PALETTE
+    ----------------------------------------- */
+
+    --space-deep: #080413;
+    --space: #100824;
+    --space-light: #1b1034;
+    --space-soft: #241440;
+
+    --purple: #8755e8;
+    --purple-dark: #6339b8;
+    --purple-light: #c5a4ff;
+    --purple-pale: #e5d6ff;
+
+    --cyan: #55d9f5;
+    --cyan-light: #a1efff;
+
+    /* -----------------------------------------
+       TEXT COLORS
+    ----------------------------------------- */
+
+    --white: #ffffff;
+    --text-primary: #f8f5ff;
+    --text-secondary: #c1b5d5;
+    --text-muted: #9284aa;
+
+    /* -----------------------------------------
+       STATUS COLORS
+    ----------------------------------------- */
+
+    --success: #8de0bd;
+    --danger: #ff8f9b;
+    --warning: #ffd28b;
+    --info: #8ddcff;
+
+    /* -----------------------------------------
+       SURFACE COLORS
+    ----------------------------------------- */
+
+    --surface: rgba(35, 22, 61, 0.72);
+    --surface-strong: rgba(25, 15, 46, 0.94);
+    --surface-soft: rgba(255, 255, 255, 0.035);
+    --surface-hover: rgba(255, 255, 255, 0.065);
+
+    /* -----------------------------------------
+       BORDER COLORS
+    ----------------------------------------- */
+
+    --border: rgba(197, 164, 255, 0.17);
+    --border-light: rgba(197, 164, 255, 0.3);
+    --border-focus: rgba(85, 217, 245, 0.65);
+
+    /* -----------------------------------------
+       TYPOGRAPHY
+       Outfit and DM Sans are loaded in HTML.
+    ----------------------------------------- */
+
+    --font-body: "DM Sans", sans-serif;
+    --font-display: "Outfit", sans-serif;
+
+    --font-size-xs: 0.75rem;
+    --font-size-sm: 0.875rem;
+    --font-size-base: 1rem;
+    --font-size-lg: 1.125rem;
+    --font-size-xl: 1.25rem;
+
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+
+    /* -----------------------------------------
+       BORDER RADIUS
+    ----------------------------------------- */
+
+    --radius-xs: 6px;
+    --radius-sm: 10px;
+    --radius-md: 15px;
+    --radius-lg: 22px;
+    --radius-xl: 30px;
+    --radius-pill: 999px;
+
+    /* -----------------------------------------
+       SHADOWS
+    ----------------------------------------- */
+
+    --shadow-soft: 0 12px 35px rgba(0, 0, 0, 0.18);
+    --shadow-card: 0 25px 75px rgba(0, 0, 0, 0.3);
+    --shadow-purple: 0 0 30px rgba(135, 85, 232, 0.2);
+    --shadow-cyan: 0 0 25px rgba(85, 217, 245, 0.15);
+
+    /* -----------------------------------------
+       TRANSITIONS
+    ----------------------------------------- */
+
+    --ease-smooth: cubic-bezier(0.2, 0.8, 0.2, 1);
+
+    --transition-fast: 180ms ease;
+    --transition-normal: 300ms ease;
+    --transition-slow: 650ms ease;
+
+    /* -----------------------------------------
+       LAYOUT
+    ----------------------------------------- */
+
+    --page-width: 1320px;
+    --page-padding: clamp(20px, 5vw, 75px);
+
+    /* -----------------------------------------
+       ACCESSIBILITY
+    ----------------------------------------- */
+
+    --focus-outline: 3px solid var(--cyan);
+    --focus-offset: 3px;
+}
+
+
+/* =========================================================
+   02. DOCUMENT FOUNDATION
+========================================================= */
+
+html {
+    min-height: 100%;
+    background: var(--space-deep);
+    color-scheme: dark;
+    font-family: var(--font-body);
+    font-size: 16px;
+    scroll-behavior: smooth;
+    text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    min-width: 320px;
+    min-height: 100vh;
+    margin: 0;
+    color: var(--text-primary);
+    background: var(--space);
+    font-family: var(--font-body);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-normal);
+    line-height: 1.6;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+
+/* =========================================================
+   03. TYPOGRAPHY
+========================================================= */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin-top: 0;
+    color: var(--text-primary);
+    font-family: var(--font-display);
+    font-weight: var(--font-weight-bold);
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+}
+
+h1 {
+    font-size: clamp(2rem, 4vw, 3.5rem);
+}
+
+h2 {
+    font-size: clamp(1.65rem, 3vw, 2.5rem);
+}
+
+h3 {
+    font-size: clamp(1.25rem, 2vw, 1.75rem);
+}
+
+h4 {
+    font-size: 1.125rem;
+}
+
+h5 {
+    font-size: 1rem;
+}
+
+h6 {
+    font-size: 0.875rem;
+}
+
+p {
+    margin-top: 0;
+    color: var(--text-secondary);
+    line-height: 1.7;
+}
+
+small {
+    font-size: var(--font-size-sm);
+}
+
+strong,
+b {
+    color: var(--text-primary);
+    font-weight: var(--font-weight-semibold);
+}
+
+em,
+i {
+    font-style: italic;
+}
+
+
+/* =========================================================
+   04. LINKS
+========================================================= */
+
+a {
+    color: var(--purple-light);
+    text-decoration: none;
+    transition:
+        color var(--transition-fast),
+        opacity var(--transition-fast);
+}
+
+a:hover {
+    color: var(--cyan-light);
+}
+
+a:focus-visible {
+    outline: var(--focus-outline);
+    outline-offset: var(--focus-offset);
+    border-radius: var(--radius-xs);
+}
+
+
+/* =========================================================
+   05. FORM ELEMENTS
+========================================================= */
+
+button,
+input,
+textarea,
+select {
+    font: inherit;
+}
+
+button {
+    color: inherit;
+}
+
+input,
+textarea,
+select {
+    color: var(--text-primary);
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: var(--text-muted);
+    opacity: 0.85;
+}
+
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+    outline: var(--focus-outline);
+    outline-offset: var(--focus-offset);
+}
+
+button,
+a,
+input,
+textarea,
+select {
+    -webkit-tap-highlight-color: transparent;
+}
+
+
+/* =========================================================
+   06. TEXT SELECTION
+========================================================= */
+
+::selection {
+    color: var(--white);
+    background: rgba(135, 85, 232, 0.65);
+}
+
+::-moz-selection {
+    color: var(--white);
+    background: rgba(135, 85, 232, 0.65);
+}
+
+
+/* =========================================================
+   07. SHARED SCROLLBAR
+========================================================= */
+
+* {
+    scrollbar-width: thin;
+    scrollbar-color:
+        rgba(165, 127, 231, 0.5)
+        rgba(16, 8, 36, 0.5);
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(16, 8, 36, 0.5);
+}
+
+::-webkit-scrollbar-thumb {
+    border: 2px solid transparent;
+    border-radius: var(--radius-pill);
+    background: rgba(165, 127, 231, 0.5);
+    background-clip: padding-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--purple-light);
+    background-clip: padding-box;
+}
+
+
+/* =========================================================
+   08. ACCESSIBILITY UTILITIES
+========================================================= */
+
+.visually-hidden {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+}
+
+.skip-link {
+    position: fixed;
+    z-index: 10000;
+    top: 12px;
+    left: 12px;
+    padding: 12px 18px;
+    color: var(--white);
+    background: var(--space-light);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-sm);
+    transform: translateY(-150%);
+    transition: transform var(--transition-fast);
+}
+
+.skip-link:focus {
+    transform: translateY(0);
+}
+
+
+/* =========================================================
+   09. GLOBAL INTERACTION STATES
+========================================================= */
+
+[hidden] {
+    display: none !important;
+}
+
+:disabled {
+    cursor: not-allowed;
+}
+
+button,
+[role="button"] {
+    cursor: pointer;
+}
+
+button:disabled,
+[role="button"][aria-disabled="true"] {
+    opacity: 0.55;
+    cursor: not-allowed;
+}
+
+
+/* =========================================================
+   10. REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+

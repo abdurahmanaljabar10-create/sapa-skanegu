@@ -1,0 +1,478 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#100a24">
+    <meta name="description" content="Lihat riwayat aspirasi, pengaduan, dan laporan siswa SMKN 1 Dlanggu.">
+
+    <title>Riwayat Laporan | SAPA-SKANEGU</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/pages/history.css">
+</head>
+
+<body class="history-page">
+
+    <div class="app-layout">
+
+        <aside class="app-sidebar" id="appSidebar">
+
+            <div class="sidebar-brand">
+                <a href="dashboard.html" class="brand-link">
+                    <div class="brand-logo">
+                        <i class="fa-solid fa-rocket"></i>
+                    </div>
+
+                    <div class="brand-text">
+                        <h2>SAPA-SKANEGU</h2>
+                        <span>SMKN 1 Dlanggu</span>
+                    </div>
+                </a>
+
+                <button class="sidebar-close" id="sidebarClose" aria-label="Tutup menu">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <div class="sidebar-profile">
+                <div class="profile-avatar">
+                    <i class="fa-solid fa-user-astronaut"></i>
+                </div>
+
+                <div class="profile-information">
+                    <strong>Pengguna SAPA</strong>
+                    <span>Siswa</span>
+                </div>
+
+                <i class="fa-solid fa-circle-check profile-status"></i>
+            </div>
+
+            <div class="sidebar-menu">
+
+                <p class="sidebar-heading">MENU UTAMA</p>
+
+                <nav class="sidebar-navigation">
+
+                    <a href="dashboard.html" class="nav-link">
+                        <span class="nav-icon"><i class="fa-solid fa-house"></i></span>
+                        <span>Dashboard</span>
+                    </a>
+
+                    <a href="aspirations.html" class="nav-link">
+                        <span class="nav-icon"><i class="fa-solid fa-lightbulb"></i></span>
+                        <span>Aspirasi</span>
+                    </a>
+
+                    <a href="complaints.html" class="nav-link">
+                        <span class="nav-icon"><i class="fa-solid fa-comments"></i></span>
+                        <span>Pengaduan</span>
+                    </a>
+
+                    <a href="bullying-report.html" class="nav-link">
+                        <span class="nav-icon"><i class="fa-solid fa-shield-heart"></i></span>
+                        <span>Lapor Bullying</span>
+                    </a>
+
+                    <a href="tracking.html" class="nav-link">
+                        <span class="nav-icon"><i class="fa-solid fa-route"></i></span>
+                        <span>Lacak Laporan</span>
+                    </a>
+
+                    <a href="history.html" class="nav-link active" aria-current="page">
+                        <span class="nav-icon"><i class="fa-solid fa-clock-rotate-left"></i></span>
+                        <span>Riwayat</span>
+                        <span class="nav-indicator"></span>
+                    </a>
+
+                    <a href="notifications.html" class="nav-link">
+                        <span class="nav-icon"><i class="fa-solid fa-bell"></i></span>
+                        <span>Notifikasi</span>
+                    </a>
+
+                </nav>
+
+                <p class="sidebar-heading">LAINNYA</p>
+
+                <nav class="sidebar-navigation">
+
+                    <a href="education.html" class="nav-link">
+                        <span class="nav-icon"><i class="fa-solid fa-book-open"></i></span>
+                        <span>Edukasi</span>
+                    </a>
+
+                    <a href="faq.html" class="nav-link">
+                        <span class="nav-icon"><i class="fa-solid fa-circle-question"></i></span>
+                        <span>Pusat Bantuan</span>
+                    </a>
+
+                    <a href="profile.html" class="nav-link">
+                        <span class="nav-icon"><i class="fa-solid fa-user"></i></span>
+                        <span>Profil Saya</span>
+                    </a>
+
+                </nav>
+
+            </div>
+
+            <div class="sidebar-bottom">
+
+                <div class="sidebar-help">
+                    <div class="help-icon">
+                        <i class="fa-solid fa-headset"></i>
+                    </div>
+
+                    <div>
+                        <strong>Butuh Bantuan?</strong>
+                        <p>Kami siap membantu kamu.</p>
+                        <a href="help.html">
+                            Hubungi kami <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <button class="logout-button" id="logoutButton">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span>Keluar</span>
+                </button>
+
+            </div>
+
+        </aside>
+
+        <div class="page-overlay" id="pageOverlay"></div>
+
+        <main class="main-content">
+
+            <header class="topbar">
+
+                <div class="topbar-left">
+
+                    <button class="menu-toggle" id="menuToggle" aria-label="Buka menu">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+
+                    <div class="breadcrumb">
+                        <span>Menu</span>
+                        <i class="fa-solid fa-chevron-right"></i>
+                        <strong>Riwayat Laporan</strong>
+                    </div>
+
+                </div>
+
+                <div class="topbar-right">
+
+                    <a href="notifications.html" class="topbar-icon" aria-label="Notifikasi">
+                        <i class="fa-regular fa-bell"></i>
+                        <span class="notification-dot"></span>
+                    </a>
+
+                    <a href="profile.html" class="topbar-user">
+
+                        <div class="topbar-avatar">
+                            <i class="fa-solid fa-user-astronaut"></i>
+                        </div>
+
+                        <div class="topbar-user-info">
+                            <strong>Pengguna</strong>
+                            <span>Akun Saya</span>
+                        </div>
+
+                        <i class="fa-solid fa-chevron-down"></i>
+
+                    </a>
+
+                </div>
+
+            </header>
+
+            <div class="page-content">
+
+                <section class="history-hero">
+
+                    <div class="history-hero-decoration hero-orbit"></div>
+                    <div class="history-hero-decoration hero-orbit-two"></div>
+
+                    <div class="history-hero-content">
+
+                        <div class="hero-eyebrow">
+                            <i class="fa-solid fa-clock-rotate-left"></i>
+                            ARSIP PERJALANAN SAPA-SKANEGU
+                        </div>
+
+                        <h1>
+                            Semua Cerita
+                            <span>Tersimpan di Sini.</span>
+                        </h1>
+
+                        <p>
+                            Lihat kembali aspirasi, pengaduan, dan laporan yang pernah
+                            kamu sampaikan melalui SAPA-SKANEGU.
+                        </p>
+
+                        <div class="hero-information">
+                            <i class="fa-solid fa-shield-halved"></i>
+                            Riwayat ditujukan kepada pemilik akun dan pihak berwenang.
+                        </div>
+
+                    </div>
+
+                    <div class="history-hero-illustration">
+
+                        <div class="history-orbit orbit-one"></div>
+                        <div class="history-orbit orbit-two"></div>
+
+                        <div class="history-planet">
+                            <i class="fa-solid fa-folder-open"></i>
+                        </div>
+
+                        <div class="history-floating-star star-one">
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+
+                        <div class="history-floating-star star-two">
+                            <i class="fa-solid fa-sparkles"></i>
+                        </div>
+
+                    </div>
+
+                </section>
+
+                <section class="history-statistics">
+
+                    <div class="history-stat-card">
+
+                        <div class="history-stat-icon purple">
+                            <i class="fa-solid fa-layer-group"></i>
+                        </div>
+
+                        <div class="history-stat-info">
+                            <span>Total Laporan</span>
+                            <strong id="totalHistory">0</strong>
+                            <small>Seluruh riwayat</small>
+                        </div>
+
+                    </div>
+
+                    <div class="history-stat-card">
+
+                        <div class="history-stat-icon cyan">
+                            <i class="fa-solid fa-hourglass-half"></i>
+                        </div>
+
+                        <div class="history-stat-info">
+                            <span>Dalam Proses</span>
+                            <strong id="processingHistory">0</strong>
+                            <small>Menunggu tindak lanjut</small>
+                        </div>
+
+                    </div>
+
+                    <div class="history-stat-card">
+
+                        <div class="history-stat-icon green">
+                            <i class="fa-solid fa-circle-check"></i>
+                        </div>
+
+                        <div class="history-stat-info">
+                            <span>Selesai</span>
+                            <strong id="completedHistory">0</strong>
+                            <small>Sudah ditangani</small>
+                        </div>
+
+                    </div>
+
+                    <div class="history-stat-card">
+
+                        <div class="history-stat-icon pink">
+                            <i class="fa-solid fa-file-circle-exclamation"></i>
+                        </div>
+
+                        <div class="history-stat-info">
+                            <span>Menunggu</span>
+                            <strong id="waitingHistory">0</strong>
+                            <small>Belum ditinjau</small>
+                        </div>
+
+                    </div>
+
+                </section>
+
+                <section class="history-content-section">
+
+                    <div class="history-section-heading">
+
+                        <div>
+                            <span class="section-label">MY ACTIVITY</span>
+                            <h2>Riwayat Aktivitas</h2>
+                            <p>Kelola dan temukan kembali laporan yang pernah kamu buat.</p>
+                        </div>
+
+                        <div class="history-heading-icon">
+                            <i class="fa-solid fa-folder-tree"></i>
+                        </div>
+
+                    </div>
+
+                    <div class="history-toolbar">
+
+                        <div class="history-filter-tabs" role="group" aria-label="Filter kategori laporan">
+
+                            <button class="filter-tab active" type="button" data-filter="all">
+                                Semua
+                            </button>
+
+                            <button class="filter-tab" type="button" data-filter="aspirasi">
+                                <i class="fa-solid fa-lightbulb"></i>
+                                Aspirasi
+                            </button>
+
+                            <button class="filter-tab" type="button" data-filter="pengaduan">
+                                <i class="fa-solid fa-comments"></i>
+                                Pengaduan
+                            </button>
+
+                            <button class="filter-tab" type="button" data-filter="bullying">
+                                <i class="fa-solid fa-shield-heart"></i>
+                                Bullying
+                            </button>
+
+                        </div>
+
+                        <div class="history-search">
+
+                            <i class="fa-solid fa-magnifying-glass"></i>
+
+                            <input
+                                type="search"
+                                id="historySearch"
+                                placeholder="Cari judul atau nomor tiket..."
+                                autocomplete="off"
+                            >
+
+                            <button type="button" id="clearHistorySearch" aria-label="Hapus pencarian">
+                                <i class="fa-solid fa-xmark"></i>
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                    <div class="history-secondary-filter">
+
+                        <label for="statusFilter">Status laporan</label>
+
+                        <select id="statusFilter">
+                            <option value="all">Semua Status</option>
+                            <option value="menunggu">Menunggu</option>
+                            <option value="proses">Dalam Proses</option>
+                            <option value="selesai">Selesai</option>
+                            <option value="ditolak">Ditolak</option>
+                        </select>
+
+                        <span class="history-result-count" id="historyResultCount">
+                            0 laporan ditemukan
+                        </span>
+
+                    </div>
+
+                    <div class="history-list" id="historyList"></div>
+
+                    <div class="history-empty" id="historyEmpty">
+
+                        <div class="history-empty-illustration">
+                            <div class="empty-orbit"></div>
+                            <div class="empty-folder">
+                                <i class="fa-solid fa-folder-open"></i>
+                            </div>
+                            <div class="empty-star">
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                        </div>
+
+                        <h3>Belum Ada Riwayat Laporan</h3>
+
+                        <p>
+                            Riwayat aspirasi, pengaduan, dan laporanmu akan muncul
+                            di halaman ini setelah tersedia.
+                        </p>
+
+                        <a href="aspirations.html" class="history-empty-button">
+                            <i class="fa-solid fa-plus"></i>
+                            Buat Aspirasi
+                        </a>
+
+                    </div>
+
+                    <div class="history-pagination" id="historyPagination">
+
+                        <button type="button" id="previousPage" disabled>
+                            <i class="fa-solid fa-chevron-left"></i>
+                            Sebelumnya
+                        </button>
+
+                        <div class="pagination-pages" id="paginationPages">
+                            <button type="button" class="page-number active">1</button>
+                        </div>
+
+                        <button type="button" id="nextPage" disabled>
+                            Selanjutnya
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </button>
+
+                    </div>
+
+                </section>
+
+                <section class="history-information">
+
+                    <div class="history-info-icon">
+                        <i class="fa-solid fa-circle-info"></i>
+                    </div>
+
+                    <div class="history-info-content">
+                        <h3>Informasi Riwayat</h3>
+                        <p>
+                            Riwayat laporan berisi informasi aktivitas yang pernah
+                            kamu kirimkan. Informasi pribadi tidak ditampilkan secara
+                            terbuka dan pengelolaannya harus mengikuti kebijakan akses sekolah.
+                        </p>
+                    </div>
+
+                </section>
+
+                <footer class="page-footer">
+
+                    <p>
+                        &copy; 2026 SAPA-SKANEGU.
+                        <span>SMKN 1 Dlanggu.</span>
+                    </p>
+
+                    <div class="footer-links">
+                        <a href="privacy-policy.html">Privasi</a>
+                        <a href="terms.html">Ketentuan</a>
+                    </div>
+
+                </footer>
+
+            </div>
+
+        </main>
+
+    </div>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/navigation.js"></script>
+    <script src="../js/pages/history.js"></script>
+
+</body>
+</html>

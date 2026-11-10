@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0b0718">
+    <meta name="description" content="Pusat edukasi SAPA-SKANEGU tentang anti-bullying, kesehatan mental, dan keamanan digital.">
+
+    <title>Pusat Edukasi | SAPA-SKANEGU</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="../css/pages/education.css">
+
+    <!-- External JavaScript -->
+    <script src="../js/pages/education.js" defer></script>
+</head>
+
+<body class="education-page">
+
+    <!-- Background -->
+    <div class="space-background" aria-hidden="true"></div>
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="appSidebar" aria-label="Navigasi utama">
+
+        <div class="brand">
+            <div class="brand-icon">
+                <i class="fa-solid fa-rocket"></i>
+            </div>
+
+            <div>
+                <div class="brand-name">SAPA-SKANEGU</div>
+                <div class="brand-subtitle">SMKN 1 Dlanggu</div>
+            </div>
+        </div>
+
+        <!-- User Profile -->
+        <div class="sidebar-profile">
+            <div class="sidebar-avatar">
+                <i class="fa-solid fa-user"></i>
+            </div>
+
+            <strong>Pengguna SAPA</strong>
+            <span>Siswa</span>
+        </div>
+
+        <!-- Main Navigation -->
+        <div class="nav-label">Menu Utama</div>
+
+        <nav class="sidebar-nav">
+
+            <a href="dashboard.html" class="nav-link">
+                <i class="fa-solid fa-house"></i>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="aspirations.html" class="nav-link">
+                <i class="fa-solid fa-lightbulb"></i>
+                <span>Aspirasi</span>
+            </a>
+
+            <a href="complaints.html" class="nav-link">
+                <i class="fa-solid fa-comments"></i>
+                <span>Pengaduan</span>
+            </a>
+
+            <a href="bullying-report.html" class="nav-link">
+                <i class="fa-solid fa-shield-heart"></i>
+                <span>Lapor Bullying</span>
+            </a>
+
+            <a href="tracking.html" class="nav-link">
+                <i class="fa-solid fa-magnifying-glass-location"></i>
+                <span>Lacak Laporan</span>
+            </a>
+
+            <a href="history.html" class="nav-link">
+                <i class="fa-solid fa-clock-rotate-left"></i>
+                <span>Riwayat</span>
+            </a>
+
+            <a href="notifications.html" class="nav-link">
+                <i class="fa-solid fa-bell"></i>
+                <span>Notifikasi</span>
+            </a>
+
+        </nav>
+
+        <!-- Other Navigation -->
+        <div class="nav-label">Lainnya</div>
+
+        <nav class="sidebar-nav">
+
+            <a href="education.html" class="nav-link active" aria-current="page">
+                <i class="fa-solid fa-book-open"></i>
+                <span>Edukasi</span>
+            </a>
+
+            <a href="help.html" class="nav-link">
+                <i class="fa-solid fa-circle-question"></i>
+                <span>Pusat Bantuan</span>
+            </a>
+
+            <a href="profile.html" class="nav-link">
+                <i class="fa-solid fa-user"></i>
+                <span>Profil Saya</span>
+            </a>
+
+        </nav>
+
+        <!-- Sidebar Bottom -->
+        <div class="sidebar-bottom">
+
+            <div class="help-card">
+                <i class="fa-solid fa-headset"></i>
+
+                <h4>Butuh Bantuan?</h4>
+
+                <p>
+                    Kami siap membantu kamu jika mengalami kendala.
+                </p>
+
+                <a href="help.html" class="help-link">
+                    Hubungi kami
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+            </div>
+
+            <button type="button" class="logout-button" id="logoutButton">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                Keluar
+            </button>
+
+        </div>
+
+    </aside>
+
+    <!-- Mobile Overlay -->
+    <div class="page-overlay" id="pageOverlay"></div>
+
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+        <!-- Topbar -->
+        <header class="topbar">
+
+            <div class="topbar-left">
+
+                <button
+                    type="button"
+                    class="icon-button menu-toggle"
+                    id="menuToggle"
+                    aria-label="Buka menu navigasi"
+                    aria-controls="appSidebar"
+                    aria-expanded="false"
+                >
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+
+                <div class="breadcrumb">
+                    Lainnya
+                    <span>/</span>
+                    <strong>Pusat Edukasi</strong>
+                </div>
+
+            </div>
+
+            <div class="topbar-actions">
+
+                <a
+                    href="notifications.html"
+                    class="icon-button"
+                    aria-label="Buka notifikasi"
+                >
+                    <i class="fa-regular fa-bell"></i>
+                </a>
+
+            </div>
+
+        </header>
+
+
+        <!-- Education Hero -->
+        <section class="education-hero" aria-labelledby="educationTitle">
+
+            <div class="hero-content">
+
+                <div class="hero-eyebrow">
+                    <i class="fa-solid fa-satellite"></i>
+                    LEARN AND GROW
+                </div>
+
+                <h1 id="educationTitle">
+                    Ruang Belajar Aman
+                </h1>
+
+                <p>
+                    Temukan informasi, pengetahuan, dan panduan untuk
+                    membangun lingkungan sekolah yang sehat, aman,
+                    nyaman, dan bebas bullying.
+                </p>
+
+            </div>
+
+            <div class="hero-illustration" aria-hidden="true">
+                <i class="fa-solid fa-book-open-reader"></i>
+            </div>
+
+        </section>
+
+
+        <!-- Search -->
+        <section class="education-toolbar" aria-label="Pencarian materi">
+
+            <label class="search-box" for="educationSearch">
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+                <input
+                    type="search"
+                    id="educationSearch"
+                    placeholder="Cari materi edukasi..."
+                    autocomplete="off"
+                >
+
+            </label>
+
+            <span class="toolbar-label" id="articleCount" aria-live="polite">
+                6 materi tersedia
+            </span>
+
+        </section>
+
+
+        <!-- Categories -->
+        <section class="education-categories" aria-labelledby="categoryTitle">
+
+            <div class="section-heading">
+
+                <div>
+                    <h2 id="categoryTitle">
+                        Jelajahi Kategori
+                    </h2>
+
+                    <p>
+                        Pilih topik yang ingin kamu pelajari.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="category-grid">
+
+                <!-- All -->
+                <button
+                    type="button"
+                    class="category-card active"
+                    data-category="all"
+                    aria-pressed="true"
+                >
+
+                    <span class="category-icon purple">
+                        <i class="fa-solid fa-layer-group"></i>
+                    </span>
+
+                    <span class="category-card-title">
+                        Semua Materi
+                    </span>
+
+                    <span class="category-card-description">
+                        Jelajahi seluruh informasi edukasi.
+                    </span>
+
+                </button>
+
+
+                <!-- Bullying -->
+                <button
+                    type="button"
+                    class="category-card"
+                    data-category="bullying"
+                    aria-pressed="false"
+                >
+
+                    <span class="category-icon pink">
+                        <i class="fa-solid fa-shield-heart"></i>
+                    </span>
+
+                    <span class="category-card-title">
+                        Anti-Bullying
+                    </span>
+
+                    <span class="category-card-description">
+                        Mengenali dan mencegah perundungan.
+                    </span>
+
+                </button>
+
+
+                <!-- Mental Health -->
+                <button
+                    type="button"
+                    class="category-card"
+                    data-category="mental"
+                    aria-pressed="false"
+                >
+
+                    <span class="category-icon cyan">
+                        <i class="fa-solid fa-brain"></i>
+                    </span>
+
+                    <span class="category-card-title">
+                        Kesehatan Mental
+                    </span>
+
+                    <span class="category-card-description">
+                        Memahami emosi dan kesehatan diri.
+                    </span>
+
+                </button>
+
+
+                <!-- Digital Safety -->
+                <button
+                    type="button"
+                    class="category-card"
+                    data-category="digital"
+                    aria-pressed="false"
+                >
+
+                    <span class="category-icon orange">
+                        <i class="fa-solid fa-user-shield"></i>
+                    </span>
+
+                    <span class="category-card-title">
+                        Keamanan Digital
+                    </span>
+
+                    <span class="category-card-description">
+                        Menjaga keamanan saat berinternet.
+                    </span>
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- Articles -->
+        <section class="education-articles" aria-labelledby="articleTitle">
+
+            <div class="section-heading">
+
+                <div>
+                    <h2 id="articleTitle">
+                        Materi Edukasi
+                    </h2>
+
+                    <p>
+                        Informasi yang bisa kamu pelajari dan terapkan.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="article-grid" id="articleGrid">
+
+                <!-- Article 1 -->
+                <article class="article-card" data-category="bullying">
+
+                    <div class="article-cover cover-purple">
+                        <i class="fa-solid fa-hand"></i>
+                    </div>
+
+                    <div class="article-content">
+
+                        <span class="article-category">
+                            Anti-Bullying
+                        </span>
+
+                        <h3>
+                            Mengenal Bullying dan Bentuk-Bentuknya
+                        </h3>
+
+                        <p>
+                            Kenali berbagai bentuk perundungan, mulai dari
+                            fisik, verbal, sosial, hingga melalui media digital.
+                        </p>
+
+                        <div class="article-footer">
+
+                            <span class="article-time">
+                                <i class="fa-regular fa-clock"></i>
+                                5 menit baca
+                            </span>
+
+                            <button
+                                type="button"
+                                class="read-button"
+                                data-article="bullying-intro"
+                            >
+                                Baca Materi
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- Article 2 -->
+                <article class="article-card" data-category="bullying">
+
+                    <div class="article-cover cover-pink">
+                        <i class="fa-solid fa-people-group"></i>
+                    </div>
+
+                    <div class="article-content">
+
+                        <span class="article-category">
+                            Anti-Bullying
+                        </span>
+
+                        <h3>
+                            Menjadi Saksi Bullying yang Berani Bertindak
+                        </h3>
+
+                        <p>
+                            Pelajari cara aman membantu teman yang mengalami
+                            perundungan dan mencari bantuan.
+                        </p>
+
+                        <div class="article-footer">
+
+                            <span class="article-time">
+                                <i class="fa-regular fa-clock"></i>
+                                4 menit baca
+                            </span>
+
+                            <button
+                                type="button"
+                                class="read-button"
+                                data-article="witness-bullying"
+                            >
+                                Baca Materi
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- Article 3 -->
+                <article class="article-card" data-category="mental">
+
+                    <div class="article-cover cover-cyan">
+                        <i class="fa-solid fa-heart"></i>
+                    </div>
+
+                    <div class="article-content">
+
+                        <span class="article-category">
+                            Kesehatan Mental
+                        </span>
+
+                        <h3>
+                            Menjaga Kesehatan Mental di Lingkungan Sekolah
+                        </h3>
+
+                        <p>
+                            Memahami pentingnya kesehatan mental, mengenali
+                            tekanan, dan mencari dukungan yang tepat.
+                        </p>
+
+                        <div class="article-footer">
+
+                            <span class="article-time">
+                                <i class="fa-regular fa-clock"></i>
+                                6 menit baca
+                            </span>
+
+                            <button
+                                type="button"
+                                class="read-button"
+                                data-article="mental-health"
+                            >
+                                Baca Materi
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- Article 4 -->
+                <article class="article-card" data-category="digital">
+
+                    <div class="article-cover cover-blue">
+                        <i class="fa-solid fa-mobile-screen-button"></i>
+                    </div>
+
+                    <div class="article-content">
+
+                        <span class="article-category">
+                            Keamanan Digital
+                        </span>
+
+                        <h3>
+                            Mengenal Cyberbullying dan Dampaknya
+                        </h3>
+
+                        <p>
+                            Ketahui bentuk perundungan digital, dampaknya,
+                            serta langkah menghadapi cyberbullying.
+                        </p>
+
+                        <div class="article-footer">
+
+                            <span class="article-time">
+                                <i class="fa-regular fa-clock"></i>
+                                5 menit baca
+                            </span>
+
+                            <button
+                                type="button"
+                                class="read-button"
+                                data-article="cyberbullying"
+                            >
+                                Baca Materi
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- Article 5 -->
+                <article class="article-card" data-category="mental">
+
+                    <div class="article-cover cover-orange">
+                        <i class="fa-solid fa-comments"></i>
+                    </div>
+
+                    <div class="article-content">
+
+                        <span class="article-category">
+                            Kesehatan Mental
+                        </span>
+
+                        <h3>
+                            Komunikasi Sehat dan Saling Menghargai
+                        </h3>
+
+                        <p>
+                            Bangun hubungan positif dengan teman melalui
+                            komunikasi yang baik dan empati.
+                        </p>
+
+                        <div class="article-footer">
+
+                            <span class="article-time">
+                                <i class="fa-regular fa-clock"></i>
+                                4 menit baca
+                            </span>
+
+                            <button
+                                type="button"
+                                class="read-button"
+                                data-article="healthy-communication"
+                            >
+                                Baca Materi
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- Article 6 -->
+                <article class="article-card" data-category="bullying">
+
+                    <div class="article-cover cover-green">
+                        <i class="fa-solid fa-hand-holding-heart"></i>
+                    </div>
+
+                    <div class="article-content">
+
+                        <span class="article-category">
+                            Anti-Bullying
+                        </span>
+
+                        <h3>
+                            Bagaimana Cara Melaporkan Bullying?
+                        </h3>
+
+                        <p>
+                            Pelajari langkah menyampaikan laporan dan
+                            mencari bantuan melalui pihak sekolah.
+                        </p>
+
+                        <div class="article-footer">
+
+                            <span class="article-time">
+                                <i class="fa-regular fa-clock"></i>
+                                3 menit baca
+                            </span>
+
+                            <button
+                                type="button"
+                                class="read-button"
+                                data-article="report-bullying"
+                            >
+                                Baca Materi
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+
+            <!-- Empty State -->
+            <div
+                class="empty-state"
+                id="educationEmpty"
+                role="status"
+                aria-live="polite"
+            >
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+                <h3>
+                    Materi tidak ditemukan
+                </h3>
+
+                <p>
+                    Coba gunakan kata kunci atau kategori yang berbeda.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- Information Banner -->
+        <section class="education-banner">
+
+            <div class="banner-icon">
+                <i class="fa-solid fa-lightbulb"></i>
+            </div>
+
+            <div>
+
+                <h3>
+                    Ingat, kamu tidak sendirian.
+                </h3>
+
+                <p>
+                    Jika mengalami atau menyaksikan bullying, jangan ragu
+                    mencari bantuan dari guru, wali kelas, guru BK,
+                    atau pihak sekolah yang dipercaya.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- Footer -->
+        <footer class="page-footer">
+
+            <p>
+                © 2026 SAPA-SKANEGU · SMKN 1 Dlanggu
+            </p>
+
+            <p>
+                Sistem Aspirasi dan Pelaporan Anti-Bullying
+            </p>
+
+        </footer>
+
+    </main>
+
+</body>
+</html>

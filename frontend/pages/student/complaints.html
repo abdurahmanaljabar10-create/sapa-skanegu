@@ -1,0 +1,459 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#100b2b">
+    <title>Pengaduan | SAPA-SKANEGU</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="../css/pages/complaints.css">
+</head>
+
+<body class="complaints-page">
+
+    <div class="space-background">
+        <div class="space-stars"></div>
+        <div class="space-glow space-glow-one"></div>
+        <div class="space-glow space-glow-two"></div>
+    </div>
+
+    <div class="page-overlay" id="pageOverlay"></div>
+
+    <aside class="app-sidebar" id="appSidebar">
+        <div class="sidebar-brand">
+            <div class="brand-symbol">
+                <i class="fa-solid fa-meteor"></i>
+            </div>
+            <div>
+                <h1>SAPA<span>-SKANEGU</span></h1>
+                <p>SMKN 1 Dlanggu</p>
+            </div>
+            <button class="sidebar-close" id="sidebarClose" aria-label="Tutup menu">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+
+        <div class="sidebar-user">
+            <div class="user-avatar">
+                <i class="fa-solid fa-user-astronaut"></i>
+            </div>
+            <div class="user-details">
+                <strong data-user-name>Pengguna SAPA</strong>
+                <span data-user-role>Siswa</span>
+            </div>
+            <span class="user-status"></span>
+        </div>
+
+        <nav class="sidebar-navigation">
+            <span class="navigation-label">MENU UTAMA</span>
+
+            <a href="dashboard.html" class="sidebar-link">
+                <i class="fa-solid fa-house"></i>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="aspirations.html" class="sidebar-link">
+                <i class="fa-solid fa-lightbulb"></i>
+                <span>Aspirasi</span>
+            </a>
+
+            <a href="complaints.html" class="sidebar-link active">
+                <i class="fa-solid fa-comment-dots"></i>
+                <span>Pengaduan</span>
+            </a>
+
+            <a href="bullying-report.html" class="sidebar-link">
+                <i class="fa-solid fa-shield-heart"></i>
+                <span>Lapor Bullying</span>
+            </a>
+
+            <a href="tracking.html" class="sidebar-link">
+                <i class="fa-solid fa-route"></i>
+                <span>Lacak Laporan</span>
+            </a>
+
+            <a href="history.html" class="sidebar-link">
+                <i class="fa-solid fa-clock-rotate-left"></i>
+                <span>Riwayat</span>
+            </a>
+
+            <span class="navigation-label navigation-label-spaced">LAINNYA</span>
+
+            <a href="notifications.html" class="sidebar-link">
+                <i class="fa-solid fa-bell"></i>
+                <span>Notifikasi</span>
+            </a>
+
+            <a href="education.html" class="sidebar-link">
+                <i class="fa-solid fa-book-open"></i>
+                <span>Edukasi</span>
+            </a>
+
+            <a href="faq.html" class="sidebar-link">
+                <i class="fa-solid fa-circle-question"></i>
+                <span>Pusat Bantuan</span>
+            </a>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <a href="help.html" class="sidebar-help">
+                <span class="help-icon"><i class="fa-solid fa-headset"></i></span>
+                <span>
+                    <strong>Butuh Bantuan?</strong>
+                    <small>Kami siap membantu kamu.</small>
+                </span>
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+
+            <button class="logout-button" id="logoutButton">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                <span>Keluar</span>
+            </button>
+        </div>
+    </aside>
+
+    <main class="app-main">
+
+        <header class="app-header">
+            <div class="header-left">
+                <button class="menu-toggle" id="menuToggle" aria-label="Buka menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+
+                <div class="page-breadcrumb">
+                    <span>Menu</span>
+                    <i class="fa-solid fa-chevron-right"></i>
+                    <strong>Pengaduan</strong>
+                </div>
+            </div>
+
+            <div class="header-right">
+                <a href="notifications.html" class="header-icon" aria-label="Notifikasi">
+                    <i class="fa-regular fa-bell"></i>
+                    <span></span>
+                </a>
+
+                <a href="profile.html" class="header-account">
+                    <div class="account-avatar">
+                        <i class="fa-solid fa-user-astronaut"></i>
+                    </div>
+                    <div>
+                        <strong data-user-first-name>Pengguna</strong>
+                        <small>Akun Saya</small>
+                    </div>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </a>
+            </div>
+        </header>
+
+        <div class="page-content">
+
+            <section class="complaint-hero">
+                <div class="hero-copy">
+                    <div class="hero-label">
+                        <i class="fa-solid fa-satellite"></i>
+                        RUANG PENGADUAN SAPA-SKANEGU
+                    </div>
+
+                    <h2>Ada Masalah?<br><span>Sampaikan di Sini.</span></h2>
+
+                    <p>
+                        Suaramu penting untuk menciptakan lingkungan sekolah yang
+                        lebih baik. Sampaikan masalah yang kamu alami agar dapat
+                        dipahami dan ditindaklanjuti oleh pihak sekolah.
+                    </p>
+
+                    <div class="hero-benefits">
+                        <span><i class="fa-solid fa-lock"></i> Identitas tidak ditampilkan secara publik</span>
+                        <span><i class="fa-solid fa-heart"></i> Setiap laporan layak didengar</span>
+                    </div>
+                </div>
+
+                <div class="hero-art">
+                    <div class="hero-orbit orbit-a"></div>
+                    <div class="hero-orbit orbit-b"></div>
+                    <div class="hero-planet">
+                        <i class="fa-solid fa-comment-dots"></i>
+                    </div>
+                    <div class="hero-float float-a"><i class="fa-solid fa-heart"></i></div>
+                    <div class="hero-float float-b"><i class="fa-solid fa-star"></i></div>
+                    <div class="hero-float float-c"><i class="fa-solid fa-shield-heart"></i></div>
+                </div>
+            </section>
+
+            <div class="content-heading">
+                <div>
+                    <span class="section-overline">FORMULIR DIGITAL</span>
+                    <h2>Buat Pengaduan</h2>
+                    <p>Isi informasi berikut dengan jelas dan sesuai kejadian.</p>
+                </div>
+                <div class="form-tag">
+                    <i class="fa-solid fa-pen-to-square"></i>
+                    Formulir Pengaduan
+                </div>
+            </div>
+
+            <div class="complaint-layout">
+
+                <section class="form-column">
+                    <form id="complaintForm" novalidate>
+
+                        <div class="form-card">
+                            <div class="card-heading">
+                                <div class="card-icon"><i class="fa-solid fa-layer-group"></i></div>
+                                <div>
+                                    <h3>Informasi Pengaduan</h3>
+                                    <p>Tentukan kategori dan tingkat urgensi.</p>
+                                </div>
+                            </div>
+
+                            <div class="field-group">
+                                <label>Kategori Pengaduan <b>*</b></label>
+
+                                <div class="category-grid">
+                                    <label class="category-option">
+                                        <input type="radio" name="category" value="Fasilitas Sekolah">
+                                        <span><i class="fa-solid fa-school"></i><strong>Fasilitas Sekolah</strong><small>Sarana dan prasarana</small></span>
+                                    </label>
+
+                                    <label class="category-option">
+                                        <input type="radio" name="category" value="Pelayanan Sekolah">
+                                        <span><i class="fa-solid fa-handshake"></i><strong>Pelayanan Sekolah</strong><small>Administrasi dan pelayanan</small></span>
+                                    </label>
+
+                                    <label class="category-option">
+                                        <input type="radio" name="category" value="Keamanan dan Kenyamanan">
+                                        <span><i class="fa-solid fa-shield-halved"></i><strong>Keamanan</strong><small>Keamanan dan kenyamanan</small></span>
+                                    </label>
+
+                                    <label class="category-option">
+                                        <input type="radio" name="category" value="Interaksi dan Komunikasi">
+                                        <span><i class="fa-solid fa-comments"></i><strong>Interaksi</strong><small>Komunikasi di sekolah</small></span>
+                                    </label>
+
+                                    <label class="category-option">
+                                        <input type="radio" name="category" value="Lingkungan Sekolah">
+                                        <span><i class="fa-solid fa-leaf"></i><strong>Lingkungan</strong><small>Kebersihan dan lingkungan</small></span>
+                                    </label>
+
+                                    <label class="category-option">
+                                        <input type="radio" name="category" value="Lainnya">
+                                        <span><i class="fa-solid fa-ellipsis"></i><strong>Lainnya</strong><small>Masalah lainnya</small></span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="field-group">
+                                <label for="complaintTitle">Judul Pengaduan <b>*</b></label>
+                                <input type="text" id="complaintTitle" name="title" maxlength="120" placeholder="Contoh: Kerusakan fasilitas toilet sekolah">
+                                <div class="field-meta"><span>Gunakan judul yang singkat dan jelas.</span><span id="titleCount">0/120</span></div>
+                            </div>
+
+                            <div class="field-group">
+                                <label>Tingkat Urgensi <b>*</b></label>
+
+                                <div class="urgency-grid">
+                                    <label class="urgency-option low">
+                                        <input type="radio" name="urgency" value="Rendah">
+                                        <span><i class="fa-solid fa-circle"></i><strong>Rendah</strong><small>Tidak mendesak</small></span>
+                                    </label>
+
+                                    <label class="urgency-option medium">
+                                        <input type="radio" name="urgency" value="Sedang">
+                                        <span><i class="fa-solid fa-circle"></i><strong>Sedang</strong><small>Perlu diperhatikan</small></span>
+                                    </label>
+
+                                    <label class="urgency-option high">
+                                        <input type="radio" name="urgency" value="Tinggi">
+                                        <span><i class="fa-solid fa-circle"></i><strong>Tinggi</strong><small>Perlu segera ditangani</small></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-card">
+                            <div class="card-heading">
+                                <div class="card-icon"><i class="fa-solid fa-location-dot"></i></div>
+                                <div>
+                                    <h3>Detail Kejadian</h3>
+                                    <p>Jelaskan waktu, tempat, dan kronologi masalah.</p>
+                                </div>
+                            </div>
+
+                            <div class="field-row">
+                                <div class="field-group">
+                                    <label for="incidentDate">Tanggal Kejadian <b>*</b></label>
+                                    <input type="date" id="incidentDate" name="incidentDate">
+                                </div>
+
+                                <div class="field-group">
+                                    <label for="incidentTime">Perkiraan Waktu</label>
+                                    <input type="time" id="incidentTime" name="incidentTime">
+                                </div>
+                            </div>
+
+                            <div class="field-group">
+                                <label for="incidentLocation">Lokasi Kejadian <b>*</b></label>
+                                <input type="text" id="incidentLocation" name="location" maxlength="150" placeholder="Contoh: Ruang kelas XI RPL 1">
+                            </div>
+
+                            <div class="field-group">
+                                <label for="relatedParty">Pihak yang Berkaitan</label>
+                                <input type="text" id="relatedParty" name="relatedParty" maxlength="150" placeholder="Opsional, jika ada pihak yang berkaitan">
+                                <small class="field-hint">Isi jika relevan. Hindari mencantumkan informasi pribadi yang tidak diperlukan.</small>
+                            </div>
+
+                            <div class="field-group">
+                                <label for="chronology">Kronologi Pengaduan <b>*</b></label>
+                                <textarea id="chronology" name="chronology" rows="6" maxlength="2000" placeholder="Ceritakan apa yang terjadi, bagaimana masalah berlangsung, dan dampaknya..."></textarea>
+                                <div class="field-meta"><span>Jelaskan berdasarkan kejadian yang kamu ketahui.</span><span id="chronologyCount">0/2000</span></div>
+                            </div>
+
+                            <div class="field-group">
+                                <label for="expectedAction">Tindakan yang Diharapkan</label>
+                                <textarea id="expectedAction" name="expectedAction" rows="3" maxlength="800" placeholder="Ceritakan tindakan atau solusi yang kamu harapkan."></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-card">
+                            <div class="card-heading">
+                                <div class="card-icon"><i class="fa-solid fa-paperclip"></i></div>
+                                <div>
+                                    <h3>Bukti Pendukung</h3>
+                                    <p>Tambahkan bukti jika tersedia.</p>
+                                </div>
+                            </div>
+
+                            <div class="upload-box" id="uploadBox">
+                                <input type="file" id="attachment" accept=".jpg,.jpeg,.png,.webp,.pdf" hidden>
+
+                                <div id="uploadPlaceholder">
+                                    <div class="upload-symbol"><i class="fa-solid fa-cloud-arrow-up"></i></div>
+                                    <strong>Unggah bukti pendukung</strong>
+                                    <p>Seret file ke sini atau <button type="button" id="browseFile">pilih file</button></p>
+                                    <small>JPG, PNG, WEBP, PDF · Maksimal 5 MB</small>
+                                </div>
+
+                                <div class="file-preview" id="filePreview" hidden>
+                                    <i class="fa-solid fa-file-lines"></i>
+                                    <div><strong id="fileName"></strong><small id="fileSize"></small></div>
+                                    <button type="button" id="removeFile" aria-label="Hapus file"><i class="fa-solid fa-trash"></i></button>
+                                </div>
+                            </div>
+
+                            <p class="upload-hint"><i class="fa-solid fa-circle-info"></i> Jangan mengunggah informasi pribadi orang lain yang tidak relevan.</p>
+                        </div>
+
+                        <div class="privacy-card">
+                            <div class="privacy-heading">
+                                <i class="fa-solid fa-shield-heart"></i>
+                                <div>
+                                    <h3>Privasi Pelapor</h3>
+                                    <p>Informasi identitas perlu dikelola dengan hati-hati.</p>
+                                </div>
+                            </div>
+
+                            <p>
+                                Pengaduan menggunakan identitas akun yang sedang login.
+                                Identitas pelapor tidak ditampilkan secara publik. Pengaturan
+                                akses dan perlindungan data secara teknis memerlukan backend
+                                serta kebijakan pengelolaan data sekolah.
+                            </p>
+
+                            <label class="agreement-option">
+                                <input type="checkbox" id="agreement" name="agreement">
+                                <span class="custom-check"><i class="fa-solid fa-check"></i></span>
+                                <span>Saya menyatakan informasi yang disampaikan sesuai dengan pengetahuan saya dan dapat dipertanggungjawabkan. <b>*</b></span>
+                            </label>
+                        </div>
+
+                        <div class="form-bottom">
+                            <div class="progress-heading">
+                                <span>Kelengkapan formulir</span>
+                                <strong id="progressText">0%</strong>
+                            </div>
+
+                            <div class="progress-track">
+                                <div class="progress-value" id="progressValue"></div>
+                            </div>
+
+                            <div class="form-buttons">
+                                <a href="dashboard.html" class="button-back"><i class="fa-solid fa-arrow-left"></i> Kembali</a>
+                                <button type="submit" class="button-submit" id="submitButton">
+                                    Kirim Pengaduan <i class="fa-solid fa-paper-plane"></i>
+                                </button>
+                            </div>
+
+                            <div class="form-feedback" id="formFeedback" role="status" aria-live="polite"></div>
+                        </div>
+
+                    </form>
+                </section>
+
+                <aside class="information-column">
+                    <div class="side-card tips-card">
+                        <div class="side-card-heading">
+                            <i class="fa-solid fa-lightbulb"></i>
+                            <h3>Tips Pengaduan</h3>
+                        </div>
+
+                        <p>Agar pengaduanmu mudah dipahami, perhatikan hal berikut.</p>
+
+                        <div class="tip-item">
+                            <span>01</span>
+                            <div><strong>Jelaskan dengan jujur</strong><small>Sampaikan sesuai fakta yang kamu ketahui.</small></div>
+                        </div>
+
+                        <div class="tip-item">
+                            <span>02</span>
+                            <div><strong>Berikan detail</strong><small>Sertakan waktu, lokasi, dan kronologi.</small></div>
+                        </div>
+
+                        <div class="tip-item">
+                            <span>03</span>
+                            <div><strong>Gunakan bahasa sopan</strong><small>Hindari kata kasar dan tuduhan tanpa dasar.</small></div>
+                        </div>
+
+                        <div class="tip-item">
+                            <span>04</span>
+                            <div><strong>Sertakan bukti</strong><small>Tambahkan bukti jika memang tersedia.</small></div>
+                        </div>
+                    </div>
+
+                    <div class="side-card urgent-card">
+                        <div class="urgent-icon"><i class="fa-solid fa-triangle-exclamation"></i></div>
+                        <h3>Butuh Bantuan Segera?</h3>
+                        <p>Jika kamu berada dalam bahaya atau mengalami ancaman langsung, segera cari tempat aman dan hubungi guru, guru BK, wali kelas, atau orang dewasa tepercaya.</p>
+                        <a href="help.html">Lihat informasi bantuan <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+
+                    <div class="side-card tracking-card">
+                        <div class="tracking-icon"><i class="fa-solid fa-route"></i></div>
+                        <h3>Pantau Pengaduanmu</h3>
+                        <p>Setelah sistem terintegrasi, perkembangan pengaduan dapat dipantau melalui halaman pelacakan.</p>
+                        <a href="tracking.html">Lacak laporan <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </aside>
+
+            </div>
+
+            <footer class="app-footer">
+                <span>© 2026 SAPA-SKANEGU · SMKN 1 Dlanggu</span>
+                <div>
+                    <a href="privacy-policy.html">Privasi</a>
+                    <a href="terms.html">Ketentuan</a>
+                    <a href="help.html">Bantuan</a>
+                </div>
+            </footer>
+
+        </div>
+    </main>
+
+    <script src="../js/pages/complaints.js"></script>
+</body>
+</html>

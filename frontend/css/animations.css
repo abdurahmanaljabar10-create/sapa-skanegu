@@ -1,0 +1,1604 @@
+
+/* =========================================================
+   01. ANIMATION VARIABLES
+========================================================= */
+
+:root {
+    --animation-duration-slow: 30s;
+    --animation-duration-normal: 18s;
+    --animation-duration-fast: 8s;
+
+    --animation-ease-smooth:
+        cubic-bezier(0.22, 1, 0.36, 1);
+
+    --animation-ease-soft:
+        cubic-bezier(0.45, 0, 0.55, 1);
+
+    --animation-purple-glow:
+        rgba(139, 92, 246, 0.35);
+
+    --animation-cyan-glow:
+        rgba(34, 211, 238, 0.30);
+}
+
+
+/* =========================================================
+   02. PAGE ENTRANCE
+========================================================= */
+
+@keyframes auth-page-enter {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes auth-content-enter {
+    from {
+        opacity: 0;
+        transform: translateY(24px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes auth-content-enter-left {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes auth-content-enter-right {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.auth-page {
+    animation: auth-page-enter 1s ease both;
+}
+
+.brand-header {
+    animation:
+        auth-content-enter 0.8s var(--animation-ease-smooth)
+        0.1s both;
+}
+
+.brand-content {
+    animation:
+        auth-content-enter-left 1s var(--animation-ease-smooth)
+        0.2s both;
+}
+
+.form-panel {
+    animation:
+        auth-content-enter-right 1s var(--animation-ease-smooth)
+        0.25s both;
+}
+
+.brand-footer {
+    animation:
+        auth-content-enter 0.8s var(--animation-ease-smooth)
+        0.65s both;
+}
+
+
+/* =========================================================
+   03. SPACE BACKGROUND
+========================================================= */
+
+@keyframes space-atmosphere {
+    0% {
+        transform: scale(1) translate3d(0, 0, 0);
+    }
+
+    50% {
+        transform: scale(1.06) translate3d(-1%, 1%, 0);
+    }
+
+    100% {
+        transform: scale(1) translate3d(0, 0, 0);
+    }
+}
+
+@keyframes space-gradient-shift {
+    0% {
+        opacity: 0.75;
+        transform: translate3d(0, 0, 0);
+    }
+
+    50% {
+        opacity: 1;
+        transform: translate3d(1%, -1%, 0);
+    }
+
+    100% {
+        opacity: 0.75;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.space-base {
+    animation: space-atmosphere 32s ease-in-out infinite;
+}
+
+.space-gradient {
+    animation: space-gradient-shift 24s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   04. NEBULA MOVEMENT
+========================================================= */
+
+@keyframes nebula-drift-one {
+    0% {
+        transform: translate3d(0, 0, 0) scale(1);
+    }
+
+    25% {
+        transform: translate3d(25px, 15px, 0) scale(1.05);
+    }
+
+    50% {
+        transform: translate3d(15px, 35px, 0) scale(1.08);
+    }
+
+    75% {
+        transform: translate3d(-15px, 15px, 0) scale(1.03);
+    }
+
+    100% {
+        transform: translate3d(0, 0, 0) scale(1);
+    }
+}
+
+@keyframes nebula-drift-two {
+    0% {
+        transform: translate3d(0, 0, 0) scale(1);
+    }
+
+    33% {
+        transform: translate3d(-25px, 20px, 0) scale(1.06);
+    }
+
+    66% {
+        transform: translate3d(20px, -20px, 0) scale(0.98);
+    }
+
+    100% {
+        transform: translate3d(0, 0, 0) scale(1);
+    }
+}
+
+@keyframes nebula-breathe {
+    0% {
+        opacity: 0.55;
+    }
+
+    50% {
+        opacity: 0.85;
+    }
+
+    100% {
+        opacity: 0.55;
+    }
+}
+
+.nebula-purple {
+    animation:
+        nebula-drift-one 38s ease-in-out infinite,
+        nebula-breathe 17s ease-in-out infinite;
+}
+
+.nebula-blue {
+    animation:
+        nebula-drift-two 43s ease-in-out infinite,
+        nebula-breathe 21s ease-in-out infinite;
+}
+
+.nebula-cyan {
+    animation:
+        nebula-drift-one 35s ease-in-out infinite reverse,
+        nebula-breathe 19s ease-in-out infinite;
+}
+
+.nebula-pink {
+    animation:
+        nebula-drift-two 47s ease-in-out infinite reverse,
+        nebula-breathe 23s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   05. STAR TWINKLE
+========================================================= */
+
+@keyframes star-twinkle {
+    0% {
+        opacity: 0.18;
+    }
+
+    25% {
+        opacity: 0.75;
+    }
+
+    50% {
+        opacity: 0.35;
+    }
+
+    75% {
+        opacity: 0.90;
+    }
+
+    100% {
+        opacity: 0.18;
+    }
+}
+
+@keyframes star-drift {
+    from {
+        transform: translate3d(0, 0, 0);
+    }
+
+    to {
+        transform: translate3d(-18px, 12px, 0);
+    }
+}
+
+.star-layer-one {
+    animation:
+        star-twinkle 7s ease-in-out infinite,
+        star-drift 85s linear infinite;
+}
+
+.star-layer-two {
+    animation:
+        star-twinkle 11s ease-in-out infinite 2s,
+        star-drift 110s linear infinite reverse;
+}
+
+.star-layer-three {
+    animation:
+        star-twinkle 9s ease-in-out infinite 4s,
+        star-drift 95s linear infinite;
+}
+
+
+/* =========================================================
+   06. COSMIC CLOUD MOVEMENT
+========================================================= */
+
+@keyframes cloud-float-one {
+    0% {
+        transform: translate3d(0, 0, 0) rotate(0deg);
+    }
+
+    50% {
+        transform: translate3d(30px, -18px, 0) rotate(5deg);
+    }
+
+    100% {
+        transform: translate3d(0, 0, 0) rotate(0deg);
+    }
+}
+
+@keyframes cloud-float-two {
+    0% {
+        transform: translate3d(0, 0, 0) rotate(0deg);
+    }
+
+    50% {
+        transform: translate3d(-25px, 20px, 0) rotate(-5deg);
+    }
+
+    100% {
+        transform: translate3d(0, 0, 0) rotate(0deg);
+    }
+}
+
+.cloud-one {
+    animation: cloud-float-one 28s ease-in-out infinite;
+}
+
+.cloud-two {
+    animation: cloud-float-two 34s ease-in-out infinite;
+}
+
+.cloud-three {
+    animation: cloud-float-one 39s ease-in-out infinite reverse;
+}
+
+
+/* =========================================================
+   07. PLANET FLOATING
+========================================================= */
+
+@keyframes planet-float {
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+
+    50% {
+        transform: translate3d(0, -14px, 0);
+    }
+
+    100% {
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes planet-float-secondary {
+    0% {
+        transform: translate3d(0, 0, 0) rotate(0deg);
+    }
+
+    50% {
+        transform: translate3d(0, 12px, 0) rotate(4deg);
+    }
+
+    100% {
+        transform: translate3d(0, 0, 0) rotate(0deg);
+    }
+}
+
+@keyframes planet-light {
+    0% {
+        opacity: 0.25;
+        transform: scale(0.95);
+    }
+
+    50% {
+        opacity: 0.70;
+        transform: scale(1.06);
+    }
+
+    100% {
+        opacity: 0.25;
+        transform: scale(0.95);
+    }
+}
+
+.planet-one {
+    animation: planet-float 13s ease-in-out infinite;
+}
+
+.planet-two {
+    animation: planet-float-secondary 17s ease-in-out infinite;
+}
+
+.planet-three {
+    animation: planet-float 19s ease-in-out infinite reverse;
+}
+
+.planet-highlight {
+    animation: planet-light 7s ease-in-out infinite;
+}
+
+.planet-glow {
+    animation: planet-light 9s ease-in-out infinite reverse;
+}
+
+
+/* =========================================================
+   08. PLANET RING
+========================================================= */
+
+@keyframes planet-ring-rotation {
+    from {
+        transform: rotate(-24deg);
+    }
+
+    to {
+        transform: rotate(336deg);
+    }
+}
+
+.planet-ring {
+    animation: planet-ring-rotation 60s linear infinite;
+}
+
+
+/* =========================================================
+   09. METEOR TRAJECTORY
+========================================================= */
+
+@keyframes meteor-flight {
+    0% {
+        opacity: 0;
+        transform: translate3d(0, 0, 0) rotate(-42deg);
+    }
+
+    4% {
+        opacity: 1;
+    }
+
+    18% {
+        opacity: 0.8;
+    }
+
+    23% {
+        opacity: 0;
+        transform: translate3d(-260px, 190px, 0) rotate(-42deg);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate3d(-260px, 190px, 0) rotate(-42deg);
+    }
+}
+
+.meteor-one {
+    animation: meteor-flight 12s linear infinite;
+}
+
+.meteor-two {
+    animation: meteor-flight 17s linear infinite 5s;
+}
+
+.meteor-three {
+    animation: meteor-flight 19s linear infinite 9s;
+}
+
+.meteor-four {
+    animation: meteor-flight 22s linear infinite 13s;
+}
+
+
+/* =========================================================
+   10. PARTICLE FLOATING
+========================================================= */
+
+@keyframes particle-float-up {
+    0% {
+        opacity: 0;
+        transform: translate3d(0, 20px, 0) scale(0.5);
+    }
+
+    20% {
+        opacity: 0.9;
+    }
+
+    50% {
+        opacity: 0.5;
+        transform: translate3d(12px, -18px, 0) scale(1);
+    }
+
+    80% {
+        opacity: 0.8;
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate3d(-8px, -55px, 0) scale(0.5);
+    }
+}
+
+@keyframes particle-pulse {
+    0% {
+        box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+    }
+
+    50% {
+        box-shadow:
+            0 0 10px rgba(255, 255, 255, 0.85),
+            0 0 18px rgba(139, 92, 246, 0.35);
+    }
+
+    100% {
+        box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+    }
+}
+
+.particle {
+    animation:
+        particle-float-up 9s ease-in-out infinite,
+        particle-pulse 4s ease-in-out infinite;
+}
+
+.p1  { animation-delay: 0s, 0.5s; }
+.p2  { animation-delay: 2s, 1s; }
+.p3  { animation-delay: 4s, 2s; }
+.p4  { animation-delay: 1s, 1.5s; }
+.p5  { animation-delay: 3s, 0.8s; }
+.p6  { animation-delay: 5s, 2s; }
+.p7  { animation-delay: 1.5s, 0.3s; }
+.p8  { animation-delay: 3.5s, 1.4s; }
+.p9  { animation-delay: 6s, 0.5s; }
+.p10 { animation-delay: 2.5s, 1.8s; }
+.p11 { animation-delay: 4.5s, 2.2s; }
+.p12 { animation-delay: 0.8s, 0.9s; }
+.p13 { animation-delay: 5.5s, 1.3s; }
+.p14 { animation-delay: 2.2s, 0.6s; }
+.p15 { animation-delay: 6.5s, 1.7s; }
+.p16 { animation-delay: 3.2s, 0.4s; }
+.p17 { animation-delay: 4.8s, 2.1s; }
+.p18 { animation-delay: 1.2s, 1.1s; }
+
+
+/* =========================================================
+   11. LIGHT BEAM
+========================================================= */
+
+@keyframes beam-breathe {
+    0% {
+        opacity: 0.04;
+    }
+
+    50% {
+        opacity: 0.18;
+    }
+
+    100% {
+        opacity: 0.04;
+    }
+}
+
+@keyframes beam-drift {
+    0% {
+        transform: translateX(0) rotate(32deg);
+    }
+
+    50% {
+        transform: translateX(15px) rotate(35deg);
+    }
+
+    100% {
+        transform: translateX(0) rotate(32deg);
+    }
+}
+
+.beam-one {
+    animation:
+        beam-breathe 11s ease-in-out infinite,
+        beam-drift 25s ease-in-out infinite;
+}
+
+.beam-two {
+    animation:
+        beam-breathe 14s ease-in-out infinite 3s,
+        beam-drift 30s ease-in-out infinite reverse;
+}
+
+.beam-three {
+    animation:
+        beam-breathe 17s ease-in-out infinite 5s,
+        beam-drift 35s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   12. BACKGROUND ORBIT
+========================================================= */
+
+@keyframes orbit-drift {
+    0% {
+        transform: rotate(-25deg) scale(1);
+    }
+
+    50% {
+        transform: rotate(-17deg) scale(1.03);
+    }
+
+    100% {
+        transform: rotate(-25deg) scale(1);
+    }
+}
+
+@keyframes orbit-drift-reverse {
+    0% {
+        transform: rotate(32deg) scale(1);
+    }
+
+    50% {
+        transform: rotate(24deg) scale(1.03);
+    }
+
+    100% {
+        transform: rotate(32deg) scale(1);
+    }
+}
+
+.orbit-decoration-one {
+    animation: orbit-drift 35s ease-in-out infinite;
+}
+
+.orbit-decoration-two {
+    animation: orbit-drift-reverse 42s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   13. BACKGROUND GLOW
+   Single animation owner for background glow.
+========================================================= */
+
+@keyframes ambient-glow-shift {
+    0% {
+        opacity: 0.45;
+        transform: scale(0.96);
+    }
+
+    50% {
+        opacity: 0.80;
+        transform: scale(1.05);
+    }
+
+    100% {
+        opacity: 0.45;
+        transform: scale(0.96);
+    }
+}
+
+.background-glow {
+    animation: ambient-glow-shift 22s ease-in-out infinite;
+}
+
+.glow-left {
+    animation-duration: 19s;
+}
+
+.glow-right {
+    animation-duration: 24s;
+    animation-delay: 4s;
+}
+
+.glow-bottom {
+    animation-duration: 27s;
+    animation-delay: 8s;
+}
+
+
+/* =========================================================
+   14. MASCOT FLOATING
+========================================================= */
+
+@keyframes mascot-float {
+    0% {
+        translate:
+            var(--mascot-parallax-x, 0px)
+            var(--mascot-parallax-y, 0px);
+        transform: translateY(0);
+    }
+
+    50% {
+        translate:
+            var(--mascot-parallax-x, 0px)
+            var(--mascot-parallax-y, 0px);
+        transform: translateY(-13px);
+    }
+
+    100% {
+        translate:
+            var(--mascot-parallax-x, 0px)
+            var(--mascot-parallax-y, 0px);
+        transform: translateY(0);
+    }
+}
+
+.mascot-image-wrapper {
+    animation: mascot-float 5s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   15. MASCOT AURA
+========================================================= */
+
+@keyframes mascot-aura-pulse {
+    0% {
+        opacity: 0.45;
+        transform: scale(0.92);
+    }
+
+    50% {
+        opacity: 0.85;
+        transform: scale(1.08);
+    }
+
+    100% {
+        opacity: 0.45;
+        transform: scale(0.92);
+    }
+}
+
+.mascot-aura {
+    animation: mascot-aura-pulse 6s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   16. MASCOT ORBIT
+========================================================= */
+
+@keyframes mascot-orbit-one {
+    from {
+        transform: rotate(-24deg);
+    }
+
+    to {
+        transform: rotate(336deg);
+    }
+}
+
+@keyframes mascot-orbit-two {
+    from {
+        transform: rotate(38deg);
+    }
+
+    to {
+        transform: rotate(-322deg);
+    }
+}
+
+@keyframes mascot-orbit-three {
+    from {
+        transform: rotate(55deg);
+    }
+
+    to {
+        transform: rotate(415deg);
+    }
+}
+
+.mascot-stage .orbit-one {
+    animation: mascot-orbit-one 28s linear infinite;
+}
+
+.mascot-stage .orbit-two {
+    animation: mascot-orbit-two 36s linear infinite;
+}
+
+.mascot-stage .orbit-three {
+    animation: mascot-orbit-three 48s linear infinite;
+}
+
+
+/* =========================================================
+   17. MASCOT SPARKLES
+========================================================= */
+
+@keyframes mascot-sparkle {
+    0% {
+        opacity: 0.15;
+        scale: 0.7;
+    }
+
+    50% {
+        opacity: 1;
+        scale: 1.2;
+    }
+
+    100% {
+        opacity: 0.15;
+        scale: 0.7;
+    }
+}
+
+.mascot-spark {
+    animation: mascot-sparkle 3s ease-in-out infinite;
+}
+
+.spark-one   { animation-delay: 0s; }
+.spark-two   { animation-delay: 0.7s; }
+.spark-three { animation-delay: 1.4s; }
+.spark-four  { animation-delay: 2.1s; }
+.spark-five  { animation-delay: 2.7s; }
+
+
+/* =========================================================
+   18. MASCOT SHADOW
+========================================================= */
+
+@keyframes mascot-shadow-pulse {
+    0% {
+        opacity: 0.25;
+        transform: scaleX(0.88);
+    }
+
+    50% {
+        opacity: 0.50;
+        transform: scaleX(1.06);
+    }
+
+    100% {
+        opacity: 0.25;
+        transform: scaleX(0.88);
+    }
+}
+
+.mascot-shadow {
+    animation: mascot-shadow-pulse 5s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   19. MASCOT CAPTION
+========================================================= */
+
+@keyframes caption-glow {
+    0% {
+        box-shadow: 0 0 0 rgba(139, 92, 246, 0);
+    }
+
+    50% {
+        box-shadow: 0 0 20px rgba(139, 92, 246, 0.12);
+    }
+
+    100% {
+        box-shadow: 0 0 0 rgba(139, 92, 246, 0);
+    }
+}
+
+.mascot-caption {
+    animation: caption-glow 6s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   20. MASCOT STATUS INDICATOR
+========================================================= */
+
+@keyframes caption-indicator-pulse {
+    0% {
+        opacity: 0.5;
+        box-shadow: 0 0 0 rgba(34, 211, 238, 0);
+    }
+
+    50% {
+        opacity: 1;
+        box-shadow: 0 0 10px rgba(34, 211, 238, 0.65);
+    }
+
+    100% {
+        opacity: 0.5;
+        box-shadow: 0 0 0 rgba(34, 211, 238, 0);
+    }
+}
+
+.caption-indicator {
+    animation: caption-indicator-pulse 2.5s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   21. BRAND LOGO GLOW
+========================================================= */
+
+@keyframes logo-glow-pulse {
+    0% {
+        opacity: 0.3;
+        transform: scale(0.92);
+    }
+
+    50% {
+        opacity: 0.8;
+        transform: scale(1.06);
+    }
+
+    100% {
+        opacity: 0.3;
+        transform: scale(0.92);
+    }
+}
+
+.brand-logo-glow {
+    animation: logo-glow-pulse 6s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   22. SYSTEM STATUS INDICATOR
+========================================================= */
+
+@keyframes status-pulse {
+    0% {
+        opacity: 0.65;
+        box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.25);
+    }
+
+    50% {
+        opacity: 1;
+        box-shadow: 0 0 0 5px rgba(52, 211, 153, 0);
+    }
+
+    100% {
+        opacity: 0.65;
+        box-shadow: 0 0 0 0 rgba(52, 211, 153, 0);
+    }
+}
+
+.status-indicator {
+    animation: status-pulse 2.8s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   23. FEATURE CARD ENTRANCE
+========================================================= */
+
+@keyframes feature-card-enter {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.highlight-card {
+    animation: feature-card-enter 0.8s var(--animation-ease-smooth) both;
+}
+
+.highlight-card:nth-child(1) {
+    animation-delay: 0.45s;
+}
+
+.highlight-card:nth-child(2) {
+    animation-delay: 0.60s;
+}
+
+.highlight-card:nth-child(3) {
+    animation-delay: 0.75s;
+}
+
+
+/* =========================================================
+   24. FEATURE CARD LIGHT SWEEP
+========================================================= */
+
+@keyframes feature-light-sweep {
+    from {
+        left: -100%;
+    }
+
+    to {
+        left: 150%;
+    }
+}
+
+.highlight-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    pointer-events: none;
+    transform: skewX(-25deg);
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255, 255, 255, 0.07),
+            transparent
+        );
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .highlight-card:hover::before {
+        animation: feature-light-sweep 0.8s ease forwards;
+    }
+}
+
+
+/* =========================================================
+   25. LOGIN CARD ENTRANCE
+========================================================= */
+
+@keyframes login-card-enter {
+    0% {
+        opacity: 0;
+        transform: translateY(30px) scale(0.98);
+    }
+
+    70% {
+        opacity: 1;
+        transform: translateY(-2px) scale(1.005);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.login-card {
+    animation:
+        login-card-enter 1s var(--animation-ease-smooth)
+        0.25s both;
+}
+
+
+/* =========================================================
+   26. LOGIN ICON
+========================================================= */
+
+@keyframes login-icon-appear {
+    0% {
+        opacity: 0;
+        transform: rotate(-12deg) scale(0.75);
+    }
+
+    70% {
+        opacity: 1;
+        transform: rotate(4deg) scale(1.05);
+    }
+
+    100% {
+        opacity: 1;
+        transform: rotate(0) scale(1);
+    }
+}
+
+.login-icon {
+    animation:
+        login-icon-appear 0.8s var(--animation-ease-smooth)
+        0.65s both;
+}
+
+@keyframes login-icon-glow {
+    0% {
+        opacity: 0.35;
+        transform: scale(0.9);
+    }
+
+    50% {
+        opacity: 0.8;
+        transform: scale(1.07);
+    }
+
+    100% {
+        opacity: 0.35;
+        transform: scale(0.9);
+    }
+}
+
+.login-icon-glow {
+    animation: login-icon-glow 5s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   27. INPUT FOCUS
+========================================================= */
+
+@keyframes input-focus-glow {
+    0% {
+        opacity: 0.35;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0.35;
+    }
+}
+
+.input-wrapper:focus-within .input-focus-line {
+    animation: input-focus-glow 2s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   28. LOGIN BUTTON SHIMMER
+========================================================= */
+
+@keyframes button-shimmer {
+    0% {
+        left: -100%;
+    }
+
+    100% {
+        left: 140%;
+    }
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .login-submit:hover::before {
+        animation: button-shimmer 0.85s ease forwards;
+    }
+}
+
+
+/* =========================================================
+   29. LOGIN BUTTON SPINNER
+========================================================= */
+
+@keyframes button-spinner {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.login-submit.loading .button-loading-indicator {
+    animation: button-spinner 0.8s linear infinite;
+}
+
+
+/* =========================================================
+   30. LOGIN BUTTON ARROW
+========================================================= */
+
+@keyframes arrow-nudge {
+    0% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(4px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .login-submit:hover .button-arrow {
+        animation: arrow-nudge 0.7s ease-in-out infinite;
+    }
+}
+
+
+/* =========================================================
+   31. REGISTER LINK
+========================================================= */
+
+@keyframes register-arrow-float {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    50% {
+        transform: translate(2px, -2px);
+    }
+
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .register-section a:hover svg {
+        animation: register-arrow-float 0.7s ease-in-out infinite;
+    }
+}
+
+
+/* =========================================================
+   32. PRIVACY NOTE
+========================================================= */
+
+@keyframes privacy-enter {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.privacy-note {
+    animation: privacy-enter 0.8s ease 0.9s both;
+}
+
+
+/* =========================================================
+   33. NOTIFICATION
+========================================================= */
+
+@keyframes notification-enter {
+    from {
+        opacity: 0;
+        transform: translateX(25px) scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
+}
+
+@keyframes notification-exit {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateX(25px);
+    }
+}
+
+.notification-region > * {
+    animation:
+        notification-enter 0.4s var(--animation-ease-smooth) both;
+}
+
+.notification-region > *.is-removing {
+    animation: notification-exit 0.3s ease forwards;
+}
+
+
+/* =========================================================
+   34. FORM FEEDBACK
+========================================================= */
+
+@keyframes feedback-enter {
+    from {
+        opacity: 0;
+        transform: translateY(-7px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Selector mengikuti ID pada index.html. */
+#form-feedback:not(:empty) {
+    animation: feedback-enter 0.3s ease both;
+}
+
+
+/* =========================================================
+   35. VALIDATION SHAKE
+========================================================= */
+
+@keyframes validation-shake {
+    0% {
+        transform: translateX(0);
+    }
+
+    20% {
+        transform: translateX(-4px);
+    }
+
+    40% {
+        transform: translateX(4px);
+    }
+
+    60% {
+        transform: translateX(-3px);
+    }
+
+    80% {
+        transform: translateX(3px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.input-wrapper.shake {
+    animation: validation-shake 0.4s ease;
+}
+
+
+/* =========================================================
+   36. MOBILE ANIMATION OPTIMIZATION
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .planet-one,
+    .planet-two,
+    .planet-three {
+        opacity: 0.55;
+    }
+
+    .mascot-stage {
+        animation: none;
+    }
+
+    .nebula {
+        filter: blur(70px);
+    }
+
+    .cursor-glow {
+        display: none;
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .space-grid {
+        opacity: 0.06;
+    }
+
+    .planet-one {
+        width: 65px;
+        height: 65px;
+    }
+
+    .planet-two {
+        width: 85px;
+        height: 85px;
+    }
+
+    .planet-three {
+        width: 35px;
+        height: 35px;
+    }
+
+    .meteor {
+        width: 70px;
+    }
+
+    .light-beam {
+        opacity: 0.06;
+    }
+
+    .cosmic-cloud {
+        opacity: 0.10;
+    }
+
+    .particle {
+        animation-duration: 12s, 5s;
+    }
+
+}
+
+
+/* =========================================================
+   37. SLOW UPDATE DEVICES
+========================================================= */
+
+@media (update: slow) {
+
+    .nebula,
+    .cosmic-cloud,
+    .planet,
+    .orbit-decoration {
+        animation-duration: 60s;
+    }
+
+    .particle {
+        animation-duration: 14s, 7s;
+    }
+
+    .meteor {
+        animation-duration: 24s;
+    }
+
+}
+
+
+/* =========================================================
+   38. REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .auth-page *,
+    .auth-page *::before,
+    .auth-page *::after {
+        animation-duration: 0.01ms !important;
+        animation-delay: 0ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    .mascot-image-wrapper,
+    .planet,
+    .nebula,
+    .meteor,
+    .particle,
+    .star-layer,
+    .cosmic-cloud,
+    .light-beam,
+    .orbit-decoration,
+    .background-glow {
+        animation: none !important;
+    }
+
+    .cursor-glow {
+        display: none !important;
+    }
+
+}
+
+
+/* =========================================================
+   39. PRINT FALLBACK
+========================================================= */
+
+@media print {
+
+    .space-background,
+    .cursor-glow,
+    .mascot-stage {
+        display: none !important;
+    }
+
+    .auth-page {
+        color: #000000;
+        background: #ffffff;
+    }
+
+    .login-card {
+        color: #000000;
+        border: 1px solid #cccccc;
+        box-shadow: none;
+    }
+
+}
+
+/* =========================================================
+   EXTRA INTERACTIVE EFFECTS
+========================================================= */
+
+/* 3D highlight cards */
+
+.highlight-card {
+    transform:
+        perspective(900px)
+        rotateX(var(--card-rotate-x, 0deg))
+        rotateY(var(--card-rotate-y, 0deg));
+
+    transform-style: preserve-3d;
+
+    transition:
+        transform 0.25s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.highlight-card.is-tilting {
+    border-color: rgba(139, 92, 246, 0.55);
+
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.22),
+        0 0 25px rgba(139, 92, 246, 0.12);
+}
+
+.highlight-card::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    border-radius: inherit;
+
+    pointer-events: none;
+
+    opacity: 0;
+
+    background:
+        radial-gradient(
+            circle at var(--card-glow-x, 50%)
+            var(--card-glow-y, 50%),
+            rgba(139, 92, 246, 0.20),
+            transparent 60%
+        );
+
+    transition: opacity 0.3s ease;
+}
+
+.highlight-card.is-tilting::after {
+    opacity: 1;
+}
+
+
+/* Button glow tracking */
+
+.login-submit {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+}
+
+.login-submit::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    pointer-events: none;
+
+    opacity: 0;
+
+    background:
+        radial-gradient(
+            circle at var(--button-glow-x, 50%)
+            var(--button-glow-y, 50%),
+            rgba(255, 255, 255, 0.28),
+            transparent 42%
+        );
+
+    transition: opacity 0.25s ease;
+
+    z-index: 0;
+}
+
+.login-submit.button-pointer-active::after {
+    opacity: 1;
+}
+
+.login-submit > * {
+    position: relative;
+    z-index: 1;
+}
+
+
+/* Button ripple */
+
+.button-ripple {
+    position: absolute;
+
+    border-radius: 50%;
+
+    pointer-events: none;
+
+    background: rgba(255, 255, 255, 0.35);
+
+    transform: translate(-50%, -50%) scale(0);
+
+    animation: button-ripple-effect 0.65s ease-out forwards;
+
+    z-index: 0;
+}
+
+@keyframes button-ripple-effect {
+    to {
+        transform: translate(-50%, -50%) scale(2.5);
+        opacity: 0;
+    }
+}
+
+
+/* Reduced motion */
+
+@media (prefers-reduced-motion: reduce) {
+    .highlight-card,
+    .login-submit,
+    .button-ripple {
+        animation: none !important;
+        transition: none !important;
+    }
+
+    .button-ripple {
+        display: none !important;
+    }
+}
+
+
+/* Mobile optimization */
+
+@media (max-width: 900px) {
+    .highlight-card {
+        transform: none !important;
+    }
+}
