@@ -1,0 +1,255 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0b0718">
+    <title>Profil Saya | SAPA-SKANEGU</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/reset.css">
+    <link rel="stylesheet" href="../../css/global.css">
+    <link rel="stylesheet" href="../../css/components.css">
+    <link rel="stylesheet" href="../../css/dashboard.css">
+    <link rel="stylesheet" href="../../css/animations.css">
+    <link rel="stylesheet" href="../../css/responsive.css">
+    <link rel="stylesheet" href="../../css/pages/student-affairs.css">
+    <link rel="stylesheet" href="../../css/pages/sa-profile.css">
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <script src="../../js/main.js" defer></script>
+    <script src="../../js/auth.js" defer></script>
+    <script src="../../js/pages/student-affairs.js" defer></script>
+    <script src="../../js/pages/sa-profile.js" defer></script>
+</head>
+<body class="dashboard-page student-affairs-page sa-profile-page">
+    <div class="dashboard-background">
+        <div class="dashboard-background-glow dashboard-glow-one"></div>
+        <div class="dashboard-background-glow dashboard-glow-two"></div>
+    </div>
+
+    <div class="dashboard-layout">
+        <div class="dashboard-overlay" data-sidebar-overlay></div>
+
+        <aside class="dashboard-sidebar" data-sidebar>
+            <div class="sidebar-brand">
+                <a href="dashboard.html" class="sidebar-brand-link">
+                    <div class="sidebar-brand-logo">
+                        <img src="../../assets/images/logo/logo-smkn1dlanggu.svg" alt="Logo SMKN 1 Dlanggu">
+                    </div>
+                    <div class="sidebar-brand-text">
+                        <strong>SAPA-SKANEGU</strong>
+                        <span>SMKN 1 Dlanggu</span>
+                    </div>
+                </a>
+                <button class="dashboard-sidebar-close" data-sidebar-close aria-label="Tutup navigasi">
+                    <i data-lucide="x"></i>
+                </button>
+            </div>
+
+            <div class="sidebar-profile">
+                <div class="sidebar-avatar">KS</div>
+                <div class="sidebar-profile-information">
+                    <strong id="sidebarProfileName">Tim Kesiswaan</strong>
+                    <span>Bidang Kesiswaan</span>
+                </div>
+                <span class="sidebar-online-indicator"></span>
+            </div>
+
+            <nav class="sidebar-navigation">
+                <div class="sidebar-section">
+                    <span class="sidebar-section-label">MENU UTAMA</span>
+                    <div class="sidebar-menu">
+                        <a href="dashboard.html" class="sidebar-link"><i data-lucide="layout-dashboard"></i><span>Dashboard</span></a>
+                        <a href="cases.html" class="sidebar-link"><i data-lucide="shield-alert"></i><span>Penanganan Kasus</span></a>
+                        <a href="discipline.html" class="sidebar-link"><i data-lucide="clipboard-list"></i><span>Kedisiplinan Siswa</span></a>
+                        <a href="history.html" class="sidebar-link"><i data-lucide="history"></i><span>Riwayat Penanganan</span></a>
+                    </div>
+                </div>
+
+                <div class="sidebar-section">
+                    <span class="sidebar-section-label">INFORMASI</span>
+                    <div class="sidebar-menu">
+                        <a href="education.html" class="sidebar-link"><i data-lucide="book-open"></i><span>Materi Edukasi</span></a>
+                        <a href="notifications.html" class="sidebar-link"><i data-lucide="bell"></i><span>Notifikasi</span></a>
+                    </div>
+                </div>
+
+                <div class="sidebar-section">
+                    <span class="sidebar-section-label">AKUN</span>
+                    <div class="sidebar-menu">
+                        <a href="profile.html" class="sidebar-link active"><i data-lucide="user-round"></i><span>Profil Saya</span></a>
+                        <a href="help.html" class="sidebar-link"><i data-lucide="circle-help"></i><span>Pusat Bantuan</span></a>
+                        <a href="privacy-policy.html" class="sidebar-link"><i data-lucide="shield-check"></i><span>Kebijakan Privasi</span></a>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <a href="../../index.html" class="sidebar-logout" id="logoutButton">
+                    <i data-lucide="log-out"></i>
+                    <span>Keluar</span>
+                </a>
+                <div class="sidebar-footer">
+                    <span>SAPA-SKANEGU</span>
+                    <span>SMKN 1 Dlanggu · 2026</span>
+                </div>
+            </div>
+        </aside>
+
+        <main class="dashboard-main">
+            <header class="dashboard-topbar">
+                <div class="topbar-left">
+                    <button class="dashboard-menu-toggle" data-sidebar-toggle aria-label="Buka navigasi" aria-expanded="false">
+                        <i data-lucide="menu"></i>
+                    </button>
+                    <div class="topbar-breadcrumb">
+                        <span>Bidang Kesiswaan</span>
+                        <i data-lucide="chevron-right"></i>
+                        <strong>Profil Saya</strong>
+                    </div>
+                </div>
+
+                <div class="topbar-right">
+                    <div class="topbar-date">
+                        <i data-lucide="calendar-days"></i>
+                        <span id="profileCurrentDate"></span>
+                    </div>
+                    <a href="notifications.html" class="topbar-icon-button" aria-label="Notifikasi">
+                        <i data-lucide="bell"></i>
+                    </a>
+                    <a href="profile.html" class="topbar-user">
+                        <div class="topbar-user-avatar" id="topbarProfileAvatar">KS</div>
+                        <div class="topbar-user-information">
+                            <strong id="topbarProfileName">Tim Kesiswaan</strong>
+                            <span>Bidang Kesiswaan</span>
+                        </div>
+                        <i data-lucide="chevron-down"></i>
+                    </a>
+                </div>
+            </header>
+
+            <div class="dashboard-content sa-profile-content">
+                <section class="sa-profile-heading">
+                    <div>
+                        <span class="sa-profile-eyebrow">PREFERENSI AKUN</span>
+                        <h1>Profil Saya</h1>
+                        <p>Kelola informasi pribadi dan identitas akun Bidang Kesiswaan.</p>
+                    </div>
+                </section>
+
+                <section class="sa-profile-banner">
+                    <div class="sa-profile-avatar" id="profileAvatar">KS</div>
+                    <div class="sa-profile-banner-info">
+                        <span class="sa-profile-role-label">PETUGAS KESISWAAN</span>
+                        <h2 id="bannerProfileName">Tim Kesiswaan</h2>
+                        <p id="bannerProfileEmail">kesiswaan@smkn1dlanggu.sch.id</p>
+                    </div>
+                    <div class="sa-profile-active">
+                        <span></span>
+                        Akun Aktif
+                    </div>
+                </section>
+
+                <div class="sa-profile-layout">
+                    <section class="sa-profile-card">
+                        <div class="sa-profile-card-heading">
+                            <div>
+                                <h2>Informasi Pribadi</h2>
+                                <p>Perbarui informasi dasar akun Anda.</p>
+                            </div>
+                            <span class="sa-profile-card-icon"><i data-lucide="user-round"></i></span>
+                        </div>
+
+                        <form id="profileForm">
+                            <div class="sa-profile-form-grid">
+                                <label class="sa-profile-field">
+                                    <span>Nama Lengkap</span>
+                                    <input type="text" id="profileName" name="name" maxlength="80" required>
+                                </label>
+
+                                <label class="sa-profile-field">
+                                    <span>Email</span>
+                                    <input type="email" id="profileEmail" name="email" maxlength="120" required>
+                                </label>
+
+                                <label class="sa-profile-field">
+                                    <span>Nomor Telepon</span>
+                                    <input type="tel" id="profilePhone" name="phone" maxlength="20" placeholder="Masukkan nomor telepon">
+                                </label>
+
+                                <label class="sa-profile-field">
+                                    <span>Jabatan</span>
+                                    <input type="text" id="profilePosition" name="position" value="Petugas Kesiswaan" readonly>
+                                    <small>Jabatan diatur oleh administrator.</small>
+                                </label>
+                            </div>
+
+                            <div class="sa-profile-form-footer">
+                                <button type="button" class="sa-profile-reset-button" id="resetProfile">
+                                    <i data-lucide="rotate-ccw"></i>
+                                    Reset
+                                </button>
+                                <button type="submit" class="sa-profile-save-button" id="saveProfile">
+                                    <i data-lucide="save"></i>
+                                    Simpan Perubahan
+                                </button>
+                            </div>
+                        </form>
+                    </section>
+
+                    <aside class="sa-profile-card sa-profile-account-card">
+                        <div class="sa-profile-card-heading">
+                            <div>
+                                <h2>Informasi Akun</h2>
+                                <p>Detail akses akun Anda.</p>
+                            </div>
+                            <span class="sa-profile-card-icon"><i data-lucide="badge-check"></i></span>
+                        </div>
+
+                        <div class="sa-profile-account-list">
+                            <div class="sa-profile-account-item">
+                                <span>Peran Pengguna</span>
+                                <strong>Kesiswaan</strong>
+                            </div>
+                            <div class="sa-profile-account-item">
+                                <span>Hak Akses</span>
+                                <strong>Pengelola Kesiswaan</strong>
+                            </div>
+                            <div class="sa-profile-account-item">
+                                <span>Status Akun</span>
+                                <strong class="sa-profile-status">Aktif</strong>
+                            </div>
+                            <div class="sa-profile-account-item">
+                                <span>Jenis Akun</span>
+                                <strong>Petugas Sekolah</strong>
+                            </div>
+                        </div>
+
+                        <div class="sa-profile-security-note">
+                            <i data-lucide="shield-check"></i>
+                            <div>
+                                <strong>Keamanan Akun</strong>
+                                <p>Jangan membagikan informasi login kepada orang lain.</p>
+                            </div>
+                        </div>
+                    </aside>
+                </div>
+
+                <section class="sa-profile-bottom-note">
+                    <i data-lucide="info"></i>
+                    <p>Perubahan pada halaman ini masih disimpan di browser perangkat ini. Pembaruan akun server akan tersedia setelah integrasi backend.</p>
+                </section>
+
+                <footer class="sa-profile-footer">
+                    <span>© 2026 SAPA-SKANEGU · SMKN 1 Dlanggu</span>
+                    <span>Panel Bidang Kesiswaan</span>
+                </footer>
+            </div>
+        </main>
+    </div>
+
+    <div class="sa-profile-toast" id="profileToast" role="status" aria-live="polite"></div>
+</body>
+</html>

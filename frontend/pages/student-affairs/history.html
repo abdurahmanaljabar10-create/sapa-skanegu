@@ -1,0 +1,233 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0b0718">
+    <title>Riwayat Penanganan | SAPA-SKANEGU</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/reset.css">
+    <link rel="stylesheet" href="../../css/global.css">
+    <link rel="stylesheet" href="../../css/components.css">
+    <link rel="stylesheet" href="../../css/dashboard.css">
+    <link rel="stylesheet" href="../../css/animations.css">
+    <link rel="stylesheet" href="../../css/responsive.css">
+    <link rel="stylesheet" href="../../css/pages/student-affairs.css">
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <script src="../../js/main.js" defer></script>
+    <script src="../../js/auth.js" defer></script>
+    <script src="../../js/pages/student-affairs.js" defer></script>
+    <script src="../../js/pages/sa-history.js" defer></script>
+</head>
+<body class="dashboard-page student-affairs-page" data-sa-page="history">
+    <div class="dashboard-background">
+        <div class="dashboard-background-glow dashboard-glow-one"></div>
+        <div class="dashboard-background-glow dashboard-glow-two"></div>
+    </div>
+
+    <div class="dashboard-layout">
+        <div class="dashboard-overlay" data-sidebar-overlay></div>
+
+        <aside class="dashboard-sidebar" data-sidebar>
+            <div class="sidebar-brand">
+                <a href="dashboard.html" class="sidebar-brand-link">
+                    <div class="sidebar-brand-logo">
+                        <img src="../../assets/images/logo/logo-smkn1dlanggu.svg" alt="Logo SMKN 1 Dlanggu">
+                    </div>
+                    <div class="sidebar-brand-text">
+                        <strong>SAPA-SKANEGU</strong>
+                        <span>SMKN 1 Dlanggu</span>
+                    </div>
+                </a>
+                <button class="dashboard-sidebar-close" data-sidebar-close aria-label="Tutup navigasi">
+                    <i data-lucide="x"></i>
+                </button>
+            </div>
+
+            <div class="sidebar-profile">
+                <div class="sidebar-avatar">KS</div>
+                <div class="sidebar-profile-information">
+                    <strong>Tim Kesiswaan</strong>
+                    <span>Bidang Kesiswaan</span>
+                </div>
+                <span class="sidebar-online-indicator"></span>
+            </div>
+
+            <nav class="sidebar-navigation">
+                <div class="sidebar-section">
+                    <span class="sidebar-section-label">MENU UTAMA</span>
+                    <div class="sidebar-menu">
+                        <a href="dashboard.html" class="sidebar-link"><i data-lucide="layout-dashboard"></i><span>Dashboard</span></a>
+                        <a href="cases.html" class="sidebar-link"><i data-lucide="shield-alert"></i><span>Penanganan Kasus</span></a>
+                        <a href="discipline.html" class="sidebar-link"><i data-lucide="clipboard-list"></i><span>Kedisiplinan Siswa</span></a>
+                        <a href="history.html" class="sidebar-link active"><i data-lucide="history"></i><span>Riwayat Penanganan</span></a>
+                    </div>
+                </div>
+
+                <div class="sidebar-section">
+                    <span class="sidebar-section-label">INFORMASI</span>
+                    <div class="sidebar-menu">
+                        <a href="education.html" class="sidebar-link"><i data-lucide="book-open"></i><span>Materi Edukasi</span></a>
+                        <a href="notifications.html" class="sidebar-link"><i data-lucide="bell"></i><span>Notifikasi</span></a>
+                    </div>
+                </div>
+
+                <div class="sidebar-section">
+                    <span class="sidebar-section-label">AKUN</span>
+                    <div class="sidebar-menu">
+                        <a href="profile.html" class="sidebar-link"><i data-lucide="user-round"></i><span>Profil Saya</span></a>
+                        <a href="help.html" class="sidebar-link"><i data-lucide="circle-help"></i><span>Pusat Bantuan</span></a>
+                        <a href="privacy-policy.html" class="sidebar-link"><i data-lucide="shield-check"></i><span>Kebijakan Privasi</span></a>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <a href="../../index.html" class="sidebar-logout" id="logoutButton">
+                    <i data-lucide="log-out"></i>
+                    <span>Keluar</span>
+                </a>
+                <div class="sidebar-footer">
+                    <span>SAPA-SKANEGU</span>
+                    <span>SMKN 1 Dlanggu · 2026</span>
+                </div>
+            </div>
+        </aside>
+
+        <main class="dashboard-main">
+            <header class="dashboard-topbar">
+                <div class="topbar-left">
+                    <button class="dashboard-menu-toggle" data-sidebar-toggle aria-label="Buka navigasi" aria-expanded="false">
+                        <i data-lucide="menu"></i>
+                    </button>
+                    <div class="topbar-breadcrumb">
+                        <span>Bidang Kesiswaan</span>
+                        <i data-lucide="chevron-right"></i>
+                        <strong>Riwayat Penanganan</strong>
+                    </div>
+                </div>
+
+                <div class="topbar-right">
+                    <div class="topbar-date">
+                        <i data-lucide="calendar-days"></i>
+                        <span id="saCurrentDate"></span>
+                    </div>
+                    <a href="notifications.html" class="topbar-icon-button" aria-label="Notifikasi">
+                        <i data-lucide="bell"></i>
+                    </a>
+                    <a href="profile.html" class="topbar-user">
+                        <div class="topbar-user-avatar">KS</div>
+                        <div class="topbar-user-information">
+                            <strong>Tim Kesiswaan</strong>
+                            <span>Guru</span>
+                        </div>
+                        <i data-lucide="chevron-down"></i>
+                    </a>
+                </div>
+            </header>
+
+            <div class="dashboard-content sa-history-content">
+                <section class="sa-page-heading">
+                    <div>
+                        <span class="sa-eyebrow">ARSIP AKTIVITAS</span>
+                        <h1>Riwayat Penanganan</h1>
+                        <p>Lihat catatan aktivitas, perubahan status, dan tindak lanjut yang pernah dilakukan Bidang Kesiswaan.</p>
+                    </div>
+                    <button class="sa-button" id="refreshHistory">
+                        <i data-lucide="refresh-cw"></i>
+                        Perbarui tampilan
+                    </button>
+                </section>
+
+                <section class="sa-history-overview">
+                    <article class="sa-history-stat">
+                        <span class="sa-history-stat-icon purple"><i data-lucide="history"></i></span>
+                        <div><strong id="historyTotal">0</strong><span>Total aktivitas</span></div>
+                    </article>
+                    <article class="sa-history-stat">
+                        <span class="sa-history-stat-icon cyan"><i data-lucide="shield-check"></i></span>
+                        <div><strong id="historyCases">0</strong><span>Aktivitas kasus</span></div>
+                    </article>
+                    <article class="sa-history-stat">
+                        <span class="sa-history-stat-icon orange"><i data-lucide="clipboard-list"></i></span>
+                        <div><strong id="historyDiscipline">0</strong><span>Catatan kedisiplinan</span></div>
+                    </article>
+                    <article class="sa-history-stat">
+                        <span class="sa-history-stat-icon green"><i data-lucide="check-circle-2"></i></span>
+                        <div><strong id="historyCompleted">0</strong><span>Kasus selesai</span></div>
+                    </article>
+                </section>
+
+                <section class="sa-panel sa-history-panel">
+                    <div class="sa-history-heading">
+                        <div>
+                            <span class="sa-eyebrow">CATATAN AKTIVITAS</span>
+                            <h2>Seluruh Riwayat</h2>
+                            <p>Gunakan filter untuk menemukan aktivitas tertentu.</p>
+                        </div>
+                        <span class="sa-badge">Arsip lokal</span>
+                    </div>
+
+                    <div class="sa-history-toolbar">
+                        <label class="sa-search">
+                            <i data-lucide="search"></i>
+                            <input type="search" id="historySearch" placeholder="Cari kode kasus, aktivitas, atau catatan..." autocomplete="off">
+                        </label>
+
+                        <select class="sa-select" id="historyTypeFilter" aria-label="Filter jenis aktivitas">
+                            <option value="all">Semua aktivitas</option>
+                            <option value="case">Penanganan kasus</option>
+                            <option value="discipline">Kedisiplinan</option>
+                        </select>
+
+                        <select class="sa-select" id="historyPeriodFilter" aria-label="Filter periode">
+                            <option value="all">Semua periode</option>
+                            <option value="7">7 hari terakhir</option>
+                            <option value="30">30 hari terakhir</option>
+                            <option value="90">90 hari terakhir</option>
+                        </select>
+                    </div>
+
+                    <div class="sa-history-tabs">
+                        <button class="sa-history-tab active" data-history-filter="all">Semua <span id="historyTabAll">0</span></button>
+                        <button class="sa-history-tab" data-history-filter="case">Kasus <span id="historyTabCases">0</span></button>
+                        <button class="sa-history-tab" data-history-filter="discipline">Kedisiplinan <span id="historyTabDiscipline">0</span></button>
+                    </div>
+
+                    <div class="sa-history-list" id="historyList"></div>
+
+                    <div class="sa-notification-empty" id="historyEmpty" hidden>
+                        <span><i data-lucide="history"></i></span>
+                        <h3>Riwayat tidak ditemukan</h3>
+                        <p>Tidak ada aktivitas yang sesuai dengan pencarian atau filter.</p>
+                        <button class="sa-button" id="resetHistoryFilters">Reset filter</button>
+                    </div>
+
+                    <div class="sa-history-footer">
+                        <span id="historyResultCount">0 aktivitas ditampilkan</span>
+                        <button class="sa-button" id="resetHistoryFiltersTop"><i data-lucide="rotate-ccw"></i> Reset filter</button>
+                    </div>
+                </section>
+
+                <section class="sa-panel sa-history-note">
+                    <span class="sa-history-note-icon"><i data-lucide="lock-keyhole"></i></span>
+                    <div>
+                        <h3>Perlindungan riwayat penanganan</h3>
+                        <p>Riwayat dapat berisi informasi sensitif. Akses arsip seharusnya dibatasi sesuai kewenangan petugas dan kebijakan sekolah. Data yang tampil saat ini merupakan simulasi prototipe.</p>
+                    </div>
+                </section>
+
+                <footer class="sa-footer">
+                    <span>© 2026 SAPA-SKANEGU · SMKN 1 Dlanggu</span>
+                    <span>Panel Bidang Kesiswaan</span>
+                </footer>
+            </div>
+        </main>
+    </div>
+
+    <div class="sa-toast" id="saToast" role="status" aria-live="polite"></div>
+</body>
+</html>

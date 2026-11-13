@@ -1,0 +1,277 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0b0718">
+    <title>Dashboard Kesiswaan | SAPA-SKANEGU</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/reset.css">
+    <link rel="stylesheet" href="../../css/global.css">
+    <link rel="stylesheet" href="../../css/components.css">
+    <link rel="stylesheet" href="../../css/dashboard.css">
+    <link rel="stylesheet" href="../../css/animations.css">
+    <link rel="stylesheet" href="../../css/responsive.css">
+    <link rel="stylesheet" href="../../css/pages/student-affairs.css">
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <script src="../../js/main.js" defer></script>
+    <script src="../../js/auth.js" defer></script>
+    <script src="../../js/animations.js" defer></script>
+    <script src="../../js/pages/student-affairs.js" defer></script>
+    <script src="../../js/pages/sa-dashboard.js" defer></script>
+</head>
+<body class="dashboard-page student-affairs-page" data-sa-page="dashboard">
+    <div class="dashboard-background">
+        <div class="dashboard-background-glow dashboard-glow-one"></div>
+        <div class="dashboard-background-glow dashboard-glow-two"></div>
+        <div class="dashboard-background-stars"></div>
+        <div class="dashboard-background-grid"></div>
+    </div>
+
+    <div class="dashboard-layout">
+        <div class="dashboard-overlay" data-sidebar-overlay></div>
+
+        <aside class="dashboard-sidebar" data-sidebar>
+            <div class="sidebar-brand">
+                <a href="dashboard.html" class="sidebar-brand-link">
+                    <div class="sidebar-brand-logo">
+                        <img src="../../assets/images/logo/logo-smkn1dlanggu.svg" alt="Logo SMKN 1 Dlanggu">
+                    </div>
+                    <div class="sidebar-brand-text">
+                        <strong>SAPA-SKANEGU</strong>
+                        <span>SMKN 1 Dlanggu</span>
+                    </div>
+                </a>
+                <button class="dashboard-sidebar-close" data-sidebar-close aria-label="Tutup navigasi">
+                    <i data-lucide="x"></i>
+                </button>
+            </div>
+
+            <div class="sidebar-profile">
+                <div class="sidebar-avatar"><span>KS</span></div>
+                <div class="sidebar-profile-information">
+                    <strong>Tim Kesiswaan</strong>
+                    <span>Bidang Kesiswaan</span>
+                </div>
+                <span class="sidebar-online-indicator"></span>
+            </div>
+
+            <nav class="sidebar-navigation">
+                <div class="sidebar-section">
+                    <span class="sidebar-section-label">MENU UTAMA</span>
+                    <div class="sidebar-menu">
+                        <a href="dashboard.html" class="sidebar-link"><i data-lucide="layout-dashboard"></i><span>Dashboard</span></a>
+                        <a href="cases.html" class="sidebar-link"><i data-lucide="shield-alert"></i><span>Penanganan Kasus</span></a>
+                        <a href="discipline.html" class="sidebar-link"><i data-lucide="clipboard-list"></i><span>Kedisiplinan Siswa</span></a>
+                        <a href="history.html" class="sidebar-link"><i data-lucide="history"></i><span>Riwayat Penanganan</span></a>
+                    </div>
+                </div>
+
+                <div class="sidebar-section">
+                    <span class="sidebar-section-label">INFORMASI</span>
+                    <div class="sidebar-menu">
+                        <a href="education.html" class="sidebar-link"><i data-lucide="book-open"></i><span>Materi Edukasi</span></a>
+                        <a href="notifications.html" class="sidebar-link"><i data-lucide="bell"></i><span>Notifikasi</span></a>
+                    </div>
+                </div>
+
+                <div class="sidebar-section">
+                    <span class="sidebar-section-label">AKUN</span>
+                    <div class="sidebar-menu">
+                        <a href="profile.html" class="sidebar-link"><i data-lucide="user-round"></i><span>Profil Saya</span></a>
+                        <a href="help.html" class="sidebar-link"><i data-lucide="circle-help"></i><span>Pusat Bantuan</span></a>
+                        <a href="privacy-policy.html" class="sidebar-link"><i data-lucide="shield-check"></i><span>Kebijakan Privasi</span></a>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <a href="../../index.html" class="sidebar-logout" id="logoutButton">
+                    <i data-lucide="log-out"></i><span>Keluar</span>
+                </a>
+                <div class="sidebar-footer">
+                    <span>SAPA-SKANEGU</span>
+                    <span>SMKN 1 Dlanggu · 2026</span>
+                </div>
+            </div>
+        </aside>
+
+        <main class="dashboard-main">
+            <header class="dashboard-topbar">
+                <div class="topbar-left">
+                    <button class="dashboard-menu-toggle" data-sidebar-toggle aria-label="Buka navigasi" aria-expanded="false">
+                        <i data-lucide="menu"></i>
+                    </button>
+                    <div class="topbar-breadcrumb">
+                        <span>Bidang Kesiswaan</span>
+                        <i data-lucide="chevron-right"></i>
+                        <strong>Dashboard</strong>
+                    </div>
+                </div>
+
+                <div class="topbar-right">
+                    <div class="topbar-date">
+                        <i data-lucide="calendar-days"></i>
+                        <span id="saCurrentDate"></span>
+                    </div>
+                    <a href="notifications.html" class="topbar-icon-button" aria-label="Notifikasi">
+                        <i data-lucide="bell"></i>
+                    </a>
+                    <a href="profile.html" class="topbar-user">
+                        <div class="topbar-user-avatar"><span>KS</span></div>
+                        <div class="topbar-user-information">
+                            <strong>Tim Kesiswaan</strong>
+                            <span>Guru</span>
+                        </div>
+                        <i data-lucide="chevron-down"></i>
+                    </a>
+                </div>
+            </header>
+
+            <div class="dashboard-content">
+                <section class="sa-page-heading">
+                    <div>
+                        <span class="sa-eyebrow">SISTEM PENGELOLAAN KESISWAAN</span>
+                        <h1>Dashboard</h1>
+                        <p>Selamat datang di panel pengelolaan Bidang Kesiswaan SMKN 1 Dlanggu.</p>
+                    </div>
+                    <span class="sa-date"><i data-lucide="activity"></i> Ringkasan aktivitas</span>
+                </section>
+
+                <section class="sa-hero">
+                    <div class="sa-hero-copy">
+                        <span class="sa-eyebrow">BIDANG KESISWAAN</span>
+                        <h2>Membangun lingkungan sekolah yang <span>aman dan tertib.</span></h2>
+                        <p>Pantau penanganan kasus, koordinasikan tindak lanjut, dan dukung pembinaan siswa melalui satu panel kerja.</p>
+                    </div>
+                    <div class="sa-hero-icon">
+                        <i data-lucide="shield-check"></i>
+                    </div>
+                </section>
+
+                <section>
+                    <div class="sa-section-heading">
+                        <div>
+                            <h2>Ringkasan Penanganan</h2>
+                            <p>Gambaran aktivitas Bidang Kesiswaan.</p>
+                        </div>
+                        <span class="sa-badge">Data simulasi</span>
+                    </div>
+
+                    <div class="sa-stat-grid">
+                        <article class="sa-stat-card">
+                            <span class="sa-stat-icon"><i data-lucide="files"></i></span>
+                            <strong id="saStatTotal">24</strong>
+                            <p>Total kasus tercatat</p>
+                        </article>
+                        <article class="sa-stat-card">
+                            <span class="sa-stat-icon cyan"><i data-lucide="clock-3"></i></span>
+                            <strong id="saStatPending">4</strong>
+                            <p>Menunggu tindak lanjut</p>
+                        </article>
+                        <article class="sa-stat-card">
+                            <span class="sa-stat-icon orange"><i data-lucide="loader-circle"></i></span>
+                            <strong id="saStatProcess">8</strong>
+                            <p>Sedang ditangani</p>
+                        </article>
+                        <article class="sa-stat-card">
+                            <span class="sa-stat-icon green"><i data-lucide="check-circle-2"></i></span>
+                            <strong id="saStatComplete">12</strong>
+                            <p>Penanganan selesai</p>
+                        </article>
+                    </div>
+                </section>
+
+                <section>
+                    <div class="sa-section-heading">
+                        <div>
+                            <h2>Akses Cepat</h2>
+                            <p>Buka fitur sesuai aktivitas Kesiswaan.</p>
+                        </div>
+                    </div>
+
+                    <div class="sa-quick-grid">
+                        <a href="cases.html" class="sa-quick-card">
+                            <span class="sa-quick-icon"><i data-lucide="shield-alert"></i></span>
+                            <span class="sa-quick-copy"><strong>Penanganan Kasus</strong><span>Periksa dan tindak lanjuti laporan.</span></span>
+                            <i data-lucide="arrow-up-right" class="sa-quick-arrow"></i>
+                        </a>
+                        <a href="discipline.html" class="sa-quick-card">
+                            <span class="sa-quick-icon"><i data-lucide="clipboard-list"></i></span>
+                            <span class="sa-quick-copy"><strong>Kedisiplinan Siswa</strong><span>Pantau kegiatan pembinaan siswa.</span></span>
+                            <i data-lucide="arrow-up-right" class="sa-quick-arrow"></i>
+                        </a>
+                        <a href="history.html" class="sa-quick-card">
+                            <span class="sa-quick-icon"><i data-lucide="history"></i></span>
+                            <span class="sa-quick-copy"><strong>Riwayat Penanganan</strong><span>Lihat arsip dan perkembangan kasus.</span></span>
+                            <i data-lucide="arrow-up-right" class="sa-quick-arrow"></i>
+                        </a>
+                        <a href="education.html" class="sa-quick-card">
+                            <span class="sa-quick-icon"><i data-lucide="book-open"></i></span>
+                            <span class="sa-quick-copy"><strong>Materi Edukasi</strong><span>Buka referensi pembinaan siswa.</span></span>
+                            <i data-lucide="arrow-up-right" class="sa-quick-arrow"></i>
+                        </a>
+                        <a href="notifications.html" class="sa-quick-card">
+                            <span class="sa-quick-icon"><i data-lucide="bell"></i></span>
+                            <span class="sa-quick-copy"><strong>Notifikasi</strong><span>Periksa pembaruan dan penugasan.</span></span>
+                            <i data-lucide="arrow-up-right" class="sa-quick-arrow"></i>
+                        </a>
+                        <a href="profile.html" class="sa-quick-card">
+                            <span class="sa-quick-icon"><i data-lucide="user-round"></i></span>
+                            <span class="sa-quick-copy"><strong>Profil Saya</strong><span>Kelola informasi akun.</span></span>
+                            <i data-lucide="arrow-up-right" class="sa-quick-arrow"></i>
+                        </a>
+                    </div>
+                </section>
+
+                <section class="sa-panel">
+                    <div class="sa-section-heading">
+                        <div>
+                            <h2>Aktivitas Terbaru</h2>
+                            <p>Contoh aktivitas yang ditampilkan pada panel Kesiswaan.</p>
+                        </div>
+                        <a href="history.html" class="sa-button">Lihat riwayat <i data-lucide="arrow-right"></i></a>
+                    </div>
+
+                    <div class="sa-activity-list">
+                        <article class="sa-activity-item">
+                            <span class="sa-activity-dot"></span>
+                            <div>
+                                <strong>Laporan baru diterima</strong>
+                                <p>Kasus KS-024 masuk ke daftar penugasan Bidang Kesiswaan.</p>
+                                <time>13 November 2026 · 08.30</time>
+                            </div>
+                        </article>
+                        <article class="sa-activity-item">
+                            <span class="sa-activity-dot" style="background:#67d9e8"></span>
+                            <div>
+                                <strong>Status penanganan diperbarui</strong>
+                                <p>Kasus KS-021 berubah menjadi status Diproses.</p>
+                                <time>12 November 2026 · 13.15</time>
+                            </div>
+                        </article>
+                        <article class="sa-activity-item">
+                            <span class="sa-activity-dot" style="background:#65d6aa"></span>
+                            <div>
+                                <strong>Penanganan kasus selesai</strong>
+                                <p>Catatan penyelesaian kasus KS-019 telah dibuat.</p>
+                                <time>10 November 2026 · 10.15</time>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+
+                <footer class="sa-footer">
+                    <span>© 2026 SAPA-SKANEGU · SMKN 1 Dlanggu</span>
+                    <span>Panel Bidang Kesiswaan</span>
+                </footer>
+            </div>
+        </main>
+    </div>
+
+    <div class="sa-toast" id="saToast" role="status" aria-live="polite"></div>
+</body>
+</html>

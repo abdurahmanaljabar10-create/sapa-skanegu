@@ -1,1066 +1,545 @@
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#0b0718">
-    <meta name="description" content="Pusat Bantuan SAPA-SKANEGU untuk panduan penggunaan sistem aspirasi dan pelaporan anti-bullying.">
-
+    <meta name="description" content="Pusat bantuan dan panduan penggunaan SAPA-SKANEGU SMKN 1 Dlanggu">
     <title>Pusat Bantuan | SAPA-SKANEGU</title>
 
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/reset.css">
+    <link rel="stylesheet" href="../../css/global.css">
+    <link rel="stylesheet" href="../../css/components.css">
+    <link rel="stylesheet" href="../../css/dashboard.css">
+    <link rel="stylesheet" href="../../css/pages/student.css">
+    <link rel="stylesheet" href="../../css/animations.css">
+    <link rel="stylesheet" href="../../css/responsive.css">
+    <link rel="stylesheet" href="../../css/pages/help.css">
 
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-
-    <!-- External CSS -->
-    <link rel="stylesheet" href="../css/pages/help.css">
-
-    <!-- External JavaScript -->
-    <script src="../js/pages/help.js" defer></script>
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <script src="../../js/api.js" defer></script>
+    <script src="../../js/main.js" defer></script>
+    <script src="../../js/auth.js" defer></script>
+    <script src="../../js/animations.js" defer></script>
+    <script src="../../js/pages/help.js" defer></script>
 </head>
 
-<body class="help-page">
+<body class="dashboard-page student-dashboard help-page">
+    <div class="dashboard-background" aria-hidden="true">
+        <div class="dashboard-background-glow dashboard-glow-one"></div>
+        <div class="dashboard-background-glow dashboard-glow-two"></div>
+        <div class="dashboard-background-stars"></div>
+        <div class="dashboard-background-grid"></div>
+    </div>
 
-    <!-- Background -->
-    <div class="space-background" aria-hidden="true"></div>
+    <div class="dashboard-layout">
+        <div class="dashboard-overlay" data-sidebar-overlay></div>
 
-
-    <!-- Sidebar -->
-    <aside class="sidebar" id="appSidebar" aria-label="Navigasi utama">
-
-        <!-- Brand -->
-        <div class="brand">
-
-            <div class="brand-icon">
-                <i class="fa-solid fa-rocket"></i>
-            </div>
-
-            <div>
-                <div class="brand-name">SAPA-SKANEGU</div>
-                <div class="brand-subtitle">SMKN 1 Dlanggu</div>
-            </div>
-
-        </div>
-
-
-        <!-- User Profile -->
-        <div class="sidebar-profile">
-
-            <div class="sidebar-avatar">
-                <i class="fa-solid fa-user"></i>
-            </div>
-
-            <strong>Pengguna SAPA</strong>
-            <span>Siswa</span>
-
-        </div>
-
-
-        <!-- Main Navigation -->
-        <div class="nav-label">Menu Utama</div>
-
-        <nav class="sidebar-nav">
-
-            <a href="dashboard.html" class="nav-link">
-                <i class="fa-solid fa-house"></i>
-                <span>Dashboard</span>
-            </a>
-
-            <a href="aspirations.html" class="nav-link">
-                <i class="fa-solid fa-lightbulb"></i>
-                <span>Aspirasi</span>
-            </a>
-
-            <a href="complaints.html" class="nav-link">
-                <i class="fa-solid fa-comments"></i>
-                <span>Pengaduan</span>
-            </a>
-
-            <a href="bullying-report.html" class="nav-link">
-                <i class="fa-solid fa-shield-heart"></i>
-                <span>Lapor Bullying</span>
-            </a>
-
-            <a href="tracking.html" class="nav-link">
-                <i class="fa-solid fa-magnifying-glass-location"></i>
-                <span>Lacak Laporan</span>
-            </a>
-
-            <a href="history.html" class="nav-link">
-                <i class="fa-solid fa-clock-rotate-left"></i>
-                <span>Riwayat</span>
-            </a>
-
-            <a href="notifications.html" class="nav-link">
-                <i class="fa-solid fa-bell"></i>
-                <span>Notifikasi</span>
-            </a>
-
-        </nav>
-
-
-        <!-- Other Navigation -->
-        <div class="nav-label">Lainnya</div>
-
-        <nav class="sidebar-nav">
-
-            <a href="education.html" class="nav-link">
-                <i class="fa-solid fa-book-open"></i>
-                <span>Edukasi</span>
-            </a>
-
-            <a href="help.html" class="nav-link active" aria-current="page">
-                <i class="fa-solid fa-circle-question"></i>
-                <span>Pusat Bantuan</span>
-            </a>
-
-            <a href="profile.html" class="nav-link">
-                <i class="fa-solid fa-user"></i>
-                <span>Profil Saya</span>
-            </a>
-
-        </nav>
-
-
-        <!-- Sidebar Bottom -->
-        <div class="sidebar-bottom">
-
-            <div class="help-card">
-
-                <i class="fa-solid fa-headset"></i>
-
-                <h4>Butuh Bantuan?</h4>
-
-                <p>
-                    Temukan jawaban atas pertanyaan seputar SAPA-SKANEGU.
-                </p>
-
-                <a href="#contactSection" class="help-link">
-                    Lihat Kontak
-                    <i class="fa-solid fa-arrow-down"></i>
+        <aside class="dashboard-sidebar" data-sidebar aria-label="Navigasi utama">
+            <div class="sidebar-brand">
+                <a href="../student/dashboard.html" class="sidebar-brand-link">
+                    <div class="sidebar-brand-logo">
+                        <img src="../../assets/images/logo/logo-smkn1dlanggu.svg" alt="Logo SMKN 1 Dlanggu">
+                    </div>
+                    <div class="sidebar-brand-text">
+                        <strong>SAPA-SKANEGU</strong>
+                        <span>SMKN 1 Dlanggu</span>
+                    </div>
                 </a>
-
-            </div>
-
-
-            <button
-                type="button"
-                class="logout-button"
-                id="logoutButton"
-            >
-                <i class="fa-solid fa-right-from-bracket"></i>
-                Keluar
-            </button>
-
-        </div>
-
-    </aside>
-
-
-    <!-- Mobile Overlay -->
-    <div class="page-overlay" id="pageOverlay"></div>
-
-
-    <!-- Main Content -->
-    <main class="main-content">
-
-
-        <!-- Topbar -->
-        <header class="topbar">
-
-            <div class="topbar-left">
-
-                <button
-                    type="button"
-                    class="icon-button menu-toggle"
-                    id="menuToggle"
-                    aria-label="Buka menu navigasi"
-                    aria-controls="appSidebar"
-                    aria-expanded="false"
-                >
-                    <i class="fa-solid fa-bars"></i>
+                <button type="button" class="dashboard-sidebar-close" data-sidebar-close aria-label="Tutup navigasi">
+                    <i data-lucide="x"></i>
                 </button>
+            </div>
 
-                <div class="breadcrumb">
-                    Lainnya
-                    <span>/</span>
-                    <strong>Pusat Bantuan</strong>
+            <div class="sidebar-profile">
+                <div class="sidebar-avatar"><span id="sidebarUserInitial">S</span></div>
+                <div class="sidebar-profile-information">
+                    <strong id="sidebarUserName">Nama Siswa</strong>
+                    <span>Siswa</span>
+                </div>
+                <span class="sidebar-online-indicator" aria-label="Status online"></span>
+            </div>
+
+            <nav class="sidebar-navigation" aria-label="Menu dashboard">
+                <div class="sidebar-section">
+                    <span class="sidebar-section-label">MENU UTAMA</span>
+                    <div class="sidebar-menu">
+                        <a href="../student/dashboard.html" class="sidebar-link"><i data-lucide="layout-dashboard"></i><span>Dashboard</span></a>
+                        <a href="../student/aspirations.html" class="sidebar-link"><i data-lucide="lightbulb"></i><span>Aspirasi</span></a>
+                        <a href="../student/complaints.html" class="sidebar-link"><i data-lucide="message-square-warning"></i><span>Pengaduan</span></a>
+                        <a href="../student/bullying-report.html" class="sidebar-link"><i data-lucide="shield-alert"></i><span>Lapor Bullying</span><span class="sidebar-link-indicator">Aman</span></a>
+                        <a href="../student/tracking.html" class="sidebar-link"><i data-lucide="search-check"></i><span>Lacak Laporan</span></a>
+                        <a href="../student/history.html" class="sidebar-link"><i data-lucide="history"></i><span>Riwayat</span></a>
+                    </div>
                 </div>
 
-            </div>
-
-
-            <div class="topbar-actions">
-
-                <a
-                    href="notifications.html"
-                    class="icon-button"
-                    aria-label="Buka notifikasi"
-                >
-                    <i class="fa-regular fa-bell"></i>
-                </a>
-
-            </div>
-
-        </header>
-
-
-        <!-- Help Hero -->
-        <section class="help-hero">
-
-            <div class="hero-content">
-
-                <div class="hero-eyebrow">
-                    <i class="fa-solid fa-headset"></i>
-                    SUPPORT CENTER
+                <div class="sidebar-section">
+                    <span class="sidebar-section-label">INFORMASI</span>
+                    <div class="sidebar-menu">
+                        <a href="education.html" class="sidebar-link"><i data-lucide="book-open"></i><span>Edukasi</span></a>
+                        <a href="notifications.html" class="sidebar-link"><i data-lucide="bell"></i><span>Notifikasi</span></a>
+                        <a href="help.html" class="sidebar-link active" aria-current="page"><i data-lucide="circle-help"></i><span>Pusat Bantuan</span></a>
+                    </div>
                 </div>
 
-                <h1>
-                    Ada yang bisa kami bantu?
-                </h1>
+                <div class="sidebar-section">
+                    <span class="sidebar-section-label">AKUN</span>
+                    <div class="sidebar-menu">
+                        <a href="profile.html" class="sidebar-link"><i data-lucide="user-round"></i><span>Profil Saya</span></a>
+                        <a href="privacy-policy.html" class="sidebar-link"><i data-lucide="shield-check"></i><span>Privasi</span></a>
+                    </div>
+                </div>
+            </nav>
 
-                <p>
-                    Temukan panduan dan jawaban untuk membantu kamu
-                    menggunakan SAPA-SKANEGU dengan lebih mudah.
-                </p>
-
+            <div class="sidebar-bottom">
+                <div class="sidebar-help-card">
+                    <div class="sidebar-help-icon"><i data-lucide="heart-handshake"></i></div>
+                    <strong>Kamu tidak sendirian</strong>
+                    <p>Jika membutuhkan bantuan, hubungi orang dewasa yang kamu percaya.</p>
+                    <a href="help.html">Pusat bantuan <i data-lucide="arrow-up-right"></i></a>
+                </div>
+                <a href="../../index.html" class="sidebar-logout"><i data-lucide="log-out"></i><span>Keluar</span></a>
+                <div class="sidebar-footer">
+                    <span>SAPA-SKANEGU</span>
+                    <span>SMKN 1 Dlanggu · 2026</span>
+                </div>
             </div>
+        </aside>
 
-
-            <div class="hero-illustration" aria-hidden="true">
-
-                <div class="illustration-orbit orbit-one"></div>
-                <div class="illustration-orbit orbit-two"></div>
-
-                <div class="illustration-planet">
-                    <i class="fa-solid fa-headset"></i>
+        <main class="dashboard-main">
+            <header class="dashboard-topbar">
+                <div class="topbar-left">
+                    <button type="button" class="dashboard-menu-toggle" data-sidebar-toggle aria-label="Buka navigasi" aria-expanded="false">
+                        <i data-lucide="menu"></i>
+                    </button>
+                    <div class="topbar-breadcrumb">
+                        <span>Informasi</span>
+                        <i data-lucide="chevron-right"></i>
+                        <strong>Pusat Bantuan</strong>
+                    </div>
                 </div>
 
-                <div class="illustration-star star-one">
-                    <i class="fa-solid fa-star"></i>
+                <div class="topbar-right">
+                    <div class="topbar-date">
+                        <i data-lucide="calendar-days"></i>
+                        <span id="currentDate">Memuat tanggal...</span>
+                    </div>
+                    <a href="notifications.html" class="topbar-icon-button" aria-label="Notifikasi">
+                        <i data-lucide="bell"></i>
+                    </a>
+                    <a href="profile.html" class="topbar-user">
+                        <div class="topbar-user-avatar"><span id="topbarUserInitial">S</span></div>
+                        <div class="topbar-user-information">
+                            <strong id="topbarUserName">Nama Siswa</strong>
+                            <span>Siswa</span>
+                        </div>
+                        <i data-lucide="chevron-down"></i>
+                    </a>
                 </div>
-
-                <div class="illustration-star star-two">
-                    <i class="fa-solid fa-sparkles"></i>
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- Quick Help -->
-        <section class="help-quick-section">
-
-            <div class="section-heading">
-
-                <div>
-                    <h2>
-                        Apa yang kamu butuhkan?
-                    </h2>
-
-                    <p>
-                        Pilih topik bantuan sesuai kebutuhanmu.
-                    </p>
-                </div>
-
-            </div>
-
-
-            <div class="help-quick-grid">
-
-                <a href="#accountSection" class="quick-help-card">
-
-                    <div class="quick-help-icon purple">
-                        <i class="fa-solid fa-user-lock"></i>
-                    </div>
-
-                    <h3>
-                        Akun dan Login
-                    </h3>
-
-                    <p>
-                        Bantuan terkait akun dan akses sistem.
-                    </p>
-
-                    <span>
-                        Pelajari
-                        <i class="fa-solid fa-arrow-right"></i>
-                    </span>
-
-                </a>
-
-
-                <a href="#reportSection" class="quick-help-card">
-
-                    <div class="quick-help-icon pink">
-                        <i class="fa-solid fa-file-circle-exclamation"></i>
-                    </div>
-
-                    <h3>
-                        Pelaporan
-                    </h3>
-
-                    <p>
-                        Panduan membuat aspirasi dan laporan.
-                    </p>
-
-                    <span>
-                        Pelajari
-                        <i class="fa-solid fa-arrow-right"></i>
-                    </span>
-
-                </a>
-
-
-                <a href="#trackingSection" class="quick-help-card">
-
-                    <div class="quick-help-icon cyan">
-                        <i class="fa-solid fa-magnifying-glass-chart"></i>
-                    </div>
-
-                    <h3>
-                        Status Laporan
-                    </h3>
-
-                    <p>
-                        Cara mengetahui perkembangan laporan.
-                    </p>
-
-                    <span>
-                        Pelajari
-                        <i class="fa-solid fa-arrow-right"></i>
-                    </span>
-
-                </a>
-
-
-                <a href="#privacySection" class="quick-help-card">
-
-                    <div class="quick-help-icon orange">
-                        <i class="fa-solid fa-shield-halved"></i>
-                    </div>
-
-                    <h3>
-                        Privasi dan Keamanan
-                    </h3>
-
-                    <p>
-                        Informasi perlindungan data pengguna.
-                    </p>
-
-                    <span>
-                        Pelajari
-                        <i class="fa-solid fa-arrow-right"></i>
-                    </span>
-
-                </a>
-
-            </div>
-
-        </section>
-
-
-        <!-- FAQ Section -->
-        <section class="faq-section" id="faqSection">
-
-            <div class="section-heading">
-
-                <div>
-                    <span class="section-eyebrow">
-                        FREQUENTLY ASKED QUESTIONS
-                    </span>
-
-                    <h2>
-                        Pertanyaan yang Sering Diajukan
-                    </h2>
-
-                    <p>
-                        Berikut beberapa pertanyaan umum mengenai
-                        penggunaan SAPA-SKANEGU.
-                    </p>
-                </div>
-
-            </div>
-
-
-            <!-- FAQ Search -->
-            <div class="faq-search">
-
-                <i class="fa-solid fa-magnifying-glass"></i>
-
-                <input
-                    type="search"
-                    id="faqSearch"
-                    placeholder="Cari pertanyaan..."
-                    autocomplete="off"
-                    aria-label="Cari pertanyaan"
-                >
-
-                <button
-                    type="button"
-                    id="clearFaqSearch"
-                    aria-label="Hapus pencarian"
-                >
-                    <i class="fa-solid fa-xmark"></i>
-                </button>
-
-            </div>
-
-
-            <!-- FAQ Categories -->
-            <div class="faq-tabs">
-
-                <button
-                    type="button"
-                    class="faq-tab active"
-                    data-filter="all"
-                    aria-pressed="true"
-                >
-                    Semua
-                </button>
-
-                <button
-                    type="button"
-                    class="faq-tab"
-                    data-filter="account"
-                    aria-pressed="false"
-                >
-                    Akun
-                </button>
-
-                <button
-                    type="button"
-                    class="faq-tab"
-                    data-filter="report"
-                    aria-pressed="false"
-                >
-                    Pelaporan
-                </button>
-
-                <button
-                    type="button"
-                    class="faq-tab"
-                    data-filter="tracking"
-                    aria-pressed="false"
-                >
-                    Laporan
-                </button>
-
-                <button
-                    type="button"
-                    class="faq-tab"
-                    data-filter="privacy"
-                    aria-pressed="false"
-                >
-                    Privasi
-                </button>
-
-            </div>
-
-
-            <!-- FAQ List -->
-            <div class="faq-list" id="faqList">
-
-
-                <!-- FAQ 1 -->
-                <article class="faq-item" data-category="account">
-
-                    <button
-                        type="button"
-                        class="faq-question"
-                        aria-expanded="false"
-                    >
-
-                        <span>
-                            Bagaimana cara masuk ke SAPA-SKANEGU?
-                        </span>
-
-                        <i class="fa-solid fa-chevron-down"></i>
-
-                    </button>
-
-                    <div class="faq-answer">
-
-                        <div class="faq-answer-content">
-
-                            <p>
-                                Buka halaman login SAPA-SKANEGU, kemudian
-                                masukkan identitas akun dan kata sandi
-                                yang telah terdaftar. Setelah itu,
-                                tekan tombol masuk untuk mengakses sistem.
-                            </p>
-
+            </header>
+
+            <div class="dashboard-content help-content">
+                <section class="help-hero">
+                    <div class="help-hero-copy">
+                        <div class="welcome-eyebrow">
+                            <span class="welcome-status-dot"></span>
+                            SUPPORT & GUIDANCE CENTER
                         </div>
+                        <h1>Ada yang bisa<br><span class="welcome-gradient">kami bantu?</span></h1>
+                        <p>Temukan jawaban, pelajari cara menggunakan layanan, dan cari bantuan ketika kamu membutuhkannya.</p>
 
-                    </div>
+                        <form class="help-search" id="helpSearchForm">
+                            <i data-lucide="search"></i>
+                            <input type="search" id="helpSearchInput" placeholder="Cari pertanyaan atau topik bantuan..." autocomplete="off" aria-label="Cari bantuan">
+                            <button type="submit" aria-label="Cari"><i data-lucide="arrow-right"></i></button>
+                        </form>
 
-                </article>
-
-
-                <!-- FAQ 2 -->
-                <article class="faq-item" data-category="account">
-
-                    <button
-                        type="button"
-                        class="faq-question"
-                        aria-expanded="false"
-                    >
-
-                        <span>
-                            Bagaimana jika saya lupa kata sandi?
-                        </span>
-
-                        <i class="fa-solid fa-chevron-down"></i>
-
-                    </button>
-
-                    <div class="faq-answer">
-
-                        <div class="faq-answer-content">
-
-                            <p>
-                                Jika kamu lupa kata sandi, hubungi
-                                administrator atau pihak sekolah yang
-                                bertanggung jawab untuk mendapatkan
-                                bantuan pemulihan akun.
-                            </p>
-
+                        <div class="help-search-suggestions">
+                            <span>Populer:</span>
+                            <button type="button" data-search-term="cara membuat laporan">Cara membuat laporan</button>
+                            <button type="button" data-search-term="privasi">Privasi</button>
+                            <button type="button" data-search-term="status laporan">Status laporan</button>
                         </div>
-
                     </div>
 
-                </article>
-
-
-                <!-- FAQ 3 -->
-                <article class="faq-item" data-category="report">
-
-                    <button
-                        type="button"
-                        class="faq-question"
-                        aria-expanded="false"
-                    >
-
-                        <span>
-                            Apa perbedaan aspirasi dan pengaduan?
-                        </span>
-
-                        <i class="fa-solid fa-chevron-down"></i>
-
-                    </button>
-
-                    <div class="faq-answer">
-
-                        <div class="faq-answer-content">
-
-                            <p>
-                                Aspirasi digunakan untuk menyampaikan
-                                ide, saran, atau masukan demi meningkatkan
-                                lingkungan sekolah. Pengaduan digunakan
-                                untuk menyampaikan keluhan atau kejadian
-                                yang membutuhkan perhatian dan tindak lanjut.
-                            </p>
-
-                        </div>
-
+                    <div class="help-hero-art" aria-hidden="true">
+                        <div class="help-orbit help-orbit-one"></div>
+                        <div class="help-orbit help-orbit-two"></div>
+                        <div class="help-art-glow"></div>
+                        <div class="help-art-icon"><i data-lucide="messages-square"></i></div>
+                        <div class="help-floating help-floating-one"><i data-lucide="book-open-check"></i><span>Panduan</span></div>
+                        <div class="help-floating help-floating-two"><i data-lucide="heart-handshake"></i><span>Pendampingan</span></div>
                     </div>
+                </section>
 
-                </article>
-
-
-                <!-- FAQ 4 -->
-                <article class="faq-item" data-category="report">
-
-                    <button
-                        type="button"
-                        class="faq-question"
-                        aria-expanded="false"
-                    >
-
-                        <span>
-                            Bagaimana cara melaporkan tindakan bullying?
-                        </span>
-
-                        <i class="fa-solid fa-chevron-down"></i>
-
-                    </button>
-
-                    <div class="faq-answer">
-
-                        <div class="faq-answer-content">
-
-                            <p>
-                                Buka menu Lapor Bullying, lengkapi informasi
-                                kejadian sesuai kondisi yang kamu ketahui,
-                                kemudian ikuti petunjuk pada halaman pelaporan.
-                                Sampaikan informasi secara jujur dan jelas.
-                            </p>
-
-                        </div>
-
-                    </div>
-
-                </article>
-
-
-                <!-- FAQ 5 -->
-                <article class="faq-item" data-category="report">
-
-                    <button
-                        type="button"
-                        class="faq-question"
-                        aria-expanded="false"
-                    >
-
-                        <span>
-                            Apakah saya harus menyertakan bukti laporan?
-                        </span>
-
-                        <i class="fa-solid fa-chevron-down"></i>
-
-                    </button>
-
-                    <div class="faq-answer">
-
-                        <div class="faq-answer-content">
-
-                            <p>
-                                Bukti pendukung dapat membantu proses
-                                penanganan laporan, tetapi jangan mengambil
-                                risiko atau membahayakan diri untuk
-                                mendapatkannya. Jangan menyebarkan bukti
-                                sensitif kepada pihak yang tidak berkepentingan.
-                            </p>
-
-                        </div>
-
-                    </div>
-
-                </article>
-
-
-                <!-- FAQ 6 -->
-                <article class="faq-item" data-category="tracking">
-
-                    <button
-                        type="button"
-                        class="faq-question"
-                        aria-expanded="false"
-                    >
-
-                        <span>
-                            Bagaimana cara mengetahui status laporan?
-                        </span>
-
-                        <i class="fa-solid fa-chevron-down"></i>
-
-                    </button>
-
-                    <div class="faq-answer">
-
-                        <div class="faq-answer-content">
-
-                            <p>
-                                Gunakan menu Lacak Laporan dan masukkan
-                                nomor tiket laporan yang kamu miliki.
-                                Informasi status akan ditampilkan apabila
-                                data laporan telah tersedia dalam sistem.
-                            </p>
-
-                        </div>
-
-                    </div>
-
-                </article>
-
-
-                <!-- FAQ 7 -->
-                <article class="faq-item" data-category="tracking">
-
-                    <button
-                        type="button"
-                        class="faq-question"
-                        aria-expanded="false"
-                    >
-
-                        <span>
-                            Apa yang harus dilakukan jika laporan belum ditindaklanjuti?
-                        </span>
-
-                        <i class="fa-solid fa-chevron-down"></i>
-
-                    </button>
-
-                    <div class="faq-answer">
-
-                        <div class="faq-answer-content">
-
-                            <p>
-                                Periksa kembali status laporan secara berkala.
-                                Jika belum ada perkembangan, kamu dapat
-                                menghubungi guru BK atau pihak sekolah
-                                yang berwenang untuk meminta informasi.
-                            </p>
-
-                        </div>
-
-                    </div>
-
-                </article>
-
-
-                <!-- FAQ 8 -->
-                <article class="faq-item" data-category="privacy">
-
-                    <button
-                        type="button"
-                        class="faq-question"
-                        aria-expanded="false"
-                    >
-
-                        <span>
-                            Apakah identitas pelapor dapat dilihat pengguna lain?
-                        </span>
-
-                        <i class="fa-solid fa-chevron-down"></i>
-
-                    </button>
-
-                    <div class="faq-answer">
-
-                        <div class="faq-answer-content">
-
-                            <p>
-                                Identitas pelapor tidak boleh ditampilkan
-                                secara terbuka kepada pengguna lain.
-                                Akses terhadap identitas dan informasi
-                                laporan harus dibatasi kepada pihak yang
-                                memiliki kewenangan sesuai kebijakan sekolah.
-                            </p>
-
-                        </div>
-
-                    </div>
-
-                </article>
-
-
-                <!-- FAQ 9 -->
-                <article class="faq-item" data-category="privacy">
-
-                    <button
-                        type="button"
-                        class="faq-question"
-                        aria-expanded="false"
-                    >
-
-                        <span>
-                            Apakah saya boleh membagikan nomor tiket laporan?
-                        </span>
-
-                        <i class="fa-solid fa-chevron-down"></i>
-
-                    </button>
-
-                    <div class="faq-answer">
-
-                        <div class="faq-answer-content">
-
-                            <p>
-                                Sebaiknya simpan nomor tiket secara pribadi.
-                                Jangan membagikannya kepada orang yang tidak
-                                berkepentingan karena nomor tersebut dapat
-                                berkaitan dengan informasi laporan.
-                            </p>
-
-                        </div>
-
-                    </div>
-
-                </article>
-
-
-            </div>
-
-
-            <!-- FAQ Empty State -->
-            <div class="faq-empty" id="faqEmpty" role="status">
-
-                <div class="empty-icon">
-                    <i class="fa-solid fa-circle-question"></i>
-                </div>
-
-                <h3>
-                    Pertanyaan tidak ditemukan
-                </h3>
-
-                <p>
-                    Coba gunakan kata kunci atau kategori yang berbeda.
-                </p>
-
-            </div>
-
-        </section>
-
-
-        <!-- Help Guides -->
-        <section class="help-guides">
-
-            <div class="section-heading">
-
-                <div>
-                    <span class="section-eyebrow">
-                        USER GUIDES
-                    </span>
-
-                    <h2>
-                        Panduan Penggunaan
-                    </h2>
-
-                    <p>
-                        Kenali fitur utama yang tersedia di SAPA-SKANEGU.
-                    </p>
-                </div>
-
-            </div>
-
-
-            <div class="guide-grid">
-
-                <a href="aspirations.html" class="guide-card">
-
-                    <div class="guide-icon purple">
-                        <i class="fa-solid fa-lightbulb"></i>
-                    </div>
-
-                    <div class="guide-content">
-
-                        <h3>
-                            Panduan Menyampaikan Aspirasi
-                        </h3>
-
-                        <p>
-                            Pelajari cara menyampaikan ide dan saran
-                            melalui sistem.
-                        </p>
-
-                    </div>
-
-                    <i class="fa-solid fa-arrow-right guide-arrow"></i>
-
-                </a>
-
-
-                <a href="complaints.html" class="guide-card">
-
-                    <div class="guide-icon pink">
-                        <i class="fa-solid fa-file-circle-exclamation"></i>
-                    </div>
-
-                    <div class="guide-content">
-
-                        <h3>
-                            Panduan Membuat Pengaduan
-                        </h3>
-
-                        <p>
-                            Ketahui informasi yang perlu disiapkan
-                            sebelum membuat pengaduan.
-                        </p>
-
-                    </div>
-
-                    <i class="fa-solid fa-arrow-right guide-arrow"></i>
-
-                </a>
-
-
-                <a href="bullying-report.html" class="guide-card">
-
-                    <div class="guide-icon cyan">
-                        <i class="fa-solid fa-shield-heart"></i>
-                    </div>
-
-                    <div class="guide-content">
-
-                        <h3>
-                            Panduan Lapor Bullying
-                        </h3>
-
-                        <p>
-                            Pelajari tahapan melaporkan tindakan
-                            perundungan di lingkungan sekolah.
-                        </p>
-
-                    </div>
-
-                    <i class="fa-solid fa-arrow-right guide-arrow"></i>
-
-                </a>
-
-
-                <a href="tracking.html" class="guide-card">
-
-                    <div class="guide-icon orange">
-                        <i class="fa-solid fa-location-crosshairs"></i>
-                    </div>
-
-                    <div class="guide-content">
-
-                        <h3>
-                            Panduan Melacak Laporan
-                        </h3>
-
-                        <p>
-                            Ketahui cara memeriksa perkembangan
-                            laporan menggunakan nomor tiket.
-                        </p>
-
-                    </div>
-
-                    <i class="fa-solid fa-arrow-right guide-arrow"></i>
-
-                </a>
-
-            </div>
-
-        </section>
-
-
-        <!-- Contact Section -->
-        <section class="contact-section" id="contactSection">
-
-            <div class="contact-content">
-
-                <span class="section-eyebrow">
-                    NEED MORE HELP?
-                </span>
-
-                <h2>
-                    Masih membutuhkan bantuan?
-                </h2>
-
-                <p>
-                    Jika pertanyaanmu belum terjawab, kamu dapat meminta
-                    bantuan kepada pihak sekolah yang berwenang.
-                </p>
-
-                <div class="contact-options">
-
-                    <div class="contact-option">
-
-                        <div class="contact-icon purple">
-                            <i class="fa-solid fa-user-tie"></i>
-                        </div>
-
+                <section class="help-category-section">
+                    <div class="help-section-heading">
                         <div>
-                            <strong>Guru BK</strong>
-                            <span>Konsultasi dan pendampingan siswa</span>
+                            <span class="section-eyebrow">JELAJAHI BANTUAN</span>
+                            <h2>Apa yang kamu butuhkan?</h2>
+                            <p>Pilih kategori untuk menemukan informasi yang relevan.</p>
                         </div>
-
                     </div>
 
+                    <div class="help-category-grid">
+                        <button type="button" class="help-category-card" data-category="account">
+                            <span class="help-category-icon purple"><i data-lucide="user-round"></i></span>
+                            <strong>Akun & Profil</strong>
+                            <small>Login, data profil, dan akun</small>
+                            <i data-lucide="arrow-up-right" class="help-category-arrow"></i>
+                        </button>
 
-                    <div class="contact-option">
+                        <button type="button" class="help-category-card" data-category="aspiration">
+                            <span class="help-category-icon cyan"><i data-lucide="lightbulb"></i></span>
+                            <strong>Aspirasi</strong>
+                            <small>Menyampaikan ide dan masukan</small>
+                            <i data-lucide="arrow-up-right" class="help-category-arrow"></i>
+                        </button>
 
-                        <div class="contact-icon cyan">
-                            <i class="fa-solid fa-chalkboard-user"></i>
-                        </div>
+                        <button type="button" class="help-category-card" data-category="complaint">
+                            <span class="help-category-icon orange"><i data-lucide="message-square-warning"></i></span>
+                            <strong>Pengaduan</strong>
+                            <small>Keluhan dan permasalahan</small>
+                            <i data-lucide="arrow-up-right" class="help-category-arrow"></i>
+                        </button>
 
+                        <button type="button" class="help-category-card" data-category="bullying">
+                            <span class="help-category-icon pink"><i data-lucide="shield-alert"></i></span>
+                            <strong>Lapor Bullying</strong>
+                            <small>Pelaporan dan pendampingan</small>
+                            <i data-lucide="arrow-up-right" class="help-category-arrow"></i>
+                        </button>
+
+                        <button type="button" class="help-category-card" data-category="tracking">
+                            <span class="help-category-icon green"><i data-lucide="search-check"></i></span>
+                            <strong>Status Laporan</strong>
+                            <small>Melihat perkembangan laporan</small>
+                            <i data-lucide="arrow-up-right" class="help-category-arrow"></i>
+                        </button>
+
+                        <button type="button" class="help-category-card" data-category="privacy">
+                            <span class="help-category-icon violet"><i data-lucide="lock-keyhole"></i></span>
+                            <strong>Privasi & Keamanan</strong>
+                            <small>Data pribadi dan keamanan akun</small>
+                            <i data-lucide="arrow-up-right" class="help-category-arrow"></i>
+                        </button>
+                    </div>
+                </section>
+
+                <section class="help-faq-section" id="helpFaqSection">
+                    <div class="help-section-heading help-faq-heading">
                         <div>
-                            <strong>Wali Kelas</strong>
-                            <span>Bantuan dan koordinasi kelas</span>
+                            <span class="section-eyebrow">FREQUENTLY ASKED QUESTIONS</span>
+                            <h2>Pertanyaan yang sering diajukan</h2>
+                            <p>Temukan jawaban dari beberapa pertanyaan umum siswa.</p>
                         </div>
-
+                        <span class="help-faq-count" id="helpFaqCount">12 pertanyaan</span>
                     </div>
 
+                    <div class="help-faq-layout">
+                        <div class="help-faq-list" id="helpFaqList">
 
-                    <div class="contact-option">
+                            <article class="help-faq-item" data-category="account">
+                                <button type="button" class="help-faq-question" aria-expanded="false">
+                                    <span class="help-faq-number">01</span>
+                                    <span class="help-faq-question-text">Bagaimana cara masuk ke akun SAPA-SKANEGU?</span>
+                                    <i data-lucide="plus"></i>
+                                </button>
+                                <div class="help-faq-answer" hidden>
+                                    <p>Buka halaman login SAPA-SKANEGU, masukkan informasi akun yang telah diberikan atau didaftarkan sesuai ketentuan sekolah, kemudian lanjutkan proses masuk.</p>
+                                </div>
+                            </article>
 
-                        <div class="contact-icon pink">
-                            <i class="fa-solid fa-school"></i>
+                            <article class="help-faq-item" data-category="account">
+                                <button type="button" class="help-faq-question" aria-expanded="false">
+                                    <span class="help-faq-number">02</span>
+                                    <span class="help-faq-question-text">Bagaimana jika saya lupa kata sandi?</span>
+                                    <i data-lucide="plus"></i>
+                                </button>
+                                <div class="help-faq-answer" hidden>
+                                    <p>Hubungi admin sekolah atau pihak yang bertanggung jawab atas pengelolaan akun untuk mendapatkan bantuan pemulihan akses. Jangan membagikan kata sandi kepada orang lain.</p>
+                                </div>
+                            </article>
+
+                            <article class="help-faq-item" data-category="account">
+                                <button type="button" class="help-faq-question" aria-expanded="false">
+                                    <span class="help-faq-number">03</span>
+                                    <span class="help-faq-question-text">Apakah informasi profil dapat diperbarui?</span>
+                                    <i data-lucide="plus"></i>
+                                </button>
+                                <div class="help-faq-answer" hidden>
+                                    <p>Informasi tertentu dapat diperbarui melalui halaman Profil Saya. Untuk informasi identitas yang dibatasi, mintalah bantuan admin atau pihak sekolah.</p>
+                                </div>
+                            </article>
+
+                            <article class="help-faq-item" data-category="aspiration">
+                                <button type="button" class="help-faq-question" aria-expanded="false">
+                                    <span class="help-faq-number">04</span>
+                                    <span class="help-faq-question-text">Apa fungsi fitur aspirasi?</span>
+                                    <i data-lucide="plus"></i>
+                                </button>
+                                <div class="help-faq-answer" hidden>
+                                    <p>Fitur aspirasi digunakan untuk menyampaikan ide, saran, dan masukan yang bertujuan membantu meningkatkan kualitas lingkungan sekolah.</p>
+                                </div>
+                            </article>
+
+                            <article class="help-faq-item" data-category="aspiration">
+                                <button type="button" class="help-faq-question" aria-expanded="false">
+                                    <span class="help-faq-number">05</span>
+                                    <span class="help-faq-question-text">Bagaimana cara menyampaikan aspirasi?</span>
+                                    <i data-lucide="plus"></i>
+                                </button>
+                                <div class="help-faq-answer" hidden>
+                                    <p>Buka menu Aspirasi, isi informasi yang diminta dengan jelas dan sopan, periksa kembali isian, lalu ikuti petunjuk pengiriman pada halaman tersebut.</p>
+                                    <a href="../student/aspirations.html">Buka halaman Aspirasi <i data-lucide="arrow-up-right"></i></a>
+                                </div>
+                            </article>
+
+                            <article class="help-faq-item" data-category="complaint">
+                                <button type="button" class="help-faq-question" aria-expanded="false">
+                                    <span class="help-faq-number">06</span>
+                                    <span class="help-faq-question-text">Apa perbedaan aspirasi dan pengaduan?</span>
+                                    <i data-lucide="plus"></i>
+                                </button>
+                                <div class="help-faq-answer" hidden>
+                                    <p>Aspirasi berisi ide atau saran untuk perbaikan. Pengaduan digunakan untuk menyampaikan keluhan atau masalah yang membutuhkan perhatian dan tindak lanjut.</p>
+                                </div>
+                            </article>
+
+                            <article class="help-faq-item" data-category="complaint">
+                                <button type="button" class="help-faq-question" aria-expanded="false">
+                                    <span class="help-faq-number">07</span>
+                                    <span class="help-faq-question-text">Informasi apa yang perlu disiapkan saat mengadu?</span>
+                                    <i data-lucide="plus"></i>
+                                </button>
+                                <div class="help-faq-answer" hidden>
+                                    <p>Jelaskan masalah secara faktual, waktu dan lokasi jika relevan, serta informasi pendukung yang aman untuk dibagikan. Hindari menambahkan tuduhan yang belum dapat dipastikan.</p>
+                                </div>
+                            </article>
+
+                            <article class="help-faq-item" data-category="bullying">
+                                <button type="button" class="help-faq-question" aria-expanded="false">
+                                    <span class="help-faq-number">08</span>
+                                    <span class="help-faq-question-text">Apa yang harus dilakukan jika mengalami bullying?</span>
+                                    <i data-lucide="plus"></i>
+                                </button>
+                                <div class="help-faq-answer" hidden>
+                                    <p>Utamakan keselamatan. Cari tempat aman dan ceritakan kejadian kepada orang dewasa yang dipercaya, seperti guru BK, wali kelas, atau pihak sekolah. Jika terdapat bahaya langsung, segera minta bantuan secara langsung.</p>
+                                    <a href="../student/bullying-report.html">Buka halaman Lapor Bullying <i data-lucide="arrow-up-right"></i></a>
+                                </div>
+                            </article>
+
+                            <article class="help-faq-item" data-category="bullying">
+                                <button type="button" class="help-faq-question" aria-expanded="false">
+                                    <span class="help-faq-number">09</span>
+                                    <span class="help-faq-question-text">Apakah saya boleh melapor untuk membantu teman?</span>
+                                    <i data-lucide="plus"></i>
+                                </button>
+                                <div class="help-faq-answer" hidden>
+                                    <p>Kamu dapat menyampaikan kekhawatiran tentang kejadian yang kamu ketahui. Sampaikan informasi secara jujur, jangan menyebarkan identitas atau cerita korban, dan libatkan orang dewasa yang dapat membantu.</p>
+                                </div>
+                            </article>
+
+                            <article class="help-faq-item" data-category="tracking">
+                                <button type="button" class="help-faq-question" aria-expanded="false">
+                                    <span class="help-faq-number">10</span>
+                                    <span class="help-faq-question-text">Bagaimana cara mengetahui perkembangan laporan?</span>
+                                    <i data-lucide="plus"></i>
+                                </button>
+                                <div class="help-faq-answer" hidden>
+                                    <p>Gunakan menu Lacak Laporan atau Riwayat untuk memeriksa informasi perkembangan yang tersedia pada akunmu.</p>
+                                    <a href="../student/tracking.html">Buka Lacak Laporan <i data-lucide="arrow-up-right"></i></a>
+                                </div>
+                            </article>
+
+                            <article class="help-faq-item" data-category="tracking">
+                                <button type="button" class="help-faq-question" aria-expanded="false">
+                                    <span class="help-faq-number">11</span>
+                                    <span class="help-faq-question-text">Mengapa status laporan belum berubah?</span>
+                                    <i data-lucide="plus"></i>
+                                </button>
+                                <div class="help-faq-answer" hidden>
+                                    <p>Perubahan status bergantung pada proses pemeriksaan dan tindak lanjut pihak yang berwenang. Jika membutuhkan kepastian, hubungi pihak sekolah yang menangani laporan tersebut.</p>
+                                </div>
+                            </article>
+
+                            <article class="help-faq-item" data-category="privacy">
+                                <button type="button" class="help-faq-question" aria-expanded="false">
+                                    <span class="help-faq-number">12</span>
+                                    <span class="help-faq-question-text">Bagaimana informasi pribadi saya dilindungi?</span>
+                                    <i data-lucide="plus"></i>
+                                </button>
+                                <div class="help-faq-answer" hidden>
+                                    <p>Jaga kerahasiaan informasi login dan hindari membagikan detail laporan kepada pihak yang tidak berkepentingan. Pelajari kebijakan privasi untuk mengetahui ketentuan pengelolaan informasi.</p>
+                                    <a href="privacy-policy.html">Baca Kebijakan Privasi <i data-lucide="arrow-up-right"></i></a>
+                                </div>
+                            </article>
                         </div>
 
+                        <aside class="help-faq-aside">
+                            <div class="help-aside-icon"><i data-lucide="lightbulb"></i></div>
+                            <span class="section-eyebrow">QUICK TIP</span>
+                            <h3>Belum menemukan jawaban?</h3>
+                            <p>Gunakan pencarian di atas atau hubungi pihak sekolah yang dapat memberikan pendampingan.</p>
+                            <button type="button" id="showAllFaq">Lihat semua pertanyaan <i data-lucide="arrow-down"></i></button>
+                        </aside>
+                    </div>
+
+                    <div class="help-no-results" id="helpNoResults" hidden>
+                        <i data-lucide="search-x"></i>
+                        <h3>Pertanyaan tidak ditemukan</h3>
+                        <p>Coba gunakan kata kunci lain atau pilih kategori bantuan yang berbeda.</p>
+                        <button type="button" id="resetHelpSearch">Hapus pencarian</button>
+                    </div>
+                </section>
+
+                <section class="help-guide-section">
+                    <div class="help-section-heading">
                         <div>
-                            <strong>Pihak Sekolah</strong>
-                            <span>Informasi dan bantuan lebih lanjut</span>
+                            <span class="section-eyebrow">USER GUIDE</span>
+                            <h2>Mulai gunakan layanan</h2>
+                            <p>Kenali alur dasar penggunaan platform SAPA-SKANEGU.</p>
                         </div>
-
                     </div>
 
-                </div>
+                    <div class="help-guide-grid">
+                        <a href="../student/aspirations.html" class="help-guide-card">
+                            <span class="help-guide-number">01</span>
+                            <div class="help-guide-icon"><i data-lucide="lightbulb"></i></div>
+                            <h3>Sampaikan Aspirasi</h3>
+                            <p>Bagikan ide dan masukan untuk lingkungan sekolah.</p>
+                            <span class="help-guide-link">Mulai sekarang <i data-lucide="arrow-up-right"></i></span>
+                        </a>
 
+                        <a href="../student/complaints.html" class="help-guide-card">
+                            <span class="help-guide-number">02</span>
+                            <div class="help-guide-icon"><i data-lucide="message-square-warning"></i></div>
+                            <h3>Kirim Pengaduan</h3>
+                            <p>Sampaikan keluhan yang membutuhkan perhatian.</p>
+                            <span class="help-guide-link">Buka pengaduan <i data-lucide="arrow-up-right"></i></span>
+                        </a>
+
+                        <a href="../student/bullying-report.html" class="help-guide-card">
+                            <span class="help-guide-number">03</span>
+                            <div class="help-guide-icon"><i data-lucide="shield-alert"></i></div>
+                            <h3>Lapor Bullying</h3>
+                            <p>Gunakan saluran pelaporan untuk kejadian perundungan.</p>
+                            <span class="help-guide-link">Pelajari lebih lanjut <i data-lucide="arrow-up-right"></i></span>
+                        </a>
+
+                        <a href="../student/tracking.html" class="help-guide-card">
+                            <span class="help-guide-number">04</span>
+                            <div class="help-guide-icon"><i data-lucide="search-check"></i></div>
+                            <h3>Lacak Perkembangan</h3>
+                            <p>Periksa informasi status dan tindak lanjut yang tersedia.</p>
+                            <span class="help-guide-link">Lacak laporan <i data-lucide="arrow-up-right"></i></span>
+                        </a>
+                    </div>
+                </section>
+
+                <section class="help-contact-section">
+                    <div class="help-contact-copy">
+                        <span class="section-eyebrow">YOU ARE NOT ALONE</span>
+                        <h2>Butuh seseorang untuk mendengarkan?</h2>
+                        <p>Jika menghadapi masalah, merasa tidak aman, atau membutuhkan pendampingan, kamu dapat menghubungi orang dewasa yang dipercaya di lingkungan sekolah.</p>
+                    </div>
+
+                    <div class="help-contact-grid">
+                        <article class="help-contact-card">
+                            <div class="help-contact-icon purple"><i data-lucide="graduation-cap"></i></div>
+                            <h3>Wali Kelas</h3>
+                            <p>Untuk menyampaikan masalah dan meminta arahan terkait kondisi kelas.</p>
+                        </article>
+
+                        <article class="help-contact-card">
+                            <div class="help-contact-icon cyan"><i data-lucide="heart-handshake"></i></div>
+                            <h3>Guru BK</h3>
+                            <p>Untuk mendapatkan konseling, pendampingan, dan bantuan sesuai kebutuhan.</p>
+                        </article>
+
+                        <article class="help-contact-card">
+                            <div class="help-contact-icon orange"><i data-lucide="school"></i></div>
+                            <h3>Kesiswaan</h3>
+                            <p>Untuk menyampaikan persoalan yang membutuhkan perhatian pihak sekolah.</p>
+                        </article>
+                    </div>
+
+                    <div class="help-emergency-note">
+                        <i data-lucide="shield-alert"></i>
+                        <p><strong>Jika kamu berada dalam bahaya langsung,</strong> segera cari tempat aman dan minta pertolongan secara langsung kepada guru, petugas sekolah, atau orang dewasa yang dipercaya. Jangan menunggu balasan dari formulir online.</p>
+                    </div>
+                </section>
+
+                <section class="help-question-section">
+                    <div class="help-question-visual">
+                        <div class="help-question-icon"><i data-lucide="send"></i></div>
+                        <span class="section-eyebrow">STILL NEED HELP?</span>
+                        <h2>Belum menemukan yang kamu cari?</h2>
+                        <p>Kirim pertanyaan melalui formulir ini. Untuk prototipe, formulir hanya melakukan pemeriksaan isian dan belum mengirim pesan ke pihak sekolah.</p>
+                    </div>
+
+                    <form class="help-question-form" id="helpQuestionForm">
+                        <label>
+                            <span>Nama <b>*</b></span>
+                            <input type="text" id="helpName" name="name" placeholder="Masukkan nama" maxlength="80" required>
+                        </label>
+
+                        <label>
+                            <span>Email <b>*</b></span>
+                            <input type="email" id="helpEmail" name="email" placeholder="nama@email.com" maxlength="120" required>
+                        </label>
+
+                        <label>
+                            <span>Kategori pertanyaan <b>*</b></span>
+                            <select id="helpTopic" name="topic" required>
+                                <option value="">Pilih kategori</option>
+                                <option value="account">Akun dan profil</option>
+                                <option value="aspiration">Aspirasi</option>
+                                <option value="complaint">Pengaduan</option>
+                                <option value="bullying">Pelaporan bullying</option>
+                                <option value="tracking">Status laporan</option>
+                                <option value="privacy">Privasi dan keamanan</option>
+                                <option value="other">Lainnya</option>
+                            </select>
+                        </label>
+
+                        <label>
+                            <span>Pertanyaan <b>*</b></span>
+                            <textarea id="helpMessage" name="message" rows="4" minlength="15" maxlength="1500" placeholder="Jelaskan pertanyaan atau kendala yang kamu alami..." required></textarea>
+                            <small id="helpMessageCount">0 / 1500</small>
+                        </label>
+
+                        <div class="help-form-notice" id="helpFormNotice" hidden role="status" aria-live="polite"></div>
+
+                        <button type="submit" class="help-submit-button">
+                            <i data-lucide="send"></i>
+                            Periksa pertanyaan
+                        </button>
+                    </form>
+                </section>
+
+                <footer class="dashboard-footer">
+                    <div>
+                        <strong>SAPA-SKANEGU</strong>
+                        <span>Sistem Aspirasi dan Pelaporan Anti-Bullying</span>
+                    </div>
+                    <div class="dashboard-footer-right">
+                        <span>SMKN 1 Dlanggu</span>
+                        <span>© 2026</span>
+                    </div>
+                </footer>
             </div>
+        </main>
+    </div>
 
-
-            <div class="contact-illustration" aria-hidden="true">
-
-                <div class="contact-orbit"></div>
-
-                <div class="contact-planet">
-                    <i class="fa-solid fa-comments"></i>
-                </div>
-
-                <i class="fa-solid fa-star contact-star star-one"></i>
-                <i class="fa-solid fa-sparkles contact-star star-two"></i>
-
-            </div>
-
-        </section>
-
-
-        <!-- Safety Information -->
-        <section class="safety-information" id="privacySection">
-
-            <div class="safety-icon">
-                <i class="fa-solid fa-shield-halved"></i>
-            </div>
-
-            <div class="safety-content">
-
-                <h3>
-                    Keselamatan dan Privasi adalah Prioritas
-                </h3>
-
-                <p>
-                    Gunakan SAPA-SKANEGU secara bertanggung jawab.
-                    Jangan membagikan kata sandi, informasi pribadi,
-                    atau bukti laporan kepada pihak yang tidak berkepentingan.
-                    Jika kamu berada dalam situasi yang membahayakan,
-                    segera cari bantuan langsung dari orang dewasa
-                    atau pihak sekolah yang dipercaya.
-                </p>
-
-                <a href="privacy-policy.html">
-                    Baca Kebijakan Privasi
-                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                </a>
-
-            </div>
-
-        </section>
-
-
-        <!-- Footer -->
-        <footer class="page-footer">
-
-            <p>
-                © 2026 SAPA-SKANEGU · SMKN 1 Dlanggu
-            </p>
-
-            <p>
-                Sistem Aspirasi dan Pelaporan Anti-Bullying
-            </p>
-
-        </footer>
-
-    </main>
-
+    <div class="help-toast" id="helpToast" role="status" aria-live="polite">
+        <i data-lucide="check-circle-2"></i>
+        <span id="helpToastMessage"></span>
+    </div>
 </body>
 </html>

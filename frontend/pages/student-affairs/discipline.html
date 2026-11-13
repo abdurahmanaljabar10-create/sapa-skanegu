@@ -1,0 +1,353 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0b0718">
+    <title>Kedisiplinan Siswa | SAPA-SKANEGU</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/reset.css">
+    <link rel="stylesheet" href="../../css/global.css">
+    <link rel="stylesheet" href="../../css/components.css">
+    <link rel="stylesheet" href="../../css/dashboard.css">
+    <link rel="stylesheet" href="../../css/animations.css">
+    <link rel="stylesheet" href="../../css/responsive.css">
+    <link rel="stylesheet" href="../../css/pages/student-affairs.css">
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <script src="../../js/main.js" defer></script>
+    <script src="../../js/auth.js" defer></script>
+    <script src="../../js/pages/student-affairs.js" defer></script>
+    <script src="../../js/pages/sa-discipline.js" defer></script>
+</head>
+<body class="dashboard-page student-affairs-page" data-sa-page="discipline">
+    <div class="dashboard-background">
+        <div class="dashboard-background-glow dashboard-glow-one"></div>
+        <div class="dashboard-background-glow dashboard-glow-two"></div>
+    </div>
+
+    <div class="dashboard-layout">
+        <div class="dashboard-overlay" data-sidebar-overlay></div>
+
+        <aside class="dashboard-sidebar" data-sidebar>
+            <div class="sidebar-brand">
+                <a href="dashboard.html" class="sidebar-brand-link">
+                    <div class="sidebar-brand-logo">
+                        <img src="../../assets/images/logo/logo-smkn1dlanggu.svg" alt="Logo SMKN 1 Dlanggu">
+                    </div>
+                    <div class="sidebar-brand-text">
+                        <strong>SAPA-SKANEGU</strong>
+                        <span>SMKN 1 Dlanggu</span>
+                    </div>
+                </a>
+                <button class="dashboard-sidebar-close" data-sidebar-close aria-label="Tutup navigasi">
+                    <i data-lucide="x"></i>
+                </button>
+            </div>
+
+            <div class="sidebar-profile">
+                <div class="sidebar-avatar">KS</div>
+                <div class="sidebar-profile-information">
+                    <strong>Tim Kesiswaan</strong>
+                    <span>Bidang Kesiswaan</span>
+                </div>
+                <span class="sidebar-online-indicator"></span>
+            </div>
+
+            <nav class="sidebar-navigation">
+                <div class="sidebar-section">
+                    <span class="sidebar-section-label">MENU UTAMA</span>
+                    <div class="sidebar-menu">
+                        <a href="dashboard.html" class="sidebar-link"><i data-lucide="layout-dashboard"></i><span>Dashboard</span></a>
+                        <a href="cases.html" class="sidebar-link"><i data-lucide="shield-alert"></i><span>Penanganan Kasus</span></a>
+                        <a href="discipline.html" class="sidebar-link"><i data-lucide="clipboard-list"></i><span>Kedisiplinan Siswa</span></a>
+                        <a href="history.html" class="sidebar-link"><i data-lucide="history"></i><span>Riwayat Penanganan</span></a>
+                    </div>
+                </div>
+
+                <div class="sidebar-section">
+                    <span class="sidebar-section-label">INFORMASI</span>
+                    <div class="sidebar-menu">
+                        <a href="education.html" class="sidebar-link"><i data-lucide="book-open"></i><span>Materi Edukasi</span></a>
+                        <a href="notifications.html" class="sidebar-link"><i data-lucide="bell"></i><span>Notifikasi</span></a>
+                    </div>
+                </div>
+
+                <div class="sidebar-section">
+                    <span class="sidebar-section-label">AKUN</span>
+                    <div class="sidebar-menu">
+                        <a href="profile.html" class="sidebar-link"><i data-lucide="user-round"></i><span>Profil Saya</span></a>
+                        <a href="help.html" class="sidebar-link"><i data-lucide="circle-help"></i><span>Pusat Bantuan</span></a>
+                        <a href="privacy-policy.html" class="sidebar-link"><i data-lucide="shield-check"></i><span>Kebijakan Privasi</span></a>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <a href="../../index.html" class="sidebar-logout" id="logoutButton">
+                    <i data-lucide="log-out"></i>
+                    <span>Keluar</span>
+                </a>
+                <div class="sidebar-footer">
+                    <span>SAPA-SKANEGU</span>
+                    <span>SMKN 1 Dlanggu · 2026</span>
+                </div>
+            </div>
+        </aside>
+
+        <main class="dashboard-main">
+            <header class="dashboard-topbar">
+                <div class="topbar-left">
+                    <button class="dashboard-menu-toggle" data-sidebar-toggle aria-label="Buka navigasi" aria-expanded="false">
+                        <i data-lucide="menu"></i>
+                    </button>
+                    <div class="topbar-breadcrumb">
+                        <span>Bidang Kesiswaan</span>
+                        <i data-lucide="chevron-right"></i>
+                        <strong>Kedisiplinan Siswa</strong>
+                    </div>
+                </div>
+
+                <div class="topbar-right">
+                    <div class="topbar-date">
+                        <i data-lucide="calendar-days"></i>
+                        <span id="saCurrentDate"></span>
+                    </div>
+                    <a href="notifications.html" class="topbar-icon-button" aria-label="Notifikasi">
+                        <i data-lucide="bell"></i>
+                    </a>
+                    <a href="profile.html" class="topbar-user">
+                        <div class="topbar-user-avatar">KS</div>
+                        <div class="topbar-user-information">
+                            <strong>Tim Kesiswaan</strong>
+                            <span>Guru</span>
+                        </div>
+                        <i data-lucide="chevron-down"></i>
+                    </a>
+                </div>
+            </header>
+
+            <div class="dashboard-content sa-discipline-content">
+                <section class="sa-page-heading">
+                    <div>
+                        <span class="sa-eyebrow">PEMBINAAN DAN PENGAWASAN</span>
+                        <h1>Kedisiplinan Siswa</h1>
+                        <p>Kelola catatan pelanggaran, pantau pembinaan, dan evaluasi perkembangan kedisiplinan siswa.</p>
+                    </div>
+                    <button class="sa-button sa-button-primary" id="openDisciplineForm">
+                        <i data-lucide="plus"></i>
+                        Catat Pelanggaran
+                    </button>
+                </section>
+
+                <section class="sa-discipline-stats">
+                    <article class="sa-discipline-stat">
+                        <span class="sa-discipline-stat-icon purple"><i data-lucide="clipboard-list"></i></span>
+                        <div><strong id="disciplineTotal">0</strong><span>Total catatan</span></div>
+                    </article>
+                    <article class="sa-discipline-stat">
+                        <span class="sa-discipline-stat-icon orange"><i data-lucide="alert-triangle"></i></span>
+                        <div><strong id="disciplinePending">0</strong><span>Perlu pembinaan</span></div>
+                    </article>
+                    <article class="sa-discipline-stat">
+                        <span class="sa-discipline-stat-icon cyan"><i data-lucide="clock-3"></i></span>
+                        <div><strong id="disciplineFollowup">0</strong><span>Dalam tindak lanjut</span></div>
+                    </article>
+                    <article class="sa-discipline-stat">
+                        <span class="sa-discipline-stat-icon green"><i data-lucide="check-circle-2"></i></span>
+                        <div><strong id="disciplineCompleted">0</strong><span>Pembinaan selesai</span></div>
+                    </article>
+                </section>
+
+                <section class="sa-panel sa-discipline-panel">
+                    <div class="sa-discipline-heading">
+                        <div>
+                            <span class="sa-eyebrow">DATA KEDISIPLINAN</span>
+                            <h2>Catatan Pelanggaran Siswa</h2>
+                            <p>Daftar catatan kedisiplinan yang dikelola oleh Bidang Kesiswaan.</p>
+                        </div>
+                        <span class="sa-badge">Data simulasi</span>
+                    </div>
+
+                    <div class="sa-discipline-toolbar">
+                        <label class="sa-search">
+                            <i data-lucide="search"></i>
+                            <input type="search" id="disciplineSearch" placeholder="Cari nama, kelas, atau kode catatan..." autocomplete="off">
+                        </label>
+                        <select class="sa-select" id="disciplineCategoryFilter" aria-label="Filter kategori">
+                            <option value="all">Semua kategori</option>
+                            <option value="Keterlambatan">Keterlambatan</option>
+                            <option value="Seragam">Seragam</option>
+                            <option value="Kehadiran">Kehadiran</option>
+                            <option value="Tata Tertib">Tata Tertib</option>
+                            <option value="Perilaku">Perilaku</option>
+                        </select>
+                        <select class="sa-select" id="disciplineLevelFilter" aria-label="Filter tingkat">
+                            <option value="all">Semua tingkat</option>
+                            <option value="Ringan">Ringan</option>
+                            <option value="Sedang">Sedang</option>
+                            <option value="Berat">Berat</option>
+                        </select>
+                        <select class="sa-select" id="disciplineStatusFilter" aria-label="Filter status pembinaan">
+                            <option value="all">Semua status</option>
+                            <option value="Perlu Pembinaan">Perlu Pembinaan</option>
+                            <option value="Dalam Tindak Lanjut">Dalam Tindak Lanjut</option>
+                            <option value="Selesai">Selesai</option>
+                        </select>
+                    </div>
+
+                    <div class="sa-discipline-tabs">
+                        <button class="sa-discipline-tab active" data-discipline-filter="all">Semua <span id="disciplineTabAll">0</span></button>
+                        <button class="sa-discipline-tab" data-discipline-filter="pending">Perlu Pembinaan <span id="disciplineTabPending">0</span></button>
+                        <button class="sa-discipline-tab" data-discipline-filter="followup">Dalam Tindak Lanjut <span id="disciplineTabFollowup">0</span></button>
+                        <button class="sa-discipline-tab" data-discipline-filter="completed">Selesai <span id="disciplineTabCompleted">0</span></button>
+                    </div>
+
+                    <div class="sa-table-wrap sa-discipline-table-wrap">
+                        <table class="sa-table sa-discipline-table">
+                            <thead>
+                                <tr>
+                                    <th>SISWA</th>
+                                    <th>KATEGORI</th>
+                                    <th>TANGGAL</th>
+                                    <th>TINGKAT</th>
+                                    <th>STATUS PEMBINAAN</th>
+                                    <th>AKSI</th>
+                                </tr>
+                            </thead>
+                            <tbody id="disciplineTableBody"></tbody>
+                        </table>
+                    </div>
+
+                    <div class="sa-discipline-mobile-list" id="disciplineMobileList"></div>
+
+                    <div class="sa-notification-empty" id="disciplineEmpty" hidden>
+                        <span><i data-lucide="clipboard-x"></i></span>
+                        <h3>Catatan tidak ditemukan</h3>
+                        <p>Ubah kata pencarian atau filter untuk melihat data lainnya.</p>
+                        <button class="sa-button" id="resetDisciplineFilters">Reset filter</button>
+                    </div>
+
+                    <div class="sa-discipline-footer">
+                        <span id="disciplineResultCount">0 catatan ditampilkan</span>
+                        <button class="sa-button" id="resetDisciplineFiltersTop"><i data-lucide="rotate-ccw"></i> Reset filter</button>
+                    </div>
+                </section>
+
+                <section class="sa-discipline-lower-grid">
+                    <article class="sa-panel sa-discipline-category-panel">
+                        <div class="sa-section-heading">
+                            <div>
+                                <h2>Kategori Pelanggaran</h2>
+                                <p>Kelompok pencatatan kedisiplinan.</p>
+                            </div>
+                        </div>
+                        <div class="sa-discipline-category-list">
+                            <div><span class="sa-discipline-category-icon purple"><i data-lucide="clock"></i></span><div><strong>Keterlambatan</strong><span>Ketidaksesuaian waktu kehadiran</span></div></div>
+                            <div><span class="sa-discipline-category-icon cyan"><i data-lucide="shirt"></i></span><div><strong>Seragam</strong><span>Ketidaksesuaian ketentuan seragam</span></div></div>
+                            <div><span class="sa-discipline-category-icon orange"><i data-lucide="calendar-x"></i></span><div><strong>Kehadiran</strong><span>Ketidakhadiran tanpa keterangan</span></div></div>
+                            <div><span class="sa-discipline-category-icon green"><i data-lucide="clipboard-check"></i></span><div><strong>Tata Tertib</strong><span>Pelanggaran peraturan sekolah</span></div></div>
+                        </div>
+                    </article>
+
+                    <article class="sa-panel sa-discipline-guidance-panel">
+                        <span class="sa-discipline-guidance-icon"><i data-lucide="heart-handshake"></i></span>
+                        <span class="sa-eyebrow">PENDEKATAN PEMBINAAN</span>
+                        <h2>Utamakan pembinaan yang edukatif</h2>
+                        <p>Catatan kedisiplinan digunakan untuk mendukung evaluasi dan pembinaan siswa secara proporsional, bukan untuk memberi label negatif kepada siswa.</p>
+                        <div class="sa-discipline-guidance-points">
+                            <span><i data-lucide="check"></i> Catat fakta secara objektif</span>
+                            <span><i data-lucide="check"></i> Jaga kerahasiaan data siswa</span>
+                            <span><i data-lucide="check"></i> Dokumentasikan tindak lanjut</span>
+                        </div>
+                    </article>
+                </section>
+
+                <footer class="sa-footer">
+                    <span>© 2026 SAPA-SKANEGU · SMKN 1 Dlanggu</span>
+                    <span>Panel Bidang Kesiswaan</span>
+                </footer>
+            </div>
+        </main>
+    </div>
+
+    <div class="sa-toast" id="saToast" role="status" aria-live="polite"></div>
+
+    <div class="sa-discipline-modal-overlay" id="disciplineModal" hidden>
+        <section class="sa-discipline-modal" role="dialog" aria-modal="true" aria-labelledby="disciplineModalTitle">
+            <div class="sa-discipline-modal-header">
+                <div>
+                    <span class="sa-eyebrow">FORM KEDISIPLINAN</span>
+                    <h2 id="disciplineModalTitle">Catat Pelanggaran</h2>
+                    <p id="disciplineModalSubtitle">Isi informasi berdasarkan kejadian yang teramati.</p>
+                </div>
+                <button class="sa-discipline-modal-close" id="closeDisciplineModal" aria-label="Tutup form"><i data-lucide="x"></i></button>
+            </div>
+
+            <form id="disciplineForm" class="sa-discipline-form">
+                <input type="hidden" id="disciplineRecordId">
+
+                <div class="sa-discipline-form-grid">
+                    <label class="sa-discipline-field">
+                        <span>Nama siswa <b>*</b></span>
+                        <input type="text" id="disciplineStudentName" maxlength="100" required placeholder="Masukkan nama siswa">
+                    </label>
+                    <label class="sa-discipline-field">
+                        <span>Kelas <b>*</b></span>
+                        <input type="text" id="disciplineStudentClass" maxlength="30" required placeholder="Contoh: XI TKJ 1">
+                    </label>
+                    <label class="sa-discipline-field">
+                        <span>Kategori pelanggaran <b>*</b></span>
+                        <select id="disciplineCategory" required>
+                            <option value="">Pilih kategori</option>
+                            <option value="Keterlambatan">Keterlambatan</option>
+                            <option value="Seragam">Seragam</option>
+                            <option value="Kehadiran">Kehadiran</option>
+                            <option value="Tata Tertib">Tata Tertib</option>
+                            <option value="Perilaku">Perilaku</option>
+                        </select>
+                    </label>
+                    <label class="sa-discipline-field">
+                        <span>Tingkat pelanggaran <b>*</b></span>
+                        <select id="disciplineLevel" required>
+                            <option value="">Pilih tingkat</option>
+                            <option value="Ringan">Ringan</option>
+                            <option value="Sedang">Sedang</option>
+                            <option value="Berat">Berat</option>
+                        </select>
+                    </label>
+                    <label class="sa-discipline-field">
+                        <span>Tanggal kejadian <b>*</b></span>
+                        <input type="date" id="disciplineDate" required>
+                    </label>
+                    <label class="sa-discipline-field">
+                        <span>Status pembinaan <b>*</b></span>
+                        <select id="disciplineStatus" required>
+                            <option value="Perlu Pembinaan">Perlu Pembinaan</option>
+                            <option value="Dalam Tindak Lanjut">Dalam Tindak Lanjut</option>
+                            <option value="Selesai">Selesai</option>
+                        </select>
+                    </label>
+                </div>
+
+                <label class="sa-discipline-field">
+                    <span>Deskripsi kejadian <b>*</b></span>
+                    <textarea id="disciplineDescription" rows="3" maxlength="1000" required placeholder="Tuliskan fakta kejadian secara objektif dan jelas."></textarea>
+                </label>
+
+                <label class="sa-discipline-field">
+                    <span>Tindakan pembinaan / tindak lanjut</span>
+                    <textarea id="disciplineAction" rows="3" maxlength="1000" placeholder="Tuliskan tindakan pembinaan atau rencana tindak lanjut."></textarea>
+                </label>
+
+                <div class="sa-discipline-modal-footer">
+                    <button type="button" class="sa-button" id="cancelDisciplineForm">Batal</button>
+                    <button type="submit" class="sa-button sa-button-primary"><i data-lucide="save"></i> Simpan catatan</button>
+                </div>
+            </form>
+        </section>
+    </div>
+</body>
+</html>

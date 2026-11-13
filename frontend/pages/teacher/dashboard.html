@@ -1,0 +1,351 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#080413">
+    <title>Dashboard Guru | SAPA-SKANEGU</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/reset.css">
+    <link rel="stylesheet" href="../../css/global.css">
+    <link rel="stylesheet" href="../../css/components.css">
+    <link rel="stylesheet" href="../../css/dashboard.css">
+    <link rel="stylesheet" href="../../css/pages/teacher.css">
+    <link rel="stylesheet" href="../../css/animations.css">
+    <link rel="stylesheet" href="../../css/responsive.css">
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+</head>
+<body class="dashboard-page teacher-dashboard">
+    <div class="cursor-glow"></div>
+    <div class="dashboard-background">
+        <div class="dashboard-background-glow"></div>
+        <div class="dashboard-background-stars"></div>
+        <div class="dashboard-background-grid"></div>
+    </div>
+
+    <div class="dashboard-layout">
+        <div class="dashboard-overlay" data-sidebar-overlay></div>
+
+        <aside class="dashboard-sidebar" data-sidebar>
+            <div class="sidebar-brand">
+                <a href="dashboard.html" class="sidebar-brand-link">
+                    <img src="../../assets/images/logo/logo-smkn1dlanggu.svg" alt="Logo SMKN 1 Dlanggu" class="sidebar-brand-logo">
+                    <div class="sidebar-brand-text">
+                        <strong>SAPA-SKANEGU</strong>
+                        <span>SMKN 1 Dlanggu</span>
+                    </div>
+                </a>
+                <button type="button" class="dashboard-sidebar-close" data-sidebar-close aria-label="Tutup menu">
+                    <i data-lucide="x"></i>
+                </button>
+            </div>
+
+            <div class="sidebar-profile">
+                <div class="sidebar-avatar">
+                    <span id="sidebarUserInitial">G</span>
+                </div>
+                <div class="sidebar-profile-information">
+                    <strong id="sidebarUserName">Guru</strong>
+                    <span>Tenaga Pendidik</span>
+                    <span class="teacher-role-status"><span></span> Akun Guru</span>
+                </div>
+            </div>
+
+            <nav class="sidebar-navigation">
+                <div class="sidebar-section">
+                    <span class="sidebar-section-label">MENU UTAMA</span>
+                    <div class="sidebar-menu">
+                        <a href="dashboard.html" class="sidebar-link active">
+                            <i data-lucide="layout-dashboard"></i>
+                            <span>Dashboard</span>
+                        </a>
+                        <a href="../general/notifications.html" class="sidebar-link">
+                            <i data-lucide="bell"></i>
+                            <span>Notifikasi</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="sidebar-section">
+                    <span class="sidebar-section-label">INFORMASI & EDUKASI</span>
+                    <div class="sidebar-menu">
+                        <a href="../general/education.html" class="sidebar-link">
+                            <i data-lucide="book-open"></i>
+                            <span>Materi Edukasi</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="sidebar-section">
+                    <span class="sidebar-section-label">AKUN</span>
+                    <div class="sidebar-menu">
+                        <a href="../general/profile.html" class="sidebar-link">
+                            <i data-lucide="user-round"></i>
+                            <span>Profil Saya</span>
+                        </a>
+                        <a href="../general/help.html" class="sidebar-link">
+                            <i data-lucide="circle-help"></i>
+                            <span>Pusat Bantuan</span>
+                        </a>
+                        <a href="../general/privacy-policy.html" class="sidebar-link">
+                            <i data-lucide="shield-check"></i>
+                            <span>Kebijakan Privasi</span>
+                        </a>
+                        <a href="../general/terms.html" class="sidebar-link">
+                            <i data-lucide="file-text"></i>
+                            <span>Syarat & Ketentuan</span>
+                        </a>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <div class="sidebar-help-card">
+                    <div class="sidebar-help-icon">
+                        <i data-lucide="message-circle"></i>
+                    </div>
+                    <strong>Butuh Bantuan?</strong>
+                    <p>Temukan panduan penggunaan SAPA-SKANEGU.</p>
+                    <a href="../general/help.html">
+                        Buka Pusat Bantuan
+                        <i data-lucide="arrow-up-right"></i>
+                    </a>
+                </div>
+
+                <button type="button" class="sidebar-logout" id="logoutButton">
+                    <i data-lucide="log-out"></i>
+                    <span>Keluar</span>
+                </button>
+
+                <div class="sidebar-footer">
+                    <span>SAPA-SKANEGU</span>
+                    <span>SMKN 1 Dlanggu</span>
+                </div>
+            </div>
+        </aside>
+
+        <main class="dashboard-main">
+            <header class="dashboard-topbar">
+                <div class="topbar-left">
+                    <button type="button" class="dashboard-menu-toggle" data-sidebar-toggle aria-label="Buka menu">
+                        <i data-lucide="menu"></i>
+                    </button>
+                    <div class="topbar-breadcrumb">
+                        <span>Halaman</span>
+                        <strong>Dashboard Guru</strong>
+                    </div>
+                </div>
+
+                <div class="topbar-right">
+                    <div class="topbar-date">
+                        <i data-lucide="calendar-days"></i>
+                        <span id="currentDate">Memuat tanggal...</span>
+                    </div>
+                    <a href="../general/notifications.html" class="topbar-icon-button" aria-label="Notifikasi">
+                        <i data-lucide="bell"></i>
+                    </a>
+                    <a href="../general/profile.html" class="topbar-user">
+                        <div class="topbar-user-avatar">
+                            <span id="topbarUserInitial">G</span>
+                        </div>
+                        <div class="topbar-user-information">
+                            <strong id="topbarUserName">Guru</strong>
+                            <span>Tenaga Pendidik</span>
+                        </div>
+                        <i data-lucide="chevron-down"></i>
+                    </a>
+                </div>
+            </header>
+
+            <div class="dashboard-content teacher-content">
+                <section class="teacher-welcome">
+                    <div class="teacher-welcome-copy">
+                        <span class="teacher-eyebrow"><span></span> RUANG INFORMASI PENDIDIK</span>
+                        <h1>Selamat Datang, <span id="welcomeUserName">Bapak/Ibu Guru</span></h1>
+                        <p>Temukan informasi terbaru, materi edukasi, dan berbagai sumber pengetahuan untuk mendukung terciptanya lingkungan sekolah yang aman, nyaman, dan bebas perundungan.</p>
+                        <div class="teacher-welcome-meta">
+                            <span><i data-lucide="graduation-cap"></i> Tenaga Pendidik</span>
+                            <span><i data-lucide="shield-check"></i> Sekolah Aman dan Nyaman</span>
+                        </div>
+                    </div>
+                    <div class="teacher-welcome-art">
+                        <div class="teacher-art-orbit teacher-art-orbit-one"></div>
+                        <div class="teacher-art-orbit teacher-art-orbit-two"></div>
+                        <div class="teacher-art-glow"></div>
+                        <img src="../../assets/images/mascot/maskot-smkn1dlanggu.png" alt="Maskot SMKN 1 Dlanggu">
+                        <span class="teacher-art-caption">Bersama Ciptakan Sekolah Aman</span>
+                    </div>
+                </section>
+
+                <section class="teacher-section">
+                    <div class="teacher-section-heading">
+                        <div>
+                            <span class="teacher-section-kicker">RINGKASAN PLATFORM</span>
+                            <h2>Informasi untuk Guru</h2>
+                            <p>Akses informasi dan sumber edukasi melalui SAPA-SKANEGU.</p>
+                        </div>
+                        <span class="teacher-demo-label"><i data-lucide="flask-conical"></i> Data Simulasi</span>
+                    </div>
+
+                    <div class="teacher-stat-grid">
+                        <article class="teacher-stat-card">
+                            <div class="teacher-stat-top">
+                                <div class="teacher-stat-icon purple"><i data-lucide="megaphone"></i></div>
+                                <span class="teacher-stat-trend">Informasi</span>
+                            </div>
+                            <strong class="teacher-stat-number">04</strong>
+                            <span class="teacher-stat-label">Informasi Sekolah</span>
+                            <p>Informasi yang tersedia di platform</p>
+                        </article>
+
+                        <article class="teacher-stat-card">
+                            <div class="teacher-stat-top">
+                                <div class="teacher-stat-icon cyan"><i data-lucide="book-open"></i></div>
+                                <span class="teacher-stat-trend">Edukasi</span>
+                            </div>
+                            <strong class="teacher-stat-number">06</strong>
+                            <span class="teacher-stat-label">Materi Edukasi</span>
+                            <p>Sumber pembelajaran anti-bullying</p>
+                        </article>
+
+                        <article class="teacher-stat-card">
+                            <div class="teacher-stat-top">
+                                <div class="teacher-stat-icon blue"><i data-lucide="calendar-days"></i></div>
+                                <span class="teacher-stat-trend">Pengumuman</span>
+                            </div>
+                            <strong class="teacher-stat-number">03</strong>
+                            <span class="teacher-stat-label">Pengumuman</span>
+                            <p>Informasi kegiatan dan pemberitahuan</p>
+                        </article>
+
+                        <article class="teacher-stat-card">
+                            <div class="teacher-stat-top">
+                                <div class="teacher-stat-icon orange"><i data-lucide="bell-ring"></i></div>
+                                <span class="teacher-stat-trend">Pemberitahuan</span>
+                            </div>
+                            <strong class="teacher-stat-number">02</strong>
+                            <span class="teacher-stat-label">Notifikasi Baru</span>
+                            <p>Pemberitahuan yang belum dibaca</p>
+                        </article>
+                    </div>
+                </section>
+
+                <section class="teacher-main-grid">
+                    <div class="teacher-panel teacher-information-panel">
+                        <div class="teacher-panel-heading">
+                            <div>
+                                <span class="teacher-section-kicker">INFORMASI TERBARU</span>
+                                <h2>Informasi Sekolah</h2>
+                            </div>
+                            <a href="../general/notifications.html" class="teacher-text-link">
+                                Lihat semua <i data-lucide="arrow-up-right"></i>
+                            </a>
+                        </div>
+
+                        <div class="teacher-information-list">
+                            <article class="teacher-information-item">
+                                <div class="teacher-information-icon purple"><i data-lucide="shield-check"></i></div>
+                                <div class="teacher-information-copy">
+                                    <span class="teacher-information-category">LINGKUNGAN SEKOLAH</span>
+                                    <h3>Mewujudkan Sekolah Aman dan Bebas Bullying</h3>
+                                    <p>Pentingnya menciptakan lingkungan sekolah yang saling menghargai, peduli, dan aman bagi seluruh warga sekolah.</p>
+                                    <span class="teacher-information-date">Informasi umum</span>
+                                </div>
+                            </article>
+
+                            <article class="teacher-information-item">
+                                <div class="teacher-information-icon cyan"><i data-lucide="users-round"></i></div>
+                                <div class="teacher-information-copy">
+                                    <span class="teacher-information-category">PERAN PENDIDIK</span>
+                                    <h3>Peran Guru dalam Pencegahan Perundungan</h3>
+                                    <p>Memahami pentingnya komunikasi terbuka dan sikap peduli terhadap peserta didik.</p>
+                                    <span class="teacher-information-date">Materi edukasi</span>
+                                </div>
+                            </article>
+
+                            <article class="teacher-information-item">
+                                <div class="teacher-information-icon blue"><i data-lucide="heart-handshake"></i></div>
+                                <div class="teacher-information-copy">
+                                    <span class="teacher-information-category">BUDAYA SEKOLAH</span>
+                                    <h3>Membangun Budaya Saling Menghormati</h3>
+                                    <p>Mendorong hubungan positif dan sikap saling menghargai di lingkungan sekolah.</p>
+                                    <span class="teacher-information-date">Materi edukasi</span>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+
+                    <div class="teacher-side-column">
+                        <div class="teacher-panel teacher-quick-panel">
+                            <div class="teacher-panel-heading">
+                                <div>
+                                    <span class="teacher-section-kicker">AKSES CEPAT</span>
+                                    <h2>Jelajahi Layanan</h2>
+                                </div>
+                            </div>
+
+                            <a href="../general/education.html" class="teacher-quick-link">
+                                <div class="teacher-quick-icon purple"><i data-lucide="book-open"></i></div>
+                                <div><strong>Materi Edukasi</strong><span>Pelajari informasi anti-bullying</span></div>
+                                <i data-lucide="arrow-up-right"></i>
+                            </a>
+
+                            <a href="../general/notifications.html" class="teacher-quick-link">
+                                <div class="teacher-quick-icon cyan"><i data-lucide="bell"></i></div>
+                                <div><strong>Notifikasi</strong><span>Lihat pemberitahuan terbaru</span></div>
+                                <i data-lucide="arrow-up-right"></i>
+                            </a>
+
+                            <a href="../general/profile.html" class="teacher-quick-link">
+                                <div class="teacher-quick-icon blue"><i data-lucide="user-round"></i></div>
+                                <div><strong>Profil Saya</strong><span>Periksa informasi akun</span></div>
+                                <i data-lucide="arrow-up-right"></i>
+                            </a>
+                        </div>
+
+                        <div class="teacher-awareness-card">
+                            <div class="teacher-awareness-icon"><i data-lucide="hand-heart"></i></div>
+                            <span>PERAN PENDIDIK</span>
+                            <h3>Lingkungan sekolah yang aman dimulai dari kepedulian bersama.</h3>
+                            <p>Guru berperan dalam membangun komunikasi positif, memberikan teladan, dan menciptakan suasana belajar yang saling menghormati.</p>
+                            <a href="../general/education.html">Pelajari lebih lanjut <i data-lucide="arrow-right"></i></a>
+                        </div>
+                    </div>
+                </section>
+
+                <footer class="teacher-footer">
+                    <span>© 2026 SAPA-SKANEGU</span>
+                    <span>Sistem Aspirasi dan Pelaporan Anti-Bullying SMKN 1 Dlanggu</span>
+                </footer>
+            </div>
+        </main>
+    </div>
+
+    <script src="../../js/api.js"></script>
+    <script src="../../js/main.js"></script>
+    <script src="../../js/auth.js"></script>
+    <script src="../../js/navigation.js"></script>
+    <script src="../../js/notifications.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const dateElement = document.getElementById("currentDate");
+
+            if (dateElement) {
+                dateElement.textContent = new Intl.DateTimeFormat("id-ID", {
+                    weekday: "long",
+                    day: "numeric",
+                    month: "long",
+                    year: "numeric"
+                }).format(new Date());
+            }
+
+            if (window.lucide) {
+                window.lucide.createIcons();
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,326 +1,307 @@
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#0b0718">
+    <meta name="description" content="Pusat notifikasi SAPA-SKANEGU SMKN 1 Dlanggu">
     <title>Notifikasi | SAPA-SKANEGU</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <link rel="stylesheet" href="../css/pages/notifications.css">
+    <link rel="stylesheet" href="../../css/reset.css">
+    <link rel="stylesheet" href="../../css/global.css">
+    <link rel="stylesheet" href="../../css/components.css">
+    <link rel="stylesheet" href="../../css/dashboard.css">
+    <link rel="stylesheet" href="../../css/pages/student.css">
+    <link rel="stylesheet" href="../../css/animations.css">
+    <link rel="stylesheet" href="../../css/responsive.css">
+    <link rel="stylesheet" href="../../css/pages/notifications.css">
+
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <script src="../../js/api.js" defer></script>
+    <script src="../../js/main.js" defer></script>
+    <script src="../../js/auth.js" defer></script>
+    <script src="../../js/animations.js" defer></script>
+    <script src="../../js/notifications.js" defer></script>
 </head>
 
-<body class="notifications-page">
-
-    <div class="space-background">
-        <div class="space-glow glow-one"></div>
-        <div class="space-glow glow-two"></div>
-        <div class="space-stars"></div>
+<body class="dashboard-page student-dashboard notifications-page">
+    <div class="dashboard-background" aria-hidden="true">
+        <div class="dashboard-background-glow dashboard-glow-one"></div>
+        <div class="dashboard-background-glow dashboard-glow-two"></div>
+        <div class="dashboard-background-stars"></div>
+        <div class="dashboard-background-grid"></div>
     </div>
 
-    <div class="app-layout">
+    <div class="dashboard-layout">
+        <div class="dashboard-overlay" data-sidebar-overlay></div>
 
-        <aside class="sidebar" id="appSidebar">
+        <aside class="dashboard-sidebar" data-sidebar aria-label="Navigasi utama">
             <div class="sidebar-brand">
-                <div class="brand-logo">
-                    <i class="fa-solid fa-rocket"></i>
-                </div>
-                <div class="brand-text">
-                    <h2>SAPA-SKANEGU</h2>
-                    <span>SMKN 1 Dlanggu</span>
-                </div>
-                <button class="sidebar-close" id="sidebarClose" aria-label="Tutup menu">
-                    <i class="fa-solid fa-xmark"></i>
+                <a href="../student/dashboard.html" class="sidebar-brand-link">
+                    <div class="sidebar-brand-logo">
+                        <img src="../../assets/images/logo/logo-smkn1dlanggu.svg" alt="Logo SMKN 1 Dlanggu">
+                    </div>
+                    <div class="sidebar-brand-text">
+                        <strong>SAPA-SKANEGU</strong>
+                        <span>SMKN 1 Dlanggu</span>
+                    </div>
+                </a>
+                <button type="button" class="dashboard-sidebar-close" data-sidebar-close aria-label="Tutup navigasi">
+                    <i data-lucide="x"></i>
                 </button>
             </div>
 
-            <div class="sidebar-user">
-                <div class="user-avatar">
-                    <i class="fa-solid fa-user-astronaut"></i>
-                </div>
-                <div class="user-information">
-                    <strong>Pengguna SAPA</strong>
+            <div class="sidebar-profile">
+                <div class="sidebar-avatar"><span id="sidebarUserInitial">S</span></div>
+                <div class="sidebar-profile-information">
+                    <strong id="sidebarUserName">Nama Siswa</strong>
                     <span>Siswa</span>
                 </div>
-                <i class="fa-solid fa-circle-check user-verified"></i>
+                <span class="sidebar-online-indicator" aria-label="Status online"></span>
             </div>
 
-            <nav class="sidebar-navigation">
-                <div class="navigation-label">MENU UTAMA</div>
+            <nav class="sidebar-navigation" aria-label="Menu dashboard">
+                <div class="sidebar-section">
+                    <span class="sidebar-section-label">MENU UTAMA</span>
+                    <div class="sidebar-menu">
+                        <a href="../student/dashboard.html" class="sidebar-link"><i data-lucide="layout-dashboard"></i><span>Dashboard</span></a>
+                        <a href="../student/aspirations.html" class="sidebar-link"><i data-lucide="lightbulb"></i><span>Aspirasi</span></a>
+                        <a href="../student/complaints.html" class="sidebar-link"><i data-lucide="message-square-warning"></i><span>Pengaduan</span></a>
+                        <a href="../student/bullying-report.html" class="sidebar-link"><i data-lucide="shield-alert"></i><span>Lapor Bullying</span><span class="sidebar-link-indicator">Aman</span></a>
+                        <a href="../student/tracking.html" class="sidebar-link"><i data-lucide="search-check"></i><span>Lacak Laporan</span></a>
+                        <a href="../student/history.html" class="sidebar-link"><i data-lucide="history"></i><span>Riwayat</span></a>
+                    </div>
+                </div>
 
-                <a href="dashboard.html" class="nav-link">
-                    <i class="fa-solid fa-house"></i>
-                    <span>Dashboard</span>
-                </a>
+                <div class="sidebar-section">
+                    <span class="sidebar-section-label">INFORMASI</span>
+                    <div class="sidebar-menu">
+                        <a href="education.html" class="sidebar-link"><i data-lucide="book-open"></i><span>Edukasi</span></a>
+                        <a href="notifications.html" class="sidebar-link active" aria-current="page">
+                            <i data-lucide="bell"></i><span>Notifikasi</span>
+                            <span class="sidebar-notification-count" id="sidebarUnreadCount">0</span>
+                        </a>
+                        <a href="help.html" class="sidebar-link"><i data-lucide="circle-help"></i><span>Pusat Bantuan</span></a>
+                    </div>
+                </div>
 
-                <a href="aspirations.html" class="nav-link">
-                    <i class="fa-solid fa-lightbulb"></i>
-                    <span>Aspirasi</span>
-                </a>
-
-                <a href="complaints.html" class="nav-link">
-                    <i class="fa-solid fa-comments"></i>
-                    <span>Pengaduan</span>
-                </a>
-
-                <a href="bullying-report.html" class="nav-link">
-                    <i class="fa-solid fa-shield-heart"></i>
-                    <span>Lapor Bullying</span>
-                </a>
-
-                <a href="tracking.html" class="nav-link">
-                    <i class="fa-solid fa-route"></i>
-                    <span>Lacak Laporan</span>
-                </a>
-
-                <a href="history.html" class="nav-link">
-                    <i class="fa-solid fa-clock-rotate-left"></i>
-                    <span>Riwayat</span>
-                </a>
-
-                <a href="notifications.html" class="nav-link active">
-                    <i class="fa-solid fa-bell"></i>
-                    <span>Notifikasi</span>
-                    <span class="nav-indicator"></span>
-                </a>
-
-                <div class="navigation-label secondary-label">LAINNYA</div>
-
-                <a href="education.html" class="nav-link">
-                    <i class="fa-solid fa-book-open"></i>
-                    <span>Edukasi</span>
-                </a>
-
-                <a href="help.html" class="nav-link">
-                    <i class="fa-solid fa-circle-question"></i>
-                    <span>Pusat Bantuan</span>
-                </a>
-
-                <a href="profile.html" class="nav-link">
-                    <i class="fa-solid fa-user"></i>
-                    <span>Profil Saya</span>
-                </a>
+                <div class="sidebar-section">
+                    <span class="sidebar-section-label">AKUN</span>
+                    <div class="sidebar-menu">
+                        <a href="profile.html" class="sidebar-link"><i data-lucide="user-round"></i><span>Profil Saya</span></a>
+                        <a href="privacy-policy.html" class="sidebar-link"><i data-lucide="shield-check"></i><span>Privasi</span></a>
+                    </div>
+                </div>
             </nav>
 
-            <div class="sidebar-help">
-                <div class="help-icon">
-                    <i class="fa-solid fa-headset"></i>
+            <div class="sidebar-bottom">
+                <div class="sidebar-help-card">
+                    <div class="sidebar-help-icon"><i data-lucide="heart-handshake"></i></div>
+                    <strong>Kamu tidak sendirian</strong>
+                    <p>Jika membutuhkan bantuan, hubungi orang dewasa yang kamu percaya.</p>
+                    <a href="help.html">Hubungi bantuan <i data-lucide="arrow-up-right"></i></a>
                 </div>
-                <strong>Butuh Bantuan?</strong>
-                <p>Kami siap membantu kamu.</p>
-                <a href="help.html">
-                    Hubungi kami
-                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                </a>
+                <a href="../../index.html" class="sidebar-logout"><i data-lucide="log-out"></i><span>Keluar</span></a>
+                <div class="sidebar-footer">
+                    <span>SAPA-SKANEGU</span>
+                    <span>SMKN 1 Dlanggu · 2026</span>
+                </div>
             </div>
-
-            <button class="logout-button" id="logoutButton">
-                <i class="fa-solid fa-right-from-bracket"></i>
-                <span>Keluar</span>
-            </button>
         </aside>
 
-        <div class="page-overlay" id="pageOverlay"></div>
-
-        <main class="main-content">
-
-            <header class="topbar">
-                <button class="menu-toggle" id="menuToggle" aria-label="Buka menu">
-                    <i class="fa-solid fa-bars"></i>
-                </button>
-
-                <div class="breadcrumb">
-                    <span>Menu</span>
-                    <i class="fa-solid fa-chevron-right"></i>
-                    <strong>Notifikasi</strong>
+        <main class="dashboard-main">
+            <header class="dashboard-topbar">
+                <div class="topbar-left">
+                    <button type="button" class="dashboard-menu-toggle" data-sidebar-toggle aria-label="Buka navigasi" aria-expanded="false">
+                        <i data-lucide="menu"></i>
+                    </button>
+                    <div class="topbar-breadcrumb">
+                        <span>Informasi</span>
+                        <i data-lucide="chevron-right"></i>
+                        <strong>Notifikasi</strong>
+                    </div>
                 </div>
 
-                <div class="topbar-actions">
-                    <button class="topbar-notification" aria-label="Notifikasi">
-                        <i class="fa-solid fa-bell"></i>
-                        <span class="topbar-notification-dot"></span>
-                    </button>
-
-                    <div class="topbar-user">
-                        <div class="topbar-avatar">
-                            <i class="fa-solid fa-user-astronaut"></i>
-                        </div>
-                        <span>Pengguna Akun Saya</span>
-                        <i class="fa-solid fa-chevron-down"></i>
+                <div class="topbar-right">
+                    <div class="topbar-date">
+                        <i data-lucide="calendar-days"></i>
+                        <span id="currentDate">Memuat tanggal...</span>
                     </div>
+                    <a href="notifications.html" class="topbar-icon-button" aria-label="Notifikasi">
+                        <i data-lucide="bell"></i>
+                        <span class="topbar-notification-dot"></span>
+                    </a>
+                    <a href="profile.html" class="topbar-user">
+                        <div class="topbar-user-avatar"><span id="topbarUserInitial">S</span></div>
+                        <div class="topbar-user-information">
+                            <strong id="topbarUserName">Nama Siswa</strong>
+                            <span>Siswa</span>
+                        </div>
+                        <i data-lucide="chevron-down"></i>
+                    </a>
                 </div>
             </header>
 
-            <div class="page-container">
-
+            <div class="dashboard-content notifications-content">
                 <section class="notifications-hero">
-                    <div class="hero-decoration hero-orbit"></div>
-                    <div class="hero-decoration hero-orbit-two"></div>
-
-                    <div class="hero-content">
-                        <div class="hero-eyebrow">
-                            <i class="fa-solid fa-satellite-dish"></i>
-                            NOTIFICATION CENTER
+                    <div class="notifications-hero-content">
+                        <div class="welcome-eyebrow">
+                            <span class="welcome-status-dot"></span>
+                            STUDENT INFORMATION CENTER
                         </div>
-
-                        <h1>Jangan Lewatkan <span>Hal Penting.</span></h1>
-
-                        <p>
-                            Semua informasi dan perkembangan aktivitas
-                            SAPA-SKANEGU akan ditampilkan di sini.
-                            Tetap terhubung dengan informasi terbaru.
-                        </p>
-
-                        <div class="hero-caption">
-                            <i class="fa-solid fa-shield-heart"></i>
-                            Informasi penting dalam satu tempat
+                        <h1>Semua kabar,<br><span class="welcome-gradient">dalam satu tempat.</span></h1>
+                        <p>Pantau perkembangan laporan, informasi sekolah, dan pesan penting agar kamu tidak melewatkan hal yang perlu diketahui.</p>
+                        <div class="notifications-hero-meta">
+                            <span><i data-lucide="bell"></i>Pusat notifikasi</span>
+                            <span><i data-lucide="shield-check"></i>Informasi pribadi</span>
                         </div>
                     </div>
 
-                    <div class="hero-illustration">
-                        <div class="illustration-orbit orbit-one"></div>
-                        <div class="illustration-orbit orbit-two"></div>
-                        <div class="illustration-planet">
-                            <i class="fa-solid fa-bell"></i>
-                        </div>
-                        <span class="illustration-star star-one">✦</span>
-                        <span class="illustration-star star-two">✧</span>
-                        <span class="illustration-star star-three">✦</span>
+                    <div class="notifications-hero-visual" aria-hidden="true">
+                        <div class="notification-orbit orbit-one"></div>
+                        <div class="notification-orbit orbit-two"></div>
+                        <div class="notification-hero-glow"></div>
+                        <div class="notification-hero-icon"><i data-lucide="bell-ring"></i></div>
+                        <div class="notification-floating-card notification-float-one"><i data-lucide="check-circle-2"></i><span>Update laporan</span></div>
+                        <div class="notification-floating-card notification-float-two"><i data-lucide="megaphone"></i><span>Info sekolah</span></div>
                     </div>
                 </section>
 
-                <section class="notification-overview">
-
-                    <article class="overview-card">
-                        <div class="overview-icon purple">
-                            <i class="fa-solid fa-bell"></i>
-                        </div>
-                        <div class="overview-content">
-                            <span>Total Notifikasi</span>
-                            <strong id="totalNotifications">0</strong>
-                            <small>Seluruh informasi</small>
-                        </div>
+                <section class="notification-statistics" aria-label="Ringkasan notifikasi">
+                    <article class="notification-stat-card">
+                        <div class="notification-stat-icon purple"><i data-lucide="bell"></i></div>
+                        <div><span>Total notifikasi</span><strong id="totalCount">0</strong><small>Semua informasi masuk</small></div>
                     </article>
-
-                    <article class="overview-card">
-                        <div class="overview-icon pink">
-                            <i class="fa-solid fa-envelope"></i>
-                        </div>
-                        <div class="overview-content">
-                            <span>Belum Dibaca</span>
-                            <strong id="unreadNotifications">0</strong>
-                            <small>Perlu diperhatikan</small>
-                        </div>
+                    <article class="notification-stat-card">
+                        <div class="notification-stat-icon orange"><i data-lucide="mail"></i></div>
+                        <div><span>Belum dibaca</span><strong id="unreadCount">0</strong><small>Perlu kamu periksa</small></div>
                     </article>
-
-                    <article class="overview-card">
-                        <div class="overview-icon cyan">
-                            <i class="fa-solid fa-envelope-open"></i>
-                        </div>
-                        <div class="overview-content">
-                            <span>Sudah Dibaca</span>
-                            <strong id="readNotifications">0</strong>
-                            <small>Sudah kamu lihat</small>
-                        </div>
+                    <article class="notification-stat-card">
+                        <div class="notification-stat-icon green"><i data-lucide="check-check"></i></div>
+                        <div><span>Sudah dibaca</span><strong id="readCount">0</strong><small>Informasi telah diperiksa</small></div>
                     </article>
-
                 </section>
 
-                <section class="notification-section">
-
-                    <div class="section-heading">
-                        <div>
-                            <span class="section-eyebrow">YOUR UPDATES</span>
-                            <h2>Semua Notifikasi</h2>
-                            <p>Kelola informasi yang masuk ke akunmu.</p>
-                        </div>
-
-                        <button class="mark-all-button" id="markAllRead">
-                            <i class="fa-solid fa-check-double"></i>
-                            Tandai Semua Dibaca
-                        </button>
-                    </div>
-
-                    <div class="notification-toolbar">
-
-                        <div class="notification-tabs">
-                            <button class="notification-tab active" data-filter="all">
-                                Semua
-                                <span id="allCount">0</span>
-                            </button>
-
-                            <button class="notification-tab" data-filter="unread">
-                                Belum Dibaca
-                                <span id="unreadCount">0</span>
-                            </button>
-
-                            <button class="notification-tab" data-filter="read">
-                                Sudah Dibaca
-                            </button>
-                        </div>
-
-                        <div class="notification-search">
-                            <i class="fa-solid fa-magnifying-glass"></i>
-                            <input
-                                type="search"
-                                id="notificationSearch"
-                                placeholder="Cari notifikasi..."
-                                autocomplete="off"
-                            >
-                            <button id="clearNotificationSearch" type="button" aria-label="Hapus pencarian">
-                                <i class="fa-solid fa-xmark"></i>
-                            </button>
-                        </div>
-
-                    </div>
-
-                    <div class="notification-list" id="notificationList"></div>
-
-                    <div class="notification-empty" id="notificationEmpty" hidden>
-                        <div class="empty-illustration">
-                            <div class="empty-orbit"></div>
-                            <div class="empty-bell">
-                                <i class="fa-solid fa-bell-slash"></i>
+                <section class="notification-workspace">
+                    <div class="notification-main-panel">
+                        <div class="notification-panel-heading">
+                            <div>
+                                <span class="section-eyebrow">INBOX KAMU</span>
+                                <h2>Semua Notifikasi</h2>
+                                <p>Informasi dan perkembangan terbaru untukmu.</p>
                             </div>
-                            <span class="empty-star">✦</span>
+                            <button type="button" class="button button-secondary" id="markAllRead">
+                                <i data-lucide="check-check"></i>
+                                Tandai semua dibaca
+                            </button>
                         </div>
 
-                        <h3>Tidak Ada Notifikasi</h3>
-                        <p>
-                            Belum ada informasi yang sesuai dengan pencarian
-                            atau filter yang kamu pilih.
-                        </p>
+                        <div class="notification-toolbar">
+                            <label class="notification-search">
+                                <i data-lucide="search"></i>
+                                <input type="search" id="notificationSearch" placeholder="Cari notifikasi..." aria-label="Cari notifikasi">
+                            </label>
+                            <label class="notification-sort">
+                                <span>Urutkan</span>
+                                <select id="notificationSort">
+                                    <option value="newest">Terbaru</option>
+                                    <option value="oldest">Terlama</option>
+                                </select>
+                            </label>
+                        </div>
+
+                        <div class="notification-filters" role="group" aria-label="Filter notifikasi">
+                            <button type="button" class="notification-filter active" data-filter="all" aria-pressed="true">Semua <span id="filterAllCount">0</span></button>
+                            <button type="button" class="notification-filter" data-filter="unread" aria-pressed="false">Belum dibaca <span id="filterUnreadCount">0</span></button>
+                            <button type="button" class="notification-filter" data-filter="report" aria-pressed="false">Laporan</button>
+                            <button type="button" class="notification-filter" data-filter="aspiration" aria-pressed="false">Aspirasi</button>
+                            <button type="button" class="notification-filter" data-filter="announcement" aria-pressed="false">Pengumuman</button>
+                            <button type="button" class="notification-filter" data-filter="system" aria-pressed="false">Sistem</button>
+                        </div>
+
+                        <div class="notification-list-heading">
+                            <h3 id="notificationListLabel">Semua notifikasi</h3>
+                            <span id="visibleNotificationCount">0 informasi</span>
+                        </div>
+
+                        <div class="notification-list" id="notificationList"></div>
+
+                        <div class="notification-empty-state" id="notificationEmpty" hidden>
+                            <div class="notification-empty-icon"><i data-lucide="inbox"></i></div>
+                            <h3>Tidak ada notifikasi ditemukan</h3>
+                            <p>Belum ada informasi yang sesuai dengan pencarian atau filter yang kamu pilih.</p>
+                            <button type="button" class="button button-secondary" id="resetNotificationFilter">
+                                <i data-lucide="refresh-cw"></i>Atur ulang filter
+                            </button>
+                        </div>
+
+                        <div class="notification-list-footer">
+                            <span>Daftar notifikasi pada perangkat ini</span>
+                            <button type="button" id="clearReadNotifications">
+                                <i data-lucide="trash-2"></i>Hapus yang sudah dibaca
+                            </button>
+                        </div>
                     </div>
 
+                    <aside class="notification-side-panel">
+                        <section class="notification-side-card notification-help-card">
+                            <div class="notification-side-icon"><i data-lucide="heart-handshake"></i></div>
+                            <span class="section-eyebrow">PENDAMPINGAN</span>
+                            <h3>Kamu tidak harus menghadapi semuanya sendiri.</h3>
+                            <p>Jika membutuhkan bantuan atau merasa tidak aman, hubungi guru BK, wali kelas, atau orang dewasa yang kamu percaya.</p>
+                            <a href="help.html">Hubungi pusat bantuan <i data-lucide="arrow-up-right"></i></a>
+                        </section>
+
+                        <section class="notification-side-card notification-privacy-card">
+                            <div class="notification-side-icon"><i data-lucide="lock-keyhole"></i></div>
+                            <h3>Privasi laporan</h3>
+                            <p>Informasi laporan merupakan hal yang sensitif. Jangan membagikan nomor laporan atau kronologi kepada pihak yang tidak berkepentingan.</p>
+                            <a href="privacy-policy.html">Pelajari kebijakan privasi <i data-lucide="arrow-up-right"></i></a>
+                        </section>
+
+                        <section class="notification-side-card notification-tips-card">
+                            <div class="notification-side-icon"><i data-lucide="lightbulb"></i></div>
+                            <h3>Jangan lewatkan informasi penting</h3>
+                            <p>Periksa notifikasi secara berkala agar kamu mengetahui informasi dan perkembangan yang tersedia.</p>
+                            <a href="education.html">Jelajahi ruang edukasi <i data-lucide="arrow-up-right"></i></a>
+                        </section>
+                    </aside>
                 </section>
 
-                <section class="notification-information">
-                    <div class="information-icon">
-                        <i class="fa-solid fa-circle-info"></i>
-                    </div>
+                <footer class="dashboard-footer">
                     <div>
-                        <strong>Informasi Notifikasi</strong>
-                        <p>
-                            Halaman ini merupakan tampilan simulasi frontend.
-                            Notifikasi belum terhubung dengan server dan
-                            perubahan belum disimpan secara permanen.
-                        </p>
+                        <strong>SAPA-SKANEGU</strong>
+                        <span>Sistem Aspirasi dan Pelaporan Anti-Bullying</span>
                     </div>
-                </section>
-
-                <footer class="page-footer">
-                    <span>© 2026 SAPA-SKANEGU</span>
-                    <span>SMKN 1 Dlanggu · Bersama Ciptakan Sekolah Aman</span>
+                    <div class="dashboard-footer-right">
+                        <span>SMKN 1 Dlanggu</span>
+                        <span>© 2026</span>
+                    </div>
                 </footer>
-
             </div>
         </main>
     </div>
 
-    <script src="../js/pages/notifications.js"></script>
+    <div class="notification-toast" id="notificationToast" role="status" aria-live="polite">
+        <i data-lucide="check-circle-2"></i>
+        <span id="notificationToastMessage"></span>
+    </div>
+
+    <div class="notification-confirm-overlay" id="notificationConfirm" aria-hidden="true">
+        <div class="notification-confirm-dialog" role="dialog" aria-modal="true" aria-labelledby="confirmTitle" aria-describedby="confirmMessage">
+            <div class="notification-confirm-icon"><i data-lucide="alert-triangle"></i></div>
+            <h2 id="confirmTitle">Konfirmasi tindakan</h2>
+            <p id="confirmMessage">Apakah kamu yakin ingin melanjutkan?</p>
+            <div class="notification-confirm-actions">
+                <button type="button" class="button button-secondary" id="cancelDelete">Batal</button>
+                <button type="button" class="button button-danger" id="confirmDelete"><i data-lucide="trash-2"></i>Hapus</button>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

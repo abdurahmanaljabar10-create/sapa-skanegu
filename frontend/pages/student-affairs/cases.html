@@ -1,0 +1,330 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0b0718">
+    <title>Penanganan Kasus | SAPA-SKANEGU</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/reset.css">
+    <link rel="stylesheet" href="../../css/global.css">
+    <link rel="stylesheet" href="../../css/components.css">
+    <link rel="stylesheet" href="../../css/dashboard.css">
+    <link rel="stylesheet" href="../../css/animations.css">
+    <link rel="stylesheet" href="../../css/responsive.css">
+    <link rel="stylesheet" href="../../css/pages/student-affairs.css">
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <script src="../../js/main.js" defer></script>
+    <script src="../../js/auth.js" defer></script>
+    <script src="../../js/pages/student-affairs.js" defer></script>
+    <script src="../../js/pages/sa-cases.js" defer></script>
+</head>
+<body class="dashboard-page student-affairs-page" data-sa-page="cases">
+    <div class="dashboard-background">
+        <div class="dashboard-background-glow dashboard-glow-one"></div>
+        <div class="dashboard-background-glow dashboard-glow-two"></div>
+    </div>
+
+    <div class="dashboard-layout">
+        <div class="dashboard-overlay" data-sidebar-overlay></div>
+
+        <aside class="dashboard-sidebar" data-sidebar>
+            <div class="sidebar-brand">
+                <a href="dashboard.html" class="sidebar-brand-link">
+                    <div class="sidebar-brand-logo">
+                        <img src="../../assets/images/logo/logo-smkn1dlanggu.svg" alt="Logo SMKN 1 Dlanggu">
+                    </div>
+                    <div class="sidebar-brand-text">
+                        <strong>SAPA-SKANEGU</strong>
+                        <span>SMKN 1 Dlanggu</span>
+                    </div>
+                </a>
+                <button class="dashboard-sidebar-close" data-sidebar-close aria-label="Tutup navigasi">
+                    <i data-lucide="x"></i>
+                </button>
+            </div>
+
+            <div class="sidebar-profile">
+                <div class="sidebar-avatar">KS</div>
+                <div class="sidebar-profile-information">
+                    <strong>Tim Kesiswaan</strong>
+                    <span>Bidang Kesiswaan</span>
+                </div>
+                <span class="sidebar-online-indicator"></span>
+            </div>
+
+            <nav class="sidebar-navigation">
+                <div class="sidebar-section">
+                    <span class="sidebar-section-label">MENU UTAMA</span>
+                    <div class="sidebar-menu">
+                        <a href="dashboard.html" class="sidebar-link"><i data-lucide="layout-dashboard"></i><span>Dashboard</span></a>
+                        <a href="cases.html" class="sidebar-link"><i data-lucide="shield-alert"></i><span>Penanganan Kasus</span></a>
+                        <a href="discipline.html" class="sidebar-link"><i data-lucide="clipboard-list"></i><span>Kedisiplinan Siswa</span></a>
+                        <a href="history.html" class="sidebar-link"><i data-lucide="history"></i><span>Riwayat Penanganan</span></a>
+                    </div>
+                </div>
+
+                <div class="sidebar-section">
+                    <span class="sidebar-section-label">INFORMASI</span>
+                    <div class="sidebar-menu">
+                        <a href="education.html" class="sidebar-link"><i data-lucide="book-open"></i><span>Materi Edukasi</span></a>
+                        <a href="notifications.html" class="sidebar-link"><i data-lucide="bell"></i><span>Notifikasi</span></a>
+                    </div>
+                </div>
+
+                <div class="sidebar-section">
+                    <span class="sidebar-section-label">AKUN</span>
+                    <div class="sidebar-menu">
+                        <a href="profile.html" class="sidebar-link"><i data-lucide="user-round"></i><span>Profil Saya</span></a>
+                        <a href="help.html" class="sidebar-link"><i data-lucide="circle-help"></i><span>Pusat Bantuan</span></a>
+                        <a href="privacy-policy.html" class="sidebar-link"><i data-lucide="shield-check"></i><span>Kebijakan Privasi</span></a>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <a href="../../index.html" class="sidebar-logout" id="logoutButton">
+                    <i data-lucide="log-out"></i><span>Keluar</span>
+                </a>
+                <div class="sidebar-footer">
+                    <span>SAPA-SKANEGU</span>
+                    <span>SMKN 1 Dlanggu · 2026</span>
+                </div>
+            </div>
+        </aside>
+
+        <main class="dashboard-main">
+            <header class="dashboard-topbar">
+                <div class="topbar-left">
+                    <button class="dashboard-menu-toggle" data-sidebar-toggle aria-label="Buka navigasi" aria-expanded="false">
+                        <i data-lucide="menu"></i>
+                    </button>
+                    <div class="topbar-breadcrumb">
+                        <span>Bidang Kesiswaan</span>
+                        <i data-lucide="chevron-right"></i>
+                        <strong>Penanganan Kasus</strong>
+                    </div>
+                </div>
+
+                <div class="topbar-right">
+                    <div class="topbar-date">
+                        <i data-lucide="calendar-days"></i>
+                        <span id="saCurrentDate"></span>
+                    </div>
+                    <a href="notifications.html" class="topbar-icon-button" aria-label="Notifikasi">
+                        <i data-lucide="bell"></i>
+                    </a>
+                    <a href="profile.html" class="topbar-user">
+                        <div class="topbar-user-avatar">KS</div>
+                        <div class="topbar-user-information">
+                            <strong>Tim Kesiswaan</strong>
+                            <span>Guru</span>
+                        </div>
+                        <i data-lucide="chevron-down"></i>
+                    </a>
+                </div>
+            </header>
+
+            <div class="dashboard-content sa-cases-content">
+                <section class="sa-page-heading">
+                    <div>
+                        <span class="sa-eyebrow">PENGELOLAAN LAPORAN</span>
+                        <h1>Penanganan Kasus</h1>
+                        <p>Kelola laporan yang ditugaskan kepada Bidang Kesiswaan dan koordinasikan tindak lanjutnya.</p>
+                    </div>
+                    <span class="sa-date"><i data-lucide="shield-check"></i> Panel pengelola kasus</span>
+                </section>
+
+                <section class="sa-case-summary">
+                    <article class="sa-case-summary-card">
+                        <span class="sa-case-summary-icon purple"><i data-lucide="files"></i></span>
+                        <div><strong id="caseTotal">0</strong><span>Total kasus</span></div>
+                    </article>
+                    <article class="sa-case-summary-card">
+                        <span class="sa-case-summary-icon orange"><i data-lucide="inbox"></i></span>
+                        <div><strong id="caseReceived">0</strong><span>Diterima</span></div>
+                    </article>
+                    <article class="sa-case-summary-card">
+                        <span class="sa-case-summary-icon cyan"><i data-lucide="loader-circle"></i></span>
+                        <div><strong id="caseProgress">0</strong><span>Sedang diproses</span></div>
+                    </article>
+                    <article class="sa-case-summary-card">
+                        <span class="sa-case-summary-icon green"><i data-lucide="check-circle-2"></i></span>
+                        <div><strong id="caseCompleted">0</strong><span>Selesai</span></div>
+                    </article>
+                </section>
+
+                <section class="sa-panel sa-cases-panel">
+                    <div class="sa-cases-heading">
+                        <div>
+                            <span class="sa-eyebrow">DAFTAR PENANGANAN</span>
+                            <h2>Kasus yang Ditugaskan</h2>
+                            <p>Gunakan pencarian dan filter untuk menemukan laporan.</p>
+                        </div>
+                        <span class="sa-badge">Data simulasi</span>
+                    </div>
+
+                    <div class="sa-cases-toolbar">
+                        <label class="sa-search">
+                            <i data-lucide="search"></i>
+                            <input type="search" id="caseSearch" placeholder="Cari kode kasus atau kategori..." autocomplete="off">
+                        </label>
+
+                        <select class="sa-select" id="caseStatusFilter" aria-label="Filter status">
+                            <option value="all">Semua status</option>
+                            <option value="Diterima">Diterima</option>
+                            <option value="Diverifikasi">Diverifikasi</option>
+                            <option value="Diproses">Diproses</option>
+                            <option value="Dalam Penanganan">Dalam Penanganan</option>
+                            <option value="Selesai">Selesai</option>
+                            <option value="Ditolak">Ditolak</option>
+                        </select>
+
+                        <select class="sa-select" id="casePriorityFilter" aria-label="Filter prioritas">
+                            <option value="all">Semua prioritas</option>
+                            <option value="Tinggi">Tinggi</option>
+                            <option value="Sedang">Sedang</option>
+                            <option value="Rendah">Rendah</option>
+                        </select>
+                    </div>
+
+                    <div class="sa-case-tabs">
+                        <button class="sa-case-tab active" data-case-filter="all">Semua <span id="caseTabAll">0</span></button>
+                        <button class="sa-case-tab" data-case-filter="active">Aktif <span id="caseTabActive">0</span></button>
+                        <button class="sa-case-tab" data-case-filter="completed">Selesai <span id="caseTabCompleted">0</span></button>
+                    </div>
+
+                    <div class="sa-table-wrap sa-case-table-wrap">
+                        <table class="sa-table sa-case-table">
+                            <thead>
+                                <tr>
+                                    <th>KODE / KATEGORI</th>
+                                    <th>TANGGAL</th>
+                                    <th>STATUS</th>
+                                    <th>PRIORITAS</th>
+                                    <th>KOLABORASI</th>
+                                    <th>AKSI</th>
+                                </tr>
+                            </thead>
+                            <tbody id="caseTableBody"></tbody>
+                        </table>
+                    </div>
+
+                    <div class="sa-case-mobile-list" id="caseMobileList"></div>
+
+                    <div class="sa-notification-empty" id="caseEmpty" hidden>
+                        <span><i data-lucide="folder-search"></i></span>
+                        <h3>Kasus tidak ditemukan</h3>
+                        <p>Coba ubah kata pencarian atau filter yang digunakan.</p>
+                        <button class="sa-button" id="resetCaseFilters">Reset filter</button>
+                    </div>
+
+                    <div class="sa-case-table-footer">
+                        <span id="caseResultCount">0 kasus ditampilkan</span>
+                        <button class="sa-button" id="resetCaseFiltersTop">
+                            <i data-lucide="rotate-ccw"></i>
+                            Reset filter
+                        </button>
+                    </div>
+                </section>
+
+                <section class="sa-panel sa-case-information">
+                    <div class="sa-section-heading">
+                        <div>
+                            <h2>Alur Penanganan</h2>
+                            <p>Enam tahap status dalam proses penanganan laporan.</p>
+                        </div>
+                    </div>
+                    <div class="sa-case-flow">
+                        <div class="sa-case-flow-step"><span>01</span><strong>Diterima</strong></div>
+                        <div class="sa-case-flow-step"><span>02</span><strong>Diverifikasi</strong></div>
+                        <div class="sa-case-flow-step"><span>03</span><strong>Diproses</strong></div>
+                        <div class="sa-case-flow-step"><span>04</span><strong>Dalam Penanganan</strong></div>
+                        <div class="sa-case-flow-step"><span>05</span><strong>Selesai</strong></div>
+                        <div class="sa-case-flow-step"><span>06</span><strong>Ditolak</strong></div>
+                    </div>
+                </section>
+
+                <footer class="sa-footer">
+                    <span>© 2026 SAPA-SKANEGU · SMKN 1 Dlanggu</span>
+                    <span>Panel Bidang Kesiswaan</span>
+                </footer>
+            </div>
+        </main>
+    </div>
+
+    <div class="sa-toast" id="saToast" role="status" aria-live="polite"></div>
+
+    <div class="sa-case-modal-overlay" id="caseModal" hidden>
+        <section class="sa-case-modal" role="dialog" aria-modal="true" aria-labelledby="caseModalTitle">
+            <div class="sa-case-modal-header">
+                <div>
+                    <span class="sa-eyebrow">DETAIL LAPORAN</span>
+                    <h2 id="caseModalTitle">Detail Kasus</h2>
+                    <p id="caseModalCode"></p>
+                </div>
+                <button class="sa-case-modal-close" id="closeCaseModal" aria-label="Tutup detail">
+                    <i data-lucide="x"></i>
+                </button>
+            </div>
+
+            <div class="sa-case-modal-content">
+                <div class="sa-case-detail-grid">
+                    <div><span>Kategori</span><strong id="detailCategory">-</strong></div>
+                    <div><span>Tanggal laporan</span><strong id="detailDate">-</strong></div>
+                    <div><span>Prioritas</span><strong id="detailPriority">-</strong></div>
+                    <div><span>Status saat ini</span><strong id="detailStatus">-</strong></div>
+                </div>
+
+                <div class="sa-case-detail-section">
+                    <h3>Ringkasan laporan</h3>
+                    <p id="detailDescription"></p>
+                </div>
+
+                <div class="sa-case-detail-section">
+                    <h3>Pendamping utama</h3>
+                    <p id="detailCompanion"></p>
+                </div>
+
+                <div class="sa-case-detail-section">
+                    <h3>Kolaborasi penanganan</h3>
+                    <div id="detailCollaborators" class="sa-case-collaborators"></div>
+                </div>
+
+                <div class="sa-case-detail-section">
+                    <h3>Perbarui status</h3>
+                    <select id="detailStatusSelect" class="sa-select">
+                        <option value="Diterima">Diterima</option>
+                        <option value="Diverifikasi">Diverifikasi</option>
+                        <option value="Diproses">Diproses</option>
+                        <option value="Dalam Penanganan">Dalam Penanganan</option>
+                        <option value="Selesai">Selesai</option>
+                        <option value="Ditolak">Ditolak</option>
+                    </select>
+                </div>
+
+                <div class="sa-case-detail-section">
+                    <h3>Catatan tindak lanjut</h3>
+                    <textarea id="detailNote" class="sa-case-note" rows="4" placeholder="Tuliskan perkembangan penanganan kasus..."></textarea>
+                </div>
+
+                <div class="sa-case-detail-section">
+                    <h3>Riwayat aktivitas</h3>
+                    <div id="detailTimeline" class="sa-case-mini-timeline"></div>
+                </div>
+            </div>
+
+            <div class="sa-case-modal-footer">
+                <button class="sa-button" id="cancelCaseEdit">Tutup</button>
+                <button class="sa-button sa-button-primary" id="saveCaseUpdate">
+                    <i data-lucide="save"></i>
+                    Simpan perubahan
+                </button>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

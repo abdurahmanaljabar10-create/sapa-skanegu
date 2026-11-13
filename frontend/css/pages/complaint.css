@@ -1,0 +1,833 @@
+
+.complaints-content {
+    position: relative;
+}
+
+.complaints-hero {
+    position: relative;
+    display: flex;
+    min-height: 245px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+    padding: 34px 38px;
+    overflow: hidden;
+    border: 1px solid rgba(170, 146, 255, 0.2);
+    border-radius: 20px;
+    background:
+        radial-gradient(ellipse at 88% 45%, rgba(75, 153, 214, 0.17), transparent 42%),
+        linear-gradient(115deg, rgba(46, 30, 91, 0.88), rgba(20, 25, 62, 0.94));
+    box-shadow: 0 20px 55px rgba(0, 0, 0, 0.15);
+}
+
+.complaints-hero::before,
+.complaints-hero::after {
+    position: absolute;
+    border: 1px solid rgba(190, 173, 255, 0.08);
+    border-radius: 50%;
+    content: "";
+    pointer-events: none;
+}
+
+.complaints-hero::before {
+    top: -145px;
+    right: 13%;
+    width: 330px;
+    height: 330px;
+}
+
+.complaints-hero::after {
+    right: 4%;
+    bottom: -190px;
+    width: 390px;
+    height: 390px;
+    border-color: rgba(103, 220, 233, 0.08);
+}
+
+.complaints-hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 690px;
+}
+
+.complaints-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    margin-bottom: 17px;
+    color: #c2b0ff;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+}
+
+.complaints-pulse {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #62e1c0;
+    box-shadow: 0 0 12px rgba(98, 225, 192, 0.65);
+    animation: caption-indicator-pulse 2.5s ease-in-out infinite;
+}
+
+.complaints-hero h1 {
+    max-width: 650px;
+    margin: 0;
+    color: #fff;
+    font-family: "Outfit", sans-serif;
+    font-size: clamp(27px, 3vw, 37px);
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: -0.7px;
+}
+
+.complaints-gradient {
+    display: block;
+    background: linear-gradient(100deg, #b9a2ff, #71dce9);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.complaints-hero-content > p {
+    max-width: 590px;
+    margin: 14px 0 0;
+    color: #b6b0cb;
+    font-size: 11px;
+    line-height: 1.9;
+}
+
+.complaints-hero-points {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 17px;
+    margin-top: 20px;
+}
+
+.complaints-hero-points span {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    color: #c9c2df;
+    font-size: 9px;
+}
+
+.complaints-hero-points svg {
+    width: 14px;
+    height: 14px;
+    color: #83dcca;
+}
+
+.complaints-hero-visual {
+    position: relative;
+    display: grid;
+    width: 205px;
+    height: 185px;
+    flex: 0 0 205px;
+    place-items: center;
+}
+
+.complaints-visual-orbit {
+    position: absolute;
+    width: 175px;
+    height: 76px;
+    border: 1px solid rgba(190, 173, 255, 0.27);
+    border-radius: 50%;
+}
+
+.complaints-orbit-one {
+    transform: rotate(-28deg);
+    animation: mascot-orbit-one 28s linear infinite;
+}
+
+.complaints-orbit-two {
+    width: 180px;
+    height: 82px;
+    border-color: rgba(103, 220, 233, 0.25);
+    transform: rotate(55deg);
+    animation: mascot-orbit-two 36s linear infinite;
+}
+
+.complaints-visual-glow {
+    position: absolute;
+    width: 125px;
+    height: 125px;
+    border-radius: 50%;
+    background: rgba(130, 101, 242, 0.35);
+    filter: blur(38px);
+    animation: mascot-aura-pulse 6s ease-in-out infinite;
+}
+
+.complaints-visual-icon {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    width: 88px;
+    height: 88px;
+    place-items: center;
+    border: 1px solid rgba(210, 193, 255, 0.35);
+    border-radius: 27px;
+    background: linear-gradient(145deg, rgba(153, 120, 242, 0.3), rgba(58, 118, 169, 0.2));
+    box-shadow: 0 0 45px rgba(142, 113, 255, 0.23);
+    animation: mascot-float 5s ease-in-out infinite;
+}
+
+.complaints-visual-icon svg {
+    width: 38px;
+    height: 38px;
+    color: #e4dcff;
+    stroke-width: 1.5;
+}
+
+.complaints-floating-tag {
+    position: absolute;
+    right: -5px;
+    bottom: 15px;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding: 9px 11px;
+    border: 1px solid rgba(191, 176, 255, 0.2);
+    border-radius: 9px;
+    background: rgba(26, 22, 54, 0.92);
+    color: #e8e1ff;
+    font-size: 9px;
+    font-weight: 700;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.complaints-floating-tag svg {
+    width: 14px;
+    height: 14px;
+    color: #81d9e8;
+}
+
+.complaints-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.6fr) minmax(250px, 0.75fr);
+    align-items: start;
+    gap: 18px;
+    margin-top: 25px;
+}
+
+.complaints-form-panel,
+.complaints-guide-card,
+.complaints-info-card,
+.complaints-bullying-card {
+    min-width: 0;
+    border: 1px solid rgba(181, 161, 255, 0.13);
+    border-radius: 16px;
+    background: rgba(24, 20, 46, 0.88);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+}
+
+.complaints-form-panel {
+    padding: 24px;
+}
+
+.complaints-panel-heading {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    margin-bottom: 20px;
+}
+
+.complaints-panel-icon,
+.complaints-guide-icon {
+    display: grid;
+    width: 43px;
+    height: 43px;
+    flex: 0 0 43px;
+    place-items: center;
+    border: 1px solid rgba(167, 139, 250, 0.2);
+    border-radius: 12px;
+    background: rgba(167, 139, 250, 0.12);
+    color: #c1a9ff;
+}
+
+.complaints-panel-icon svg,
+.complaints-guide-icon svg {
+    width: 21px;
+    height: 21px;
+}
+
+.complaints-section-label {
+    display: block;
+    margin-bottom: 5px;
+    color: #a991ef;
+    font-size: 8px;
+    font-weight: 800;
+    letter-spacing: 1.4px;
+}
+
+.complaints-panel-heading h2,
+.complaints-guide-card h2 {
+    margin: 0;
+    color: #f1edff;
+    font-family: "Outfit", sans-serif;
+    font-size: 19px;
+    font-weight: 750;
+}
+
+.complaints-panel-heading p {
+    margin: 5px 0 0;
+    color: #9690ac;
+    font-size: 10px;
+    line-height: 1.6;
+}
+
+.complaints-form-notice {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 22px;
+    padding: 12px 13px;
+    border: 1px solid rgba(91, 178, 221, 0.16);
+    border-radius: 10px;
+    background: rgba(72, 139, 190, 0.09);
+}
+
+.complaints-form-notice svg {
+    width: 16px;
+    height: 16px;
+    flex: 0 0 16px;
+    margin-top: 1px;
+    color: #83c9ee;
+}
+
+.complaints-form-notice p {
+    margin: 0;
+    color: #b5c7dc;
+    font-size: 10px;
+    line-height: 1.7;
+}
+
+.complaints-form {
+    display: flex;
+    flex-direction: column;
+    gap: 19px;
+}
+
+.complaints-form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px 14px;
+}
+
+.complaints-field {
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.complaints-field-full {
+    grid-column: 1 / -1;
+}
+
+.complaints-field label {
+    color: #e6e0f5;
+    font-size: 10px;
+    font-weight: 700;
+}
+
+.complaints-field label span {
+    color: #f28eaf;
+}
+
+.complaints-input-wrap {
+    position: relative;
+    display: flex;
+    min-height: 45px;
+    align-items: center;
+}
+
+.complaints-input-wrap > svg:first-child {
+    position: absolute;
+    left: 13px;
+    width: 16px;
+    height: 16px;
+    color: #9688c1;
+    pointer-events: none;
+}
+
+.complaints-input-wrap input,
+.complaints-input-wrap select,
+.complaints-field textarea {
+    width: 100%;
+    min-width: 0;
+    border: 1px solid rgba(181, 161, 255, 0.17);
+    border-radius: 9px;
+    outline: none;
+    background: rgba(12, 10, 29, 0.58);
+    color: #eeeaff;
+    font-family: "DM Sans", sans-serif;
+    font-size: 11px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.complaints-input-wrap input,
+.complaints-input-wrap select {
+    height: 45px;
+    padding: 0 37px;
+}
+
+.complaints-input-wrap select {
+    appearance: none;
+    -webkit-appearance: none;
+    cursor: pointer;
+}
+
+.complaints-input-wrap select option {
+    background: #17132d;
+    color: #f5f2ff;
+}
+
+.complaints-input-wrap input::placeholder,
+.complaints-field textarea::placeholder {
+    color: #77718e;
+}
+
+.complaints-input-wrap input:focus,
+.complaints-input-wrap select:focus,
+.complaints-field textarea:focus {
+    border-color: rgba(167, 139, 250, 0.65);
+    background: rgba(20, 16, 43, 0.9);
+    box-shadow: 0 0 0 3px rgba(167, 139, 250, 0.1);
+}
+
+.complaints-input-wrap .complaints-select-arrow {
+    position: absolute;
+    right: 13px;
+    width: 14px;
+    height: 14px;
+    color: #8e86a6;
+    pointer-events: none;
+}
+
+.complaints-field textarea {
+    min-height: 150px;
+    padding: 13px 14px;
+    resize: vertical;
+    line-height: 1.75;
+}
+
+.complaints-field > small,
+.complaints-textarea-footer small {
+    color: #827b98;
+    font-size: 9px;
+    line-height: 1.6;
+}
+
+.complaints-textarea-footer {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.complaints-textarea-footer span {
+    flex: 0 0 auto;
+    color: #a995e7;
+    font-size: 9px;
+    font-variant-numeric: tabular-nums;
+}
+
+.complaints-attachment {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px;
+    border: 1px dashed rgba(167, 139, 250, 0.25);
+    border-radius: 11px;
+    background: rgba(167, 139, 250, 0.045);
+}
+
+.complaints-attachment-icon {
+    display: grid;
+    width: 37px;
+    height: 37px;
+    flex: 0 0 37px;
+    place-items: center;
+    border-radius: 10px;
+    background: rgba(167, 139, 250, 0.12);
+    color: #b9a3ff;
+}
+
+.complaints-attachment-icon svg {
+    width: 18px;
+    height: 18px;
+}
+
+.complaints-attachment-copy {
+    min-width: 0;
+    flex: 1;
+}
+
+.complaints-attachment-copy strong {
+    color: #e8e2f7;
+    font-size: 10px;
+}
+
+.complaints-attachment-copy p {
+    margin: 4px 0 0;
+    color: #89839e;
+    font-size: 9px;
+    line-height: 1.6;
+}
+
+.complaints-attachment-status {
+    padding: 4px 7px;
+    border: 1px solid rgba(103, 220, 233, 0.16);
+    border-radius: 5px;
+    color: #7fd7e3;
+    font-size: 8px;
+    font-weight: 700;
+}
+
+.complaints-consent {
+    display: flex;
+    align-items: flex-start;
+    gap: 9px;
+    padding: 12px 13px;
+    border-radius: 9px;
+    background: rgba(65, 184, 151, 0.07);
+}
+
+.complaints-consent svg {
+    width: 16px;
+    height: 16px;
+    flex: 0 0 16px;
+    color: #72d9b9;
+}
+
+.complaints-consent p {
+    margin: 0;
+    color: #9ebbb1;
+    font-size: 9px;
+    line-height: 1.7;
+}
+
+.complaints-form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    padding-top: 4px;
+}
+
+.complaints-cancel-button,
+.complaints-submit-button {
+    display: inline-flex;
+    min-height: 42px;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 0 17px;
+    border: 1px solid transparent;
+    border-radius: 9px;
+    font-family: "DM Sans", sans-serif;
+    font-size: 10px;
+    font-weight: 750;
+    cursor: pointer;
+    transition: transform 0.2s ease, filter 0.2s ease, background-color 0.2s ease;
+}
+
+.complaints-cancel-button {
+    border-color: rgba(181, 161, 255, 0.2);
+    background: rgba(255, 255, 255, 0.035);
+    color: #c5bddb;
+}
+
+.complaints-submit-button {
+    border-color: rgba(198, 177, 255, 0.2);
+    background: linear-gradient(110deg, #7652d4, #6656c9);
+    color: #fff;
+    box-shadow: 0 6px 18px rgba(103, 78, 207, 0.2);
+}
+
+.complaints-submit-button svg {
+    width: 15px;
+    height: 15px;
+}
+
+.complaints-cancel-button:hover,
+.complaints-submit-button:hover {
+    filter: brightness(1.12);
+    transform: translateY(-2px);
+}
+
+.complaints-side-panel {
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.complaints-guide-card {
+    padding: 19px;
+}
+
+.complaints-guide-icon {
+    margin-bottom: 16px;
+}
+
+.complaints-guide-card h2 {
+    max-width: 250px;
+    font-size: 17px;
+    line-height: 1.4;
+}
+
+.complaints-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    margin-top: 22px;
+}
+
+.complaints-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 11px;
+}
+
+.complaints-step > span {
+    display: grid;
+    width: 29px;
+    height: 29px;
+    flex: 0 0 29px;
+    place-items: center;
+    border: 1px solid rgba(167, 139, 250, 0.2);
+    border-radius: 8px;
+    background: rgba(167, 139, 250, 0.1);
+    color: #c0aaff;
+    font-size: 9px;
+    font-weight: 800;
+}
+
+.complaints-step strong {
+    color: #e8e2f7;
+    font-size: 10px;
+}
+
+.complaints-step p {
+    margin: 5px 0 0;
+    color: #928ba7;
+    font-size: 9px;
+    line-height: 1.7;
+}
+
+.complaints-info-card {
+    padding: 18px;
+    border-color: rgba(81, 209, 184, 0.16);
+    background: linear-gradient(145deg, rgba(41, 117, 109, 0.1), rgba(25, 21, 52, 0.92));
+}
+
+.complaints-info-icon {
+    display: grid;
+    width: 36px;
+    height: 36px;
+    margin-bottom: 12px;
+    place-items: center;
+    border: 1px solid rgba(81, 209, 184, 0.2);
+    border-radius: 10px;
+    background: rgba(81, 209, 184, 0.1);
+    color: #7ce0c2;
+}
+
+.complaints-info-icon svg {
+    width: 19px;
+    height: 19px;
+}
+
+.complaints-info-card h3,
+.complaints-bullying-card h3 {
+    margin: 0;
+    color: #ecf8f5;
+    font-family: "Outfit", sans-serif;
+    font-size: 14px;
+    font-weight: 750;
+}
+
+.complaints-info-card p,
+.complaints-bullying-card p {
+    margin: 8px 0 12px;
+    color: #a2b8b1;
+    font-size: 9px;
+    line-height: 1.8;
+}
+
+.complaints-info-card a,
+.complaints-bullying-card a {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: #83dfc5;
+    font-size: 9px;
+    font-weight: 750;
+}
+
+.complaints-info-card a svg,
+.complaints-bullying-card a svg {
+    width: 13px;
+    height: 13px;
+}
+
+.complaints-bullying-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 17px;
+    border-color: rgba(243, 124, 172, 0.17);
+    background: linear-gradient(145deg, rgba(109, 48, 93, 0.12), rgba(25, 21, 52, 0.92));
+}
+
+.complaints-bullying-icon {
+    display: grid;
+    width: 37px;
+    height: 37px;
+    flex: 0 0 37px;
+    place-items: center;
+    border: 1px solid rgba(243, 124, 172, 0.2);
+    border-radius: 10px;
+    background: rgba(243, 124, 172, 0.1);
+    color: #f39abc;
+}
+
+.complaints-bullying-icon svg {
+    width: 19px;
+    height: 19px;
+}
+
+.complaints-bullying-card > div:last-child {
+    min-width: 0;
+}
+
+.complaints-bullying-card > div:last-child > span {
+    display: block;
+    margin-bottom: 6px;
+    color: #e79abb;
+    font-size: 8px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.complaints-bullying-card h3 {
+    color: #f5eaf2;
+    font-size: 13px;
+}
+
+.complaints-bullying-card p {
+    color: #bba4b5;
+}
+
+.complaints-bullying-card a {
+    color: #f0a5c4;
+}
+
+@media (max-width: 1100px) {
+    .complaints-layout {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .complaints-side-panel {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .complaints-guide-card {
+        grid-row: span 2;
+    }
+}
+
+@media (max-width: 650px) {
+    .complaints-hero {
+        min-height: auto;
+        padding: 25px 22px;
+    }
+
+    .complaints-hero-visual {
+        display: none;
+    }
+
+    .complaints-hero h1 {
+        font-size: 29px;
+    }
+
+    .complaints-hero-content > p {
+        font-size: 10px;
+    }
+
+    .complaints-hero-points {
+        flex-direction: column;
+        gap: 9px;
+    }
+
+    .complaints-form-panel {
+        padding: 18px;
+    }
+
+    .complaints-side-panel {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .complaints-guide-card {
+        grid-row: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .complaints-hero {
+        padding: 22px 17px;
+        border-radius: 15px;
+    }
+
+    .complaints-hero h1 {
+        font-size: 25px;
+    }
+
+    .complaints-form-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .complaints-field-full {
+        grid-column: auto;
+    }
+
+    .complaints-panel-heading h2 {
+        font-size: 17px;
+    }
+
+    .complaints-textarea-footer {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .complaints-form-actions {
+        flex-direction: column-reverse;
+    }
+
+    .complaints-cancel-button,
+    .complaints-submit-button {
+        width: 100%;
+    }
+
+    .complaints-attachment {
+        align-items: flex-start;
+        flex-wrap: wrap;
+    }
+
+    .complaints-attachment-status {
+        margin-left: 49px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .complaints-page *,
+    .complaints-page *::before,
+    .complaints-page *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}

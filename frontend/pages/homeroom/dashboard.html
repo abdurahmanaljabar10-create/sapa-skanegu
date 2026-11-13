@@ -1,0 +1,363 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#080413">
+    <title>Dashboard Wali Kelas | SAPA-SKANEGU</title>
+    <link rel="icon" href="../../assets/images/logo/logo-smkn1dlanggu.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/reset.css">
+    <link rel="stylesheet" href="../../css/global.css">
+    <link rel="stylesheet" href="../../css/components.css">
+    <link rel="stylesheet" href="../../css/dashboard.css">
+    <link rel="stylesheet" href="../../css/pages/homeroom.css">
+    <link rel="stylesheet" href="../../css/animations.css">
+    <link rel="stylesheet" href="../../css/responsive.css">
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+</head>
+<body class="dashboard-page homeroom-dashboard">
+    <div class="cursor-glow"></div>
+    <div class="dashboard-background">
+        <div class="dashboard-background-glow"></div>
+        <div class="dashboard-background-stars"></div>
+        <div class="dashboard-background-grid"></div>
+    </div>
+
+    <div class="dashboard-layout">
+        <div class="dashboard-overlay" data-sidebar-overlay></div>
+
+        <aside class="dashboard-sidebar" data-sidebar>
+            <div class="sidebar-brand">
+                <a href="dashboard.html" class="sidebar-brand-link">
+                    <img src="../../assets/images/logo/logo-smkn1dlanggu.svg" alt="Logo SMKN 1 Dlanggu" class="sidebar-brand-logo">
+                    <span class="sidebar-brand-text">SAPA<span>SKANEGU</span></span>
+                </a>
+                <button class="dashboard-sidebar-close" type="button" data-sidebar-close aria-label="Tutup menu">
+                    <i data-lucide="x"></i>
+                </button>
+            </div>
+
+            <div class="sidebar-profile">
+                <div class="sidebar-avatar">
+                    <i data-lucide="user-round"></i>
+                </div>
+                <div class="sidebar-profile-information">
+                    <strong>Wali Kelas</strong>
+                    <span>Pengelola Kelas</span>
+                </div>
+            </div>
+
+            <nav class="sidebar-navigation">
+                <div class="sidebar-section">
+                    <span class="sidebar-section-label">MENU UTAMA</span>
+                    <div class="sidebar-menu">
+                        <a href="dashboard.html" class="sidebar-link active" aria-current="page">
+                            <i data-lucide="layout-dashboard"></i>
+                            <span>Dashboard</span>
+                        </a>
+                        <a href="../general/notifications.html" class="sidebar-link">
+                            <i data-lucide="bell"></i>
+                            <span>Notifikasi</span>
+                        </a>
+                        <a href="../general/education.html" class="sidebar-link">
+                            <i data-lucide="book-open"></i>
+                            <span>Materi Edukasi</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="sidebar-section">
+                    <span class="sidebar-section-label">AKUN</span>
+                    <div class="sidebar-menu">
+                        <a href="../general/profile.html" class="sidebar-link">
+                            <i data-lucide="user-round"></i>
+                            <span>Profil Saya</span>
+                        </a>
+                        <a href="../general/help.html" class="sidebar-link">
+                            <i data-lucide="circle-help"></i>
+                            <span>Pusat Bantuan</span>
+                        </a>
+                        <a href="../general/privacy-policy.html" class="sidebar-link">
+                            <i data-lucide="shield-check"></i>
+                            <span>Kebijakan Privasi</span>
+                        </a>
+                        <a href="../general/terms.html" class="sidebar-link">
+                            <i data-lucide="file-text"></i>
+                            <span>Syarat & Ketentuan</span>
+                        </a>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <div class="sidebar-help-card">
+                    <div class="sidebar-help-icon">
+                        <i data-lucide="life-buoy"></i>
+                    </div>
+                    <strong>Butuh bantuan?</strong>
+                    <p>Temukan panduan penggunaan SAPA-SKANEGU.</p>
+                    <a href="../general/help.html">Buka Pusat Bantuan <i data-lucide="arrow-up-right"></i></a>
+                </div>
+                <button class="sidebar-logout" type="button" id="logoutButton">
+                    <i data-lucide="log-out"></i>
+                    <span>Keluar</span>
+                </button>
+                <div class="sidebar-footer">
+                    <span>SAPA-SKANEGU</span>
+                    <span>SMKN 1 Dlanggu</span>
+                </div>
+            </div>
+        </aside>
+
+        <main class="dashboard-main">
+            <header class="dashboard-topbar">
+                <div class="topbar-left">
+                    <button class="dashboard-menu-toggle" type="button" data-sidebar-toggle aria-label="Buka menu">
+                        <i data-lucide="menu"></i>
+                    </button>
+                    <div class="topbar-breadcrumb">
+                        <span>Dashboard</span>
+                        <i data-lucide="chevron-right"></i>
+                        <strong>Wali Kelas</strong>
+                    </div>
+                </div>
+                <div class="topbar-right">
+                    <div class="topbar-date">
+                        <i data-lucide="calendar-days"></i>
+                        <span id="currentDate">Memuat tanggal...</span>
+                    </div>
+                    <a href="../general/notifications.html" class="topbar-icon-button" aria-label="Notifikasi">
+                        <i data-lucide="bell"></i>
+                        <span class="homeroom-notification-dot"></span>
+                    </a>
+                    <a href="../general/profile.html" class="topbar-user">
+                        <div class="topbar-user-avatar">
+                            <i data-lucide="user-round"></i>
+                        </div>
+                        <div class="topbar-user-information">
+                            <strong>Wali Kelas</strong>
+                            <span>Pengelola Kelas</span>
+                        </div>
+                        <i data-lucide="chevron-down"></i>
+                    </a>
+                </div>
+            </header>
+
+            <div class="dashboard-content homeroom-content">
+                <section class="homeroom-welcome">
+                    <div class="homeroom-welcome-copy">
+                        <span class="homeroom-eyebrow"><i data-lucide="sparkles"></i> RUANG KERJA WALI KELAS</span>
+                        <h1>Halo, Wali Kelas!</h1>
+                        <p>Pantau kondisi kelas, bangun lingkungan belajar yang aman, dan bantu siswa mendapatkan dukungan yang tepat.</p>
+                        <a href="../general/education.html" class="homeroom-primary-button">
+                            Pelajari Pencegahan Bullying
+                            <i data-lucide="arrow-up-right"></i>
+                        </a>
+                    </div>
+                    <div class="homeroom-welcome-art">
+                        <div class="homeroom-art-orbit homeroom-art-orbit-one"></div>
+                        <div class="homeroom-art-orbit homeroom-art-orbit-two"></div>
+                        <img src="../../assets/images/mascot/maskot-smkn1dlanggu.png" alt="Maskot SAPA-SKANEGU">
+                        <span class="homeroom-art-star star-one">✦</span>
+                        <span class="homeroom-art-star star-two">✧</span>
+                    </div>
+                </section>
+
+                <section class="homeroom-section">
+                    <div class="homeroom-section-heading">
+                        <div>
+                            <span class="homeroom-section-kicker">RINGKASAN KELAS</span>
+                            <h2>Informasi Kelas</h2>
+                            <p>Gambaran umum pemantauan kelas Anda.</p>
+                        </div>
+                    </div>
+
+                    <div class="homeroom-stats-grid">
+                        <article class="homeroom-stat-card">
+                            <div class="homeroom-stat-icon purple">
+                                <i data-lucide="users"></i>
+                            </div>
+                            <div>
+                                <span>Total Siswa</span>
+                                <strong>36</strong>
+                                <small>Jumlah siswa dalam kelas</small>
+                            </div>
+                        </article>
+                        <article class="homeroom-stat-card">
+                            <div class="homeroom-stat-icon cyan">
+                                <i data-lucide="clipboard-check"></i>
+                            </div>
+                            <div>
+                                <span>Pemantauan</span>
+                                <strong>08</strong>
+                                <small>Catatan pemantauan simulasi</small>
+                            </div>
+                        </article>
+                        <article class="homeroom-stat-card">
+                            <div class="homeroom-stat-icon orange">
+                                <i data-lucide="clock-3"></i>
+                            </div>
+                            <div>
+                                <span>Perlu Perhatian</span>
+                                <strong>03</strong>
+                                <small>Informasi untuk ditindaklanjuti</small>
+                            </div>
+                        </article>
+                        <article class="homeroom-stat-card">
+                            <div class="homeroom-stat-icon green">
+                                <i data-lucide="bell-ring"></i>
+                            </div>
+                            <div>
+                                <span>Notifikasi Baru</span>
+                                <strong>02</strong>
+                                <small>Informasi belum dibaca</small>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+
+                <section class="homeroom-main-grid">
+                    <div class="homeroom-panel homeroom-monitor-panel">
+                        <div class="homeroom-panel-heading">
+                            <div>
+                                <span class="homeroom-section-kicker">PERHATIAN KELAS</span>
+                                <h2>Hal yang Perlu Diperhatikan</h2>
+                            </div>
+                            <span class="homeroom-demo-label">Data simulasi</span>
+                        </div>
+
+                        <div class="homeroom-monitor-list">
+                            <article class="homeroom-monitor-item">
+                                <div class="homeroom-monitor-icon orange">
+                                    <i data-lucide="message-circle-warning"></i>
+                                </div>
+                                <div class="homeroom-monitor-copy">
+                                    <strong>Informasi dari Guru BK</strong>
+                                    <p>Terdapat informasi pemantauan siswa yang perlu dikoordinasikan.</p>
+                                    <span><i data-lucide="clock"></i> Informasi contoh</span>
+                                </div>
+                                <span class="homeroom-status pending">Perlu koordinasi</span>
+                            </article>
+                            <article class="homeroom-monitor-item">
+                                <div class="homeroom-monitor-icon cyan">
+                                    <i data-lucide="users"></i>
+                                </div>
+                                <div class="homeroom-monitor-copy">
+                                    <strong>Penguatan lingkungan kelas</strong>
+                                    <p>Ingatkan siswa untuk menjaga sikap saling menghormati.</p>
+                                    <span><i data-lucide="clock"></i> Informasi contoh</span>
+                                </div>
+                                <span class="homeroom-status info">Edukasi</span>
+                            </article>
+                            <article class="homeroom-monitor-item">
+                                <div class="homeroom-monitor-icon purple">
+                                    <i data-lucide="calendar-check"></i>
+                                </div>
+                                <div class="homeroom-monitor-copy">
+                                    <strong>Koordinasi kegiatan kelas</strong>
+                                    <p>Perhatikan pengumuman dan informasi terbaru dari sekolah.</p>
+                                    <span><i data-lucide="clock"></i> Informasi contoh</span>
+                                </div>
+                                <span class="homeroom-status info">Informasi</span>
+                            </article>
+                        </div>
+                    </div>
+
+                    <aside class="homeroom-panel homeroom-responsibility-panel">
+                        <div class="homeroom-panel-heading">
+                            <div>
+                                <span class="homeroom-section-kicker">PERAN ANDA</span>
+                                <h2>Tugas Wali Kelas</h2>
+                            </div>
+                            <div class="homeroom-responsibility-icon">
+                                <i data-lucide="shield-check"></i>
+                            </div>
+                        </div>
+                        <div class="homeroom-responsibility-list">
+                            <div>
+                                <span>01</span>
+                                <p>Memantau kondisi dan interaksi siswa di kelas.</p>
+                            </div>
+                            <div>
+                                <span>02</span>
+                                <p>Membangun komunikasi yang aman dan terbuka dengan siswa.</p>
+                            </div>
+                            <div>
+                                <span>03</span>
+                                <p>Berkoordinasi dengan Guru BK jika ada indikasi perundungan.</p>
+                            </div>
+                            <div>
+                                <span>04</span>
+                                <p>Menjaga kerahasiaan informasi pribadi siswa.</p>
+                            </div>
+                        </div>
+                        <a href="../general/education.html" class="homeroom-text-link">
+                            Pelajari panduan edukasi
+                            <i data-lucide="arrow-right"></i>
+                        </a>
+                    </aside>
+                </section>
+
+                <section class="homeroom-section">
+                    <div class="homeroom-section-heading">
+                        <div>
+                            <span class="homeroom-section-kicker">AKSES CEPAT</span>
+                            <h2>Informasi dan Layanan</h2>
+                            <p>Akses halaman yang mendukung tugas wali kelas.</p>
+                        </div>
+                    </div>
+
+                    <div class="homeroom-quick-grid">
+                        <a href="../general/notifications.html" class="homeroom-quick-card">
+                            <div class="homeroom-quick-icon purple">
+                                <i data-lucide="bell"></i>
+                            </div>
+                            <div>
+                                <strong>Notifikasi</strong>
+                                <p>Lihat informasi terbaru dari sekolah.</p>
+                            </div>
+                            <i data-lucide="arrow-up-right" class="homeroom-quick-arrow"></i>
+                        </a>
+                        <a href="../general/education.html" class="homeroom-quick-card">
+                            <div class="homeroom-quick-icon cyan">
+                                <i data-lucide="book-open-check"></i>
+                            </div>
+                            <div>
+                                <strong>Materi Edukasi</strong>
+                                <p>Pelajari pencegahan dan penanganan bullying.</p>
+                            </div>
+                            <i data-lucide="arrow-up-right" class="homeroom-quick-arrow"></i>
+                        </a>
+                        <a href="../general/profile.html" class="homeroom-quick-card">
+                            <div class="homeroom-quick-icon pink">
+                                <i data-lucide="user-round"></i>
+                            </div>
+                            <div>
+                                <strong>Profil Saya</strong>
+                                <p>Lihat dan kelola informasi profil.</p>
+                            </div>
+                            <i data-lucide="arrow-up-right" class="homeroom-quick-arrow"></i>
+                        </a>
+                    </div>
+                </section>
+
+                <footer class="homeroom-footer">
+                    <span>© 2026 SAPA-SKANEGU · SMKN 1 Dlanggu</span>
+                    <span>Membangun lingkungan sekolah yang aman dan nyaman.</span>
+                </footer>
+            </div>
+        </main>
+    </div>
+
+    <script src="../../js/api.js"></script>
+    <script src="../../js/main.js"></script>
+    <script src="../../js/auth.js"></script>
+    <script src="../../js/navigation.js"></script>
+    <script src="../../js/notifications.js"></script>
+    <script src="../../js/pages/homeroom.js"></script>
+</body>
+</html>

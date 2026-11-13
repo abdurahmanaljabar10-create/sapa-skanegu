@@ -1,0 +1,317 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0b0718">
+    <title>Kebijakan Privasi | SAPA-SKANEGU</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/reset.css">
+    <link rel="stylesheet" href="../../css/global.css">
+    <link rel="stylesheet" href="../../css/components.css">
+    <link rel="stylesheet" href="../../css/dashboard.css">
+    <link rel="stylesheet" href="../../css/animations.css">
+    <link rel="stylesheet" href="../../css/responsive.css">
+    <link rel="stylesheet" href="../../css/pages/student-affairs.css">
+    <link rel="stylesheet" href="../../css/pages/sa-privacy.css">
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <script src="../../js/main.js" defer></script>
+    <script src="../../js/auth.js" defer></script>
+    <script src="../../js/pages/student-affairs.js" defer></script>
+    <script src="../../js/pages/sa-privacy.js" defer></script>
+</head>
+<body class="dashboard-page student-affairs-page sa-privacy-page">
+    <div class="dashboard-background">
+        <div class="dashboard-background-glow dashboard-glow-one"></div>
+        <div class="dashboard-background-glow dashboard-glow-two"></div>
+    </div>
+
+    <div class="dashboard-layout">
+        <div class="dashboard-overlay" data-sidebar-overlay></div>
+
+        <aside class="dashboard-sidebar" data-sidebar>
+            <div class="sidebar-brand">
+                <a href="dashboard.html" class="sidebar-brand-link">
+                    <div class="sidebar-brand-logo">
+                        <img src="../../assets/images/logo/logo-smkn1dlanggu.svg" alt="Logo SMKN 1 Dlanggu">
+                    </div>
+                    <div class="sidebar-brand-text">
+                        <strong>SAPA-SKANEGU</strong>
+                        <span>SMKN 1 Dlanggu</span>
+                    </div>
+                </a>
+                <button class="dashboard-sidebar-close" data-sidebar-close aria-label="Tutup navigasi">
+                    <i data-lucide="x"></i>
+                </button>
+            </div>
+
+            <div class="sidebar-profile">
+                <div class="sidebar-avatar">KS</div>
+                <div class="sidebar-profile-information">
+                    <strong>Tim Kesiswaan</strong>
+                    <span>Bidang Kesiswaan</span>
+                </div>
+                <span class="sidebar-online-indicator"></span>
+            </div>
+
+            <nav class="sidebar-navigation">
+                <div class="sidebar-section">
+                    <span class="sidebar-section-label">MENU UTAMA</span>
+                    <div class="sidebar-menu">
+                        <a href="dashboard.html" class="sidebar-link"><i data-lucide="layout-dashboard"></i><span>Dashboard</span></a>
+                        <a href="cases.html" class="sidebar-link"><i data-lucide="shield-alert"></i><span>Penanganan Kasus</span></a>
+                        <a href="discipline.html" class="sidebar-link"><i data-lucide="clipboard-list"></i><span>Kedisiplinan Siswa</span></a>
+                        <a href="history.html" class="sidebar-link"><i data-lucide="history"></i><span>Riwayat Penanganan</span></a>
+                    </div>
+                </div>
+
+                <div class="sidebar-section">
+                    <span class="sidebar-section-label">INFORMASI</span>
+                    <div class="sidebar-menu">
+                        <a href="education.html" class="sidebar-link"><i data-lucide="book-open"></i><span>Materi Edukasi</span></a>
+                        <a href="notifications.html" class="sidebar-link"><i data-lucide="bell"></i><span>Notifikasi</span></a>
+                    </div>
+                </div>
+
+                <div class="sidebar-section">
+                    <span class="sidebar-section-label">AKUN</span>
+                    <div class="sidebar-menu">
+                        <a href="profile.html" class="sidebar-link"><i data-lucide="user-round"></i><span>Profil Saya</span></a>
+                        <a href="help.html" class="sidebar-link"><i data-lucide="circle-help"></i><span>Pusat Bantuan</span></a>
+                        <a href="privacy-policy.html" class="sidebar-link active"><i data-lucide="shield-check"></i><span>Kebijakan Privasi</span></a>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <a href="../../index.html" class="sidebar-logout" id="logoutButton">
+                    <i data-lucide="log-out"></i>
+                    <span>Keluar</span>
+                </a>
+                <div class="sidebar-footer">
+                    <span>SAPA-SKANEGU</span>
+                    <span>SMKN 1 Dlanggu · 2026</span>
+                </div>
+            </div>
+        </aside>
+
+        <main class="dashboard-main">
+            <header class="dashboard-topbar">
+                <div class="topbar-left">
+                    <button class="dashboard-menu-toggle" data-sidebar-toggle aria-label="Buka navigasi" aria-expanded="false">
+                        <i data-lucide="menu"></i>
+                    </button>
+                    <div class="topbar-breadcrumb">
+                        <span>Bidang Kesiswaan</span>
+                        <i data-lucide="chevron-right"></i>
+                        <strong>Kebijakan Privasi</strong>
+                    </div>
+                </div>
+
+                <div class="topbar-right">
+                    <div class="topbar-date">
+                        <i data-lucide="calendar-days"></i>
+                        <span id="privacyCurrentDate"></span>
+                    </div>
+                    <a href="notifications.html" class="topbar-icon-button" aria-label="Notifikasi">
+                        <i data-lucide="bell"></i>
+                    </a>
+                    <a href="profile.html" class="topbar-user">
+                        <div class="topbar-user-avatar">KS</div>
+                        <div class="topbar-user-information">
+                            <strong>Tim Kesiswaan</strong>
+                            <span>Bidang Kesiswaan</span>
+                        </div>
+                        <i data-lucide="chevron-down"></i>
+                    </a>
+                </div>
+            </header>
+
+            <div class="dashboard-content sa-privacy-content">
+                <section class="sa-privacy-heading">
+                    <div>
+                        <span class="sa-privacy-eyebrow">INFORMASI DAN PERLINDUNGAN DATA</span>
+                        <h1>Kebijakan Privasi</h1>
+                        <p>Penjelasan mengenai pengelolaan, penggunaan, dan perlindungan informasi dalam SAPA-SKANEGU.</p>
+                    </div>
+                    <button type="button" class="sa-privacy-print-button" id="printPrivacy">
+                        <i data-lucide="printer"></i>
+                        Cetak Kebijakan
+                    </button>
+                </section>
+
+                <section class="sa-privacy-hero">
+                    <div class="sa-privacy-hero-copy">
+                        <span class="sa-privacy-hero-label">PRIVASI ADALAH PRIORITAS</span>
+                        <h2>Informasi yang aman, lingkungan sekolah yang nyaman.</h2>
+                        <p>SAPA-SKANEGU berupaya menjaga informasi warga sekolah dan membatasi akses data sesuai tugas serta kewenangan masing-masing pengguna.</p>
+                        <div class="sa-privacy-hero-tags">
+                            <span><i data-lucide="lock-keyhole"></i> Kerahasiaan</span>
+                            <span><i data-lucide="shield-check"></i> Perlindungan data</span>
+                            <span><i data-lucide="user-check"></i> Akses terbatas</span>
+                        </div>
+                    </div>
+                    <div class="sa-privacy-hero-art">
+                        <div class="sa-privacy-orbit orbit-one"></div>
+                        <div class="sa-privacy-orbit orbit-two"></div>
+                        <div class="sa-privacy-hero-icon"><i data-lucide="shield-check"></i></div>
+                        <span class="sa-privacy-spark spark-one">✦</span>
+                        <span class="sa-privacy-spark spark-two">✧</span>
+                    </div>
+                </section>
+
+                <div class="sa-privacy-layout">
+                    <aside class="sa-privacy-toc">
+                        <span class="sa-privacy-toc-title">DAFTAR ISI</span>
+                        <a href="#privacy-introduction" class="active">Pendahuluan</a>
+                        <a href="#privacy-data">Data yang Dikelola</a>
+                        <a href="#privacy-purpose">Tujuan Penggunaan</a>
+                        <a href="#privacy-access">Hak Akses Informasi</a>
+                        <a href="#privacy-security">Keamanan Data</a>
+                        <a href="#privacy-rights">Hak Pengguna</a>
+                        <a href="#privacy-retention">Penyimpanan Data</a>
+                        <a href="#privacy-changes">Perubahan Kebijakan</a>
+                    </aside>
+
+                    <article class="sa-privacy-document">
+                        <div class="sa-privacy-document-meta">
+                            <span><i data-lucide="file-text"></i> Dokumen Kebijakan</span>
+                            <span><i data-lucide="calendar"></i> Diperbarui 13 November 2026</span>
+                        </div>
+
+                        <section class="sa-privacy-section" id="privacy-introduction">
+                            <span class="sa-privacy-section-number">01</span>
+                            <h2>Pendahuluan</h2>
+                            <p>Kebijakan Privasi ini menjelaskan prinsip pengelolaan informasi dalam Sistem Aspirasi dan Pelaporan Anti-Bullying (SAPA-SKANEGU) di SMKN 1 Dlanggu.</p>
+                            <p>Sistem ini digunakan untuk mendukung penyampaian aspirasi, pengaduan, pelaporan perundungan, penanganan kedisiplinan, dan penyediaan informasi edukasi sekolah.</p>
+                            <p>Setiap pengguna diharapkan menggunakan sistem secara bertanggung jawab serta menjaga kerahasiaan informasi yang diperoleh melalui tugasnya.</p>
+                        </section>
+
+                        <section class="sa-privacy-section" id="privacy-data">
+                            <span class="sa-privacy-section-number">02</span>
+                            <h2>Data yang Dikelola</h2>
+                            <p>Informasi yang dapat dikelola sistem meliputi:</p>
+                            <ul>
+                                <li>Informasi identitas dan akun pengguna, seperti nama, alamat email, peran, dan informasi kelas atau jabatan yang relevan.</li>
+                                <li>Data aspirasi dan pengaduan yang disampaikan melalui sistem.</li>
+                                <li>Informasi laporan perundungan dan dokumentasi tindak lanjut sesuai kewenangan.</li>
+                                <li>Catatan kedisiplinan dan informasi pembinaan siswa.</li>
+                                <li>Riwayat aktivitas dan notifikasi yang berkaitan dengan penggunaan sistem.</li>
+                            </ul>
+                            <div class="sa-privacy-note">
+                                <i data-lucide="info"></i>
+                                <p>Pengguna tidak boleh memasukkan informasi pribadi yang tidak diperlukan untuk tujuan pelaporan atau pelayanan sekolah.</p>
+                            </div>
+                        </section>
+
+                        <section class="sa-privacy-section" id="privacy-purpose">
+                            <span class="sa-privacy-section-number">03</span>
+                            <h2>Tujuan Penggunaan Informasi</h2>
+                            <p>Informasi digunakan untuk mendukung pelaksanaan layanan sekolah, antara lain:</p>
+                            <ul>
+                                <li>Memproses dan menindaklanjuti aspirasi serta pengaduan.</li>
+                                <li>Mendukung proses pelaporan dan penanganan perundungan.</li>
+                                <li>Membantu pemantauan kedisiplinan dan pembinaan siswa.</li>
+                                <li>Menyediakan informasi, materi edukasi, dan pemberitahuan sistem.</li>
+                                <li>Menyusun evaluasi layanan dan laporan sesuai kewenangan.</li>
+                            </ul>
+                        </section>
+
+                        <section class="sa-privacy-section" id="privacy-access">
+                            <span class="sa-privacy-section-number">04</span>
+                            <h2>Hak Akses Informasi</h2>
+                            <p>Akses informasi diberikan berdasarkan peran, penugasan, dan kebutuhan pelaksanaan tugas.</p>
+                            <div class="sa-privacy-access-list">
+                                <div>
+                                    <span class="sa-privacy-access-icon"><i data-lucide="user-round"></i></span>
+                                    <div><strong>Pelapor</strong><p>Dapat mengakses informasi laporan miliknya dan perkembangan yang dapat disampaikan kepada pelapor.</p></div>
+                                </div>
+                                <div>
+                                    <span class="sa-privacy-access-icon"><i data-lucide="users"></i></span>
+                                    <div><strong>Petugas yang Ditugaskan</strong><p>Dapat mengakses informasi yang diperlukan untuk menangani laporan sesuai penugasan dan kewenangannya.</p></div>
+                                </div>
+                                <div>
+                                    <span class="sa-privacy-access-icon"><i data-lucide="graduation-cap"></i></span>
+                                    <div><strong>Guru BK</strong><p>Catatan konseling hanya dapat diakses oleh Guru BK yang memiliki kewenangan.</p></div>
+                                </div>
+                                <div>
+                                    <span class="sa-privacy-access-icon"><i data-lucide="school"></i></span>
+                                    <div><strong>Kepala Sekolah</strong><p>Memiliki akses pengawasan dan evaluasi sesuai kewenangan yang ditetapkan sekolah.</p></div>
+                                </div>
+                                <div>
+                                    <span class="sa-privacy-access-icon"><i data-lucide="settings"></i></span>
+                                    <div><strong>Administrator</strong><p>Mengelola konfigurasi dan operasional sistem. Akses administrator tidak otomatis memberikan hak melihat isi laporan perundungan.</p></div>
+                                </div>
+                            </div>
+                            <div class="sa-privacy-warning">
+                                <i data-lucide="lock"></i>
+                                <div>
+                                    <strong>Kerahasiaan laporan perundungan</strong>
+                                    <p>Informasi laporan perundungan hanya dapat diakses oleh pihak yang berwenang sesuai penugasan. Identitas pelapor harus dijaga dan tidak boleh disebarluaskan tanpa dasar kewenangan yang sah.</p>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section class="sa-privacy-section" id="privacy-security">
+                            <span class="sa-privacy-section-number">05</span>
+                            <h2>Keamanan Data</h2>
+                            <p>Pengguna dan pengelola sistem bertanggung jawab menjaga keamanan informasi melalui tindakan berikut:</p>
+                            <ul>
+                                <li>Menggunakan akun masing-masing dan tidak membagikan kata sandi.</li>
+                                <li>Keluar dari akun setelah menggunakan perangkat bersama.</li>
+                                <li>Tidak mengambil, menyalin, atau menyebarkan data tanpa kewenangan.</li>
+                                <li>Menggunakan informasi hanya untuk keperluan tugas yang sah.</li>
+                                <li>Melaporkan dugaan penyalahgunaan akun atau kebocoran informasi kepada pengelola sistem.</li>
+                            </ul>
+                        </section>
+
+                        <section class="sa-privacy-section" id="privacy-rights">
+                            <span class="sa-privacy-section-number">06</span>
+                            <h2>Hak Pengguna</h2>
+                            <p>Pengguna dapat mengajukan permintaan atau menyampaikan pertanyaan terkait informasi pribadinya melalui saluran resmi sekolah, dengan tetap memperhatikan ketentuan perlindungan data dan kerahasiaan pihak lain.</p>
+                            <ul>
+                                <li>Meminta penjelasan mengenai penggunaan informasi yang berkaitan dengan dirinya.</li>
+                                <li>Meminta koreksi terhadap informasi akun yang tidak sesuai melalui prosedur yang tersedia.</li>
+                                <li>Melaporkan dugaan penyalahgunaan informasi.</li>
+                                <li>Memperoleh informasi perkembangan laporan sesuai hak akses yang dimiliki.</li>
+                            </ul>
+                        </section>
+
+                        <section class="sa-privacy-section" id="privacy-retention">
+                            <span class="sa-privacy-section-number">07</span>
+                            <h2>Penyimpanan dan Pengelolaan Data</h2>
+                            <p>Data disimpan dan dikelola sesuai kebutuhan layanan, kebijakan sekolah, dan ketentuan yang berlaku. Penghapusan atau perubahan data harus mengikuti prosedur dan kewenangan yang ditetapkan.</p>
+                            <p>Jangka waktu penyimpanan, mekanisme pencadangan, serta prosedur pemulihan data perlu ditetapkan oleh pengelola sistem dan pihak sekolah.</p>
+                        </section>
+
+                        <section class="sa-privacy-section" id="privacy-changes">
+                            <span class="sa-privacy-section-number">08</span>
+                            <h2>Perubahan Kebijakan</h2>
+                            <p>Kebijakan ini dapat diperbarui apabila terdapat perubahan kebutuhan layanan, pengelolaan sistem, atau ketentuan yang berlaku. Pengguna diharapkan memeriksa halaman ini secara berkala.</p>
+                            <p>Untuk pertanyaan atau laporan terkait privasi, silakan menghubungi pengelola SAPA-SKANEGU melalui saluran resmi sekolah.</p>
+                        </section>
+
+                        <div class="sa-privacy-document-footer">
+                            <i data-lucide="shield-check"></i>
+                            <div>
+                                <strong>Jaga informasi, jaga kepercayaan.</strong>
+                                <span>Gunakan SAPA-SKANEGU secara bertanggung jawab.</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <footer class="sa-privacy-footer">
+                    <span>© 2026 SAPA-SKANEGU · SMKN 1 Dlanggu</span>
+                    <span>Panel Bidang Kesiswaan</span>
+                </footer>
+            </div>
+        </main>
+    </div>
+
+    <div class="sa-privacy-toast" id="privacyToast" role="status" aria-live="polite"></div>
+</body>
+</html>

@@ -4,596 +4,683 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#100b2b">
+    <meta name="theme-color" content="#0b091b">
+    <meta name="description" content="Layanan pelaporan bullying SAPA-SKANEGU SMKN 1 Dlanggu">
+
     <title>Lapor Bullying | SAPA-SKANEGU</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <link rel="stylesheet" href="../css/pages/bullying-report.css">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../../css/reset.css">
+    <link rel="stylesheet" href="../../css/global.css">
+    <link rel="stylesheet" href="../../css/components.css">
+    <link rel="stylesheet" href="../../css/dashboard.css">
+    <link rel="stylesheet" href="../../css/pages/student.css">
+    <link rel="stylesheet" href="../../css/pages/reports.css">
+    <link rel="stylesheet" href="../../css/animations.css">
+    <link rel="stylesheet" href="../../css/responsive.css">
+
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <script src="../../js/api.js" defer></script>
+    <script src="../../js/main.js" defer></script>
+    <script src="../../js/auth.js" defer></script>
+    <script src="../../js/animations.js" defer></script>
+    <script src="../../js/pages/reports.js" defer></script>
+    <script src="../../js/pages/student.js" defer></script>
 </head>
 
-<body class="bullying-page">
+<body class="dashboard-page student-dashboard bullying-report-page">
 
-    <div class="space-background">
-        <div class="space-stars"></div>
-        <div class="space-glow space-glow-one"></div>
-        <div class="space-glow space-glow-two"></div>
+    <div class="dashboard-background" aria-hidden="true">
+        <div class="dashboard-background-glow dashboard-glow-one"></div>
+        <div class="dashboard-background-glow dashboard-glow-two"></div>
+        <div class="dashboard-background-stars"></div>
+        <div class="dashboard-background-grid"></div>
     </div>
 
-    <div class="page-overlay" id="pageOverlay"></div>
+    <div class="dashboard-layout">
 
-    <aside class="app-sidebar" id="appSidebar">
+        <div class="dashboard-overlay" data-sidebar-overlay></div>
 
-        <div class="sidebar-brand">
-            <div class="brand-symbol">
-                <i class="fa-solid fa-meteor"></i>
-            </div>
-            <div>
-                <h1>SAPA<span>-SKANEGU</span></h1>
-                <p>SMKN 1 Dlanggu</p>
-            </div>
-            <button class="sidebar-close" id="sidebarClose" aria-label="Tutup menu">
-                <i class="fa-solid fa-xmark"></i>
-            </button>
-        </div>
+        <aside class="dashboard-sidebar" data-sidebar aria-label="Navigasi utama">
 
-        <div class="sidebar-user">
-            <div class="user-avatar">
-                <i class="fa-solid fa-user-astronaut"></i>
-            </div>
-            <div class="user-details">
-                <strong data-user-name>Pengguna SAPA</strong>
-                <span data-user-role>Siswa</span>
-            </div>
-            <span class="user-status"></span>
-        </div>
+            <div class="sidebar-brand">
+                <a href="dashboard.html" class="sidebar-brand-link">
+                    <div class="sidebar-brand-logo">
+                        <img src="../../assets/images/logo/logo-smkn1dlanggu.svg" alt="Logo SMKN 1 Dlanggu">
+                    </div>
 
-        <nav class="sidebar-navigation">
-            <span class="navigation-label">MENU UTAMA</span>
+                    <div class="sidebar-brand-text">
+                        <strong>SAPA-SKANEGU</strong>
+                        <span>SMKN 1 Dlanggu</span>
+                    </div>
+                </a>
 
-            <a href="dashboard.html" class="sidebar-link">
-                <i class="fa-solid fa-house"></i>
-                <span>Dashboard</span>
-            </a>
-
-            <a href="aspirations.html" class="sidebar-link">
-                <i class="fa-solid fa-lightbulb"></i>
-                <span>Aspirasi</span>
-            </a>
-
-            <a href="complaints.html" class="sidebar-link">
-                <i class="fa-solid fa-comment-dots"></i>
-                <span>Pengaduan</span>
-            </a>
-
-            <a href="bullying-report.html" class="sidebar-link active">
-                <i class="fa-solid fa-shield-heart"></i>
-                <span>Lapor Bullying</span>
-            </a>
-
-            <a href="tracking.html" class="sidebar-link">
-                <i class="fa-solid fa-route"></i>
-                <span>Lacak Laporan</span>
-            </a>
-
-            <a href="history.html" class="sidebar-link">
-                <i class="fa-solid fa-clock-rotate-left"></i>
-                <span>Riwayat</span>
-            </a>
-
-            <span class="navigation-label navigation-label-spaced">LAINNYA</span>
-
-            <a href="notifications.html" class="sidebar-link">
-                <i class="fa-solid fa-bell"></i>
-                <span>Notifikasi</span>
-            </a>
-
-            <a href="education.html" class="sidebar-link">
-                <i class="fa-solid fa-book-open"></i>
-                <span>Edukasi</span>
-            </a>
-
-            <a href="faq.html" class="sidebar-link">
-                <i class="fa-solid fa-circle-question"></i>
-                <span>Pusat Bantuan</span>
-            </a>
-        </nav>
-
-        <div class="sidebar-bottom">
-            <a href="help.html" class="sidebar-help">
-                <span class="help-icon"><i class="fa-solid fa-headset"></i></span>
-                <span>
-                    <strong>Butuh Bantuan?</strong>
-                    <small>Kami siap membantu kamu.</small>
-                </span>
-                <i class="fa-solid fa-arrow-up-right-from-square"></i>
-            </a>
-
-            <button class="logout-button" id="logoutButton">
-                <i class="fa-solid fa-right-from-bracket"></i>
-                <span>Keluar</span>
-            </button>
-        </div>
-
-    </aside>
-
-    <main class="app-main">
-
-        <header class="app-header">
-            <div class="header-left">
-                <button class="menu-toggle" id="menuToggle" aria-label="Buka menu">
-                    <i class="fa-solid fa-bars"></i>
+                <button type="button" class="dashboard-sidebar-close" data-sidebar-close aria-label="Tutup navigasi">
+                    <i data-lucide="x"></i>
                 </button>
-
-                <div class="page-breadcrumb">
-                    <span>Menu</span>
-                    <i class="fa-solid fa-chevron-right"></i>
-                    <strong>Lapor Bullying</strong>
-                </div>
             </div>
 
-            <div class="header-right">
-                <a href="notifications.html" class="header-icon" aria-label="Notifikasi">
-                    <i class="fa-regular fa-bell"></i>
-                    <span></span>
+            <div class="sidebar-profile">
+                <div class="sidebar-avatar">
+                    <span id="sidebarUserInitial">S</span>
+                </div>
+
+                <div class="sidebar-profile-information">
+                    <strong id="sidebarUserName">Nama Siswa</strong>
+                    <span>Siswa</span>
+                </div>
+
+                <span class="sidebar-online-indicator" aria-label="Status online"></span>
+            </div>
+
+            <nav class="sidebar-navigation" aria-label="Menu dashboard">
+
+                <div class="sidebar-section">
+                    <span class="sidebar-section-label">MENU UTAMA</span>
+
+                    <div class="sidebar-menu">
+                        <a href="dashboard.html" class="sidebar-link">
+                            <i data-lucide="layout-dashboard"></i>
+                            <span>Dashboard</span>
+                        </a>
+
+                        <a href="aspirations.html" class="sidebar-link">
+                            <i data-lucide="lightbulb"></i>
+                            <span>Aspirasi</span>
+                        </a>
+
+                        <a href="complaints.html" class="sidebar-link">
+                            <i data-lucide="message-square-warning"></i>
+                            <span>Pengaduan</span>
+                        </a>
+
+                        <a href="bullying-report.html" class="sidebar-link active" aria-current="page">
+                            <i data-lucide="shield-alert"></i>
+                            <span>Lapor Bullying</span>
+                            <span class="sidebar-link-indicator">Aman</span>
+                        </a>
+
+                        <a href="tracking.html" class="sidebar-link">
+                            <i data-lucide="search-check"></i>
+                            <span>Lacak Laporan</span>
+                        </a>
+
+                        <a href="history.html" class="sidebar-link">
+                            <i data-lucide="history"></i>
+                            <span>Riwayat</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="sidebar-section">
+                    <span class="sidebar-section-label">INFORMASI</span>
+
+                    <div class="sidebar-menu">
+                        <a href="../general/education.html" class="sidebar-link">
+                            <i data-lucide="book-open"></i>
+                            <span>Edukasi</span>
+                        </a>
+
+                        <a href="../general/notifications.html" class="sidebar-link">
+                            <i data-lucide="bell"></i>
+                            <span>Notifikasi</span>
+                            <span class="sidebar-notification-count">2</span>
+                        </a>
+
+                        <a href="../general/help.html" class="sidebar-link">
+                            <i data-lucide="circle-help"></i>
+                            <span>Pusat Bantuan</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="sidebar-section">
+                    <span class="sidebar-section-label">AKUN</span>
+
+                    <div class="sidebar-menu">
+                        <a href="../general/profile.html" class="sidebar-link">
+                            <i data-lucide="user-round"></i>
+                            <span>Profil Saya</span>
+                        </a>
+
+                        <a href="../general/privacy-policy.html" class="sidebar-link">
+                            <i data-lucide="shield-check"></i>
+                            <span>Privasi</span>
+                        </a>
+                    </div>
+                </div>
+
+            </nav>
+
+            <div class="sidebar-bottom">
+
+                <div class="sidebar-help-card">
+                    <div class="sidebar-help-icon">
+                        <i data-lucide="heart-handshake"></i>
+                    </div>
+
+                    <strong>Kamu tidak sendirian</strong>
+
+                    <p>Jika merasa tidak aman, segera cari bantuan orang dewasa yang kamu percaya.</p>
+
+                    <a href="../general/help.html">
+                        Pusat bantuan
+                        <i data-lucide="arrow-up-right"></i>
+                    </a>
+                </div>
+
+                <a href="../../index.html" class="sidebar-logout">
+                    <i data-lucide="log-out"></i>
+                    <span>Keluar</span>
                 </a>
 
-                <a href="profile.html" class="header-account">
-                    <div class="account-avatar">
-                        <i class="fa-solid fa-user-astronaut"></i>
-                    </div>
-                    <div>
-                        <strong data-user-first-name>Pengguna</strong>
-                        <small>Akun Saya</small>
-                    </div>
-                    <i class="fa-solid fa-chevron-down"></i>
-                </a>
-            </div>
-        </header>
-
-        <div class="page-content">
-
-            <section class="bullying-hero">
-                <div class="hero-copy">
-                    <div class="hero-label">
-                        <i class="fa-solid fa-shield-heart"></i>
-                        RUANG AMAN SAPA-SKANEGU
-                    </div>
-
-                    <h2>Kamu Berhak<br><span>Merasa Aman.</span></h2>
-
-                    <p>
-                        Mengalami atau menyaksikan perundungan bukan sesuatu yang harus
-                        kamu hadapi sendirian. Ceritakan kepada pihak sekolah agar
-                        bantuan yang tepat dapat diberikan.
-                    </p>
-
-                    <div class="hero-benefits">
-                        <span><i class="fa-solid fa-heart"></i> Kamu berhak didengar</span>
-                        <span><i class="fa-solid fa-hand-holding-heart"></i> Kamu berhak mendapat bantuan</span>
-                    </div>
+                <div class="sidebar-footer">
+                    <span>SAPA-SKANEGU</span>
+                    <span>SMKN 1 Dlanggu · 2026</span>
                 </div>
 
-                <div class="hero-art">
-                    <div class="hero-orbit orbit-a"></div>
-                    <div class="hero-orbit orbit-b"></div>
-                    <div class="hero-planet">
-                        <i class="fa-solid fa-shield-heart"></i>
-                    </div>
-                    <div class="hero-float float-a"><i class="fa-solid fa-heart"></i></div>
-                    <div class="hero-float float-b"><i class="fa-solid fa-star"></i></div>
-                    <div class="hero-float float-c"><i class="fa-solid fa-sparkles"></i></div>
-                </div>
-            </section>
-
-            <section class="safety-notice">
-                <div class="notice-icon">
-                    <i class="fa-solid fa-circle-exclamation"></i>
-                </div>
-                <div>
-                    <strong>Sedang berada dalam bahaya?</strong>
-                    <p>
-                        Jika mengalami ancaman atau kekerasan yang sedang berlangsung,
-                        segera cari tempat aman dan hubungi guru, guru BK, wali kelas,
-                        atau orang dewasa tepercaya. Jangan menunggu formulir digital diproses.
-                    </p>
-                </div>
-            </section>
-
-            <div class="content-heading">
-                <div>
-                    <span class="section-overline">FORMULIR PELAPORAN</span>
-                    <h2>Ceritakan Apa yang Terjadi</h2>
-                    <p>Isi informasi berikut sesuai dengan yang kamu ketahui.</p>
-                </div>
-                <div class="form-tag">
-                    <i class="fa-solid fa-lock"></i>
-                    Privasi Pelapor
-                </div>
             </div>
 
-            <div class="bullying-layout">
+        </aside>
 
-                <section class="form-column">
+        <main class="dashboard-main">
 
-                    <form id="bullyingForm" novalidate>
+            <header class="dashboard-topbar">
 
-                        <div class="form-card">
+                <div class="topbar-left">
+                    <button type="button" class="dashboard-menu-toggle" data-sidebar-toggle aria-label="Buka navigasi" aria-expanded="false">
+                        <i data-lucide="menu"></i>
+                    </button>
 
-                            <div class="card-heading">
-                                <div class="card-icon">
-                                    <i class="fa-solid fa-user-group"></i>
-                                </div>
-                                <div>
-                                    <h3>Informasi Pelaporan</h3>
-                                    <p>Tentukan posisi kamu dalam kejadian tersebut.</p>
-                                </div>
-                            </div>
+                    <div class="topbar-breadcrumb">
+                        <span>Menu Utama</span>
+                        <i data-lucide="chevron-right"></i>
+                        <strong>Lapor Bullying</strong>
+                    </div>
+                </div>
 
-                            <div class="field-group">
-                                <label>Saya Melaporkan Sebagai <b>*</b></label>
+                <div class="topbar-right">
 
-                                <div class="reporter-grid">
+                    <div class="topbar-date">
+                        <i data-lucide="calendar-days"></i>
+                        <span id="dashboardDate">Tanggal hari ini</span>
+                    </div>
 
-                                    <label class="reporter-option">
-                                        <input type="radio" name="reporterRole" value="Korban">
-                                        <span>
-                                            <i class="fa-solid fa-user"></i>
-                                            <strong>Korban</strong>
-                                            <small>Saya mengalami perundungan.</small>
-                                        </span>
-                                    </label>
+                    <a href="../general/notifications.html" class="topbar-icon-button" aria-label="Notifikasi">
+                        <i data-lucide="bell"></i>
+                        <span class="topbar-notification-dot"></span>
+                    </a>
 
-                                    <label class="reporter-option">
-                                        <input type="radio" name="reporterRole" value="Saksi">
-                                        <span>
-                                            <i class="fa-solid fa-eye"></i>
-                                            <strong>Saksi</strong>
-                                            <small>Saya melihat kejadian perundungan.</small>
-                                        </span>
-                                    </label>
-
-                                    <label class="reporter-option">
-                                        <input type="radio" name="reporterRole" value="Pendamping">
-                                        <span>
-                                            <i class="fa-solid fa-hand-holding-heart"></i>
-                                            <strong>Pendamping</strong>
-                                            <small>Saya membantu seseorang yang mengalami perundungan.</small>
-                                        </span>
-                                    </label>
-
-                                </div>
-                            </div>
-
-                            <div class="field-group">
-                                <label>Bentuk Perundungan <b>*</b></label>
-
-                                <div class="type-grid">
-
-                                    <label class="type-option">
-                                        <input type="checkbox" name="bullyingType" value="Fisik">
-                                        <span>
-                                            <i class="fa-solid fa-hand-fist"></i>
-                                            <strong>Fisik</strong>
-                                            <small>Memukul, menendang, mendorong, atau tindakan fisik lainnya.</small>
-                                        </span>
-                                    </label>
-
-                                    <label class="type-option">
-                                        <input type="checkbox" name="bullyingType" value="Verbal">
-                                        <span>
-                                            <i class="fa-solid fa-comment-slash"></i>
-                                            <strong>Verbal</strong>
-                                            <small>Menghina, mengejek, mengancam, atau mempermalukan.</small>
-                                        </span>
-                                    </label>
-
-                                    <label class="type-option">
-                                        <input type="checkbox" name="bullyingType" value="Sosial">
-                                        <span>
-                                            <i class="fa-solid fa-users-slash"></i>
-                                            <strong>Sosial</strong>
-                                            <small>Mengucilkan atau merusak hubungan sosial.</small>
-                                        </span>
-                                    </label>
-
-                                    <label class="type-option">
-                                        <input type="checkbox" name="bullyingType" value="Siber">
-                                        <span>
-                                            <i class="fa-solid fa-mobile-screen-button"></i>
-                                            <strong>Siber</strong>
-                                            <small>Perundungan melalui media sosial atau platform digital.</small>
-                                        </span>
-                                    </label>
-
-                                    <label class="type-option">
-                                        <input type="checkbox" name="bullyingType" value="Lainnya">
-                                        <span>
-                                            <i class="fa-solid fa-ellipsis"></i>
-                                            <strong>Lainnya</strong>
-                                            <small>Bentuk perilaku lain yang merugikan.</small>
-                                        </span>
-                                    </label>
-
-                                </div>
-
-                                <small class="field-hint">Kamu dapat memilih lebih dari satu bentuk perundungan.</small>
-                            </div>
-
-                            <div class="field-group">
-                                <label for="frequency">Seberapa Sering Kejadian Terjadi? <b>*</b></label>
-                                <select id="frequency" name="frequency">
-                                    <option value="">Pilih frekuensi kejadian</option>
-                                    <option value="Satu kali">Satu kali</option>
-                                    <option value="Beberapa kali">Beberapa kali</option>
-                                    <option value="Sering">Sering</option>
-                                    <option value="Terus berulang">Terus berulang</option>
-                                    <option value="Tidak diketahui">Tidak diketahui</option>
-                                </select>
-                            </div>
-
+                    <a href="../general/profile.html" class="topbar-user">
+                        <div class="topbar-user-avatar">
+                            <span id="topbarUserInitial">S</span>
                         </div>
 
-                        <div class="form-card">
-
-                            <div class="card-heading">
-                                <div class="card-icon">
-                                    <i class="fa-solid fa-location-dot"></i>
-                                </div>
-                                <div>
-                                    <h3>Detail Kejadian</h3>
-                                    <p>Informasi waktu, tempat, dan pihak yang berkaitan.</p>
-                                </div>
-                            </div>
-
-                            <div class="field-row">
-                                <div class="field-group">
-                                    <label for="incidentDate">Tanggal Kejadian <b>*</b></label>
-                                    <input type="date" id="incidentDate" name="incidentDate">
-                                </div>
-
-                                <div class="field-group">
-                                    <label for="incidentTime">Perkiraan Waktu</label>
-                                    <input type="time" id="incidentTime" name="incidentTime">
-                                </div>
-                            </div>
-
-                            <div class="field-group">
-                                <label for="location">Lokasi Kejadian <b>*</b></label>
-                                <input type="text" id="location" name="location" maxlength="150" placeholder="Contoh: Area kantin atau ruang kelas">
-                            </div>
-
-                            <div class="field-group">
-                                <label for="victimName">Identitas Korban <b>*</b></label>
-                                <input type="text" id="victimName" name="victimName" maxlength="150" placeholder="Nama korban atau diri sendiri jika kamu adalah korban">
-                                <small class="field-hint">Informasi ini bersifat sensitif dan tidak ditampilkan secara publik.</small>
-                            </div>
-
-                            <div class="field-group">
-                                <label for="perpetratorName">Identitas Terduga Pelaku</label>
-                                <input type="text" id="perpetratorName" name="perpetratorName" maxlength="150" placeholder="Opsional, isi jika kamu mengetahuinya">
-                                <small class="field-hint">Jika tidak mengetahui identitasnya, bagian ini boleh dikosongkan.</small>
-                            </div>
-
-                            <div class="field-group">
-                                <label for="witnessName">Saksi yang Mengetahui</label>
-                                <textarea id="witnessName" name="witnessName" rows="3" maxlength="500" placeholder="Opsional, tuliskan nama saksi jika ada."></textarea>
-                            </div>
-
+                        <div class="topbar-user-information">
+                            <strong id="topbarUserName">Nama Siswa</strong>
+                            <span>Siswa</span>
                         </div>
 
-                        <div class="form-card">
+                        <i data-lucide="chevron-down"></i>
+                    </a>
 
-                            <div class="card-heading">
-                                <div class="card-icon">
-                                    <i class="fa-solid fa-file-pen"></i>
-                                </div>
-                                <div>
-                                    <h3>Kronologi dan Kondisi</h3>
-                                    <p>Ceritakan kejadian dan bantuan yang dibutuhkan.</p>
-                                </div>
-                            </div>
+                </div>
 
-                            <div class="field-group">
-                                <label for="chronology">Kronologi Perundungan <b>*</b></label>
-                                <textarea id="chronology" name="chronology" rows="7" maxlength="2500" placeholder="Ceritakan apa yang terjadi, bagaimana kejadian berlangsung, siapa yang terlibat, dan informasi lain yang kamu ketahui."></textarea>
-                                <div class="field-meta">
-                                    <span>Ceritakan sesuai fakta yang kamu ketahui.</span>
-                                    <span id="chronologyCount">0/2500</span>
-                                </div>
-                            </div>
+            </header>
 
-                            <div class="field-group">
-                                <label for="impact">Dampak yang Dialami <b>*</b></label>
-                                <textarea id="impact" name="impact" rows="4" maxlength="1200" placeholder="Contoh: merasa takut, tidak nyaman di sekolah, atau kesulitan berkonsentrasi."></textarea>
-                            </div>
+            <div class="dashboard-content bullying-content">
 
-                            <div class="field-group">
-                                <label for="supportNeeded">Bantuan yang Dibutuhkan</label>
-                                <textarea id="supportNeeded" name="supportNeeded" rows="3" maxlength="1000" placeholder="Ceritakan bantuan atau pendampingan yang kamu harapkan dari pihak sekolah."></textarea>
-                            </div>
+                <section class="bullying-hero">
 
+                    <div class="bullying-hero-content">
+                        <div class="bullying-eyebrow">
+                            <span class="bullying-pulse"></span>
+                            RUANG AMAN SAPA-SKANEGU
                         </div>
 
-                        <div class="form-card">
+                        <h1>
+                            Berani Bersuara,
+                            <span class="bullying-gradient">Hentikan Bullying.</span>
+                        </h1>
 
-                            <div class="card-heading">
-                                <div class="card-icon">
-                                    <i class="fa-solid fa-paperclip"></i>
-                                </div>
-                                <div>
-                                    <h3>Bukti Pendukung</h3>
-                                    <p>Tambahkan bukti jika tersedia dan aman untuk dibagikan.</p>
-                                </div>
-                            </div>
+                        <p>
+                            Kamu berhak merasa aman dan dihargai di sekolah.
+                            Jika mengalami atau menyaksikan perundungan,
+                            ceritakan kepada kami agar dapat ditindaklanjuti.
+                        </p>
 
-                            <div class="upload-box" id="uploadBox">
-                                <input type="file" id="attachment" accept=".jpg,.jpeg,.png,.webp,.pdf" hidden>
+                        <div class="bullying-hero-points">
+                            <span><i data-lucide="heart-handshake"></i> Kamu tidak sendiri</span>
+                            <span><i data-lucide="shield-check"></i> Utamakan keselamatan</span>
+                        </div>
+                    </div>
 
-                                <div id="uploadPlaceholder">
-                                    <div class="upload-symbol"><i class="fa-solid fa-cloud-arrow-up"></i></div>
-                                    <strong>Unggah bukti pendukung</strong>
-                                    <p>Seret file ke sini atau <button type="button" id="browseFile">pilih file</button></p>
-                                    <small>JPG, PNG, WEBP, PDF · Maksimal 5 MB</small>
-                                </div>
+                    <div class="bullying-hero-visual" aria-hidden="true">
+                        <div class="bullying-orbit bullying-orbit-one"></div>
+                        <div class="bullying-orbit bullying-orbit-two"></div>
+                        <div class="bullying-visual-glow"></div>
 
-                                <div class="file-preview" id="filePreview" hidden>
-                                    <i class="fa-solid fa-file-lines"></i>
-                                    <div>
-                                        <strong id="fileName"></strong>
-                                        <small id="fileSize"></small>
-                                    </div>
-                                    <button type="button" id="removeFile" aria-label="Hapus file">
-                                        <i class="fa-solid fa-trash"></i>
-                                    </button>
-                                </div>
-                            </div>
-
-                            <p class="upload-hint">
-                                <i class="fa-solid fa-shield-halved"></i>
-                                Jangan menyebarkan ulang materi yang dapat mempermalukan korban.
-                            </p>
-
+                        <div class="bullying-visual-icon">
+                            <i data-lucide="shield-check"></i>
                         </div>
 
-                        <div class="privacy-card">
-
-                            <div class="privacy-heading">
-                                <i class="fa-solid fa-lock"></i>
-                                <div>
-                                    <h3>Privasi dan Perlindungan Pelapor</h3>
-                                    <p>Keselamatan dan kerahasiaan informasi perlu diperhatikan.</p>
-                                </div>
-                            </div>
-
-                            <ul class="privacy-list">
-                                <li><i class="fa-solid fa-check-circle"></i> Identitas pelapor tidak ditampilkan secara publik.</li>
-                                <li><i class="fa-solid fa-check-circle"></i> Akses laporan direncanakan hanya untuk pihak sekolah yang berwenang.</li>
-                                <li><i class="fa-solid fa-check-circle"></i> Identitas akun pelapor tetap diketahui oleh sistem. Pelaporan bukan anonim.</li>
-                                <li><i class="fa-solid fa-check-circle"></i> Informasi laporan tidak boleh disebarkan untuk mempermalukan pihak yang terlibat.</li>
-                            </ul>
-
-                            <p class="privacy-disclaimer">
-                                Pengaturan akses, penyimpanan aman, dan perlindungan data secara teknis
-                                memerlukan backend serta kebijakan pengelolaan data sekolah.
-                            </p>
-
-                            <label class="agreement-option">
-                                <input type="checkbox" id="agreement" name="agreement">
-                                <span class="custom-check"><i class="fa-solid fa-check"></i></span>
-                                <span>Saya menyatakan informasi yang disampaikan sesuai dengan pengetahuan saya dan dapat dipertanggungjawabkan. <b>*</b></span>
-                            </label>
-
+                        <div class="bullying-floating-tag">
+                            <i data-lucide="heart"></i>
+                            <span>Berani Bersuara</span>
                         </div>
-
-                        <div class="form-bottom">
-
-                            <div class="progress-heading">
-                                <span>Kelengkapan laporan</span>
-                                <strong id="progressText">0%</strong>
-                            </div>
-
-                            <div class="progress-track">
-                                <div class="progress-value" id="progressValue"></div>
-                            </div>
-
-                            <div class="form-buttons">
-                                <a href="dashboard.html" class="button-back">
-                                    <i class="fa-solid fa-arrow-left"></i>
-                                    Kembali
-                                </a>
-
-                                <button type="submit" class="button-submit" id="submitButton">
-                                    Kirim Laporan
-                                    <i class="fa-solid fa-paper-plane"></i>
-                                </button>
-                            </div>
-
-                            <div class="form-feedback" id="formFeedback" role="status" aria-live="polite"></div>
-
-                        </div>
-
-                    </form>
+                    </div>
 
                 </section>
 
-                <aside class="information-column">
+                <section class="bullying-emergency-notice">
+                    <div class="bullying-emergency-icon">
+                        <i data-lucide="life-buoy"></i>
+                    </div>
 
-                    <div class="side-card support-card">
-                        <div class="side-icon"><i class="fa-solid fa-heart"></i></div>
-                        <h3>Kamu Tidak Sendirian</h3>
+                    <div>
+                        <strong>Apakah kamu sedang dalam bahaya?</strong>
                         <p>
-                            Mengalami perundungan bukan kesalahan korban.
-                            Kamu berhak mendapatkan lingkungan belajar yang aman,
-                            nyaman, dan saling menghargai.
+                            Jika ada ancaman atau kekerasan yang sedang berlangsung,
+                            segera menjauh ke tempat aman dan hubungi guru,
+                            guru BK, wali kelas, atau orang dewasa yang kamu percaya.
+                            Jangan menunggu pengisian formulir.
                         </p>
                     </div>
+                </section>
 
-                    <div class="side-card checklist-card">
-                        <div class="side-card-heading">
-                            <i class="fa-solid fa-list-check"></i>
-                            <h3>Sebelum Melapor</h3>
+                <div class="bullying-layout">
+
+                    <section class="bullying-form-panel">
+
+                        <div class="bullying-panel-heading">
+                            <div class="bullying-panel-icon">
+                                <i data-lucide="file-warning"></i>
+                            </div>
+
+                            <div>
+                                <span class="bullying-section-label">FORMULIR PELAPORAN</span>
+                                <h2>Sampaikan Laporanmu</h2>
+                                <p>Isi informasi yang kamu ketahui. Kamu tidak harus mengetahui semua detail kejadian.</p>
+                            </div>
                         </div>
 
-                        <div class="checklist-item">
-                            <span>01</span>
-                            <p>Ceritakan kejadian sesuai yang kamu ketahui.</p>
+                        <div class="bullying-form-notice">
+                            <i data-lucide="info"></i>
+                            <p>
+                                Isi formulir dengan jujur berdasarkan pengalaman
+                                atau hal yang kamu saksikan. Jangan mengambil risiko
+                                untuk mencari bukti sendiri.
+                            </p>
                         </div>
 
-                        <div class="checklist-item">
-                            <span>02</span>
-                            <p>Isi informasi waktu dan lokasi jika diketahui.</p>
-                        </div>
+                        <form id="bullyingReportForm" class="bullying-form">
 
-                        <div class="checklist-item">
-                            <span>03</span>
-                            <p>Tambahkan bukti jika tersedia dan aman.</p>
-                        </div>
+                            <div class="bullying-form-section">
+                                <div class="bullying-form-section-heading">
+                                    <span>01</span>
+                                    <div>
+                                        <h3>Informasi kejadian</h3>
+                                        <p>Ceritakan jenis dan lokasi perundungan.</p>
+                                    </div>
+                                </div>
 
-                        <div class="checklist-item">
-                            <span>04</span>
-                            <p>Sampaikan bantuan yang kamu butuhkan.</p>
-                        </div>
+                                <div class="bullying-form-grid">
+
+                                    <div class="bullying-field bullying-field-full">
+                                        <label for="bullyingType">
+                                            Jenis Perundungan
+                                            <span>*</span>
+                                        </label>
+
+                                        <div class="bullying-input-wrap">
+                                            <i data-lucide="list-filter"></i>
+                                            <select id="bullyingType" name="bullying_type" required>
+                                                <option value="" selected disabled>Pilih jenis perundungan</option>
+                                                <option value="fisik">Perundungan fisik</option>
+                                                <option value="verbal">Perundungan verbal</option>
+                                                <option value="sosial">Perundungan sosial atau pengucilan</option>
+                                                <option value="siber">Perundungan siber (cyberbullying)</option>
+                                                <option value="seksual">Perundungan atau pelecehan bernuansa seksual</option>
+                                                <option value="lainnya">Bentuk lainnya / belum yakin</option>
+                                            </select>
+                                            <i data-lucide="chevron-down" class="bullying-select-arrow"></i>
+                                        </div>
+                                    </div>
+
+                                    <div class="bullying-field">
+                                        <label for="bullyingLocation">
+                                            Lokasi Kejadian
+                                            <span>*</span>
+                                        </label>
+
+                                        <div class="bullying-input-wrap">
+                                            <i data-lucide="map-pin"></i>
+                                            <input
+                                                type="text"
+                                                id="bullyingLocation"
+                                                name="location"
+                                                maxlength="150"
+                                                placeholder="Contoh: Ruang kelas"
+                                                required
+                                            >
+                                        </div>
+                                    </div>
+
+                                    <div class="bullying-field">
+                                        <label for="bullyingDate">
+                                            Tanggal Kejadian
+                                            <span>*</span>
+                                        </label>
+
+                                        <div class="bullying-input-wrap">
+                                            <i data-lucide="calendar-days"></i>
+                                            <input type="date" id="bullyingDate" name="incident_date" required>
+                                        </div>
+                                    </div>
+
+                                    <div class="bullying-field">
+                                        <label for="bullyingTime">
+                                            Perkiraan Waktu
+                                        </label>
+
+                                        <div class="bullying-input-wrap">
+                                            <i data-lucide="clock-3"></i>
+                                            <input
+                                                type="text"
+                                                id="bullyingTime"
+                                                name="incident_time"
+                                                placeholder="Contoh: 13:30"
+                                                inputmode="numeric"
+                                                pattern="^([01][0-9]|2[0-3]):[0-5][0-9]$"
+                                                maxlength="5"
+                                                title="Gunakan format 24 jam, contoh 13:30"
+                                                autocomplete="off"
+                                            >
+                                        </div>
+                                    </div>
+
+                                    <div class="bullying-field">
+                                        <label for="bullyingFrequency">
+                                            Seberapa sering terjadi?
+                                        </label>
+
+                                        <div class="bullying-input-wrap">
+                                            <i data-lucide="repeat"></i>
+                                            <select id="bullyingFrequency" name="frequency">
+                                                <option value="" selected disabled>Pilih frekuensi</option>
+                                                <option value="sekali">Satu kali</option>
+                                                <option value="beberapa_kali">Beberapa kali</option>
+                                                <option value="berulang">Terjadi berulang kali</option>
+                                                <option value="tidak_tahu">Tidak yakin</option>
+                                            </select>
+                                            <i data-lucide="chevron-down" class="bullying-select-arrow"></i>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="bullying-form-divider"></div>
+
+                            <div class="bullying-form-section">
+                                <div class="bullying-form-section-heading">
+                                    <span>02</span>
+                                    <div>
+                                        <h3>Ceritakan kronologi</h3>
+                                        <p>Jelaskan apa yang terjadi dengan kata-katamu sendiri.</p>
+                                    </div>
+                                </div>
+
+                                <div class="bullying-field">
+                                    <label for="bullyingDescription">
+                                        Kronologi Kejadian
+                                        <span>*</span>
+                                    </label>
+
+                                    <textarea
+                                        id="bullyingDescription"
+                                        name="description"
+                                        rows="8"
+                                        minlength="20"
+                                        maxlength="4000"
+                                        placeholder="Ceritakan apa yang terjadi, bagaimana peristiwa berlangsung, dan informasi lain yang menurutmu penting. Kamu boleh menuliskannya secara bertahap."
+                                        required
+                                    ></textarea>
+
+                                    <div class="bullying-textarea-footer">
+                                        <small>Minimal 20 karakter. Tidak perlu menuliskan hal yang membuatmu tidak nyaman secara terperinci.</small>
+                                        <span id="bullyingCharacterCount">0 / 4000</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="bullying-form-divider"></div>
+
+                            <div class="bullying-form-section">
+                                <div class="bullying-form-section-heading">
+                                    <span>03</span>
+                                    <div>
+                                        <h3>Informasi pihak terkait</h3>
+                                        <p>Bagian ini opsional. Isi hanya jika kamu mengetahuinya.</p>
+                                    </div>
+                                </div>
+
+                                <div class="bullying-form-grid">
+
+                                    <div class="bullying-field">
+                                        <label for="bullyingReportedPerson">
+                                            Nama pihak yang dilaporkan
+                                        </label>
+
+                                        <div class="bullying-input-wrap">
+                                            <i data-lucide="user-round"></i>
+                                            <input
+                                                type="text"
+                                                id="bullyingReportedPerson"
+                                                name="reported_person"
+                                                maxlength="120"
+                                                placeholder="Opsional"
+                                            >
+                                        </div>
+                                    </div>
+
+                                    <div class="bullying-field">
+                                        <label for="bullyingWitness">
+                                            Saksi yang mengetahui
+                                        </label>
+
+                                        <div class="bullying-input-wrap">
+                                            <i data-lucide="users"></i>
+                                            <input
+                                                type="text"
+                                                id="bullyingWitness"
+                                                name="witness"
+                                                maxlength="120"
+                                                placeholder="Opsional"
+                                            >
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="bullying-optional-note">
+                                    <i data-lucide="lock-keyhole"></i>
+                                    <p>
+                                        Jangan mengisi nama jika kamu tidak yakin.
+                                        Hindari menyebarkan identitas atau informasi
+                                        pribadi pihak lain di luar proses pelaporan.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="bullying-form-divider"></div>
+
+                            <div class="bullying-form-section">
+                                <div class="bullying-form-section-heading">
+                                    <span>04</span>
+                                    <div>
+                                        <h3>Kebutuhan bantuan</h3>
+                                        <p>Pilih pihak sekolah yang kamu harapkan untuk mendampingi.</p>
+                                    </div>
+                                </div>
+
+                                <div class="bullying-field">
+                                    <label for="bullyingSupport">
+                                        Pihak yang Diharapkan
+                                    </label>
+
+                                    <div class="bullying-input-wrap">
+                                        <i data-lucide="hand-heart"></i>
+                                        <select id="bullyingSupport" name="support_needed">
+                                            <option value="" selected disabled>Pilih pihak yang diharapkan</option>
+                                            <option value="wali_kelas">Wali Kelas</option>
+                                            <option value="bk">Pihak BK</option>
+                                            <option value="kesiswaan">Kesiswaan</option>
+                                        </select>
+                                        <i data-lucide="chevron-down" class="bullying-select-arrow"></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="bullying-consent">
+                                <i data-lucide="shield-check"></i>
+                                <p>
+                                    Saya menyampaikan informasi ini berdasarkan
+                                    hal yang saya alami atau ketahui dan bersedia
+                                    memberikan informasi yang benar sesuai kemampuan saya.
+                                </p>
+                            </div>
+
+                            <label class="bullying-checkbox">
+                                <input type="checkbox" id="bullyingConfirmation" required>
+                                <span class="bullying-checkbox-mark"></span>
+                                <span>Saya sudah memeriksa informasi yang saya isi dan memahami bahwa laporan ini akan digunakan untuk proses penanganan.</span>
+                            </label>
+
+                            <div class="bullying-form-actions">
+                                <a href="dashboard.html" class="bullying-cancel-button">
+                                    Batal
+                                </a>
+
+                                <button type="submit" class="bullying-submit-button">
+                                    <i data-lucide="shield-check"></i>
+                                    Kirim Laporan
+                                </button>
+                            </div>
+
+                        </form>
+
+                    </section>
+
+                    <aside class="bullying-side-panel">
+
+                        <section class="bullying-guide-card">
+                            <div class="bullying-guide-icon">
+                                <i data-lucide="heart-handshake"></i>
+                            </div>
+
+                            <span class="bullying-section-label">KAMU TIDAK SENDIRI</span>
+                            <h2>Hal yang perlu kamu ketahui</h2>
+
+                            <div class="bullying-guide-list">
+
+                                <div class="bullying-guide-item">
+                                    <span class="bullying-guide-number">01</span>
+                                    <div>
+                                        <strong>Kamu berhak merasa aman</strong>
+                                        <p>Tidak ada seorang pun yang pantas dirundung atau diperlakukan dengan kekerasan.</p>
+                                    </div>
+                                </div>
+
+                                <div class="bullying-guide-item">
+                                    <span class="bullying-guide-number">02</span>
+                                    <div>
+                                        <strong>Ceritakan sesuai kemampuanmu</strong>
+                                        <p>Kamu tidak harus mengingat seluruh detail kejadian untuk mulai meminta bantuan.</p>
+                                    </div>
+                                </div>
+
+                                <div class="bullying-guide-item">
+                                    <span class="bullying-guide-number">03</span>
+                                    <div>
+                                        <strong>Jangan hadapi sendirian</strong>
+                                        <p>Mintalah bantuan guru BK, wali kelas, atau orang dewasa yang kamu percaya.</p>
+                                    </div>
+                                </div>
+
+                                <div class="bullying-guide-item">
+                                    <span class="bullying-guide-number">04</span>
+                                    <div>
+                                        <strong>Pantau tindak lanjut</strong>
+                                        <p>Gunakan menu pelacakan untuk memeriksa perkembangan laporan setelah sistem terhubung.</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </section>
+
+                        <section class="bullying-support-card">
+                            <div class="bullying-support-icon">
+                                <i data-lucide="hand-heart"></i>
+                            </div>
+
+                            <span>DUKUNGAN DAN PENDAMPINGAN</span>
+                            <h3>Butuh seseorang untuk bercerita?</h3>
+
+                            <p>
+                                Kamu dapat mencari bantuan dari guru BK,
+                                wali kelas, atau orang dewasa yang kamu percaya.
+                                Meminta bantuan bukanlah tanda kelemahan.
+                            </p>
+
+                            <a href="../general/help.html">
+                                Buka Pusat Bantuan
+                                <i data-lucide="arrow-up-right"></i>
+                            </a>
+                        </section>
+
+                        <section class="bullying-privacy-card">
+                            <div class="bullying-privacy-icon">
+                                <i data-lucide="lock-keyhole"></i>
+                            </div>
+
+                            <h3>Perhatikan privasimu</h3>
+
+                            <p>
+                                Hindari membagikan kronologi, foto, atau identitas
+                                pihak terkait di media sosial. Sampaikan informasi
+                                melalui saluran pelaporan sekolah.
+                            </p>
+
+                            <a href="../general/privacy-policy.html">
+                                Kebijakan privasi
+                                <i data-lucide="arrow-up-right"></i>
+                            </a>
+                        </section>
+
+                    </aside>
+
+                </div>
+
+                <footer class="dashboard-footer">
+                    <div>
+                        <strong>SAPA-SKANEGU</strong>
+                        <span>Sistem Aspirasi dan Pelaporan Anti-Bullying SMKN 1 Dlanggu</span>
                     </div>
 
-                    <div class="side-card contact-card">
-                        <div class="side-icon"><i class="fa-solid fa-hand-holding-heart"></i></div>
-                        <h3>Butuh Pendampingan?</h3>
-                        <p>
-                            Kamu dapat menghubungi guru BK, wali kelas,
-                            atau orang dewasa tepercaya secara langsung.
-                        </p>
-                        <a href="help.html">Lihat Pusat Bantuan <i class="fa-solid fa-arrow-right"></i></a>
+                    <div class="dashboard-footer-right">
+                        <span>Ruang aman untuk semua.</span>
                     </div>
-
-                    <div class="side-card tracking-card">
-                        <div class="side-icon"><i class="fa-solid fa-route"></i></div>
-                        <h3>Pantau Laporan</h3>
-                        <p>
-                            Setelah sistem terintegrasi, perkembangan penanganan
-                            laporan dapat dipantau melalui halaman pelacakan.
-                        </p>
-                        <a href="tracking.html">Lacak Laporan <i class="fa-solid fa-arrow-right"></i></a>
-                    </div>
-
-                </aside>
+                </footer>
 
             </div>
 
-            <footer class="app-footer">
-                <span>© 2026 SAPA-SKANEGU · SMKN 1 Dlanggu</span>
-                <div>
-                    <a href="privacy-policy.html">Privasi</a>
-                    <a href="terms.html">Ketentuan</a>
-                    <a href="help.html">Bantuan</a>
-                </div>
-            </footer>
+        </main>
 
-        </div>
-    </main>
+    </div>
 
-    <script src="../js/pages/bullying-report.js"></script>
 </body>
 </html>

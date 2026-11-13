@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#080413">
+    <meta name="description" content="Ketentuan layanan penggunaan SAPA-SKANEGU SMKN 1 Dlanggu.">
+    <title>Ketentuan Layanan | SAPA-SKANEGU</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lucide-static@0.468.0/font/lucide.css">
+
+    <link rel="stylesheet" href="../../css/reset.css">
+    <link rel="stylesheet" href="../../css/global.css">
+    <link rel="stylesheet" href="../../css/components.css">
+    <link rel="stylesheet" href="../../css/dashboard.css">
+    <link rel="stylesheet" href="../../css/pages/student.css">
+    <link rel="stylesheet" href="../../css/animations.css">
+    <link rel="stylesheet" href="../../css/responsive.css">
+    <link rel="stylesheet" href="../../css/pages/terms.css">
+</head>
+
+<body class="dashboard-page student-dashboard terms-page">
+
+    <div class="dashboard-layout">
+
+        <aside class="dashboard-sidebar" id="sidebar">
+
+            <div class="sidebar-brand">
+                <a href="../student/dashboard.html" class="sidebar-brand-link">
+                    <img src="../../assets/images/logo/logo-smkn1dlanggu.svg" alt="Logo SMKN 1 Dlanggu">
+                    <div class="sidebar-brand-text">
+                        <strong>SAPA-SKANEGU</strong>
+                        <span>SMKN 1 Dlanggu</span>
+                    </div>
+                </a>
+
+                <button class="dashboard-sidebar-close" id="sidebarClose" type="button" aria-label="Tutup menu">
+                    <i data-lucide="x"></i>
+                </button>
+            </div>
+
+            <div class="sidebar-profile">
+                <div class="sidebar-avatar" id="sidebarUserInitial">S</div>
+                <div class="sidebar-profile-information">
+                    <strong id="sidebarUserName">Siswa</strong>
+                    <span>Pengguna SAPA</span>
+                </div>
+            </div>
+
+            <nav class="sidebar-navigation" aria-label="Navigasi utama">
+
+                <div class="sidebar-section-label">MENU UTAMA</div>
+
+                <a href="../student/dashboard.html" class="sidebar-link">
+                    <i data-lucide="layout-dashboard"></i>
+                    <span>Dashboard</span>
+                </a>
+
+                <a href="../student/aspirations.html" class="sidebar-link">
+                    <i data-lucide="message-square"></i>
+                    <span>Aspirasi</span>
+                </a>
+
+                <a href="../student/bullying-report.html" class="sidebar-link">
+                    <i data-lucide="shield-alert"></i>
+                    <span>Pelaporan</span>
+                </a>
+
+                <a href="../student/tracking.html" class="sidebar-link">
+                    <i data-lucide="clipboard-list"></i>
+                    <span>Pelacakan</span>
+                </a>
+
+                <a href="education.html" class="sidebar-link">
+                    <i data-lucide="book-open"></i>
+                    <span>Edukasi</span>
+                </a>
+
+                <div class="sidebar-section-label">LAINNYA</div>
+
+                <a href="notifications.html" class="sidebar-link">
+                    <i data-lucide="bell"></i>
+                    <span>Notifikasi</span>
+                </a>
+
+                <a href="profile.html" class="sidebar-link">
+                    <i data-lucide="user-round"></i>
+                    <span>Profil Saya</span>
+                </a>
+
+                <a href="help.html" class="sidebar-link">
+                    <i data-lucide="circle-help"></i>
+                    <span>Pusat Bantuan</span>
+                </a>
+
+                <a href="privacy-policy.html" class="sidebar-link">
+                    <i data-lucide="shield-check"></i>
+                    <span>Kebijakan Privasi</span>
+                </a>
+
+                <a href="terms.html" class="sidebar-link active" aria-current="page">
+                    <i data-lucide="file-check"></i>
+                    <span>Ketentuan Layanan</span>
+                </a>
+
+            </nav>
+
+            <div class="sidebar-bottom">
+
+                <div class="sidebar-school">
+                    <img src="../../assets/images/mascot/maskot-smkn1dlanggu.png" alt="Maskot SMKN 1 Dlanggu">
+                    <div>
+                        <strong>Ruang Aman Bersama</strong>
+                        <span>Berani bicara, saling menjaga.</span>
+                    </div>
+                </div>
+
+                <button class="sidebar-logout" id="logoutButton" type="button">
+                    <i data-lucide="log-out"></i>
+                    <span>Keluar</span>
+                </button>
+
+            </div>
+
+        </aside>
+
+        <div class="dashboard-overlay" id="sidebarOverlay"></div>
+
+        <main class="dashboard-main">
+
+            <header class="dashboard-topbar">
+
+                <div class="topbar-left">
+                    <button class="dashboard-menu-toggle" id="sidebarToggle" type="button" aria-label="Buka menu">
+                        <i data-lucide="menu"></i>
+                    </button>
+
+                    <div class="topbar-breadcrumb">
+                        <span>Informasi Pengguna</span>
+                        <h1>Ketentuan Layanan</h1>
+                    </div>
+                </div>
+
+                <div class="topbar-right">
+                    <div class="topbar-date">
+                        <i data-lucide="calendar-days"></i>
+                        <span id="currentDate">Memuat tanggal...</span>
+                    </div>
+
+                    <a href="notifications.html" class="topbar-icon-button" aria-label="Notifikasi">
+                        <i data-lucide="bell"></i>
+                    </a>
+
+                    <a href="profile.html" class="topbar-user">
+                        <span class="topbar-user-avatar" id="topbarUserInitial">S</span>
+                        <span id="topbarUserName">Siswa</span>
+                        <i data-lucide="chevron-down"></i>
+                    </a>
+                </div>
+
+            </header>
+
+            <div class="terms-content">
+
+                <section class="terms-hero">
+
+                    <div class="terms-hero-orb terms-orb-one"></div>
+                    <div class="terms-hero-orb terms-orb-two"></div>
+
+                    <div class="terms-hero-content">
+                        <div class="terms-eyebrow">
+                            <i data-lucide="file-check-2"></i>
+                            <span>Panduan Penggunaan Platform</span>
+                        </div>
+
+                        <h2>Gunakan dengan <span>bijak.</span></h2>
+
+                        <p>
+                            Ketentuan ini menjadi panduan bagi pengguna SAPA-SKANEGU
+                            agar setiap aspirasi, laporan, dan interaksi berlangsung
+                            secara bertanggung jawab serta saling menghormati.
+                        </p>
+
+                        <div class="terms-hero-meta">
+                            <span><i data-lucide="school"></i> SMKN 1 Dlanggu</span>
+                            <span><i data-lucide="users"></i> Seluruh Pengguna</span>
+                        </div>
+                    </div>
+
+                    <div class="terms-hero-visual">
+                        <div class="terms-document">
+                            <div class="terms-document-top"></div>
+                            <div class="terms-document-line"></div>
+                            <div class="terms-document-line short"></div>
+                            <div class="terms-document-check">
+                                <i data-lucide="check"></i>
+                            </div>
+                        </div>
+                        <span>Terms of Service</span>
+                    </div>
+
+                </section>
+
+                <section class="terms-draft-notice">
+                    <div class="terms-notice-icon">
+                        <i data-lucide="info"></i>
+                    </div>
+                    <div>
+                        <strong>Rancangan Ketentuan Layanan</strong>
+                        <p>
+                            Ketentuan ini merupakan rancangan yang perlu ditinjau,
+                            disesuaikan, dan disetujui oleh pihak sekolah sebelum
+                            diberlakukan secara resmi.
+                        </p>
+                    </div>
+                    <span>Draf</span>
+                </section>
+
+                <section class="terms-summary-grid">
+
+                    <article class="terms-summary-card">
+                        <span><i data-lucide="handshake"></i></span>
+                        <h3>Saling Menghormati</h3>
+                        <p>Gunakan platform tanpa merendahkan, mengancam, atau merugikan orang lain.</p>
+                    </article>
+
+                    <article class="terms-summary-card">
+                        <span><i data-lucide="clipboard-check"></i></span>
+                        <h3>Bertanggung Jawab</h3>
+                        <p>Sampaikan informasi dengan jujur dan gunakan fitur sesuai tujuannya.</p>
+                    </article>
+
+                    <article class="terms-summary-card">
+                        <span><i data-lucide="shield-check"></i></span>
+                        <h3>Menjaga Keamanan</h3>
+                        <p>Lindungi akun dan hindari membagikan informasi pribadi secara sembarangan.</p>
+                    </article>
+
+                </section>
+
+                <div class="terms-layout">
+
+                    <aside class="terms-toc">
+                        <div class="terms-toc-heading">
+                            <i data-lucide="list"></i>
+                            <strong>Daftar Isi</strong>
+                        </div>
+
+                        <nav aria-label="Daftar isi ketentuan layanan">
+                            <a href="#introduction" class="terms-toc-link active">01. Pendahuluan</a>
+                            <a href="#eligibility" class="terms-toc-link">02. Pengguna Platform</a>
+                            <a href="#account" class="terms-toc-link">03. Akun Pengguna</a>
+                            <a href="#usage" class="terms-toc-link">04. Penggunaan Layanan</a>
+                            <a href="#reporting" class="terms-toc-link">05. Aspirasi dan Laporan</a>
+                            <a href="#prohibited" class="terms-toc-link">06. Larangan Penggunaan</a>
+                            <a href="#responsibility" class="terms-toc-link">07. Tanggung Jawab</a>
+                            <a href="#handling" class="terms-toc-link">08. Penanganan Laporan</a>
+                            <a href="#privacy" class="terms-toc-link">09. Privasi Pengguna</a>
+                            <a href="#changes" class="terms-toc-link">10. Perubahan Ketentuan</a>
+                            <a href="#contact" class="terms-toc-link">11. Bantuan</a>
+                        </nav>
+
+                        <div class="terms-toc-footer">
+                            <i data-lucide="book-open-check"></i>
+                            <span>Baca ketentuan sebelum menggunakan layanan.</span>
+                        </div>
+                    </aside>
+
+                    <div class="terms-article">
+
+                        <article class="terms-section" id="introduction">
+                            <div class="terms-section-number">01</div>
+                            <div class="terms-section-body">
+                                <span class="terms-section-label">Tentang Layanan</span>
+                                <h2>Pendahuluan</h2>
+                                <p>
+                                    SAPA-SKANEGU (Sistem Aspirasi dan Pelaporan Anti-Bullying)
+                                    merupakan platform digital yang ditujukan untuk mendukung
+                                    penyampaian aspirasi, pelaporan permasalahan, pelacakan
+                                    tindak lanjut, dan penyediaan edukasi di lingkungan
+                                    SMKN 1 Dlanggu.
+                                </p>
+                                <p>
+                                    Dengan mengakses atau menggunakan platform, pengguna
+                                    diharapkan memahami dan mengikuti ketentuan penggunaan
+                                    yang ditetapkan oleh pihak sekolah.
+                                </p>
+                                <div class="terms-highlight">
+                                    <i data-lucide="lightbulb"></i>
+                                    <p>
+                                        Tujuan utama platform adalah mendukung lingkungan
+                                        sekolah yang aman, terbuka, dan saling menghargai.
+                                    </p>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="terms-section" id="eligibility">
+                            <div class="terms-section-number">02</div>
+                            <div class="terms-section-body">
+                                <span class="terms-section-label">Akses Pengguna</span>
+                                <h2>Pengguna Platform</h2>
+                                <p>
+                                    Platform digunakan oleh warga sekolah yang memperoleh
+                                    akun dan hak akses sesuai ketentuan pengelola.
+                                    Setiap pengguna wajib menggunakan akses berdasarkan
+                                    peran dan tanggung jawabnya.
+                                </p>
+                                <div class="terms-role-list">
+                                    <div><i data-lucide="graduation-cap"></i><span>Siswa</span></div>
+                                    <div><i data-lucide="user-round"></i><span>Guru</span></div>
+                                    <div><i data-lucide="users-round"></i><span>Wali Kelas</span></div>
+                                    <div><i data-lucide="heart-handshake"></i><span>Guru BK</span></div>
+                                    <div><i data-lucide="school"></i><span>Kepala Sekolah</span></div>
+                                    <div><i data-lucide="briefcase-business"></i><span>Tenaga Kependidikan</span></div>
+                                    <div><i data-lucide="settings"></i><span>Administrator</span></div>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="terms-section" id="account">
+                            <div class="terms-section-number">03</div>
+                            <div class="terms-section-body">
+                                <span class="terms-section-label">Keamanan Akun</span>
+                                <h2>Akun Pengguna</h2>
+                                <p>
+                                    Akun merupakan akses pribadi untuk menggunakan fitur
+                                    platform. Pengguna bertanggung jawab menjaga keamanan
+                                    informasi autentikasi yang diberikan kepadanya.
+                                </p>
+                                <ul class="terms-check-list">
+                                    <li><i data-lucide="check-circle-2"></i> Gunakan akun sesuai identitas dan peran yang diberikan.</li>
+                                    <li><i data-lucide="check-circle-2"></i> Jaga kerahasiaan kata sandi dan informasi login.</li>
+                                    <li><i data-lucide="check-circle-2"></i> Jangan meminjamkan akun kepada orang lain.</li>
+                                    <li><i data-lucide="check-circle-2"></i> Segera laporkan dugaan penyalahgunaan akun kepada pihak berwenang.</li>
+                                    <li><i data-lucide="check-circle-2"></i> Keluar dari akun setelah menggunakan perangkat bersama.</li>
+                                </ul>
+                            </div>
+                        </article>
+
+                        <article class="terms-section" id="usage">
+                            <div class="terms-section-number">04</div>
+                            <div class="terms-section-body">
+                                <span class="terms-section-label">Pemanfaatan Fitur</span>
+                                <h2>Penggunaan Layanan</h2>
+                                <p>
+                                    Pengguna dapat memanfaatkan fitur yang tersedia sesuai
+                                    hak akses masing-masing. Setiap fitur harus digunakan
+                                    untuk mendukung komunikasi dan penanganan permasalahan
+                                    di lingkungan sekolah.
+                                </p>
+                                <div class="terms-feature-list">
+                                    <div>
+                                        <span><i data-lucide="message-square"></i></span>
+                                        <div>
+                                            <strong>Aspirasi</strong>
+                                            <p>Menyampaikan saran, masukan, dan gagasan secara konstruktif.</p>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <span><i data-lucide="shield-alert"></i></span>
+                                        <div>
+                                            <strong>Pelaporan</strong>
+                                            <p>Menyampaikan informasi mengenai dugaan bullying atau permasalahan lain sesuai fungsi layanan.</p>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <span><i data-lucide="clipboard-list"></i></span>
+                                        <div>
+                                            <strong>Pelacakan</strong>
+                                            <p>Memantau perkembangan laporan sesuai hak akses pengguna.</p>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <span><i data-lucide="book-open"></i></span>
+                                        <div>
+                                            <strong>Edukasi</strong>
+                                            <p>Mengakses materi untuk meningkatkan pemahaman dan kesadaran.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="terms-section" id="reporting">
+                            <div class="terms-section-number">05</div>
+                            <div class="terms-section-body">
+                                <span class="terms-section-label">Aspirasi dan Pengaduan</span>
+                                <h2>Aspirasi dan Laporan</h2>
+                                <p>
+                                    Pengguna diharapkan menyampaikan aspirasi dan laporan
+                                    dengan informasi yang jelas, relevan, dan sesuai
+                                    dengan kejadian yang diketahui.
+                                </p>
+                                <ul class="terms-check-list">
+                                    <li><i data-lucide="check-circle-2"></i> Sampaikan informasi berdasarkan pengalaman atau pengetahuan yang dapat dipertanggungjawabkan.</li>
+                                    <li><i data-lucide="check-circle-2"></i> Hindari tuduhan tanpa dasar dan informasi yang sengaja menyesatkan.</li>
+                                    <li><i data-lucide="check-circle-2"></i> Jangan menyertakan data pribadi yang tidak relevan.</li>
+                                    <li><i data-lucide="check-circle-2"></i> Gunakan bahasa yang jelas dan tidak mengandung penghinaan.</li>
+                                    <li><i data-lucide="check-circle-2"></i> Berikan informasi pendukung hanya jika diperlukan dan aman untuk dibagikan.</li>
+                                </ul>
+                                <div class="terms-warning">
+                                    <i data-lucide="alert-triangle"></i>
+                                    <p>
+                                        Laporan yang disampaikan harus ditangani secara
+                                        hati-hati. Pengguna tidak boleh melakukan intimidasi
+                                        atau menyebarkan identitas pihak terkait secara sembarangan.
+                                    </p>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="terms-section" id="prohibited">
+                            <div class="terms-section-number">06</div>
+                            <div class="terms-section-body">
+                                <span class="terms-section-label">Batasan Penggunaan</span>
+                                <h2>Larangan Penggunaan</h2>
+                                <p>
+                                    Pengguna dilarang memanfaatkan platform untuk tindakan
+                                    yang dapat merugikan orang lain, mengganggu layanan,
+                                    atau bertentangan dengan tujuan platform.
+                                </p>
+                                <div class="terms-prohibited-list">
+                                    <div><i data-lucide="x-circle"></i><span>Mengirim laporan palsu dengan sengaja.</span></div>
+                                    <div><i data-lucide="x-circle"></i><span>Melakukan penghinaan, ancaman, atau perundungan.</span></div>
+                                    <div><i data-lucide="x-circle"></i><span>Menyebarkan data pribadi tanpa dasar atau kewenangan.</span></div>
+                                    <div><i data-lucide="x-circle"></i><span>Mengakses akun atau informasi milik pengguna lain tanpa izin.</span></div>
+                                    <div><i data-lucide="x-circle"></i><span>Mengganggu, merusak, atau mencoba mengeksploitasi sistem.</span></div>
+                                    <div><i data-lucide="x-circle"></i><span>Menggunakan platform untuk kepentingan yang tidak berkaitan dengan layanan sekolah.</span></div>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="terms-section" id="responsibility">
+                            <div class="terms-section-number">07</div>
+                            <div class="terms-section-body">
+                                <span class="terms-section-label">Kewajiban Pengguna</span>
+                                <h2>Tanggung Jawab Pengguna</h2>
+                                <p>
+                                    Setiap pengguna bertanggung jawab atas aktivitas
+                                    yang dilakukan melalui akunnya dan wajib menghormati
+                                    hak serta keselamatan warga sekolah lainnya.
+                                </p>
+                                <div class="terms-responsibility-grid">
+                                    <div>
+                                        <i data-lucide="user-check"></i>
+                                        <strong>Identitas</strong>
+                                        <p>Menjaga penggunaan akun sesuai identitas dan kewenangan.</p>
+                                    </div>
+                                    <div>
+                                        <i data-lucide="message-circle"></i>
+                                        <strong>Komunikasi</strong>
+                                        <p>Menggunakan bahasa yang sopan dan tidak merugikan.</p>
+                                    </div>
+                                    <div>
+                                        <i data-lucide="shield-check"></i>
+                                        <strong>Keamanan</strong>
+                                        <p>Menjaga akun dan informasi yang bersifat pribadi.</p>
+                                    </div>
+                                    <div>
+                                        <i data-lucide="scale"></i>
+                                        <strong>Kepatuhan</strong>
+                                        <p>Mengikuti prosedur dan arahan resmi sekolah.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="terms-section" id="handling">
+                            <div class="terms-section-number">08</div>
+                            <div class="terms-section-body">
+                                <span class="terms-section-label">Proses Tindak Lanjut</span>
+                                <h2>Penanganan Laporan</h2>
+                                <p>
+                                    Laporan yang diterima melalui platform dapat ditinjau
+                                    oleh petugas yang memiliki kewenangan. Proses tindak
+                                    lanjut mengikuti prosedur sekolah dan mempertimbangkan
+                                    kondisi serta kebutuhan pihak terkait.
+                                </p>
+                                <div class="terms-process">
+                                    <div>
+                                        <span>1</span>
+                                        <div>
+                                            <strong>Laporan Diterima</strong>
+                                            <p>Informasi masuk melalui fitur pelaporan.</p>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <span>2</span>
+                                        <div>
+                                            <strong>Peninjauan</strong>
+                                            <p>Petugas berwenang meninjau informasi yang disampaikan.</p>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <span>3</span>
+                                        <div>
+                                            <strong>Tindak Lanjut</strong>
+                                            <p>Penanganan dilakukan sesuai prosedur sekolah.</p>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <span>4</span>
+                                        <div>
+                                            <strong>Pembaruan Status</strong>
+                                            <p>Perkembangan dapat diinformasikan melalui fitur pelacakan sesuai hak akses.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="terms-muted-note">
+                                    Tahapan tersebut merupakan gambaran umum. Waktu,
+                                    mekanisme, dan hasil penanganan mengikuti kebijakan
+                                    serta kapasitas pihak sekolah.
+                                </p>
+                            </div>
+                        </article>
+
+                        <article class="terms-section" id="privacy">
+                            <div class="terms-section-number">09</div>
+                            <div class="terms-section-body">
+                                <span class="terms-section-label">Perlindungan Informasi</span>
+                                <h2>Privasi Pengguna</h2>
+                                <p>
+                                    Penggunaan platform juga mengikuti prinsip perlindungan
+                                    informasi pribadi. Pengguna diharapkan membaca
+                                    Kebijakan Privasi untuk memahami rancangan pengelolaan
+                                    informasi pada SAPA-SKANEGU.
+                                </p>
+                                <div class="terms-related-link">
+                                    <span><i data-lucide="shield-check"></i></span>
+                                    <div>
+                                        <strong>Kebijakan Privasi</strong>
+                                        <p>Pelajari informasi mengenai penggunaan dan perlindungan data.</p>
+                                        <a href="privacy-policy.html">
+                                            Baca Kebijakan Privasi
+                                            <i data-lucide="arrow-up-right"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="terms-section" id="changes">
+                            <div class="terms-section-number">10</div>
+                            <div class="terms-section-body">
+                                <span class="terms-section-label">Pembaruan Dokumen</span>
+                                <h2>Perubahan Ketentuan</h2>
+                                <p>
+                                    Ketentuan layanan dapat ditinjau dan diperbarui
+                                    apabila terdapat perubahan fungsi platform,
+                                    kebutuhan operasional, atau kebijakan sekolah.
+                                </p>
+                                <p>
+                                    Setiap perubahan resmi perlu dikomunikasikan kepada
+                                    pengguna melalui saluran informasi yang ditetapkan
+                                    oleh pihak sekolah.
+                                </p>
+                            </div>
+                        </article>
+
+                        <article class="terms-section" id="contact">
+                            <div class="terms-section-number">11</div>
+                            <div class="terms-section-body">
+                                <span class="terms-section-label">Dukungan Pengguna</span>
+                                <h2>Bantuan dan Pertanyaan</h2>
+                                <p>
+                                    Jika mengalami kendala dalam menggunakan platform
+                                    atau memiliki pertanyaan mengenai ketentuan ini,
+                                    pengguna dapat mengakses Pusat Bantuan.
+                                </p>
+                                <div class="terms-contact-card">
+                                    <div class="terms-contact-icon">
+                                        <i data-lucide="messages-square"></i>
+                                    </div>
+                                    <div>
+                                        <strong>Perlu Bantuan?</strong>
+                                        <p>Temukan panduan dan informasi penggunaan SAPA-SKANEGU.</p>
+                                        <a href="help.html">
+                                            Kunjungi Pusat Bantuan
+                                            <i data-lucide="arrow-up-right"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+
+                        <section class="terms-ending">
+                            <div class="terms-ending-icon">
+                                <i data-lucide="heart-handshake"></i>
+                            </div>
+                            <h2>Bangun ruang aman bersama.</h2>
+                            <p>
+                                Gunakan SAPA-SKANEGU dengan bijak, hormati sesama,
+                                dan jadilah bagian dari lingkungan sekolah yang
+                                bebas dari perundungan.
+                            </p>
+                            <a href="../student/dashboard.html">
+                                <i data-lucide="arrow-left"></i>
+                                Kembali ke Dashboard
+                            </a>
+                        </section>
+
+                    </div>
+
+                </div>
+
+                <footer class="terms-footer">
+                    <span>© 2026 SAPA-SKANEGU · SMKN 1 Dlanggu</span>
+                    <span>Rancangan ketentuan layanan · Perlu persetujuan sekolah</span>
+                </footer>
+
+            </div>
+
+        </main>
+
+    </div>
+
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <script src="../../js/api.js" defer></script>
+    <script src="../../js/main.js" defer></script>
+    <script src="../../js/auth.js" defer></script>
+    <script src="../../js/animations.js" defer></script>
+    <script src="../../js/pages/terms.js" defer></script>
+
+</body>
+</html>

@@ -1,0 +1,385 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0b0718">
+    <title>Pusat Bantuan | SAPA-SKANEGU</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/reset.css">
+    <link rel="stylesheet" href="../../css/global.css">
+    <link rel="stylesheet" href="../../css/components.css">
+    <link rel="stylesheet" href="../../css/dashboard.css">
+    <link rel="stylesheet" href="../../css/animations.css">
+    <link rel="stylesheet" href="../../css/responsive.css">
+    <link rel="stylesheet" href="../../css/pages/student-affairs.css">
+    <link rel="stylesheet" href="../../css/pages/sa-help.css">
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <script src="../../js/main.js" defer></script>
+    <script src="../../js/auth.js" defer></script>
+    <script src="../../js/pages/student-affairs.js" defer></script>
+    <script src="../../js/pages/sa-help.js" defer></script>
+</head>
+<body class="dashboard-page student-affairs-page sa-help-page">
+    <div class="dashboard-background">
+        <div class="dashboard-background-glow dashboard-glow-one"></div>
+        <div class="dashboard-background-glow dashboard-glow-two"></div>
+    </div>
+
+    <div class="dashboard-layout">
+        <div class="dashboard-overlay" data-sidebar-overlay></div>
+
+        <aside class="dashboard-sidebar" data-sidebar>
+            <div class="sidebar-brand">
+                <a href="dashboard.html" class="sidebar-brand-link">
+                    <div class="sidebar-brand-logo">
+                        <img src="../../assets/images/logo/logo-smkn1dlanggu.svg" alt="Logo SMKN 1 Dlanggu">
+                    </div>
+                    <div class="sidebar-brand-text">
+                        <strong>SAPA-SKANEGU</strong>
+                        <span>SMKN 1 Dlanggu</span>
+                    </div>
+                </a>
+                <button class="dashboard-sidebar-close" data-sidebar-close aria-label="Tutup navigasi">
+                    <i data-lucide="x"></i>
+                </button>
+            </div>
+
+            <div class="sidebar-profile">
+                <div class="sidebar-avatar">KS</div>
+                <div class="sidebar-profile-information">
+                    <strong>Tim Kesiswaan</strong>
+                    <span>Bidang Kesiswaan</span>
+                </div>
+                <span class="sidebar-online-indicator"></span>
+            </div>
+
+            <nav class="sidebar-navigation">
+                <div class="sidebar-section">
+                    <span class="sidebar-section-label">MENU UTAMA</span>
+                    <div class="sidebar-menu">
+                        <a href="dashboard.html" class="sidebar-link"><i data-lucide="layout-dashboard"></i><span>Dashboard</span></a>
+                        <a href="cases.html" class="sidebar-link"><i data-lucide="shield-alert"></i><span>Penanganan Kasus</span></a>
+                        <a href="discipline.html" class="sidebar-link"><i data-lucide="clipboard-list"></i><span>Kedisiplinan Siswa</span></a>
+                        <a href="history.html" class="sidebar-link"><i data-lucide="history"></i><span>Riwayat Penanganan</span></a>
+                    </div>
+                </div>
+
+                <div class="sidebar-section">
+                    <span class="sidebar-section-label">INFORMASI</span>
+                    <div class="sidebar-menu">
+                        <a href="education.html" class="sidebar-link"><i data-lucide="book-open"></i><span>Materi Edukasi</span></a>
+                        <a href="notifications.html" class="sidebar-link"><i data-lucide="bell"></i><span>Notifikasi</span></a>
+                    </div>
+                </div>
+
+                <div class="sidebar-section">
+                    <span class="sidebar-section-label">AKUN</span>
+                    <div class="sidebar-menu">
+                        <a href="profile.html" class="sidebar-link"><i data-lucide="user-round"></i><span>Profil Saya</span></a>
+                        <a href="help.html" class="sidebar-link active"><i data-lucide="circle-help"></i><span>Pusat Bantuan</span></a>
+                        <a href="privacy-policy.html" class="sidebar-link"><i data-lucide="shield-check"></i><span>Kebijakan Privasi</span></a>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <a href="../../index.html" class="sidebar-logout" id="logoutButton">
+                    <i data-lucide="log-out"></i>
+                    <span>Keluar</span>
+                </a>
+                <div class="sidebar-footer">
+                    <span>SAPA-SKANEGU</span>
+                    <span>SMKN 1 Dlanggu · 2026</span>
+                </div>
+            </div>
+        </aside>
+
+        <main class="dashboard-main">
+            <header class="dashboard-topbar">
+                <div class="topbar-left">
+                    <button class="dashboard-menu-toggle" data-sidebar-toggle aria-label="Buka navigasi" aria-expanded="false">
+                        <i data-lucide="menu"></i>
+                    </button>
+                    <div class="topbar-breadcrumb">
+                        <span>Bidang Kesiswaan</span>
+                        <i data-lucide="chevron-right"></i>
+                        <strong>Pusat Bantuan</strong>
+                    </div>
+                </div>
+
+                <div class="topbar-right">
+                    <div class="topbar-date">
+                        <i data-lucide="calendar-days"></i>
+                        <span id="helpCurrentDate"></span>
+                    </div>
+                    <a href="notifications.html" class="topbar-icon-button" aria-label="Notifikasi">
+                        <i data-lucide="bell"></i>
+                    </a>
+                    <a href="profile.html" class="topbar-user">
+                        <div class="topbar-user-avatar">KS</div>
+                        <div class="topbar-user-information">
+                            <strong>Tim Kesiswaan</strong>
+                            <span>Bidang Kesiswaan</span>
+                        </div>
+                        <i data-lucide="chevron-down"></i>
+                    </a>
+                </div>
+            </header>
+
+            <div class="dashboard-content sa-help-content">
+                <section class="sa-help-heading">
+                    <div>
+                        <span class="sa-help-eyebrow">DUKUNGAN PENGGUNA</span>
+                        <h1>Pusat Bantuan</h1>
+                        <p>Temukan panduan dan jawaban untuk membantu pekerjaan Bidang Kesiswaan menggunakan SAPA-SKANEGU.</p>
+                    </div>
+                </section>
+
+                <section class="sa-help-hero">
+                    <div class="sa-help-hero-copy">
+                        <span class="sa-help-hero-label">ADA YANG BISA KAMI BANTU?</span>
+                        <h2>Butuh bantuan menggunakan SAPA-SKANEGU?</h2>
+                        <p>Cari pertanyaan yang sering diajukan atau pelajari panduan penggunaan fitur Kesiswaan.</p>
+                        <label class="sa-help-search">
+                            <i data-lucide="search"></i>
+                            <input type="search" id="helpSearch" placeholder="Cari pertanyaan atau panduan..." autocomplete="off">
+                            <kbd>Enter</kbd>
+                        </label>
+                    </div>
+                    <div class="sa-help-hero-art">
+                        <div class="sa-help-orbit orbit-one"></div>
+                        <div class="sa-help-orbit orbit-two"></div>
+                        <div class="sa-help-hero-icon"><i data-lucide="messages-square"></i></div>
+                        <span class="sa-help-spark spark-one">✦</span>
+                        <span class="sa-help-spark spark-two">✧</span>
+                    </div>
+                </section>
+
+                <section class="sa-help-quick-grid">
+                    <a href="#help-guide" class="sa-help-quick-card">
+                        <span class="sa-help-quick-icon purple"><i data-lucide="book-open"></i></span>
+                        <strong>Panduan Penggunaan</strong>
+                        <span>Pelajari fitur Kesiswaan</span>
+                        <i data-lucide="arrow-up-right" class="sa-help-quick-arrow"></i>
+                    </a>
+                    <a href="#help-faq" class="sa-help-quick-card">
+                        <span class="sa-help-quick-icon cyan"><i data-lucide="message-circle-question"></i></span>
+                        <strong>Pertanyaan Umum</strong>
+                        <span>Temukan jawaban cepat</span>
+                        <i data-lucide="arrow-up-right" class="sa-help-quick-arrow"></i>
+                    </a>
+                    <a href="#help-contact" class="sa-help-quick-card">
+                        <span class="sa-help-quick-icon green"><i data-lucide="headset"></i></span>
+                        <strong>Hubungi Bantuan</strong>
+                        <span>Dapatkan bantuan lanjutan</span>
+                        <i data-lucide="arrow-up-right" class="sa-help-quick-arrow"></i>
+                    </a>
+                </section>
+
+                <section class="sa-help-section" id="help-guide">
+                    <div class="sa-help-section-heading">
+                        <div>
+                            <span class="sa-help-eyebrow">PANDUAN SISTEM</span>
+                            <h2>Panduan Penggunaan</h2>
+                            <p>Kenali fungsi utama yang tersedia pada akun Kesiswaan.</p>
+                        </div>
+                    </div>
+
+                    <div class="sa-help-guide-grid">
+                        <article class="sa-help-guide-card">
+                            <span class="sa-help-guide-number">01</span>
+                            <span class="sa-help-guide-icon"><i data-lucide="layout-dashboard"></i></span>
+                            <h3>Dashboard</h3>
+                            <p>Lihat ringkasan aktivitas, statistik penanganan, dan informasi terbaru yang berkaitan dengan Bidang Kesiswaan.</p>
+                            <a href="dashboard.html">Buka Dashboard <i data-lucide="arrow-right"></i></a>
+                        </article>
+
+                        <article class="sa-help-guide-card">
+                            <span class="sa-help-guide-number">02</span>
+                            <span class="sa-help-guide-icon"><i data-lucide="shield-alert"></i></span>
+                            <h3>Penanganan Kasus</h3>
+                            <p>Periksa laporan yang diarahkan kepada Kesiswaan, lihat detail kasus, dan lakukan tindak lanjut sesuai kewenangan.</p>
+                            <a href="cases.html">Buka Penanganan Kasus <i data-lucide="arrow-right"></i></a>
+                        </article>
+
+                        <article class="sa-help-guide-card">
+                            <span class="sa-help-guide-number">03</span>
+                            <span class="sa-help-guide-icon"><i data-lucide="clipboard-list"></i></span>
+                            <h3>Kedisiplinan Siswa</h3>
+                            <p>Kelola catatan kedisiplinan siswa dan dokumentasikan tindak lanjut sesuai prosedur sekolah.</p>
+                            <a href="discipline.html">Buka Kedisiplinan <i data-lucide="arrow-right"></i></a>
+                        </article>
+
+                        <article class="sa-help-guide-card">
+                            <span class="sa-help-guide-number">04</span>
+                            <span class="sa-help-guide-icon"><i data-lucide="history"></i></span>
+                            <h3>Riwayat Penanganan</h3>
+                            <p>Tinjau riwayat aktivitas penanganan kasus dan catatan kedisiplinan yang tersedia pada sistem.</p>
+                            <a href="history.html">Buka Riwayat <i data-lucide="arrow-right"></i></a>
+                        </article>
+
+                        <article class="sa-help-guide-card">
+                            <span class="sa-help-guide-number">05</span>
+                            <span class="sa-help-guide-icon"><i data-lucide="book-open-check"></i></span>
+                            <h3>Materi Edukasi</h3>
+                            <p>Kelola materi pembinaan mengenai anti-bullying, kedisiplinan, tata tertib, dan penguatan karakter.</p>
+                            <a href="education.html">Buka Materi Edukasi <i data-lucide="arrow-right"></i></a>
+                        </article>
+
+                        <article class="sa-help-guide-card">
+                            <span class="sa-help-guide-number">06</span>
+                            <span class="sa-help-guide-icon"><i data-lucide="bell"></i></span>
+                            <h3>Notifikasi</h3>
+                            <p>Periksa pemberitahuan sistem dan informasi aktivitas yang memerlukan perhatian.</p>
+                            <a href="notifications.html">Buka Notifikasi <i data-lucide="arrow-right"></i></a>
+                        </article>
+                    </div>
+                </section>
+
+                <section class="sa-help-section" id="help-faq">
+                    <div class="sa-help-section-heading">
+                        <div>
+                            <span class="sa-help-eyebrow">FAQ</span>
+                            <h2>Pertanyaan yang Sering Diajukan</h2>
+                            <p>Pilih pertanyaan untuk melihat jawabannya.</p>
+                        </div>
+                    </div>
+
+                    <div class="sa-help-faq-layout">
+                        <div class="sa-help-faq-categories" id="helpCategories">
+                            <button class="sa-help-category active" data-category="all"><i data-lucide="grid-2x2"></i> Semua Pertanyaan</button>
+                            <button class="sa-help-category" data-category="akun"><i data-lucide="user-round"></i> Akun</button>
+                            <button class="sa-help-category" data-category="kasus"><i data-lucide="shield-alert"></i> Penanganan Kasus</button>
+                            <button class="sa-help-category" data-category="disiplin"><i data-lucide="clipboard-list"></i> Kedisiplinan</button>
+                            <button class="sa-help-category" data-category="materi"><i data-lucide="book-open"></i> Materi Edukasi</button>
+                            <button class="sa-help-category" data-category="sistem"><i data-lucide="settings"></i> Sistem</button>
+                        </div>
+
+                        <div class="sa-help-faq-list" id="helpFaqList">
+                            <article class="sa-help-faq-item" data-category="akun">
+                                <button class="sa-help-faq-question" aria-expanded="false">
+                                    <span>Bagaimana cara memperbarui informasi profil?</span>
+                                    <i data-lucide="plus"></i>
+                                </button>
+                                <div class="sa-help-faq-answer" hidden>
+                                    <p>Buka menu Profil Saya, periksa informasi yang tersedia, lalu lakukan perubahan pada kolom yang dapat diedit. Simpan perubahan setelah selesai. Ketersediaan perubahan mengikuti pengaturan akun sistem.</p>
+                                </div>
+                            </article>
+
+                            <article class="sa-help-faq-item" data-category="akun">
+                                <button class="sa-help-faq-question" aria-expanded="false">
+                                    <span>Apa yang harus dilakukan jika tidak bisa masuk ke akun?</span>
+                                    <i data-lucide="plus"></i>
+                                </button>
+                                <div class="sa-help-faq-answer" hidden>
+                                    <p>Periksa kembali email atau nama pengguna dan kata sandi. Pastikan akun yang digunakan memang memiliki akses Kesiswaan. Jika masalah tetap terjadi, hubungi administrator sekolah melalui saluran bantuan resmi.</p>
+                                </div>
+                            </article>
+
+                            <article class="sa-help-faq-item" data-category="kasus">
+                                <button class="sa-help-faq-question" aria-expanded="false">
+                                    <span>Kasus apa saja yang muncul pada menu Penanganan Kasus?</span>
+                                    <i data-lucide="plus"></i>
+                                </button>
+                                <div class="sa-help-faq-answer" hidden>
+                                    <p>Menu tersebut digunakan untuk menampilkan laporan yang diarahkan kepada Kesiswaan atau kasus yang melibatkan Kesiswaan dalam penanganannya. Hak akses mengikuti penugasan dan aturan sistem.</p>
+                                </div>
+                            </article>
+
+                            <article class="sa-help-faq-item" data-category="kasus">
+                                <button class="sa-help-faq-question" aria-expanded="false">
+                                    <span>Apakah Kesiswaan dapat bekerja sama dengan pihak lain?</span>
+                                    <i data-lucide="plus"></i>
+                                </button>
+                                <div class="sa-help-faq-answer" hidden>
+                                    <p>Ya. Penanganan kasus dapat melibatkan pihak yang berwenang sesuai kebutuhan, misalnya Wali Kelas atau Guru BK. Informasi kasus hanya boleh diakses oleh pihak yang memiliki kewenangan.</p>
+                                </div>
+                            </article>
+
+                            <article class="sa-help-faq-item" data-category="disiplin">
+                                <button class="sa-help-faq-question" aria-expanded="false">
+                                    <span>Bagaimana cara menambahkan catatan kedisiplinan siswa?</span>
+                                    <i data-lucide="plus"></i>
+                                </button>
+                                <div class="sa-help-faq-answer" hidden>
+                                    <p>Buka menu Kedisiplinan Siswa, gunakan fitur tambah data, lalu lengkapi informasi kejadian sesuai fakta. Pastikan catatan ditulis secara objektif dan tidak memuat penilaian yang tidak relevan.</p>
+                                </div>
+                            </article>
+
+                            <article class="sa-help-faq-item" data-category="materi">
+                                <button class="sa-help-faq-question" aria-expanded="false">
+                                    <span>Bagaimana cara menambahkan materi edukasi?</span>
+                                    <i data-lucide="plus"></i>
+                                </button>
+                                <div class="sa-help-faq-answer" hidden>
+                                    <p>Buka menu Materi Edukasi, tekan Tambah Materi, isi judul, kategori, ringkasan, dan isi materi. Pilih status publikasi, lalu simpan. Pastikan informasi yang dipublikasikan sudah diperiksa.</p>
+                                </div>
+                            </article>
+
+                            <article class="sa-help-faq-item" data-category="materi">
+                                <button class="sa-help-faq-question" aria-expanded="false">
+                                    <span>Apa perbedaan status Draf dan Dipublikasikan?</span>
+                                    <i data-lucide="plus"></i>
+                                </button>
+                                <div class="sa-help-faq-answer" hidden>
+                                    <p>Draf adalah materi yang belum diterbitkan, sedangkan Dipublikasikan menandakan materi telah ditandai untuk diterbitkan. Penayangan kepada pengguna lain tetap bergantung pada integrasi dan pengaturan sistem.</p>
+                                </div>
+                            </article>
+
+                            <article class="sa-help-faq-item" data-category="sistem">
+                                <button class="sa-help-faq-question" aria-expanded="false">
+                                    <span>Mengapa data yang saya masukkan tidak muncul di perangkat lain?</span>
+                                    <i data-lucide="plus"></i>
+                                </button>
+                                <div class="sa-help-faq-answer" hidden>
+                                    <p>Jika fitur masih menggunakan penyimpanan lokal browser, data hanya tersimpan pada browser dan perangkat tersebut. Sinkronisasi antarperangkat memerlukan integrasi dengan database server.</p>
+                                </div>
+                            </article>
+
+                            <article class="sa-help-faq-item" data-category="sistem">
+                                <button class="sa-help-faq-question" aria-expanded="false">
+                                    <span>Apa yang harus dilakukan jika halaman tidak tampil dengan benar?</span>
+                                    <i data-lucide="plus"></i>
+                                </button>
+                                <div class="sa-help-faq-answer" hidden>
+                                    <p>Coba muat ulang halaman. Jika masih bermasalah, pastikan file HTML, CSS, dan JavaScript berada pada lokasi yang benar. Catat halaman dan pesan kesalahan yang muncul untuk dilaporkan kepada pengelola sistem.</p>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+
+                    <div class="sa-help-no-results" id="helpNoResults" hidden>
+                        <i data-lucide="search-x"></i>
+                        <strong>Pertanyaan tidak ditemukan</strong>
+                        <span>Coba gunakan kata kunci atau kategori lain.</span>
+                    </div>
+                </section>
+
+                <section class="sa-help-contact" id="help-contact">
+                    <div class="sa-help-contact-icon"><i data-lucide="headset"></i></div>
+                    <div class="sa-help-contact-copy">
+                        <span class="sa-help-eyebrow">BUTUH BANTUAN LANJUTAN?</span>
+                        <h2>Masih mengalami kendala?</h2>
+                        <p>Hubungi administrator atau pengelola sistem sekolah melalui saluran bantuan resmi.</p>
+                    </div>
+                    <a href="mailto:" id="helpEmailButton" class="sa-help-contact-button">
+                        <i data-lucide="mail"></i>
+                        Hubungi Pengelola
+                    </a>
+                </section>
+
+                <footer class="sa-help-footer">
+                    <span>© 2026 SAPA-SKANEGU · SMKN 1 Dlanggu</span>
+                    <span>Panel Bidang Kesiswaan</span>
+                </footer>
+            </div>
+        </main>
+    </div>
+
+    <div class="sa-help-toast" id="helpToast" role="status" aria-live="polite"></div>
+</body>
+</html>

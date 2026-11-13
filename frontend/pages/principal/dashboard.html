@@ -1,0 +1,390 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0b0718">
+    <title>Dashboard Kepala Sekolah | SAPA-SKANEGU</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/reset.css">
+    <link rel="stylesheet" href="../../css/global.css">
+    <link rel="stylesheet" href="../../css/components.css">
+    <link rel="stylesheet" href="../../css/dashboard.css">
+    <link rel="stylesheet" href="../../css/animations.css">
+    <link rel="stylesheet" href="../../css/responsive.css">
+    <link rel="stylesheet" href="../../css/pages/principal.css">
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <script src="../../js/main.js" defer></script>
+    <script src="../../js/auth.js" defer></script>
+    <script src="../../js/pages/principal.js" defer></script>
+</head>
+<body class="dashboard-page principal-page">
+    <div class="dashboard-background">
+        <div class="dashboard-background-glow dashboard-glow-one"></div>
+        <div class="dashboard-background-glow dashboard-glow-two"></div>
+    </div>
+
+    <div class="dashboard-layout">
+        <div class="dashboard-overlay" data-sidebar-overlay></div>
+
+        <aside class="dashboard-sidebar" data-sidebar>
+            <div class="sidebar-brand">
+                <a href="dashboard.html" class="sidebar-brand-link">
+                    <div class="sidebar-brand-logo">
+                        <img src="../../assets/images/logo/logo-smkn1dlanggu.svg" alt="Logo SMKN 1 Dlanggu">
+                    </div>
+                    <div class="sidebar-brand-text">
+                        <strong>SAPA-SKANEGU</strong>
+                        <span>SMKN 1 Dlanggu</span>
+                    </div>
+                </a>
+                <button class="dashboard-sidebar-close" data-sidebar-close aria-label="Tutup navigasi">
+                    <i data-lucide="x"></i>
+                </button>
+            </div>
+
+            <div class="sidebar-profile">
+                <div class="sidebar-avatar">KS</div>
+                <div class="sidebar-profile-information">
+                    <strong>Kepala Sekolah</strong>
+                    <span>Pimpinan Sekolah</span>
+                </div>
+                <span class="sidebar-online-indicator"></span>
+            </div>
+
+            <nav class="sidebar-navigation">
+                <div class="sidebar-section">
+                    <span class="sidebar-section-label">MENU UTAMA</span>
+                    <div class="sidebar-menu">
+                        <a href="#overview" class="sidebar-link active"><i data-lucide="layout-dashboard"></i><span>Dashboard</span></a>
+                        <a href="#monitoring" class="sidebar-link"><i data-lucide="chart-no-axes-combined"></i><span>Monitoring Laporan</span></a>
+                        <a href="#attention" class="sidebar-link"><i data-lucide="shield-alert"></i><span>Perlu Perhatian</span></a>
+                        <a href="#evaluation" class="sidebar-link"><i data-lucide="clipboard-check"></i><span>Arahan & Evaluasi</span></a>
+                    </div>
+                </div>
+
+                <div class="sidebar-section">
+                    <span class="sidebar-section-label">RINGKASAN</span>
+                    <div class="sidebar-menu">
+                        <a href="#statistics" class="sidebar-link"><i data-lucide="chart-pie"></i><span>Statistik Sekolah</span></a>
+                        <a href="#recent-activity" class="sidebar-link"><i data-lucide="activity"></i><span>Aktivitas Terbaru</span></a>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <a href="../../index.html" class="sidebar-logout" id="logoutButton">
+                    <i data-lucide="log-out"></i>
+                    <span>Keluar</span>
+                </a>
+                <div class="sidebar-footer">
+                    <span>SAPA-SKANEGU</span>
+                    <span>SMKN 1 Dlanggu · 2026</span>
+                </div>
+            </div>
+        </aside>
+
+        <main class="dashboard-main">
+            <header class="dashboard-topbar">
+                <div class="topbar-left">
+                    <button class="dashboard-menu-toggle" data-sidebar-toggle aria-label="Buka navigasi" aria-expanded="false">
+                        <i data-lucide="menu"></i>
+                    </button>
+                    <div class="topbar-breadcrumb">
+                        <span>Manajemen Sekolah</span>
+                        <i data-lucide="chevron-right"></i>
+                        <strong>Dashboard Kepala Sekolah</strong>
+                    </div>
+                </div>
+
+                <div class="topbar-right">
+                    <div class="topbar-date">
+                        <i data-lucide="calendar-days"></i>
+                        <span id="principalCurrentDate"></span>
+                    </div>
+                    <button type="button" class="topbar-icon-button" id="principalNotificationButton" aria-label="Lihat notifikasi">
+                        <i data-lucide="bell"></i>
+                    </button>
+                    <div class="topbar-user">
+                        <div class="topbar-user-avatar">KS</div>
+                        <div class="topbar-user-information">
+                            <strong>Kepala Sekolah</strong>
+                            <span>Pimpinan Sekolah</span>
+                        </div>
+                        <i data-lucide="chevron-down"></i>
+                    </div>
+                </div>
+            </header>
+
+            <div class="dashboard-content principal-content">
+                <section class="principal-welcome" id="overview">
+                    <div class="principal-welcome-copy">
+                        <span class="principal-eyebrow">PUSAT PENGAWASAN SEKOLAH</span>
+                        <h1>Dashboard Kepala Sekolah</h1>
+                        <p>Pantau aspirasi, pengaduan, dan penanganan kasus untuk mendukung lingkungan sekolah yang aman dan nyaman.</p>
+                        <div class="principal-welcome-meta">
+                            <span><i data-lucide="shield-check"></i> Pengawasan menyeluruh</span>
+                            <span><i data-lucide="school"></i> SMKN 1 Dlanggu</span>
+                        </div>
+                    </div>
+                    <div class="principal-welcome-art" aria-hidden="true">
+                        <div class="principal-orbit principal-orbit-one"></div>
+                        <div class="principal-orbit principal-orbit-two"></div>
+                        <div class="principal-welcome-icon"><i data-lucide="landmark"></i></div>
+                        <span class="principal-spark principal-spark-one">✦</span>
+                        <span class="principal-spark principal-spark-two">✧</span>
+                    </div>
+                </section>
+
+                <section class="principal-section" id="statistics">
+                    <div class="principal-section-heading">
+                        <div>
+                            <span class="principal-eyebrow">GAMBARAN UMUM</span>
+                            <h2>Ringkasan Layanan</h2>
+                            <p>Ikhtisar data layanan SAPA-SKANEGU.</p>
+                        </div>
+                        <span class="principal-demo-label"><i data-lucide="database"></i> Data simulasi</span>
+                    </div>
+
+                    <div class="principal-stat-grid">
+                        <article class="principal-stat-card">
+                            <div class="principal-stat-top">
+                                <span class="principal-stat-icon purple"><i data-lucide="messages-square"></i></span>
+                                <span class="principal-stat-caption">Aspirasi</span>
+                            </div>
+                            <strong id="statAspirations">128</strong>
+                            <span class="principal-stat-description">Total aspirasi masuk</span>
+                            <div class="principal-stat-bottom"><span class="principal-stat-dot purple-dot"></span> Seluruh periode</div>
+                        </article>
+
+                        <article class="principal-stat-card">
+                            <div class="principal-stat-top">
+                                <span class="principal-stat-icon cyan"><i data-lucide="message-square-warning"></i></span>
+                                <span class="principal-stat-caption">Pengaduan</span>
+                            </div>
+                            <strong id="statComplaints">64</strong>
+                            <span class="principal-stat-description">Total pengaduan masuk</span>
+                            <div class="principal-stat-bottom"><span class="principal-stat-dot cyan-dot"></span> Seluruh periode</div>
+                        </article>
+
+                        <article class="principal-stat-card">
+                            <div class="principal-stat-top">
+                                <span class="principal-stat-icon orange"><i data-lucide="shield-alert"></i></span>
+                                <span class="principal-stat-caption">Laporan Perundungan</span>
+                            </div>
+                            <strong id="statBullying">18</strong>
+                            <span class="principal-stat-description">Laporan tercatat</span>
+                            <div class="principal-stat-bottom"><span class="principal-stat-dot orange-dot"></span> Akses sesuai kewenangan</div>
+                        </article>
+
+                        <article class="principal-stat-card">
+                            <div class="principal-stat-top">
+                                <span class="principal-stat-icon green"><i data-lucide="check-check"></i></span>
+                                <span class="principal-stat-caption">Selesai</span>
+                            </div>
+                            <strong id="statCompleted">156</strong>
+                            <span class="principal-stat-description">Layanan selesai ditangani</span>
+                            <div class="principal-stat-bottom"><span class="principal-stat-dot green-dot"></span> Akumulasi simulasi</div>
+                        </article>
+                    </div>
+                </section>
+
+                <section class="principal-monitor-grid" id="monitoring">
+                    <article class="principal-panel principal-chart-panel">
+                        <div class="principal-panel-heading">
+                            <div>
+                                <span class="principal-eyebrow">PEMANTAUAN</span>
+                                <h2>Status Penanganan</h2>
+                                <p>Perbandingan status layanan dalam data simulasi.</p>
+                            </div>
+                            <span class="principal-panel-icon"><i data-lucide="chart-no-axes-column"></i></span>
+                        </div>
+
+                        <div class="principal-status-list">
+                            <div class="principal-status-row">
+                                <div class="principal-status-label"><span class="status-dot status-purple"></span><span>Menunggu verifikasi</span><strong>12</strong></div>
+                                <div class="principal-progress"><span style="width: 24%"></span></div>
+                            </div>
+                            <div class="principal-status-row">
+                                <div class="principal-status-label"><span class="status-dot status-cyan"></span><span>Sedang diproses</span><strong>19</strong></div>
+                                <div class="principal-progress"><span style="width: 38%"></span></div>
+                            </div>
+                            <div class="principal-status-row">
+                                <div class="principal-status-label"><span class="status-dot status-orange"></span><span>Dalam penanganan</span><strong>11</strong></div>
+                                <div class="principal-progress"><span style="width: 22%"></span></div>
+                            </div>
+                            <div class="principal-status-row">
+                                <div class="principal-status-label"><span class="status-dot status-green"></span><span>Selesai</span><strong>8</strong></div>
+                                <div class="principal-progress"><span style="width: 16%"></span></div>
+                            </div>
+                        </div>
+                        <div class="principal-chart-footnote"><i data-lucide="info"></i> Angka hanya contoh untuk rancangan tampilan.</div>
+                    </article>
+
+                    <article class="principal-panel principal-attention-panel" id="attention">
+                        <div class="principal-panel-heading">
+                            <div>
+                                <span class="principal-eyebrow">TINDAKAN PRIORITAS</span>
+                                <h2>Perlu Perhatian</h2>
+                                <p>Contoh hal yang perlu ditinjau pimpinan.</p>
+                            </div>
+                            <span class="principal-attention-count">3</span>
+                        </div>
+
+                        <div class="principal-attention-list">
+                            <div class="principal-attention-item">
+                                <span class="principal-attention-icon red"><i data-lucide="shield-alert"></i></span>
+                                <div><strong>Laporan prioritas tinggi</strong><p>Perlu ditinjau oleh pihak berwenang.</p></div>
+                                <span class="principal-priority high">Tinggi</span>
+                            </div>
+                            <div class="principal-attention-item">
+                                <span class="principal-attention-icon orange"><i data-lucide="clock-3"></i></span>
+                                <div><strong>Penanganan belum diperbarui</strong><p>Periksa perkembangan tindak lanjut.</p></div>
+                                <span class="principal-priority medium">Sedang</span>
+                            </div>
+                            <div class="principal-attention-item">
+                                <span class="principal-attention-icon purple"><i data-lucide="clipboard-list"></i></span>
+                                <div><strong>Evaluasi layanan</strong><p>Tinjau laporan evaluasi berkala.</p></div>
+                                <span class="principal-priority review">Tinjau</span>
+                            </div>
+                        </div>
+                    </article>
+                </section>
+
+                <section class="principal-panel principal-recent-panel" id="recent-activity">
+                    <div class="principal-panel-heading principal-recent-heading">
+                        <div>
+                            <span class="principal-eyebrow">AKTIVITAS SISTEM</span>
+                            <h2>Ringkasan Laporan Terbaru</h2>
+                            <p>Daftar contoh laporan untuk tampilan monitoring.</p>
+                        </div>
+                        <div class="principal-table-controls">
+                            <label class="principal-search">
+                                <i data-lucide="search"></i>
+                                <input type="search" id="principalSearch" placeholder="Cari laporan...">
+                            </label>
+                            <select id="principalTypeFilter" aria-label="Filter jenis laporan">
+                                <option value="all">Semua jenis</option>
+                                <option value="Aspirasi">Aspirasi</option>
+                                <option value="Pengaduan">Pengaduan</option>
+                                <option value="Perundungan">Perundungan</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="principal-table-wrap">
+                        <table class="principal-table">
+                            <thead>
+                                <tr>
+                                    <th>Nomor</th>
+                                    <th>Jenis Laporan</th>
+                                    <th>Ringkasan</th>
+                                    <th>Tanggal</th>
+                                    <th>Status</th>
+                                    <th>Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody id="principalReportTable">
+                                <tr data-type="Aspirasi">
+                                    <td><strong>ASP-001</strong></td>
+                                    <td><span class="principal-type aspiration">Aspirasi</span></td>
+                                    <td>Usulan peningkatan fasilitas sekolah</td>
+                                    <td>12 Nov 2026</td>
+                                    <td><span class="principal-status-badge processing">Diproses</span></td>
+                                    <td><button class="principal-view-button" data-report="ASP-001" type="button" aria-label="Lihat ASP-001"><i data-lucide="eye"></i></button></td>
+                                </tr>
+                                <tr data-type="Pengaduan">
+                                    <td><strong>ADU-014</strong></td>
+                                    <td><span class="principal-type complaint">Pengaduan</span></td>
+                                    <td>Fasilitas kelas membutuhkan perbaikan</td>
+                                    <td>11 Nov 2026</td>
+                                    <td><span class="principal-status-badge review">Diverifikasi</span></td>
+                                    <td><button class="principal-view-button" data-report="ADU-014" type="button" aria-label="Lihat ADU-014"><i data-lucide="eye"></i></button></td>
+                                </tr>
+                                <tr data-type="Perundungan">
+                                    <td><strong>PRD-006</strong></td>
+                                    <td><span class="principal-type bullying">Perundungan</span></td>
+                                    <td>Laporan membutuhkan pemantauan khusus</td>
+                                    <td>10 Nov 2026</td>
+                                    <td><span class="principal-status-badge handling">Dalam Penanganan</span></td>
+                                    <td><button class="principal-view-button" data-report="PRD-006" type="button" aria-label="Lihat PRD-006"><i data-lucide="eye"></i></button></td>
+                                </tr>
+                                <tr data-type="Aspirasi">
+                                    <td><strong>ASP-002</strong></td>
+                                    <td><span class="principal-type aspiration">Aspirasi</span></td>
+                                    <td>Usulan kegiatan penguatan karakter</td>
+                                    <td>09 Nov 2026</td>
+                                    <td><span class="principal-status-badge completed">Selesai</span></td>
+                                    <td><button class="principal-view-button" data-report="ASP-002" type="button" aria-label="Lihat ASP-002"><i data-lucide="eye"></i></button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="principal-table-empty" id="principalTableEmpty" hidden>
+                        <i data-lucide="search-x"></i>
+                        <strong>Laporan tidak ditemukan</strong>
+                        <span>Coba gunakan kata kunci atau filter yang berbeda.</span>
+                    </div>
+                    <div class="principal-table-footer"><span id="principalTableCount">Menampilkan 4 contoh laporan</span><span>Data simulasi frontend</span></div>
+                </section>
+
+                <section class="principal-panel principal-evaluation-panel" id="evaluation">
+                    <div class="principal-panel-heading">
+                        <div>
+                            <span class="principal-eyebrow">CATATAN PIMPINAN</span>
+                            <h2>Arahan dan Evaluasi</h2>
+                            <p>Catatan internal untuk membantu mengingat arahan tindak lanjut.</p>
+                        </div>
+                        <span class="principal-panel-icon"><i data-lucide="notebook-pen"></i></span>
+                    </div>
+
+                    <form id="principalEvaluationForm" class="principal-evaluation-form">
+                        <label for="principalEvaluation">Catatan arahan atau evaluasi</label>
+                        <textarea id="principalEvaluation" rows="4" maxlength="1000" placeholder="Tuliskan arahan, evaluasi, atau hal yang perlu ditindaklanjuti..."></textarea>
+                        <div class="principal-evaluation-footer">
+                            <span id="principalEvaluationCount">0/1000 karakter</span>
+                            <button type="submit" class="principal-primary-button"><i data-lucide="save"></i> Simpan Catatan</button>
+                        </div>
+                    </form>
+
+                    <div class="principal-saved-notes" id="principalSavedNotes">
+                        <div class="principal-no-notes">
+                            <i data-lucide="notebook-text"></i>
+                            <span>Belum ada catatan evaluasi yang disimpan.</span>
+                        </div>
+                    </div>
+                </section>
+
+                <footer class="principal-footer">
+                    <span>© 2026 SAPA-SKANEGU · SMKN 1 Dlanggu</span>
+                    <span>Panel Kepala Sekolah</span>
+                </footer>
+            </div>
+        </main>
+    </div>
+
+    <div class="principal-modal" id="principalReportModal" hidden>
+        <div class="principal-modal-backdrop" data-modal-close></div>
+        <section class="principal-modal-panel" role="dialog" aria-modal="true" aria-labelledby="principalModalTitle">
+            <div class="principal-modal-heading">
+                <div>
+                    <span class="principal-eyebrow">DETAIL MONITORING</span>
+                    <h2 id="principalModalTitle">Detail Laporan</h2>
+                </div>
+                <button type="button" class="principal-modal-close" data-modal-close aria-label="Tutup"><i data-lucide="x"></i></button>
+            </div>
+            <div id="principalModalBody" class="principal-modal-body"></div>
+            <div class="principal-modal-footer">
+                <button type="button" class="principal-secondary-button" data-modal-close>Tutup</button>
+                <button type="button" class="principal-primary-button" id="principalTakeOverButton"><i data-lucide="hand"></i> Catat Pengambilalihan</button>
+            </div>
+        </section>
+    </div>
+
+    <div class="principal-toast" id="principalToast" role="status" aria-live="polite"></div>
+</body>
+</html>

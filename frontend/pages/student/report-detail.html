@@ -1,0 +1,427 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0b0718">
+    <meta name="description" content="Detail dan perkembangan laporan SAPA-SKANEGU SMKN 1 Dlanggu">
+    <title>Detail Laporan | SAPA-SKANEGU</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../../css/reset.css">
+    <link rel="stylesheet" href="../../css/global.css">
+    <link rel="stylesheet" href="../../css/components.css">
+    <link rel="stylesheet" href="../../css/dashboard.css">
+    <link rel="stylesheet" href="../../css/pages/student.css">
+    <link rel="stylesheet" href="../../css/pages/report-detail.css">
+    <link rel="stylesheet" href="../../css/animations.css">
+    <link rel="stylesheet" href="../../css/responsive.css">
+
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <script src="../../js/api.js" defer></script>
+    <script src="../../js/main.js" defer></script>
+    <script src="../../js/auth.js" defer></script>
+    <script src="../../js/animations.js" defer></script>
+    <script src="../../js/pages/student.js" defer></script>
+    <script src="../../js/pages/report-detail.js" defer></script>
+</head>
+
+<body class="dashboard-page student-dashboard report-detail-page">
+
+    <div class="dashboard-background" aria-hidden="true">
+        <div class="dashboard-background-glow dashboard-glow-one"></div>
+        <div class="dashboard-background-glow dashboard-glow-two"></div>
+        <div class="dashboard-background-stars"></div>
+        <div class="dashboard-background-grid"></div>
+    </div>
+
+    <div class="dashboard-layout">
+
+        <div class="dashboard-overlay" data-sidebar-overlay></div>
+
+        <aside class="dashboard-sidebar" data-sidebar aria-label="Navigasi utama">
+
+            <div class="sidebar-brand">
+                <a href="dashboard.html" class="sidebar-brand-link">
+                    <div class="sidebar-brand-logo">
+                        <img src="../../assets/images/logo/logo-smkn1dlanggu.svg" alt="Logo SMKN 1 Dlanggu">
+                    </div>
+                    <div class="sidebar-brand-text">
+                        <strong>SAPA-SKANEGU</strong>
+                        <span>SMKN 1 Dlanggu</span>
+                    </div>
+                </a>
+
+                <button type="button" class="dashboard-sidebar-close" data-sidebar-close aria-label="Tutup navigasi">
+                    <i data-lucide="x"></i>
+                </button>
+            </div>
+
+            <div class="sidebar-profile">
+                <div class="sidebar-avatar">
+                    <span id="sidebarUserInitial">S</span>
+                </div>
+                <div class="sidebar-profile-information">
+                    <strong id="sidebarUserName">Nama Siswa</strong>
+                    <span>Siswa</span>
+                </div>
+                <span class="sidebar-online-indicator" aria-label="Status online"></span>
+            </div>
+
+            <nav class="sidebar-navigation" aria-label="Menu dashboard">
+
+                <div class="sidebar-section">
+                    <span class="sidebar-section-label">MENU UTAMA</span>
+                    <div class="sidebar-menu">
+                        <a href="dashboard.html" class="sidebar-link">
+                            <i data-lucide="layout-dashboard"></i>
+                            <span>Dashboard</span>
+                        </a>
+                        <a href="aspirations.html" class="sidebar-link">
+                            <i data-lucide="lightbulb"></i>
+                            <span>Aspirasi</span>
+                        </a>
+                        <a href="complaints.html" class="sidebar-link">
+                            <i data-lucide="message-square-warning"></i>
+                            <span>Pengaduan</span>
+                        </a>
+                        <a href="bullying-report.html" class="sidebar-link">
+                            <i data-lucide="shield-alert"></i>
+                            <span>Lapor Bullying</span>
+                            <span class="sidebar-link-indicator">Aman</span>
+                        </a>
+                        <a href="tracking.html" class="sidebar-link">
+                            <i data-lucide="search-check"></i>
+                            <span>Lacak Laporan</span>
+                        </a>
+                        <a href="history.html" class="sidebar-link active" aria-current="page">
+                            <i data-lucide="history"></i>
+                            <span>Riwayat</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="sidebar-section">
+                    <span class="sidebar-section-label">INFORMASI</span>
+                    <div class="sidebar-menu">
+                        <a href="../general/education.html" class="sidebar-link">
+                            <i data-lucide="book-open"></i>
+                            <span>Edukasi</span>
+                        </a>
+                        <a href="../general/notifications.html" class="sidebar-link">
+                            <i data-lucide="bell"></i>
+                            <span>Notifikasi</span>
+                        </a>
+                        <a href="../general/help.html" class="sidebar-link">
+                            <i data-lucide="circle-help"></i>
+                            <span>Pusat Bantuan</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="sidebar-section">
+                    <span class="sidebar-section-label">AKUN</span>
+                    <div class="sidebar-menu">
+                        <a href="../general/profile.html" class="sidebar-link">
+                            <i data-lucide="user-round"></i>
+                            <span>Profil Saya</span>
+                        </a>
+                        <a href="../general/privacy-policy.html" class="sidebar-link">
+                            <i data-lucide="shield-check"></i>
+                            <span>Privasi</span>
+                        </a>
+                    </div>
+                </div>
+
+            </nav>
+
+            <div class="sidebar-bottom">
+                <div class="sidebar-help-card">
+                    <div class="sidebar-help-icon">
+                        <i data-lucide="heart-handshake"></i>
+                    </div>
+                    <strong>Kamu tidak sendirian</strong>
+                    <p>Jika membutuhkan bantuan, jangan ragu untuk bercerita.</p>
+                    <a href="../general/help.html">
+                        Pusat bantuan
+                        <i data-lucide="arrow-up-right"></i>
+                    </a>
+                </div>
+
+                <a href="../../index.html" class="sidebar-logout">
+                    <i data-lucide="log-out"></i>
+                    <span>Keluar</span>
+                </a>
+
+                <div class="sidebar-footer">
+                    <span>SAPA-SKANEGU</span>
+                    <span>SMKN 1 Dlanggu · 2026</span>
+                </div>
+            </div>
+
+        </aside>
+
+        <main class="dashboard-main">
+
+            <header class="dashboard-topbar">
+                <div class="topbar-left">
+                    <button type="button" class="dashboard-menu-toggle" data-sidebar-toggle aria-label="Buka navigasi" aria-expanded="false">
+                        <i data-lucide="menu"></i>
+                    </button>
+                    <div class="topbar-breadcrumb">
+                        <span>Menu Utama</span>
+                        <i data-lucide="chevron-right"></i>
+                        <a href="history.html">Riwayat</a>
+                        <i data-lucide="chevron-right"></i>
+                        <strong>Detail Laporan</strong>
+                    </div>
+                </div>
+
+                <div class="topbar-right">
+                    <div class="topbar-date">
+                        <i data-lucide="calendar-days"></i>
+                        <span id="dashboardDate">Tanggal hari ini</span>
+                    </div>
+                    <a href="../general/notifications.html" class="topbar-icon-button" aria-label="Notifikasi">
+                        <i data-lucide="bell"></i>
+                    </a>
+                    <a href="../general/profile.html" class="topbar-user">
+                        <div class="topbar-user-avatar">
+                            <span id="topbarUserInitial">S</span>
+                        </div>
+                        <div class="topbar-user-information">
+                            <strong id="topbarUserName">Nama Siswa</strong>
+                            <span>Siswa</span>
+                        </div>
+                        <i data-lucide="chevron-down"></i>
+                    </a>
+                </div>
+            </header>
+
+            <div class="dashboard-content report-detail-content">
+
+                <section class="detail-hero">
+                    <div class="detail-hero-content">
+                        <div class="detail-eyebrow">
+                            <span></span>
+                            PUSAT PEMANTAUAN LAPORAN
+                        </div>
+                        <h1>Pantau <span>Perkembangan Laporanmu.</span></h1>
+                        <p>
+                            Setiap laporan memiliki proses penanganan.
+                            Di sini kamu dapat melihat informasi dan perkembangan
+                            laporan yang telah disampaikan.
+                        </p>
+                        <a href="history.html" class="detail-back-link">
+                            <i data-lucide="arrow-left"></i>
+                            Kembali ke Riwayat
+                        </a>
+                    </div>
+
+                    <div class="detail-hero-visual" aria-hidden="true">
+                        <div class="detail-orbit detail-orbit-one"></div>
+                        <div class="detail-orbit detail-orbit-two"></div>
+                        <div class="detail-hero-glow"></div>
+                        <div class="detail-hero-icon">
+                            <i data-lucide="clipboard-list"></i>
+                        </div>
+                        <div class="detail-floating-tag">
+                            <i data-lucide="activity"></i>
+                            <span>Pantau Progres</span>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="detail-information-bar">
+                    <div class="detail-information-icon">
+                        <i data-lucide="info"></i>
+                    </div>
+                    <div>
+                        <strong>Informasi status laporan</strong>
+                        <p>
+                            Perkembangan laporan akan ditampilkan setelah data
+                            terhubung dengan sistem backend sekolah.
+                        </p>
+                    </div>
+                </section>
+
+                <section class="detail-main-grid">
+
+                    <div class="detail-primary-column">
+
+                        <article class="detail-panel detail-overview-panel">
+                            <div class="detail-panel-heading">
+                                <div>
+                                    <span class="detail-section-label">RINGKASAN</span>
+                                    <h2>Informasi Laporan</h2>
+                                    <p>Identitas dan informasi dasar laporan.</p>
+                                </div>
+                                <div class="detail-heading-icon">
+                                    <i data-lucide="file-text"></i>
+                                </div>
+                            </div>
+
+                            <div class="detail-report-identity">
+                                <div>
+                                    <span class="detail-meta-label">NOMOR LAPORAN</span>
+                                    <strong id="detailReportNumber">Belum tersedia</strong>
+                                </div>
+                                <span class="detail-status-badge" id="detailReportStatus">
+                                    <span></span>
+                                    Menunggu data
+                                </span>
+                            </div>
+
+                            <div class="detail-empty-state" id="detailEmptyState">
+                                <div class="detail-empty-icon">
+                                    <i data-lucide="file-search"></i>
+                                </div>
+                                <h3>Data laporan belum tersedia</h3>
+                                <p id="detailEmptyMessage">
+                                    Belum ada data laporan yang dapat ditampilkan.
+                                    Buka halaman ini melalui riwayat laporan setelah
+                                    sistem terhubung dengan backend.
+                                </p>
+                                <button type="button" class="detail-retry-button" id="detailRetryButton">
+                                    <i data-lucide="refresh-cw"></i>
+                                    Periksa kembali
+                                </button>
+                            </div>
+
+                            <div class="detail-information-list" id="detailInformationList" hidden>
+                                <div class="detail-information-item">
+                                    <span>Jenis laporan</span>
+                                    <strong id="detailReportType">-</strong>
+                                </div>
+                                <div class="detail-information-item">
+                                    <span>Tanggal kejadian</span>
+                                    <strong id="detailIncidentDate">-</strong>
+                                </div>
+                                <div class="detail-information-item">
+                                    <span>Tanggal pengajuan</span>
+                                    <strong id="detailSubmittedDate">-</strong>
+                                </div>
+                                <div class="detail-information-item">
+                                    <span>Lokasi kejadian</span>
+                                    <strong id="detailLocation">-</strong>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="detail-panel detail-timeline-panel">
+                            <div class="detail-panel-heading">
+                                <div>
+                                    <span class="detail-section-label">PROSES PENANGANAN</span>
+                                    <h2>Timeline Laporan</h2>
+                                    <p>Riwayat tahapan penanganan laporanmu.</p>
+                                </div>
+                                <div class="detail-heading-icon cyan">
+                                    <i data-lucide="git-branch"></i>
+                                </div>
+                            </div>
+
+                            <div class="detail-timeline-empty" id="detailTimelineEmpty">
+                                <div class="detail-timeline-empty-icon">
+                                    <i data-lucide="clock-4"></i>
+                                </div>
+                                <div>
+                                    <strong>Belum ada perkembangan</strong>
+                                    <p>
+                                        Informasi tahapan penanganan akan muncul
+                                        setelah tersedia dari sistem.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="detail-timeline" id="detailTimeline" hidden></div>
+                        </article>
+
+                        <article class="detail-panel detail-description-panel" id="detailDescriptionPanel" hidden>
+                            <div class="detail-panel-heading">
+                                <div>
+                                    <span class="detail-section-label">KETERANGAN</span>
+                                    <h2>Kronologi Laporan</h2>
+                                    <p>Informasi kejadian yang disampaikan.</p>
+                                </div>
+                                <div class="detail-heading-icon">
+                                    <i data-lucide="notebook-text"></i>
+                                </div>
+                            </div>
+                            <p id="detailDescription"></p>
+                        </article>
+
+                    </div>
+
+                    <aside class="detail-secondary-column">
+
+                        <article class="detail-panel detail-support-panel">
+                            <div class="detail-support-icon">
+                                <i data-lucide="heart-handshake"></i>
+                            </div>
+                            <span class="detail-section-label">PENDAMPINGAN</span>
+                            <h2>Kamu tidak harus menghadapi semuanya sendiri.</h2>
+                            <p>
+                                Jika membutuhkan bantuan atau merasa tidak aman,
+                                hubungi guru BK, wali kelas, atau orang dewasa
+                                yang kamu percaya.
+                            </p>
+                            <a href="../general/help.html" class="detail-support-link">
+                                Hubungi pusat bantuan
+                                <i data-lucide="arrow-up-right"></i>
+                            </a>
+                        </article>
+
+                        <article class="detail-panel detail-privacy-panel">
+                            <div class="detail-privacy-icon">
+                                <i data-lucide="lock-keyhole"></i>
+                            </div>
+                            <h3>Privasi laporan</h3>
+                            <p>
+                                Informasi laporan merupakan hal yang sensitif.
+                                Jangan membagikan nomor laporan atau kronologi
+                                kepada pihak yang tidak berkepentingan.
+                            </p>
+                            <a href="../general/privacy-policy.html">
+                                Pelajari kebijakan privasi
+                                <i data-lucide="arrow-up-right"></i>
+                            </a>
+                        </article>
+
+                        <article class="detail-help-panel">
+                            <div class="detail-help-panel-icon">
+                                <i data-lucide="lightbulb"></i>
+                            </div>
+                            <strong>Butuh informasi lain?</strong>
+                            <p>Kunjungi halaman edukasi untuk mengenali dan mencegah bullying.</p>
+                            <a href="../general/education.html">
+                                Buka halaman edukasi
+                                <i data-lucide="arrow-right"></i>
+                            </a>
+                        </article>
+
+                    </aside>
+
+                </section>
+
+                <footer class="dashboard-footer">
+                    <div>
+                        <strong>SAPA-SKANEGU</strong>
+                        <span>Sistem Aspirasi dan Pelaporan Anti-Bullying</span>
+                    </div>
+                    <div class="dashboard-footer-right">
+                        <span>SMKN 1 Dlanggu</span>
+                        <span>© 2026</span>
+                    </div>
+                </footer>
+
+            </div>
+
+        </main>
+    </div>
+
+</body>
+</html>

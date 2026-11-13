@@ -1602,3 +1602,216 @@
         transform: none !important;
     }
 }
+
+.student-dashboard .dashboard-background-glow {
+    transform-origin: center;
+    animation: ambient-glow-shift 18s ease-in-out infinite;
+}
+
+.student-dashboard .dashboard-glow-two {
+    animation-delay: 4s;
+    animation-duration: 23s;
+}
+
+.student-dashboard .dashboard-background-stars {
+    animation:
+        star-twinkle 9s ease-in-out infinite,
+        star-drift 100s linear infinite;
+}
+
+.student-dashboard .welcome-visual-icon {
+    animation: mascot-float 5s ease-in-out infinite;
+}
+
+.student-dashboard .welcome-visual-icon img {
+    animation: mascot-aura-pulse 6s ease-in-out infinite;
+}
+
+.student-dashboard .welcome-visual-orbit.orbit-one {
+    animation: mascot-orbit-one 28s linear infinite;
+}
+
+.student-dashboard .welcome-visual-orbit.orbit-two {
+    animation: mascot-orbit-two 36s linear infinite;
+}
+
+.student-dashboard .welcome-visual-glow {
+    animation: mascot-aura-pulse 6s ease-in-out infinite;
+}
+
+.student-dashboard .welcome-floating-card {
+    animation: cloud-float-one 7s ease-in-out infinite;
+}
+
+.student-dashboard .floating-card-two {
+    animation: cloud-float-two 8s ease-in-out infinite;
+}
+
+.student-dashboard .welcome-eyebrow .welcome-status-dot {
+    animation: caption-indicator-pulse 2.5s ease-in-out infinite;
+}
+
+.student-dashboard .stat-card {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    animation: feature-card-enter 0.75s var(--animation-ease-smooth) both;
+}
+
+.student-dashboard .stat-card:nth-child(1) {
+    animation-delay: 0.15s;
+}
+
+.student-dashboard .stat-card:nth-child(2) {
+    animation-delay: 0.25s;
+}
+
+.student-dashboard .stat-card:nth-child(3) {
+    animation-delay: 0.35s;
+}
+
+.student-dashboard .stat-card:nth-child(4) {
+    animation-delay: 0.45s;
+}
+
+.student-dashboard .stat-card::after,
+.student-dashboard .quick-action-card::after {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    border-radius: inherit;
+    background: radial-gradient(
+        circle at var(--hover-x, 50%) var(--hover-y, 50%),
+        rgba(167, 139, 250, 0.2),
+        transparent 58%
+    );
+    content: "";
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+}
+
+.student-dashboard .stat-card.is-tilting::after,
+.student-dashboard .quick-action-card.is-tilting::after {
+    opacity: 1;
+}
+
+.student-dashboard .stat-card > *,
+.student-dashboard .quick-action-card > * {
+    position: relative;
+    z-index: 1;
+}
+
+.student-dashboard .stat-card,
+.student-dashboard .quick-action-card {
+    transform-style: preserve-3d;
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.student-dashboard .stat-card.is-tilting,
+.student-dashboard .quick-action-card.is-tilting {
+    border-color: rgba(167, 139, 250, 0.42);
+    box-shadow:
+        0 12px 32px rgba(0, 0, 0, 0.18),
+        0 0 22px rgba(139, 92, 246, 0.12);
+}
+
+.student-dashboard .welcome-actions .button {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+}
+
+.student-dashboard .welcome-actions .button::after {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background: radial-gradient(
+        circle at var(--button-glow-x, 50%) var(--button-glow-y, 50%),
+        rgba(255, 255, 255, 0.3),
+        transparent 48%
+    );
+    content: "";
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+}
+
+.student-dashboard .welcome-actions .button.button-pointer-active::after {
+    opacity: 1;
+}
+
+.student-dashboard .welcome-actions .button > * {
+    position: relative;
+    z-index: 1;
+}
+
+.student-dashboard .welcome-actions .button .button-ripple {
+    position: absolute;
+    z-index: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.38);
+    pointer-events: none;
+    transform: translate(-50%, -50%) scale(0);
+    animation: button-ripple-effect 0.65s ease-out forwards;
+}
+
+.student-dashboard .cursor-glow {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    background: radial-gradient(
+        circle,
+        rgba(143, 105, 255, 0.12),
+        rgba(82, 189, 221, 0.05) 42%,
+        transparent 70%
+    );
+    opacity: 0;
+    pointer-events: none;
+    transform: translate3d(
+        calc(var(--cursor-x, -500px) - 50%),
+        calc(var(--cursor-y, -500px) - 50%),
+        0
+    );
+    transition: opacity 0.25s ease;
+    will-change: transform;
+}
+
+@media (max-width: 900px) {
+    .student-dashboard .cursor-glow {
+        display: none;
+    }
+
+    .student-dashboard .welcome-floating-card {
+        animation: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .student-dashboard .dashboard-background-glow,
+    .student-dashboard .dashboard-background-stars,
+    .student-dashboard .welcome-visual-icon,
+    .student-dashboard .welcome-visual-icon img,
+    .student-dashboard .welcome-visual-orbit,
+    .student-dashboard .welcome-visual-glow,
+    .student-dashboard .welcome-floating-card,
+    .student-dashboard .stat-card {
+        animation: none !important;
+    }
+
+    .student-dashboard .cursor-glow {
+        display: none !important;
+    }
+
+    .student-dashboard .stat-card,
+    .student-dashboard .quick-action-card {
+        transition: none !important;
+    }
+}

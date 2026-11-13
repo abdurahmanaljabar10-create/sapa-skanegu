@@ -1,0 +1,982 @@
+
+.bullying-content {
+    position: relative;
+}
+
+.bullying-hero {
+    position: relative;
+    display: flex;
+    min-height: 255px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+    padding: 35px 38px;
+    overflow: hidden;
+    border: 1px solid rgba(170, 146, 255, 0.2);
+    border-radius: 20px;
+    background:
+        radial-gradient(ellipse at 90% 45%, rgba(77, 153, 214, 0.17), transparent 42%),
+        linear-gradient(115deg, rgba(46, 30, 91, 0.88), rgba(20, 25, 62, 0.94));
+    box-shadow: 0 20px 55px rgba(0, 0, 0, 0.15);
+}
+
+.bullying-hero::before,
+.bullying-hero::after {
+    position: absolute;
+    border: 1px solid rgba(190, 173, 255, 0.08);
+    border-radius: 50%;
+    content: "";
+    pointer-events: none;
+}
+
+.bullying-hero::before {
+    top: -145px;
+    right: 13%;
+    width: 330px;
+    height: 330px;
+}
+
+.bullying-hero::after {
+    right: 4%;
+    bottom: -190px;
+    width: 390px;
+    height: 390px;
+    border-color: rgba(103, 220, 233, 0.08);
+}
+
+.bullying-hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 690px;
+}
+
+.bullying-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    margin-bottom: 17px;
+    color: #c2b0ff;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+}
+
+.bullying-pulse {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #62e1c0;
+    box-shadow: 0 0 12px rgba(98, 225, 192, 0.65);
+    animation: bullying-pulse 2.5s ease-in-out infinite;
+}
+
+.bullying-hero h1 {
+    max-width: 650px;
+    margin: 0;
+    color: #fff;
+    font-family: "Outfit", sans-serif;
+    font-size: clamp(28px, 3vw, 39px);
+    font-weight: 800;
+    line-height: 1.17;
+    letter-spacing: -0.8px;
+}
+
+.bullying-gradient {
+    display: block;
+    background: linear-gradient(100deg, #b9a2ff, #71dce9);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.bullying-hero-content > p {
+    max-width: 590px;
+    margin: 14px 0 0;
+    color: #b6b0cb;
+    font-size: 11px;
+    line-height: 1.9;
+}
+
+.bullying-hero-points {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 17px;
+    margin-top: 20px;
+}
+
+.bullying-hero-points span {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    color: #c9c2df;
+    font-size: 9px;
+}
+
+.bullying-hero-points svg {
+    width: 14px;
+    height: 14px;
+    color: #83dcca;
+}
+
+.bullying-hero-visual {
+    position: relative;
+    display: grid;
+    width: 205px;
+    height: 190px;
+    flex: 0 0 205px;
+    place-items: center;
+}
+
+.bullying-orbit {
+    position: absolute;
+    width: 175px;
+    height: 76px;
+    border: 1px solid rgba(190, 173, 255, 0.27);
+    border-radius: 50%;
+}
+
+.bullying-orbit-one {
+    transform: rotate(-28deg);
+    animation: bullying-orbit-one 28s linear infinite;
+}
+
+.bullying-orbit-two {
+    width: 180px;
+    height: 82px;
+    border-color: rgba(103, 220, 233, 0.25);
+    transform: rotate(55deg);
+    animation: bullying-orbit-two 36s linear infinite;
+}
+
+.bullying-visual-glow {
+    position: absolute;
+    width: 125px;
+    height: 125px;
+    border-radius: 50%;
+    background: rgba(130, 101, 242, 0.35);
+    filter: blur(38px);
+    animation: bullying-aura 6s ease-in-out infinite;
+}
+
+.bullying-visual-icon {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    width: 88px;
+    height: 88px;
+    place-items: center;
+    border: 1px solid rgba(210, 193, 255, 0.35);
+    border-radius: 27px;
+    background: linear-gradient(145deg, rgba(153, 120, 242, 0.3), rgba(58, 118, 169, 0.2));
+    box-shadow: 0 0 45px rgba(142, 113, 255, 0.23);
+    animation: bullying-float 5s ease-in-out infinite;
+}
+
+.bullying-visual-icon svg {
+    width: 38px;
+    height: 38px;
+    color: #e4dcff;
+    stroke-width: 1.5;
+}
+
+.bullying-floating-tag {
+    position: absolute;
+    right: -5px;
+    bottom: 15px;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding: 9px 11px;
+    border: 1px solid rgba(191, 176, 255, 0.2);
+    border-radius: 9px;
+    background: rgba(26, 22, 54, 0.92);
+    color: #e8e1ff;
+    font-size: 9px;
+    font-weight: 700;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    animation: bullying-tag-float 6s ease-in-out infinite;
+}
+
+.bullying-floating-tag svg {
+    width: 14px;
+    height: 14px;
+    color: #81d9e8;
+}
+
+.bullying-emergency-notice {
+    display: flex;
+    align-items: flex-start;
+    gap: 13px;
+    margin-top: 18px;
+    padding: 17px 19px;
+    border: 1px solid rgba(245, 178, 99, 0.2);
+    border-radius: 13px;
+    background: linear-gradient(100deg, rgba(122, 79, 37, 0.17), rgba(53, 38, 48, 0.35));
+}
+
+.bullying-emergency-icon {
+    display: grid;
+    width: 39px;
+    height: 39px;
+    flex: 0 0 39px;
+    place-items: center;
+    border: 1px solid rgba(245, 178, 99, 0.2);
+    border-radius: 11px;
+    background: rgba(245, 178, 99, 0.1);
+    color: #f5bd7b;
+}
+
+.bullying-emergency-icon svg {
+    width: 20px;
+    height: 20px;
+}
+
+.bullying-emergency-notice strong {
+    color: #f4d4a9;
+    font-size: 11px;
+}
+
+.bullying-emergency-notice p {
+    margin: 5px 0 0;
+    color: #c1ae9a;
+    font-size: 10px;
+    line-height: 1.75;
+}
+
+.bullying-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.6fr) minmax(250px, 0.75fr);
+    align-items: start;
+    gap: 18px;
+    margin-top: 23px;
+}
+
+.bullying-form-panel,
+.bullying-guide-card,
+.bullying-support-card,
+.bullying-privacy-card {
+    min-width: 0;
+    border: 1px solid rgba(181, 161, 255, 0.13);
+    border-radius: 16px;
+    background: rgba(24, 20, 46, 0.88);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+}
+
+.bullying-form-panel {
+    padding: 24px;
+}
+
+.bullying-panel-heading {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    margin-bottom: 20px;
+}
+
+.bullying-panel-icon,
+.bullying-guide-icon {
+    display: grid;
+    width: 43px;
+    height: 43px;
+    flex: 0 0 43px;
+    place-items: center;
+    border: 1px solid rgba(167, 139, 250, 0.2);
+    border-radius: 12px;
+    background: rgba(167, 139, 250, 0.12);
+    color: #c1a9ff;
+}
+
+.bullying-panel-icon svg,
+.bullying-guide-icon svg {
+    width: 21px;
+    height: 21px;
+}
+
+.bullying-section-label {
+    display: block;
+    margin-bottom: 5px;
+    color: #a991ef;
+    font-size: 8px;
+    font-weight: 800;
+    letter-spacing: 1.4px;
+}
+
+.bullying-panel-heading h2,
+.bullying-guide-card h2 {
+    margin: 0;
+    color: #f1edff;
+    font-family: "Outfit", sans-serif;
+    font-size: 19px;
+    font-weight: 750;
+}
+
+.bullying-panel-heading p {
+    margin: 5px 0 0;
+    color: #9690ac;
+    font-size: 10px;
+    line-height: 1.6;
+}
+
+.bullying-form-notice {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 23px;
+    padding: 12px 13px;
+    border: 1px solid rgba(91, 178, 221, 0.16);
+    border-radius: 10px;
+    background: rgba(72, 139, 190, 0.09);
+}
+
+.bullying-form-notice svg {
+    width: 16px;
+    height: 16px;
+    flex: 0 0 16px;
+    margin-top: 1px;
+    color: #83c9ee;
+}
+
+.bullying-form-notice p {
+    margin: 0;
+    color: #b5c7dc;
+    font-size: 10px;
+    line-height: 1.7;
+}
+
+.bullying-form {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+.bullying-form-section {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.bullying-form-section-heading {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+}
+
+.bullying-form-section-heading > span {
+    display: grid;
+    width: 34px;
+    height: 34px;
+    flex: 0 0 34px;
+    place-items: center;
+    border: 1px solid rgba(167, 139, 250, 0.22);
+    border-radius: 10px;
+    background: rgba(167, 139, 250, 0.1);
+    color: #c0aaff;
+    font-size: 10px;
+    font-weight: 800;
+}
+
+.bullying-form-section-heading h3 {
+    margin: 0;
+    color: #eae5f8;
+    font-family: "Outfit", sans-serif;
+    font-size: 14px;
+    font-weight: 750;
+}
+
+.bullying-form-section-heading p {
+    margin: 4px 0 0;
+    color: #8f88a6;
+    font-size: 9px;
+    line-height: 1.6;
+}
+
+.bullying-form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 17px 14px;
+}
+
+.bullying-field {
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.bullying-field-full {
+    grid-column: 1 / -1;
+}
+
+.bullying-field label {
+    color: #e6e0f5;
+    font-size: 10px;
+    font-weight: 700;
+}
+
+.bullying-field label > span {
+    color: #f28eaf;
+}
+
+.bullying-input-wrap {
+    position: relative;
+    display: flex;
+    min-height: 45px;
+    align-items: center;
+}
+
+.bullying-input-wrap > svg:first-child {
+    position: absolute;
+    left: 13px;
+    width: 16px;
+    height: 16px;
+    color: #9688c1;
+    pointer-events: none;
+}
+
+.bullying-input-wrap input,
+.bullying-input-wrap select,
+.bullying-field textarea {
+    width: 100%;
+    min-width: 0;
+    border: 1px solid rgba(181, 161, 255, 0.17);
+    border-radius: 9px;
+    outline: none;
+    background: rgba(12, 10, 29, 0.58);
+    color: #eeeaff;
+    font-family: "DM Sans", sans-serif;
+    font-size: 11px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.bullying-input-wrap input,
+.bullying-input-wrap select {
+    height: 45px;
+    padding: 0 37px;
+}
+
+.bullying-input-wrap select {
+    appearance: none;
+    -webkit-appearance: none;
+    cursor: pointer;
+}
+
+.bullying-input-wrap select option {
+    background: #17132d;
+    color: #f5f2ff;
+}
+
+.bullying-input-wrap input::placeholder,
+.bullying-field textarea::placeholder {
+    color: #77718e;
+}
+
+.bullying-input-wrap input:focus,
+.bullying-input-wrap select:focus,
+.bullying-field textarea:focus {
+    border-color: rgba(167, 139, 250, 0.65);
+    background: rgba(20, 16, 43, 0.9);
+    box-shadow: 0 0 0 3px rgba(167, 139, 250, 0.1);
+}
+
+.bullying-input-wrap .bullying-select-arrow {
+    position: absolute;
+    right: 13px;
+    width: 14px;
+    height: 14px;
+    color: #8e86a6;
+    pointer-events: none;
+}
+
+.bullying-field textarea {
+    min-height: 165px;
+    padding: 13px 14px;
+    resize: vertical;
+    line-height: 1.8;
+}
+
+.bullying-textarea-footer {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.bullying-textarea-footer small {
+    color: #827b98;
+    font-size: 9px;
+    line-height: 1.6;
+}
+
+.bullying-textarea-footer span {
+    flex: 0 0 auto;
+    color: #a995e7;
+    font-size: 9px;
+    font-variant-numeric: tabular-nums;
+}
+
+.bullying-form-divider {
+    width: 100%;
+    height: 1px;
+    background: rgba(181, 161, 255, 0.1);
+}
+
+.bullying-optional-note {
+    display: flex;
+    align-items: flex-start;
+    gap: 9px;
+    padding: 12px 13px;
+    border: 1px solid rgba(167, 139, 250, 0.12);
+    border-radius: 9px;
+    background: rgba(167, 139, 250, 0.045);
+}
+
+.bullying-optional-note svg {
+    width: 16px;
+    height: 16px;
+    flex: 0 0 16px;
+    color: #b7a2ff;
+}
+
+.bullying-optional-note p {
+    margin: 0;
+    color: #aaa2c0;
+    font-size: 9px;
+    line-height: 1.7;
+}
+
+.bullying-consent {
+    display: flex;
+    align-items: flex-start;
+    gap: 9px;
+    padding: 13px;
+    border: 1px solid rgba(81, 209, 184, 0.15);
+    border-radius: 9px;
+    background: rgba(65, 184, 151, 0.07);
+}
+
+.bullying-consent svg {
+    width: 16px;
+    height: 16px;
+    flex: 0 0 16px;
+    color: #72d9b9;
+}
+
+.bullying-consent p {
+    margin: 0;
+    color: #9ebbb1;
+    font-size: 9px;
+    line-height: 1.7;
+}
+
+.bullying-checkbox {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    color: #bcb5d0;
+    font-size: 10px;
+    line-height: 1.7;
+    cursor: pointer;
+}
+
+.bullying-checkbox input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+}
+
+.bullying-checkbox-mark {
+    position: relative;
+    display: grid;
+    width: 18px;
+    height: 18px;
+    flex: 0 0 18px;
+    margin-top: 1px;
+    place-items: center;
+    border: 1px solid rgba(181, 161, 255, 0.35);
+    border-radius: 5px;
+    background: rgba(12, 10, 29, 0.7);
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.bullying-checkbox input:checked + .bullying-checkbox-mark {
+    border-color: #a78bfa;
+    background: #7652d4;
+}
+
+.bullying-checkbox input:checked + .bullying-checkbox-mark::after {
+    width: 5px;
+    height: 9px;
+    border-right: 2px solid #fff;
+    border-bottom: 2px solid #fff;
+    content: "";
+    transform: rotate(45deg) translate(-1px, -1px);
+}
+
+.bullying-checkbox input:focus-visible + .bullying-checkbox-mark {
+    outline: 2px solid #b9a2ff;
+    outline-offset: 3px;
+}
+
+.bullying-form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    padding-top: 3px;
+}
+
+.bullying-cancel-button,
+.bullying-submit-button {
+    display: inline-flex;
+    min-height: 43px;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 0 17px;
+    border: 1px solid transparent;
+    border-radius: 9px;
+    font-family: "DM Sans", sans-serif;
+    font-size: 10px;
+    font-weight: 750;
+    cursor: pointer;
+    transition: transform 0.2s ease, filter 0.2s ease, background-color 0.2s ease;
+}
+
+.bullying-cancel-button {
+    border-color: rgba(181, 161, 255, 0.2);
+    background: rgba(255, 255, 255, 0.035);
+    color: #c5bddb;
+}
+
+.bullying-submit-button {
+    border-color: rgba(198, 177, 255, 0.2);
+    background: linear-gradient(110deg, #7652d4, #6656c9);
+    color: #fff;
+    box-shadow: 0 6px 18px rgba(103, 78, 207, 0.2);
+}
+
+.bullying-submit-button svg {
+    width: 16px;
+    height: 16px;
+}
+
+.bullying-cancel-button:hover,
+.bullying-submit-button:hover {
+    filter: brightness(1.12);
+    transform: translateY(-2px);
+}
+
+.bullying-side-panel {
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.bullying-guide-card {
+    padding: 19px;
+}
+
+.bullying-guide-icon {
+    margin-bottom: 15px;
+}
+
+.bullying-guide-card h2 {
+    max-width: 250px;
+    font-size: 17px;
+    line-height: 1.4;
+}
+
+.bullying-guide-list {
+    display: flex;
+    flex-direction: column;
+    gap: 19px;
+    margin-top: 22px;
+}
+
+.bullying-guide-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 11px;
+}
+
+.bullying-guide-number {
+    display: grid;
+    width: 29px;
+    height: 29px;
+    flex: 0 0 29px;
+    place-items: center;
+    border: 1px solid rgba(167, 139, 250, 0.2);
+    border-radius: 8px;
+    background: rgba(167, 139, 250, 0.1);
+    color: #c0aaff;
+    font-size: 9px;
+    font-weight: 800;
+}
+
+.bullying-guide-item strong {
+    color: #e8e2f7;
+    font-size: 10px;
+}
+
+.bullying-guide-item p {
+    margin: 5px 0 0;
+    color: #928ba7;
+    font-size: 9px;
+    line-height: 1.7;
+}
+
+.bullying-support-card,
+.bullying-privacy-card {
+    padding: 18px;
+}
+
+.bullying-support-card {
+    border-color: rgba(243, 124, 172, 0.17);
+    background: linear-gradient(145deg, rgba(109, 48, 93, 0.12), rgba(25, 21, 52, 0.92));
+}
+
+.bullying-support-icon,
+.bullying-privacy-icon {
+    display: grid;
+    width: 37px;
+    height: 37px;
+    margin-bottom: 12px;
+    place-items: center;
+    border: 1px solid rgba(243, 124, 172, 0.2);
+    border-radius: 10px;
+    background: rgba(243, 124, 172, 0.1);
+    color: #f39abc;
+}
+
+.bullying-support-icon svg,
+.bullying-privacy-icon svg {
+    width: 19px;
+    height: 19px;
+}
+
+.bullying-support-card > span {
+    display: block;
+    margin-bottom: 6px;
+    color: #e79abb;
+    font-size: 8px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.bullying-support-card h3,
+.bullying-privacy-card h3 {
+    margin: 0;
+    color: #f5eaf2;
+    font-family: "Outfit", sans-serif;
+    font-size: 14px;
+    font-weight: 750;
+}
+
+.bullying-support-card p,
+.bullying-privacy-card p {
+    margin: 8px 0 12px;
+    color: #bba4b5;
+    font-size: 9px;
+    line-height: 1.8;
+}
+
+.bullying-support-card a,
+.bullying-privacy-card a {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: #f0a5c4;
+    font-size: 9px;
+    font-weight: 750;
+}
+
+.bullying-support-card a svg,
+.bullying-privacy-card a svg {
+    width: 13px;
+    height: 13px;
+}
+
+.bullying-privacy-card {
+    border-color: rgba(81, 209, 184, 0.16);
+    background: linear-gradient(145deg, rgba(41, 117, 109, 0.1), rgba(25, 21, 52, 0.92));
+}
+
+.bullying-privacy-icon {
+    border-color: rgba(81, 209, 184, 0.2);
+    background: rgba(81, 209, 184, 0.1);
+    color: #7ce0c2;
+}
+
+.bullying-privacy-card h3 {
+    color: #ecf8f5;
+}
+
+.bullying-privacy-card p {
+    color: #a2b8b1;
+}
+
+.bullying-privacy-card a {
+    color: #83dfc5;
+}
+
+@keyframes bullying-pulse {
+    0%, 100% {
+        opacity: 0.7;
+        box-shadow: 0 0 6px rgba(98, 225, 192, 0.35);
+    }
+    50% {
+        opacity: 1;
+        box-shadow: 0 0 15px rgba(98, 225, 192, 0.8);
+    }
+}
+
+@keyframes bullying-float {
+    0%, 100% {
+        transform: translateY(0) rotate(-5deg);
+    }
+    50% {
+        transform: translateY(-12px) rotate(3deg);
+    }
+}
+
+@keyframes bullying-orbit-one {
+    from {
+        transform: rotate(-28deg);
+    }
+    to {
+        transform: rotate(332deg);
+    }
+}
+
+@keyframes bullying-orbit-two {
+    from {
+        transform: rotate(55deg);
+    }
+    to {
+        transform: rotate(-305deg);
+    }
+}
+
+@keyframes bullying-aura {
+    0%, 100% {
+        opacity: 0.55;
+        transform: scale(0.9);
+    }
+    50% {
+        opacity: 0.95;
+        transform: scale(1.13);
+    }
+}
+
+@keyframes bullying-tag-float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-6px);
+    }
+}
+
+@media (max-width: 1100px) {
+    .bullying-layout {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .bullying-side-panel {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .bullying-guide-card {
+        grid-row: span 2;
+    }
+}
+
+@media (max-width: 650px) {
+    .bullying-hero {
+        min-height: auto;
+        padding: 25px 22px;
+    }
+
+    .bullying-hero-visual {
+        display: none;
+    }
+
+    .bullying-hero h1 {
+        font-size: 29px;
+    }
+
+    .bullying-hero-content > p {
+        font-size: 10px;
+    }
+
+    .bullying-hero-points {
+        flex-direction: column;
+        gap: 9px;
+    }
+
+    .bullying-side-panel {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .bullying-guide-card {
+        grid-row: auto;
+    }
+
+    .bullying-form-panel {
+        padding: 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    .bullying-hero {
+        padding: 22px 17px;
+        border-radius: 15px;
+    }
+
+    .bullying-hero h1 {
+        font-size: 25px;
+    }
+
+    .bullying-form-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .bullying-field-full {
+        grid-column: auto;
+    }
+
+    .bullying-panel-heading h2 {
+        font-size: 17px;
+    }
+
+    .bullying-textarea-footer {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .bullying-emergency-notice {
+        padding: 14px;
+    }
+
+    .bullying-form-actions {
+        flex-direction: column-reverse;
+    }
+
+    .bullying-cancel-button,
+    .bullying-submit-button {
+        width: 100%;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .bullying-report-page *,
+    .bullying-report-page *::before,
+    .bullying-report-page *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}

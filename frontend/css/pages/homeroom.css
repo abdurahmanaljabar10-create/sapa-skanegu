@@ -1,0 +1,708 @@
+
+.homeroom-dashboard {
+    position: relative;
+}
+
+.homeroom-content {
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 30px clamp(18px, 3vw, 38px) 28px;
+}
+
+.homeroom-dashboard .sidebar-link.active {
+    color: var(--text-primary);
+}
+
+.homeroom-dashboard .sidebar-link.active i {
+    color: var(--cyan);
+}
+
+.homeroom-dashboard .topbar-icon-button {
+    position: relative;
+}
+
+.homeroom-notification-dot {
+    position: absolute;
+    top: 9px;
+    right: 9px;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--cyan);
+    box-shadow: 0 0 10px rgba(85, 217, 245, .7);
+}
+
+.homeroom-welcome {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 255px;
+    overflow: hidden;
+    padding: 35px 44px;
+    border: 1px solid rgba(197, 164, 255, .2);
+    border-radius: 25px;
+    background:
+        radial-gradient(circle at 78% 50%, rgba(85, 217, 245, .13), transparent 28%),
+        radial-gradient(circle at 10% 0%, rgba(135, 85, 232, .25), transparent 45%),
+        linear-gradient(120deg, rgba(35, 19, 66, .97), rgba(17, 12, 39, .96));
+    box-shadow: 0 18px 50px rgba(0, 0, 0, .16);
+}
+
+.homeroom-welcome::after {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 1px;
+    content: "";
+    background: linear-gradient(90deg, transparent, rgba(85, 217, 245, .5), transparent);
+}
+
+.homeroom-welcome-copy {
+    position: relative;
+    z-index: 2;
+    max-width: 650px;
+}
+
+.homeroom-eyebrow,
+.homeroom-section-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--cyan);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+}
+
+.homeroom-eyebrow {
+    margin-bottom: 15px;
+}
+
+.homeroom-eyebrow i {
+    width: 15px;
+    height: 15px;
+}
+
+.homeroom-welcome h1 {
+    margin: 0 0 10px;
+    color: var(--text-primary);
+    font-family: var(--font-display);
+    font-size: clamp(30px, 4vw, 43px);
+    font-weight: 800;
+    letter-spacing: -.8px;
+    line-height: 1.15;
+}
+
+.homeroom-welcome-copy p {
+    max-width: 570px;
+    margin: 0;
+    color: var(--text-secondary);
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.homeroom-primary-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 11px;
+    margin-top: 22px;
+    padding: 12px 17px;
+    border: 1px solid rgba(255, 255, 255, .12);
+    border-radius: 10px;
+    background: linear-gradient(110deg, var(--purple), #7046c7);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.homeroom-primary-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(135, 85, 232, .3);
+}
+
+.homeroom-primary-button i {
+    width: 15px;
+    height: 15px;
+}
+
+.homeroom-welcome-art {
+    position: relative;
+    display: grid;
+    flex: 0 0 230px;
+    width: 230px;
+    height: 210px;
+    place-items: center;
+}
+
+.homeroom-welcome-art img {
+    position: relative;
+    z-index: 2;
+    width: 155px;
+    height: 175px;
+    object-fit: contain;
+    filter: drop-shadow(0 12px 25px rgba(0, 0, 0, .25));
+}
+
+.homeroom-art-orbit {
+    position: absolute;
+    border: 1px solid rgba(85, 217, 245, .25);
+    border-radius: 50%;
+}
+
+.homeroom-art-orbit-one {
+    width: 190px;
+    height: 190px;
+}
+
+.homeroom-art-orbit-two {
+    width: 145px;
+    height: 145px;
+    border-color: rgba(197, 164, 255, .3);
+}
+
+.homeroom-art-star {
+    position: absolute;
+    z-index: 3;
+    color: var(--cyan);
+    text-shadow: 0 0 14px rgba(85, 217, 245, .8);
+}
+
+.star-one {
+    top: 25px;
+    right: 25px;
+    font-size: 25px;
+}
+
+.star-two {
+    bottom: 30px;
+    left: 15px;
+    font-size: 30px;
+}
+
+.homeroom-section {
+    margin-top: 32px;
+}
+
+.homeroom-section-heading,
+.homeroom-panel-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.homeroom-section-heading {
+    margin-bottom: 17px;
+}
+
+.homeroom-section-heading h2,
+.homeroom-panel-heading h2 {
+    margin: 5px 0 0;
+    color: var(--text-primary);
+    font-family: var(--font-display);
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.homeroom-section-heading p {
+    margin: 5px 0 0;
+    color: var(--text-muted);
+    font-size: 12px;
+}
+
+.homeroom-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 15px;
+}
+
+.homeroom-stat-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    min-width: 0;
+    padding: 19px 17px;
+    border: 1px solid var(--border);
+    border-radius: 17px;
+    background: rgba(27, 16, 52, .68);
+    transition: transform .2s ease, border-color .2s ease;
+}
+
+.homeroom-stat-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(197, 164, 255, .35);
+}
+
+.homeroom-stat-icon,
+.homeroom-quick-icon {
+    display: grid;
+    flex: 0 0 auto;
+    width: 43px;
+    height: 43px;
+    place-items: center;
+    border-radius: 13px;
+}
+
+.homeroom-stat-icon i,
+.homeroom-quick-icon i {
+    width: 20px;
+    height: 20px;
+}
+
+.homeroom-stat-icon.purple,
+.homeroom-quick-icon.purple {
+    background: rgba(135, 85, 232, .17);
+    color: #c5a4ff;
+}
+
+.homeroom-stat-icon.cyan,
+.homeroom-quick-icon.cyan {
+    background: rgba(85, 217, 245, .13);
+    color: var(--cyan);
+}
+
+.homeroom-stat-icon.orange {
+    background: rgba(255, 170, 91, .13);
+    color: #ffb46f;
+}
+
+.homeroom-stat-icon.green {
+    background: rgba(87, 213, 155, .13);
+    color: #65dda8;
+}
+
+.homeroom-quick-icon.pink {
+    background: rgba(239, 135, 196, .13);
+    color: #f39aca;
+}
+
+.homeroom-stat-card > div:last-child {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.homeroom-stat-card span {
+    color: var(--text-secondary);
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.homeroom-stat-card strong {
+    margin: 5px 0 3px;
+    color: var(--text-primary);
+    font-family: var(--font-display);
+    font-size: 27px;
+    font-weight: 800;
+    line-height: 1.1;
+}
+
+.homeroom-stat-card small {
+    color: var(--text-muted);
+    font-size: 10px;
+    line-height: 1.5;
+}
+
+.homeroom-main-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.55fr) minmax(270px, .85fr);
+    gap: 17px;
+    margin-top: 25px;
+}
+
+.homeroom-panel {
+    min-width: 0;
+    padding: 22px;
+    border: 1px solid var(--border);
+    border-radius: 19px;
+    background: rgba(27, 16, 52, .68);
+}
+
+.homeroom-panel-heading {
+    margin-bottom: 18px;
+}
+
+.homeroom-panel-heading h2 {
+    font-size: 17px;
+}
+
+.homeroom-demo-label {
+    padding: 6px 9px;
+    border: 1px solid rgba(255, 180, 111, .2);
+    border-radius: 7px;
+    background: rgba(255, 170, 91, .08);
+    color: #ffbd85;
+    font-size: 9px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.homeroom-monitor-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.homeroom-monitor-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 15px 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.homeroom-monitor-item:first-child {
+    padding-top: 3px;
+}
+
+.homeroom-monitor-item:last-child {
+    padding-bottom: 0;
+    border-bottom: 0;
+}
+
+.homeroom-monitor-icon {
+    display: grid;
+    flex: 0 0 auto;
+    width: 39px;
+    height: 39px;
+    place-items: center;
+    border-radius: 11px;
+}
+
+.homeroom-monitor-icon i {
+    width: 18px;
+    height: 18px;
+}
+
+.homeroom-monitor-icon.orange {
+    background: rgba(255, 170, 91, .12);
+    color: #ffb46f;
+}
+
+.homeroom-monitor-icon.cyan {
+    background: rgba(85, 217, 245, .12);
+    color: var(--cyan);
+}
+
+.homeroom-monitor-icon.purple {
+    background: rgba(135, 85, 232, .15);
+    color: #c5a4ff;
+}
+
+.homeroom-monitor-copy {
+    flex: 1;
+    min-width: 0;
+}
+
+.homeroom-monitor-copy strong {
+    display: block;
+    color: var(--text-primary);
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.homeroom-monitor-copy p {
+    margin: 4px 0;
+    color: var(--text-muted);
+    font-size: 10px;
+    line-height: 1.6;
+}
+
+.homeroom-monitor-copy span {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    color: var(--text-muted);
+    font-size: 9px;
+}
+
+.homeroom-monitor-copy span i {
+    width: 11px;
+    height: 11px;
+}
+
+.homeroom-status {
+    flex: 0 0 auto;
+    padding: 6px 8px;
+    border-radius: 7px;
+    font-size: 9px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.homeroom-status.pending {
+    background: rgba(255, 170, 91, .1);
+    color: #ffbd85;
+}
+
+.homeroom-status.info {
+    background: rgba(85, 217, 245, .1);
+    color: var(--cyan);
+}
+
+.homeroom-responsibility-icon {
+    display: grid;
+    width: 36px;
+    height: 36px;
+    place-items: center;
+    border: 1px solid rgba(85, 217, 245, .2);
+    border-radius: 11px;
+    background: rgba(85, 217, 245, .1);
+    color: var(--cyan);
+}
+
+.homeroom-responsibility-icon i {
+    width: 18px;
+    height: 18px;
+}
+
+.homeroom-responsibility-list {
+    display: flex;
+    flex-direction: column;
+    gap: 17px;
+}
+
+.homeroom-responsibility-list > div {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.homeroom-responsibility-list > div > span {
+    display: grid;
+    flex: 0 0 auto;
+    width: 26px;
+    height: 26px;
+    place-items: center;
+    border: 1px solid rgba(197, 164, 255, .2);
+    border-radius: 8px;
+    background: rgba(135, 85, 232, .13);
+    color: var(--purple-light);
+    font-size: 10px;
+    font-weight: 800;
+}
+
+.homeroom-responsibility-list p {
+    margin: 2px 0 0;
+    color: var(--text-secondary);
+    font-size: 11px;
+    line-height: 1.65;
+}
+
+.homeroom-text-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 22px;
+    color: var(--cyan);
+    font-size: 11px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.homeroom-text-link i {
+    width: 14px;
+    height: 14px;
+    transition: transform .2s ease;
+}
+
+.homeroom-text-link:hover i {
+    transform: translateX(4px);
+}
+
+.homeroom-quick-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 15px;
+}
+
+.homeroom-quick-card {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    gap: 13px;
+    min-width: 0;
+    padding: 18px;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    background: rgba(27, 16, 52, .68);
+    color: inherit;
+    text-decoration: none;
+    transition: transform .2s ease, border-color .2s ease, background .2s ease;
+}
+
+.homeroom-quick-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(85, 217, 245, .3);
+    background: rgba(36, 20, 64, .8);
+}
+
+.homeroom-quick-card > div:nth-child(2) {
+    min-width: 0;
+    padding-right: 10px;
+}
+
+.homeroom-quick-card strong {
+    display: block;
+    margin: 2px 0 5px;
+    color: var(--text-primary);
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.homeroom-quick-card p {
+    margin: 0;
+    color: var(--text-muted);
+    font-size: 10px;
+    line-height: 1.6;
+}
+
+.homeroom-quick-arrow {
+    position: absolute;
+    top: 17px;
+    right: 15px;
+    width: 14px;
+    height: 14px;
+    color: var(--text-muted);
+}
+
+.homeroom-footer {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    margin-top: 35px;
+    padding: 18px 0 5px;
+    border-top: 1px solid var(--border);
+    color: var(--text-muted);
+    font-size: 10px;
+}
+
+@media (max-width: 1150px) {
+    .homeroom-stats-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .homeroom-main-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 760px) {
+    .homeroom-content {
+        padding: 20px 16px 25px;
+    }
+
+    .homeroom-welcome {
+        min-height: 230px;
+        padding: 28px 24px;
+    }
+
+    .homeroom-welcome-art {
+        flex-basis: 150px;
+        width: 150px;
+        height: 160px;
+    }
+
+    .homeroom-welcome-art img {
+        width: 120px;
+        height: 140px;
+    }
+
+    .homeroom-art-orbit-one {
+        width: 145px;
+        height: 145px;
+    }
+
+    .homeroom-art-orbit-two {
+        width: 110px;
+        height: 110px;
+    }
+
+    .homeroom-quick-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 560px) {
+    .homeroom-welcome {
+        align-items: flex-start;
+        min-height: auto;
+        padding: 25px 21px 20px;
+    }
+
+    .homeroom-welcome h1 {
+        font-size: 29px;
+    }
+
+    .homeroom-welcome-copy p {
+        font-size: 11px;
+    }
+
+    .homeroom-welcome-art {
+        position: absolute;
+        right: -35px;
+        bottom: -20px;
+        width: 130px;
+        height: 140px;
+        opacity: .28;
+    }
+
+    .homeroom-welcome-art img {
+        width: 110px;
+        height: 125px;
+    }
+
+    .homeroom-stats-grid {
+        gap: 10px;
+    }
+
+    .homeroom-stat-card {
+        gap: 9px;
+        padding: 14px 11px;
+    }
+
+    .homeroom-stat-icon {
+        width: 35px;
+        height: 35px;
+        border-radius: 10px;
+    }
+
+    .homeroom-stat-icon i {
+        width: 17px;
+        height: 17px;
+    }
+
+    .homeroom-stat-card strong {
+        font-size: 23px;
+    }
+
+    .homeroom-stat-card small {
+        font-size: 9px;
+    }
+
+    .homeroom-panel {
+        padding: 17px 14px;
+    }
+
+    .homeroom-monitor-item {
+        flex-wrap: wrap;
+        gap: 9px;
+    }
+
+    .homeroom-monitor-copy {
+        flex-basis: calc(100% - 50px);
+    }
+
+    .homeroom-status {
+        margin-left: 48px;
+    }
+
+    .homeroom-footer {
+        flex-direction: column;
+        gap: 7px;
+    }
+}

@@ -1,0 +1,325 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0b0718">
+    <title>Materi Edukasi | SAPA-SKANEGU</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/reset.css">
+    <link rel="stylesheet" href="../../css/global.css">
+    <link rel="stylesheet" href="../../css/components.css">
+    <link rel="stylesheet" href="../../css/dashboard.css">
+    <link rel="stylesheet" href="../../css/animations.css">
+    <link rel="stylesheet" href="../../css/responsive.css">
+    <link rel="stylesheet" href="../../css/pages/student-affairs.css">
+    <link rel="stylesheet" href="../../css/pages/sa-education.css">
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <script src="../../js/main.js" defer></script>
+    <script src="../../js/auth.js" defer></script>
+    <script src="../../js/pages/student-affairs.js" defer></script>
+    <script src="../../js/pages/sa-education.js" defer></script>
+</head>
+<body class="dashboard-page student-affairs-page education-page" data-sa-page="education">
+    <div class="dashboard-background">
+        <div class="dashboard-background-glow dashboard-glow-one"></div>
+        <div class="dashboard-background-glow dashboard-glow-two"></div>
+    </div>
+
+    <div class="dashboard-layout">
+        <div class="dashboard-overlay" data-sidebar-overlay></div>
+
+        <aside class="dashboard-sidebar" data-sidebar>
+            <div class="sidebar-brand">
+                <a href="dashboard.html" class="sidebar-brand-link">
+                    <div class="sidebar-brand-logo">
+                        <img src="../../assets/images/logo/logo-smkn1dlanggu.svg" alt="Logo SMKN 1 Dlanggu">
+                    </div>
+                    <div class="sidebar-brand-text">
+                        <strong>SAPA-SKANEGU</strong>
+                        <span>SMKN 1 Dlanggu</span>
+                    </div>
+                </a>
+                <button class="dashboard-sidebar-close" data-sidebar-close aria-label="Tutup navigasi">
+                    <i data-lucide="x"></i>
+                </button>
+            </div>
+
+            <div class="sidebar-profile">
+                <div class="sidebar-avatar">KS</div>
+                <div class="sidebar-profile-information">
+                    <strong>Tim Kesiswaan</strong>
+                    <span>Bidang Kesiswaan</span>
+                </div>
+                <span class="sidebar-online-indicator"></span>
+            </div>
+
+            <nav class="sidebar-navigation">
+                <div class="sidebar-section">
+                    <span class="sidebar-section-label">MENU UTAMA</span>
+                    <div class="sidebar-menu">
+                        <a href="dashboard.html" class="sidebar-link"><i data-lucide="layout-dashboard"></i><span>Dashboard</span></a>
+                        <a href="cases.html" class="sidebar-link"><i data-lucide="shield-alert"></i><span>Penanganan Kasus</span></a>
+                        <a href="discipline.html" class="sidebar-link"><i data-lucide="clipboard-list"></i><span>Kedisiplinan Siswa</span></a>
+                        <a href="history.html" class="sidebar-link"><i data-lucide="history"></i><span>Riwayat Penanganan</span></a>
+                    </div>
+                </div>
+
+                <div class="sidebar-section">
+                    <span class="sidebar-section-label">INFORMASI</span>
+                    <div class="sidebar-menu">
+                        <a href="education.html" class="sidebar-link active"><i data-lucide="book-open"></i><span>Materi Edukasi</span></a>
+                        <a href="notifications.html" class="sidebar-link"><i data-lucide="bell"></i><span>Notifikasi</span></a>
+                    </div>
+                </div>
+
+                <div class="sidebar-section">
+                    <span class="sidebar-section-label">AKUN</span>
+                    <div class="sidebar-menu">
+                        <a href="profile.html" class="sidebar-link"><i data-lucide="user-round"></i><span>Profil Saya</span></a>
+                        <a href="help.html" class="sidebar-link"><i data-lucide="circle-help"></i><span>Pusat Bantuan</span></a>
+                        <a href="privacy-policy.html" class="sidebar-link"><i data-lucide="shield-check"></i><span>Kebijakan Privasi</span></a>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <a href="../../index.html" class="sidebar-logout" id="logoutButton">
+                    <i data-lucide="log-out"></i>
+                    <span>Keluar</span>
+                </a>
+                <div class="sidebar-footer">
+                    <span>SAPA-SKANEGU</span>
+                    <span>SMKN 1 Dlanggu · 2026</span>
+                </div>
+            </div>
+        </aside>
+
+        <main class="dashboard-main">
+            <header class="dashboard-topbar">
+                <div class="topbar-left">
+                    <button class="dashboard-menu-toggle" data-sidebar-toggle aria-label="Buka navigasi" aria-expanded="false">
+                        <i data-lucide="menu"></i>
+                    </button>
+                    <div class="topbar-breadcrumb">
+                        <span>Bidang Kesiswaan</span>
+                        <i data-lucide="chevron-right"></i>
+                        <strong>Materi Edukasi</strong>
+                    </div>
+                </div>
+
+                <div class="topbar-right">
+                    <div class="topbar-date">
+                        <i data-lucide="calendar-days"></i>
+                        <span id="saCurrentDate"></span>
+                    </div>
+                    <a href="notifications.html" class="topbar-icon-button" aria-label="Notifikasi">
+                        <i data-lucide="bell"></i>
+                    </a>
+                    <a href="profile.html" class="topbar-user">
+                        <div class="topbar-user-avatar">KS</div>
+                        <div class="topbar-user-information">
+                            <strong>Tim Kesiswaan</strong>
+                            <span>Bidang Kesiswaan</span>
+                        </div>
+                        <i data-lucide="chevron-down"></i>
+                    </a>
+                </div>
+            </header>
+
+            <div class="dashboard-content education-content">
+                <section class="education-heading">
+                    <div>
+                        <span class="education-eyebrow">PUSAT INFORMASI DAN PEMBINAAN</span>
+                        <h1>Materi Edukasi</h1>
+                        <p>Kelola materi pembinaan untuk menciptakan lingkungan sekolah yang aman, tertib, dan positif.</p>
+                    </div>
+                    <button class="education-primary-button" id="addEducationButton">
+                        <i data-lucide="plus"></i>
+                        Tambah Materi
+                    </button>
+                </section>
+
+                <section class="education-hero">
+                    <div class="education-hero-copy">
+                        <span class="education-hero-label">EDUKASI DAN PEMBINAAN</span>
+                        <h2>Membangun lingkungan sekolah yang aman dan positif.</h2>
+                        <p>Materi edukasi menjadi sarana pencegahan perundungan, pembinaan kedisiplinan, dan penguatan karakter seluruh warga sekolah.</p>
+                        <div class="education-hero-tags">
+                            <span><i data-lucide="shield-check"></i> Sekolah aman</span>
+                            <span><i data-lucide="users"></i> Karakter positif</span>
+                            <span><i data-lucide="heart-handshake"></i> Saling menghargai</span>
+                        </div>
+                    </div>
+                    <div class="education-hero-art">
+                        <div class="education-orbit education-orbit-one"></div>
+                        <div class="education-orbit education-orbit-two"></div>
+                        <div class="education-hero-symbol"><i data-lucide="book-open-check"></i></div>
+                        <span class="education-spark education-spark-one">✦</span>
+                        <span class="education-spark education-spark-two">✧</span>
+                    </div>
+                </section>
+
+                <section class="education-stats">
+                    <article class="education-stat-card">
+                        <span class="education-stat-icon purple"><i data-lucide="library"></i></span>
+                        <div><strong id="educationTotal">0</strong><span>Total Materi</span></div>
+                    </article>
+                    <article class="education-stat-card">
+                        <span class="education-stat-icon cyan"><i data-lucide="globe"></i></span>
+                        <div><strong id="educationPublished">0</strong><span>Dipublikasikan</span></div>
+                    </article>
+                    <article class="education-stat-card">
+                        <span class="education-stat-icon orange"><i data-lucide="folder"></i></span>
+                        <div><strong id="educationCategories">0</strong><span>Kategori</span></div>
+                    </article>
+                    <article class="education-stat-card">
+                        <span class="education-stat-icon green"><i data-lucide="file-plus"></i></span>
+                        <div><strong id="educationCreated">0</strong><span>Materi Ditambahkan</span></div>
+                    </article>
+                </section>
+
+                <section class="education-library">
+                    <div class="education-library-heading">
+                        <div>
+                            <span class="education-eyebrow">PERPUSTAKAAN EDUKASI</span>
+                            <h2>Daftar Materi</h2>
+                            <p>Temukan, baca, dan kelola materi edukasi sekolah.</p>
+                        </div>
+                        <span class="education-manager-label"><i data-lucide="shield-check"></i> Pengelola Kesiswaan</span>
+                    </div>
+
+                    <div class="education-filters">
+                        <label class="education-search">
+                            <i data-lucide="search"></i>
+                            <input type="search" id="educationSearch" placeholder="Cari judul atau isi materi..." autocomplete="off">
+                        </label>
+                        <select id="educationCategoryFilter" aria-label="Filter kategori">
+                            <option value="all">Semua kategori</option>
+                            <option value="Anti-Bullying">Anti-Bullying</option>
+                            <option value="Kedisiplinan">Kedisiplinan</option>
+                            <option value="Tata Tertib">Tata Tertib</option>
+                            <option value="Karakter">Karakter</option>
+                            <option value="Lingkungan Sekolah">Lingkungan Sekolah</option>
+                        </select>
+                        <select id="educationStatusFilter" aria-label="Filter status">
+                            <option value="all">Semua status</option>
+                            <option value="published">Dipublikasikan</option>
+                            <option value="draft">Draf</option>
+                        </select>
+                    </div>
+
+                    <div class="education-tabs" id="educationTabs">
+                        <button class="education-tab active" data-category="all">Semua</button>
+                        <button class="education-tab" data-category="Anti-Bullying">Anti-Bullying</button>
+                        <button class="education-tab" data-category="Kedisiplinan">Kedisiplinan</button>
+                        <button class="education-tab" data-category="Tata Tertib">Tata Tertib</button>
+                        <button class="education-tab" data-category="Karakter">Karakter</button>
+                        <button class="education-tab" data-category="Lingkungan Sekolah">Lingkungan Sekolah</button>
+                    </div>
+
+                    <div class="education-grid" id="educationGrid"></div>
+
+                    <div class="education-empty" id="educationEmpty" hidden>
+                        <span><i data-lucide="book-x"></i></span>
+                        <h3>Materi tidak ditemukan</h3>
+                        <p>Coba ubah kata pencarian atau filter yang dipilih.</p>
+                        <button class="education-secondary-button" id="resetEducationFilters">Reset Filter</button>
+                    </div>
+
+                    <div class="education-list-footer">
+                        <span id="educationResultCount">0 materi ditampilkan</span>
+                        <button class="education-text-button" id="resetEducationFiltersTop"><i data-lucide="rotate-ccw"></i> Reset filter</button>
+                    </div>
+                </section>
+
+                <footer class="education-footer">
+                    <span>© 2026 SAPA-SKANEGU · SMKN 1 Dlanggu</span>
+                    <span>Panel Bidang Kesiswaan</span>
+                </footer>
+            </div>
+        </main>
+    </div>
+
+    <div class="education-toast" id="educationToast" role="status" aria-live="polite"></div>
+
+    <div class="education-modal" id="educationDetailModal" hidden>
+        <section class="education-modal-panel" role="dialog" aria-modal="true" aria-labelledby="educationDetailTitle">
+            <div class="education-modal-heading">
+                <div>
+                    <span class="education-eyebrow">DETAIL MATERI</span>
+                    <h2 id="educationDetailTitle">Judul Materi</h2>
+                    <p id="educationDetailMeta"></p>
+                </div>
+                <button class="education-close-button" id="closeEducationDetail" aria-label="Tutup"><i data-lucide="x"></i></button>
+            </div>
+            <div class="education-detail-content" id="educationDetailBody"></div>
+            <div class="education-modal-actions">
+                <button class="education-secondary-button" id="closeEducationDetailBottom">Tutup</button>
+                <button class="education-primary-button" id="editEducationFromDetail"><i data-lucide="pencil"></i> Edit Materi</button>
+            </div>
+        </section>
+    </div>
+
+    <div class="education-modal" id="educationFormModal" hidden>
+        <section class="education-modal-panel education-form-panel" role="dialog" aria-modal="true" aria-labelledby="educationFormTitle">
+            <div class="education-modal-heading">
+                <div>
+                    <span class="education-eyebrow">PENGELOLAAN KONTEN</span>
+                    <h2 id="educationFormTitle">Tambah Materi</h2>
+                    <p>Lengkapi informasi materi edukasi di bawah ini.</p>
+                </div>
+                <button class="education-close-button" id="closeEducationForm" aria-label="Tutup"><i data-lucide="x"></i></button>
+            </div>
+
+            <form id="educationForm">
+                <input type="hidden" id="educationId">
+
+                <label class="education-field">
+                    <span>Judul Materi <b>*</b></span>
+                    <input type="text" id="educationTitle" maxlength="120" required placeholder="Masukkan judul materi">
+                </label>
+
+                <div class="education-form-row">
+                    <label class="education-field">
+                        <span>Kategori <b>*</b></span>
+                        <select id="educationCategory" required>
+                            <option value="">Pilih kategori</option>
+                            <option value="Anti-Bullying">Anti-Bullying</option>
+                            <option value="Kedisiplinan">Kedisiplinan</option>
+                            <option value="Tata Tertib">Tata Tertib</option>
+                            <option value="Karakter">Karakter</option>
+                            <option value="Lingkungan Sekolah">Lingkungan Sekolah</option>
+                        </select>
+                    </label>
+                    <label class="education-field">
+                        <span>Status Publikasi <b>*</b></span>
+                        <select id="educationStatus" required>
+                            <option value="published">Dipublikasikan</option>
+                            <option value="draft">Draf</option>
+                        </select>
+                    </label>
+                </div>
+
+                <label class="education-field">
+                    <span>Ringkasan Materi <b>*</b></span>
+                    <textarea id="educationSummary" rows="3" maxlength="300" required placeholder="Tuliskan ringkasan singkat materi"></textarea>
+                </label>
+
+                <label class="education-field">
+                    <span>Isi Materi <b>*</b></span>
+                    <textarea id="educationContent" rows="9" maxlength="12000" required placeholder="Tuliskan isi materi secara lengkap"></textarea>
+                </label>
+
+                <div class="education-modal-actions">
+                    <button type="button" class="education-secondary-button" id="cancelEducationForm">Batal</button>
+                    <button type="submit" class="education-primary-button"><i data-lucide="save"></i> Simpan Materi</button>
+                </div>
+            </form>
+        </section>
+    </div>
+</body>
+</html>

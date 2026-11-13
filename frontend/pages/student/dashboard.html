@@ -18,12 +18,15 @@
     <link rel="stylesheet" href="../../css/components.css">
     <link rel="stylesheet" href="../../css/dashboard.css">
     <link rel="stylesheet" href="../../css/pages/student.css">
+    <link rel="stylesheet" href="../../css/animations.css">
     <link rel="stylesheet" href="../../css/responsive.css">
 
     <script src="https://unpkg.com/lucide@latest" defer></script>
 </head>
 
 <body class="dashboard-page student-dashboard">
+
+    <div class="cursor-glow" aria-hidden="true"></div>
 
     <div class="dashboard-background" aria-hidden="true">
         <div class="dashboard-background-glow dashboard-glow-one"></div>
@@ -41,10 +44,7 @@
             <div class="sidebar-brand">
                 <a href="dashboard.html" class="sidebar-brand-link">
                     <div class="sidebar-brand-logo">
-                        <img
-                            src="../../assets/images/logo/logo-smkn1dlanggu.svg"
-                            alt="Logo SMKN 1 Dlanggu"
-                        >
+                        <img src="../../assets/images/logo/logo-smkn1dlanggu.svg" alt="Logo SMKN 1 Dlanggu">
                     </div>
 
                     <div class="sidebar-brand-text">
@@ -53,12 +53,7 @@
                     </div>
                 </a>
 
-                <button
-                    type="button"
-                    class="dashboard-sidebar-close"
-                    data-sidebar-close
-                    aria-label="Tutup navigasi"
-                >
+                <button type="button" class="dashboard-sidebar-close" data-sidebar-close aria-label="Tutup navigasi">
                     <i data-lucide="x"></i>
                 </button>
             </div>
@@ -82,11 +77,8 @@
                     <span class="sidebar-section-label">MENU UTAMA</span>
 
                     <div class="sidebar-menu">
-                        <a
-                            href="dashboard.html"
-                            class="sidebar-link active"
-                            aria-current="page"
-                        >
+
+                        <a href="dashboard.html" class="sidebar-link active" aria-current="page">
                             <i data-lucide="layout-dashboard"></i>
                             <span>Dashboard</span>
                         </a>
@@ -116,6 +108,7 @@
                             <i data-lucide="history"></i>
                             <span>Riwayat</span>
                         </a>
+
                     </div>
                 </div>
 
@@ -123,6 +116,7 @@
                     <span class="sidebar-section-label">INFORMASI</span>
 
                     <div class="sidebar-menu">
+
                         <a href="../general/education.html" class="sidebar-link">
                             <i data-lucide="book-open"></i>
                             <span>Edukasi</span>
@@ -138,6 +132,7 @@
                             <i data-lucide="circle-help"></i>
                             <span>Pusat Bantuan</span>
                         </a>
+
                     </div>
                 </div>
 
@@ -145,6 +140,7 @@
                     <span class="sidebar-section-label">AKUN</span>
 
                     <div class="sidebar-menu">
+
                         <a href="../general/profile.html" class="sidebar-link">
                             <i data-lucide="user-round"></i>
                             <span>Profil Saya</span>
@@ -154,6 +150,7 @@
                             <i data-lucide="shield-check"></i>
                             <span>Privasi</span>
                         </a>
+
                     </div>
                 </div>
 
@@ -198,13 +195,8 @@
             <header class="dashboard-topbar">
 
                 <div class="topbar-left">
-                    <button
-                        type="button"
-                        class="dashboard-menu-toggle"
-                        data-sidebar-toggle
-                        aria-label="Buka navigasi"
-                        aria-expanded="false"
-                    >
+
+                    <button type="button" class="dashboard-menu-toggle" data-sidebar-toggle aria-label="Buka navigasi" aria-expanded="false">
                         <i data-lucide="menu"></i>
                     </button>
 
@@ -213,28 +205,23 @@
                         <i data-lucide="chevron-right"></i>
                         <strong>Dashboard</strong>
                     </div>
+
                 </div>
 
                 <div class="topbar-right">
 
                     <div class="topbar-date">
                         <i data-lucide="calendar-days"></i>
-                        <span id="dashboardDate">Selasa, 10 November 2026</span>
+                        <span id="dashboardDate">Memuat tanggal...</span>
                     </div>
 
-                    <a
-                        href="../general/notifications.html"
-                        class="topbar-icon-button"
-                        aria-label="Notifikasi"
-                    >
+                    <a href="../general/notifications.html" class="topbar-icon-button" aria-label="Notifikasi">
                         <i data-lucide="bell"></i>
                         <span class="topbar-notification-dot"></span>
                     </a>
 
-                    <a
-                        href="../general/profile.html"
-                        class="topbar-user"
-                    >
+                    <a href="../general/profile.html" class="topbar-user">
+
                         <div class="topbar-user-avatar">
                             <span id="topbarUserInitial">S</span>
                         </div>
@@ -245,6 +232,7 @@
                         </div>
 
                         <i data-lucide="chevron-down"></i>
+
                     </a>
 
                 </div>
@@ -256,6 +244,7 @@
                 <section class="dashboard-welcome">
 
                     <div class="welcome-content">
+
                         <div class="welcome-eyebrow">
                             <span class="welcome-status-dot"></span>
                             RUANG AMAN UNTUK SUARAMU
@@ -276,6 +265,7 @@
                         </p>
 
                         <div class="welcome-actions">
+
                             <a href="aspirations.html" class="button button-primary">
                                 <i data-lucide="plus-circle"></i>
                                 Buat Aspirasi
@@ -286,17 +276,19 @@
                                 <i data-lucide="shield-alert"></i>
                                 Laporkan Bullying
                             </a>
+
                         </div>
+
                     </div>
 
                     <div class="welcome-visual" aria-hidden="true">
+
                         <div class="welcome-visual-orbit orbit-one"></div>
                         <div class="welcome-visual-orbit orbit-two"></div>
-
                         <div class="welcome-visual-glow"></div>
 
                         <div class="welcome-visual-icon">
-                            <i data-lucide="shield-check"></i>
+                            <img src="../../assets/images/mascot/maskot-smkn1dlanggu.png" alt="">
                         </div>
 
                         <div class="welcome-floating-card floating-card-one">
@@ -308,6 +300,7 @@
                             <i data-lucide="message-circle-heart"></i>
                             <span>Suaramu Berarti</span>
                         </div>
+
                     </div>
 
                 </section>
@@ -315,6 +308,7 @@
                 <section class="dashboard-statistics" aria-label="Ringkasan laporan">
 
                     <div class="section-heading">
+
                         <div>
                             <span class="section-eyebrow">RINGKASAN AKTIVITAS</span>
                             <h2>Aktivitas Saya</h2>
@@ -325,11 +319,13 @@
                             Lihat riwayat
                             <i data-lucide="arrow-up-right"></i>
                         </a>
+
                     </div>
 
                     <div class="statistics-grid">
 
                         <article class="stat-card stat-card-purple">
+
                             <div class="stat-card-top">
                                 <div class="stat-icon">
                                     <i data-lucide="files"></i>
@@ -346,9 +342,11 @@
                             <p>Seluruh aspirasi dan pengaduanmu</p>
 
                             <div class="stat-card-decoration"></div>
+
                         </article>
 
                         <article class="stat-card stat-card-blue">
+
                             <div class="stat-card-top">
                                 <div class="stat-icon">
                                     <i data-lucide="clock-3"></i>
@@ -365,9 +363,11 @@
                             <p>Sedang dalam proses penanganan</p>
 
                             <div class="stat-card-decoration"></div>
+
                         </article>
 
                         <article class="stat-card stat-card-green">
+
                             <div class="stat-card-top">
                                 <div class="stat-icon">
                                     <i data-lucide="check-circle-2"></i>
@@ -384,9 +384,11 @@
                             <p>Telah ditindaklanjuti</p>
 
                             <div class="stat-card-decoration"></div>
+
                         </article>
 
                         <article class="stat-card stat-card-orange">
+
                             <div class="stat-card-top">
                                 <div class="stat-icon">
                                     <i data-lucide="bell-ring"></i>
@@ -403,6 +405,7 @@
                             <p>Informasi yang belum dibaca</p>
 
                             <div class="stat-card-decoration"></div>
+
                         </article>
 
                     </div>
@@ -422,6 +425,7 @@
                     <div class="quick-actions-grid">
 
                         <a href="aspirations.html" class="quick-action-card">
+
                             <div class="quick-action-icon quick-icon-purple">
                                 <i data-lucide="lightbulb"></i>
                             </div>
@@ -432,9 +436,11 @@
                             </div>
 
                             <i data-lucide="arrow-up-right" class="quick-action-arrow"></i>
+
                         </a>
 
                         <a href="complaints.html" class="quick-action-card">
+
                             <div class="quick-action-icon quick-icon-blue">
                                 <i data-lucide="message-square-warning"></i>
                             </div>
@@ -445,9 +451,11 @@
                             </div>
 
                             <i data-lucide="arrow-up-right" class="quick-action-arrow"></i>
+
                         </a>
 
                         <a href="bullying-report.html" class="quick-action-card">
+
                             <div class="quick-action-icon quick-icon-pink">
                                 <i data-lucide="shield-alert"></i>
                             </div>
@@ -458,9 +466,11 @@
                             </div>
 
                             <i data-lucide="arrow-up-right" class="quick-action-arrow"></i>
+
                         </a>
 
                         <a href="tracking.html" class="quick-action-card">
+
                             <div class="quick-action-icon quick-icon-cyan">
                                 <i data-lucide="scan-search"></i>
                             </div>
@@ -471,6 +481,7 @@
                             </div>
 
                             <i data-lucide="arrow-up-right" class="quick-action-arrow"></i>
+
                         </a>
 
                     </div>
@@ -482,6 +493,7 @@
                     <section class="dashboard-activity-panel">
 
                         <div class="panel-heading">
+
                             <div>
                                 <span class="section-eyebrow">PEMANTAUAN</span>
                                 <h2>Aktivitas Terbaru</h2>
@@ -492,11 +504,13 @@
                                 Lihat semua
                                 <i data-lucide="arrow-right"></i>
                             </a>
+
                         </div>
 
                         <div class="activity-table-wrapper">
 
                             <table class="activity-table">
+
                                 <thead>
                                     <tr>
                                         <th>Pengajuan</th>
@@ -511,7 +525,9 @@
 
                                     <tr class="activity-empty-row">
                                         <td colspan="5">
+
                                             <div class="activity-empty-state">
+
                                                 <div class="empty-state-icon">
                                                     <i data-lucide="inbox"></i>
                                                 </div>
@@ -527,11 +543,14 @@
                                                     Buat pengajuan pertama
                                                     <i data-lucide="arrow-right"></i>
                                                 </a>
+
                                             </div>
+
                                         </td>
                                     </tr>
 
                                 </tbody>
+
                             </table>
 
                         </div>
@@ -543,21 +562,20 @@
                         <section class="dashboard-notification-panel">
 
                             <div class="panel-heading">
+
                                 <div>
                                     <span class="section-eyebrow">INFORMASI</span>
                                     <h2>Notifikasi</h2>
                                 </div>
 
-                                <a
-                                    href="../general/notifications.html"
-                                    class="panel-icon-link"
-                                    aria-label="Lihat semua notifikasi"
-                                >
+                                <a href="../general/notifications.html" class="panel-icon-link" aria-label="Lihat semua notifikasi">
                                     <i data-lucide="arrow-up-right"></i>
                                 </a>
+
                             </div>
 
                             <div class="notification-empty-state">
+
                                 <div class="notification-empty-icon">
                                     <i data-lucide="bell-off"></i>
                                 </div>
@@ -568,6 +586,7 @@
                                     Pemberitahuan terbaru akan muncul
                                     di bagian ini.
                                 </p>
+
                             </div>
 
                         </section>
@@ -609,6 +628,7 @@
                     </div>
 
                     <div class="safety-banner-content">
+
                         <span>KEAMANAN DAN PRIVASI</span>
 
                         <h2>Suaramu aman bersama kami.</h2>
@@ -619,6 +639,7 @@
                             Kamu berhak mendapatkan lingkungan belajar
                             yang aman dan nyaman.
                         </p>
+
                     </div>
 
                     <a href="../general/privacy-policy.html" class="safety-banner-link">
@@ -629,6 +650,7 @@
                 </section>
 
                 <footer class="dashboard-footer">
+
                     <div>
                         <strong>SAPA-SKANEGU</strong>
                         <span>Sistem Aspirasi dan Pelaporan Anti-Bullying</span>
@@ -638,6 +660,7 @@
                         <span>SMKN 1 Dlanggu</span>
                         <span>© 2026</span>
                     </div>
+
                 </footer>
 
             </div>
@@ -645,6 +668,12 @@
         </main>
 
     </div>
+
+    <script src="../../js/api.js" defer></script>
+    <script src="../../js/main.js" defer></script>
+    <script src="../../js/auth.js" defer></script>
+    <script src="../../js/animations.js"></script>
+    <script src="../../js/pages/student.js" defer></script>
 
 </body>
 </html>
